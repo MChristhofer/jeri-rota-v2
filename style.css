@@ -1,10 +1,13 @@
 :root {
-  --azul: #0a2342;
+  --azul-principal: #0a2342;
   --dourado: #d4af7f;
-  --fundo: #f7f6f3;
-  --texto: #1c1c1c;
+  --offwhite: #f2efe9;
+  --branco: #ffffff;
+  --azul-profundo: #1a3a44;
+  --escuro: #001a1a;
 }
 
+/* RESET */
 * {
   margin: 0;
   padding: 0;
@@ -13,7 +16,8 @@
 
 body {
   font-family: 'Montserrat', sans-serif;
-  color: var(--texto);
+  background: var(--offwhite);
+  color: var(--azul-principal);
   line-height: 1.7;
 }
 
@@ -41,13 +45,13 @@ body {
 .logo {
   font-family: 'Playfair Display', serif;
   font-size: 22px;
-  color: #fff;
+  color: var(--branco);
 }
 
 .nav a {
   margin-left: 24px;
   text-decoration: none;
-  color: #fff;
+  color: var(--branco);
   font-size: 14px;
 }
 
@@ -58,7 +62,7 @@ body {
 /* HERO */
 .hero {
   height: 100vh;
-  background: url("assets/hero.jpg") center/cover no-repeat;
+  background: var(--azul-profundo);
   position: relative;
   display: flex;
   align-items: center;
@@ -72,13 +76,13 @@ body {
 
 .hero-content {
   position: relative;
-  max-width: 720px;
-  color: #fff;
+  max-width: 760px;
+  color: var(--branco);
 }
 
 .hero-eyebrow {
-  font-size: 13px;
-  letter-spacing: 2px;
+  font-size: 12px;
+  letter-spacing: 3px;
   text-transform: uppercase;
   color: var(--dourado);
 }
@@ -88,13 +92,13 @@ body {
   font-size: 56px;
   font-weight: 600;
   letter-spacing: 2px;
-  margin: 24px 0 40px;
+  margin: 28px 0 44px;
 }
 
 /* BOTÕES */
 .btn-primary {
   display: inline-block;
-  padding: 14px 36px;
+  padding: 14px 40px;
   border: 1px solid var(--dourado);
   color: var(--dourado);
   text-decoration: none;
@@ -103,22 +107,22 @@ body {
 
 .btn-primary:hover {
   background: var(--dourado);
-  color: var(--azul);
+  color: var(--azul-principal);
 }
 
 .btn-primary.light {
-  border-color: #fff;
-  color: #fff;
+  border-color: var(--branco);
+  color: var(--branco);
 }
 
 .btn-primary.light:hover {
-  background: #fff;
-  color: var(--azul);
+  background: var(--branco);
+  color: var(--azul-principal);
 }
 
 .btn-secondary {
   margin-left: 24px;
-  color: #fff;
+  color: var(--branco);
   text-decoration: underline;
   font-size: 14px;
 }
@@ -126,7 +130,7 @@ body {
 /* MANIFESTO */
 .manifesto {
   padding: 120px 0;
-  background: var(--fundo);
+  background: var(--offwhite);
 }
 
 .manifesto p {
@@ -134,11 +138,13 @@ body {
   margin: 0 auto;
   text-align: center;
   font-size: 18px;
+  color: var(--azul-principal);
 }
 
 /* PILARES */
 .pilares {
   padding: 120px 0;
+  background: var(--branco);
 }
 
 .pilar {
@@ -151,13 +157,13 @@ body {
   font-family: 'Playfair Display', serif;
   font-size: 32px;
   margin-bottom: 16px;
-  color: var(--azul);
+  color: var(--azul-principal);
 }
 
 /* CTA FINAL */
 .cta-final {
-  background: var(--azul);
-  color: #fff;
+  background: var(--azul-principal);
+  color: var(--branco);
   padding: 120px 0;
   text-align: center;
 }
@@ -179,7 +185,7 @@ body {
   padding: 40px 0;
   text-align: center;
   font-size: 13px;
-  background: #000;
+  background: var(--escuro);
   color: #aaa;
 }
 
