@@ -193,18 +193,48 @@ body {
   background: var(--branco);
 }
 
-.pilar {
-  max-width: 720px;
-  margin: 0 auto 80px;
-  text-align: center;
+.pilares-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 48px;
+  margin-top: 80px;
 }
 
-.pilar h2 {
+.pilar-card {
+  background: var(--offwhite);
+  padding: 48px 40px;
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.pilar-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 20px 40px rgba(0,0,0,0.08);
+}
+
+.pilar-card h2 {
   font-family: 'Playfair Display', serif;
-  font-size: 32px;
+  font-size: 28px;
   margin-bottom: 16px;
   color: var(--azul-principal);
 }
+
+.pilar-card p {
+  font-size: 15px;
+  color: var(--azul-principal);
+  margin-bottom: 28px;
+}
+
+.pilar-link {
+  font-size: 13px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--dourado);
+  text-decoration: none;
+  border-bottom: 1px solid var(--dourado);
+  padding-bottom: 4px;
+}
+
 
 /* CTA FINAL */
 .cta-final {
