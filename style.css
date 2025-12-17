@@ -97,6 +97,7 @@ body {
   font-size: 56px;
   font-weight: 600;
   letter-spacing: 2px;
+  line-height: 1.15;
   margin: 28px 0 44px;
 }
 
@@ -113,6 +114,7 @@ body {
 .btn-primary:hover {
   background: var(--dourado);
   color: var(--azul-principal);
+  transform: translateY(-1px);
 }
 
 .btn-primary.light {
@@ -198,6 +200,7 @@ body {
 @media (max-width: 768px) {
   .hero h1 {
     font-size: 38px;
+    line-height:1.2;
   }
 
   .cta-actions {
