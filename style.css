@@ -28,11 +28,26 @@ body {
   padding: 0 24px;
 }
 
-/* HEADER */
+/* HEADER FIXO */
 .header {
-  position: absolute;
+  position: fixed;
+  top: 0;
   width: 100%;
-  z-index: 10;
+  z-index: 100;
+  transition: background 0.3s ease, padding 0.3s ease;
+}
+
+.header.scrolled {
+  background: rgba(10, 35, 66, 0.95);
+  backdrop-filter: blur(6px);
+}
+
+.header-inner {
+  transition: padding 0.3s ease;
+}
+
+.header.scrolled .header-inner {
+  padding: 16px 0;
 }
 
 .header-inner {
