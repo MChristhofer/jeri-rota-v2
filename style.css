@@ -62,11 +62,16 @@ body {
 /* HERO */
 .hero {
   height: 100vh;
-  background: var(--azul-profundo);
-  position: relative;
+  background: 
+    linear-gradient(
+      rgba(10, 35, 66, 0.55),
+      rgba(10, 35, 66, 0.55)
+    ),
+    url("assets/hero.jpg") center/cover no-repeat;
   display: flex;
   align-items: center;
 }
+
 
 .hero-overlay {
   position: absolute;
