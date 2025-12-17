@@ -279,4 +279,15 @@ body {
   .btn-secondary {
     margin: 24px 0 0;
   }
+
+  .pilares-grid {
+  grid-template-columns: 1fr;
+  gap: 40px;
+}
+
+.pilar-card {
+  padding: 40px 28px;
+}
+
+
 }
