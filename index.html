@@ -5,6 +5,10 @@
   <title>Jeri Rota — Experiências em Jericoacoara</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
+
+  <link rel="icon" href="favicon.ico" type="image/x-icon">
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+
   <!-- Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
 
@@ -110,5 +114,22 @@
     </div>
   </footer>
 
+  <!-- SCRIPT HEADER AO ROLAR -->
+  <script>
+  const header = document.querySelector('.header');
+  const hero = document.querySelector('.hero');
+
+  window.addEventListener('scroll', () => {
+    const heroHeight = hero.offsetHeight;
+
+    if (window.scrollY > heroHeight - 80) {
+      header.classList.add('scrolled');
+    } else {
+      header.classList.remove('scrolled');
+    }
+  });
+</script>
+
 </body>
 </html>
+
