@@ -56,7 +56,7 @@ body {
 }
 
 .nav-cta {
-  border-bottom: 1px solid var(--dourado);
+  position:relative;
 }
 
 /* HERO */
