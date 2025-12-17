@@ -49,11 +49,30 @@ body {
 }
 
 .nav a {
+  position: relative;
   margin-left: 24px;
   text-decoration: none;
   color: var(--branco);
   font-size: 14px;
+  padding-bottom: 4px;
 }
+
+/* Linha elegante no hover */
+.nav a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 0;
+  height: 1px;
+  background: var(--dourado);
+  transition: width 0.3s ease;
+}
+
+.nav a:hover::after {
+  width: 100%;
+}
+
 
 .nav-cta {
   position:relative;
