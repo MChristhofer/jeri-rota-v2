@@ -104,8 +104,20 @@
           Falar no WhatsApp
         </a>
 
-        <a href="mailto:jjerirotoa@gmail.com" class="btn-secondary">
-          Solicitar orçamento por e-mail
+       <form
+  action="https://formspree.io/f/SEU_ID_AQUI"
+  method="POST"
+  class="form-orcamento"
+>
+  <input type="text" name="nome" placeholder="Seu nome" required>
+  <input type="email" name="email" placeholder="Seu e-mail" required>
+  <textarea name="mensagem" placeholder="Conte-nos sobre sua viagem" required></textarea>
+
+  <button type="submit" class="btn-secondary">
+    Solicitar orçamento por e-mail
+  </button>
+</form>
+
         </a>
       </div>
     </div>
