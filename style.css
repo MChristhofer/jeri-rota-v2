@@ -38,8 +38,8 @@ body {
 }
 
 .header.scrolled {
-  background: rgba(10, 35, 66, 0.95);
-  backdrop-filter: blur(6px);
+  background-color: var(--azul-principal);
+  box-shadow: 0 4px 20px rgba(0,0,0,0.15);
 }
 
 .header-inner {
