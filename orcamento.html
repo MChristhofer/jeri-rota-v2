@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <title>Solicitar orçamento — Jeri Rota</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Montserrat:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body style="background: var(--offwhite);">
+
+  <section class="form-page">
+    <div class="container">
+
+      <h1>Solicitar orçamento</h1>
+      <p>Conte-nos um pouco sobre sua viagem e retornaremos por e-mail.</p>
+
+      <form
+        action="https://formspree.io/f/SEU_ID_AQUI"
+        method="POST"
+        class="orcamento-form"
+      >
+        <input type="text" name="nome" placeholder="Seu nome" required>
+        <input type="email" name="email" placeholder="Seu e-mail" required>
+        <textarea name="mensagem" placeholder="Detalhes da viagem (datas, pessoas, serviços)" required></textarea>
+
+        <button type="submit" class="btn-primary">
+          Enviar solicitação
+        </button>
+      </form>
+
+    </div>
+  </section>
+
+</body>
+</html>
