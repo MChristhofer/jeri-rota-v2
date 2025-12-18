@@ -266,9 +266,10 @@ body {
 }
 /* ORCAMENTO */
 .form-page {
-  padding: 140px 0;
-}
 
+padding:180px 0 140px;
+
+}
 .form-page h1 {
   font-family: 'Playfair Display', serif;
   font-size: 42px;
@@ -285,6 +286,9 @@ body {
   max-width: 520px;
 }
 
+.orcamento-form button {
+  margin-top: 16px;
+}
 .orcamento-form input,
 .orcamento-form textarea {
   width: 100%;
@@ -297,6 +301,21 @@ body {
 .orcamento-form textarea {
   min-height: 120px;
   resize: vertical;
+}
+/* HEAD INTERNO ORCAMENTO */
+.header-interno {
+  background: var(--offwhite);
+  position: sticky;
+  top: 0;
+}
+
+.header-interno .logo,
+.header-interno .nav a {
+  color: var(--azul-principal);
+}
+
+.header-interno .nav a::after {
+  background: var(--dourado);
 }
 
 /* RESPONSIVO */
