@@ -19,6 +19,7 @@ body {
   background: var(--offwhite);
   color: var(--azul-principal);
   line-height: 1.7;
+  padding-top: 96px; /* altura real do header */
 }
 
 /* CONTAINER */
@@ -278,8 +279,8 @@ padding:180px 0 140px;
 }
 
 .form-page p {
-  margin-bottom: 40px;
-  max-width: 520px;
+   padding: 180px 0 140px;
+ 
 }
 
 .orcamento-form {
@@ -314,6 +315,7 @@ padding:180px 0 140px;
   background: var(--offwhite);
   position: sticky;
   top: 0;
+  border-bottom: 1px solid rgba(0,0,0,0.06);
 }
 
 .header-interno .logo,
