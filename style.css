@@ -111,6 +111,26 @@ body {
   position:relative;
 }
 
+/* IDIOMAS */
+.lang-switch {
+  display: flex;
+  gap: 14px;
+  margin-left: 24px;
+}
+
+.lang-switch img {
+  width: 20px;
+  height: 20px;
+  opacity: 0.8;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.lang-switch img:hover {
+  opacity: 1;
+  transform: translateY(-1px);
+}
+
+
 /* HERO */
 .hero {
   height: 100vh;
