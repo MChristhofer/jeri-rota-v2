@@ -264,6 +264,40 @@ body {
   background: var(--escuro);
   color: #aaa;
 }
+/* ORCAMENTO */
+.form-page {
+  padding: 140px 0;
+}
+
+.form-page h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: 42px;
+  margin-bottom: 16px;
+  color: var(--azul-principal);
+}
+
+.form-page p {
+  margin-bottom: 40px;
+  max-width: 520px;
+}
+
+.orcamento-form {
+  max-width: 520px;
+}
+
+.orcamento-form input,
+.orcamento-form textarea {
+  width: 100%;
+  padding: 14px;
+  margin-bottom: 16px;
+  border: 1px solid #ccc;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.orcamento-form textarea {
+  min-height: 120px;
+  resize: vertical;
+}
 
 /* RESPONSIVO */
 @media (max-width: 768px) {
