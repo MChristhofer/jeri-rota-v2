@@ -19,7 +19,7 @@ body {
   background: var(--offwhite);
   color: var(--azul-principal);
   line-height: 1.7;
-  padding-top: 96px; /* altura real do header */
+
 }
 
 /* CONTAINER */
