@@ -287,8 +287,15 @@ padding:180px 0 140px;
 }
 
 .orcamento-form button {
-  margin-top: 16px;
+    margin-top: 24px;
+  background: var(--azul-principal);
+  color: var(--branco);
+  border: none;
 }
+.orcamento-form button:hover {
+  background: var(--azul-profundo);
+}
+
 .orcamento-form input,
 .orcamento-form textarea {
   width: 100%;
