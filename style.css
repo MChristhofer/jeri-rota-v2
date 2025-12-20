@@ -455,14 +455,17 @@ padding:180px 0 140px;
 
 /* RESPONSIVO */
 @media (max-width: 768px) {
+  
+  .hero {
+    height: 90vh;
+  }
+ 
   .hero h1 {
     font-size: 38px;
     line-height:1.2;
   }
 
- .hero {
-    height: 90vh;
-  }
+
   
   .cta-actions {
     flex-direction: column;
