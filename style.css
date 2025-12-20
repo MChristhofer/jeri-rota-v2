@@ -320,6 +320,35 @@ body {
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
+/* IMAGEM SUTIL NOS PILARES */
+.pilar-card {
+  background-size: cover;
+  background-position: center;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Overlay claro para manter leitura premium */
+.pilar-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(242, 239, 233, 0.88); /* off-white */
+  transition: background 0.35s ease;
+}
+
+/* Revela um pouco mais da imagem no hover */
+.pilar-card:hover::before {
+  background: rgba(242, 239, 233, 0.78);
+}
+
+/* Garante que texto fique acima da imagem */
+.pilar-card > * {
+  position: relative;
+  z-index: 1;
+}
+
+
 .pilar-card:hover {
   transform: translateY(-6px);
   box-shadow: 0 20px 40px rgba(0,0,0,0.08);
