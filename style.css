@@ -186,6 +186,24 @@ body {
   line-height: 1.15;
   margin: 28px 0 44px;
 }
+/* HERO SIDE LABEL (estilo Essenza) */
+.hero-side-label {
+  position: absolute;
+  left: 24px;
+  top: 50%;
+  transform: translateY(-50%) rotate(-90deg);
+  transform-origin: left top;
+  z-index: 2;
+}
+
+.hero-side-label span {
+  font-size: 11px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--dourado);
+  opacity: 0.85;
+  white-space: nowrap;
+}
 
 /* BOTÕES */
 .btn-primary {
@@ -442,6 +460,10 @@ padding:180px 0 140px;
     line-height:1.2;
   }
 
+ .hero {
+    height: 90vh;
+  }
+  
   .cta-actions {
     flex-direction: column;
   }
