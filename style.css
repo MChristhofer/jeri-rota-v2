@@ -190,20 +190,45 @@ body {
 .hero-side-label {
   position: absolute;
   left: 24px;
-  top: 50%;
+  top: 55%;
   transform: translateY(-50%) rotate(-90deg);
   transform-origin: left top;
   z-index: 2;
+  /* HERO SIDE LABEL (estilo Essenza) */
+
+.hero-side-label {
+  position: absolute;
+  left: 24px;
+  top: 55%;
+  transform: translateY(-50%) rotate(-90deg);
+  transform-origin: left top;
+  z-index: 2;
+  
+  animation: fadeInSide 1.6s ease forwards;
 }
 
+/* Animação */
+@keyframes fadeInSide {
+  from {
+    opacity: 0;
+    transform: translateY(-50%) rotate(-90deg) translateX(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(-50%) rotate(-90deg) translateX(0);
+  }
+}
+
+
 .hero-side-label span {
-  font-size: 11px;
-  letter-spacing: 3px;
+  font-size: 13px;
+  letter-spacing: 4px;
   text-transform: uppercase;
   color: var(--dourado);
-  opacity: 0.85;
-  white-space: nowrap;
+  opacity: 0.9;
+  font-weight: 500;
 }
+
 
 /* BOTÕES */
 .btn-primary {
@@ -432,6 +457,9 @@ padding:180px 0 140px;
     line-height:1.2;
   }
 
+.hero-side-label {
+    display: none;
+  }
 
   
   .cta-actions {
@@ -455,10 +483,4 @@ padding:180px 0 140px;
     grid-template-columns: 1fr;
     gap: 40px;
   }
-  
-  .hero-side-label {
-  display: none;
-}
-
-
 }
