@@ -218,6 +218,33 @@ body {
     transform: translateY(-50%) rotate(-90deg) translateX(0);
   }
 }
+/* Texto "Reservas" */
+.hero-side-label .side-eyebrow {
+  font-size: 11px;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  color: var(--dourado);
+  opacity: 0.75;
+  margin-right: 16px;
+}
+
+/* Número */
+.hero-side-label .side-phone {
+  font-family: 'Playfair Display', serif;
+  font-size: 20px;
+  letter-spacing: 1px;
+  color: var(--branco);
+  opacity: 0.95;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+}
+
+/* Ícone */
+.hero-side-label .side-icon {
+  font-size: 16px;
+  opacity: 0.7;
+}
 
 
 /* BOTÕES */
