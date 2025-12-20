@@ -418,44 +418,11 @@ padding:180px 0 140px;
 .header-interno .nav a::after {
   background: var(--dourado);
 }
-/* NUMERO DA HOME */
-.side-contact {
-  position: fixed;
-  left: 24px;
-  top: 50%;
-  transform: translateY(-50%);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 12px;
-  z-index: 90;
-}
 
-.side-label {
-  font-size: 11px;
-  letter-spacing: 3px;
-  text-transform: uppercase;
-  color: var(--dourado);
-  transform: rotate(-90deg);
-}
-
-.side-phone {
-  font-family: 'Playfair Display', serif;
-  font-size: 14px;
-  color: var(--branco);
-  text-decoration: none;
-  transform: rotate(-90deg);
-  opacity: 0.85;
-  transition: opacity 0.3s ease;
-}
-
-.side-phone:hover {
-  opacity: 1;
-}
 
 /* RESPONSIVO */
 @media (max-width: 768px) {
-  
+
   .hero {
     height: 90vh;
   }
@@ -488,5 +455,10 @@ padding:180px 0 140px;
     grid-template-columns: 1fr;
     gap: 40px;
   }
+  
+  .hero-side-label {
+  display: none;
+}
+
 
 }
