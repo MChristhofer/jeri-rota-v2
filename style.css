@@ -184,10 +184,11 @@ body {
   margin: 28px 0 44px;
 }
 /* HERO SIDE LABEL (estilo Essenza) */
+
 .hero-side-label {
   position: absolute;
-  left: 24px;
-  top: 55%;
+  left: 12px;
+  top: 50%;
   transform: translateY(-50%) rotate(-90deg);
   transform-origin: left top;
   z-index: 2;
@@ -231,7 +232,7 @@ body {
   font-size: 20px;
   letter-spacing: 1px;
   color: var(--branco);
-  opacity: 0.95;
+  opacity: 0.9;
   display: inline-flex;
   align-items: center;
   gap: 10px;
