@@ -283,6 +283,11 @@ body {
   color: var(--branco);
   text-decoration: underline;
   font-size: 14px;
+  opacity:0.85;
+}
+
+.btn-secondary:hover {
+  opacity: 1;
 }
 
 
