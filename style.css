@@ -333,7 +333,7 @@ body {
   content: "";
   position: absolute;
   inset: 0;
-  background: rgba(242, 239, 233, 0.82); /* off-white */
+  background: rgba(242, 239, 233, 0.65); /* off-white */
   transition: background 0.35s ease;
 }
 
