@@ -139,6 +139,7 @@ body {
   overflow: hidden;
   display: flex;
   align-items: center;
+  margin-bottom:40px;
 }
 
 .hero-bg {
