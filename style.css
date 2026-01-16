@@ -445,9 +445,11 @@ body {
   padding-top: 32px;
   border-top: 1px solid rgba(255,255,255,0.08);
   display: flex;
-  justify-content: space-between;
+  justify-content: center;  /* CENTRALIZA */
   align-items: center;
   flex-wrap: wrap;
+
+  text-align: center;
 }
 
 .footer-copy {
