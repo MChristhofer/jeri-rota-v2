@@ -1,145 +1,751 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8" />
-  <title>Transporte em Jericoacoara — Jeri Rota</title>
-  <meta name="description" content="Transporte para Jericoacoara com conforto, segurança e organização. Traslados planejados de acordo com sua origem, horário e estilo de viagem.">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Jeri Rota | Transfer Premium Fortaleza → Jericoacoara</title>
 
-  <link rel="icon" href="favicon.ico" type="image/x-icon">
-  <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+  <meta name="description" content="Transfer premium Fortaleza → Jericoacoara com conforto, segurança e atendimento rápido no WhatsApp. Reserve sua vaga com a Jeri Rota." />
+  <meta name="theme-color" content="#0a2342" />
 
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <!-- Open Graph (para link bonito no WhatsApp/Instagram) -->
+  <meta property="og:title" content="Jeri Rota | Transfer Premium Fortaleza → Jericoacoara" />
+  <meta property="og:description" content="Conforto, segurança e atendimento rápido. Reserve agora no WhatsApp." />
+  <meta property="og:type" content="website" />
+  <!-- Troque por uma imagem do seu site: -->
+  <meta property="og:image" content="img/og-jeri-rota.jpg" />
 
-  <link rel="stylesheet" href="style.css" />
+  <style>
+    :root{
+      --navy:#0a2342;
+      --gold:#d4af7f;
+      --off:#f2efe9;
+      --dark:#001a1a;
+      --petrol:#1a3a44;
+      --white:#ffffff;
+
+      --radius: 18px;
+      --shadow: 0 14px 40px rgba(0,0,0,.18);
+      --shadow2: 0 10px 28px rgba(10,35,66,.16);
+      --max: 1120px;
+    }
+
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{
+      margin:0;
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, "Helvetica Neue", sans-serif;
+      color: var(--off);
+      background: radial-gradient(1200px 700px at 30% -10%, rgba(212,175,127,.15), transparent 50%),
+                  radial-gradient(900px 600px at 90% 10%, rgba(26,58,68,.25), transparent 55%),
+                  linear-gradient(180deg, #061a33 0%, #03121f 60%, #020b12 100%);
+      line-height:1.5;
+    }
+
+    a{color:inherit; text-decoration:none}
+    img{max-width:100%; display:block}
+
+    .container{width: min(100%, var(--max)); margin-inline:auto; padding: 0 20px}
+    .muted{opacity:.82}
+    .pill{
+      display:inline-flex; gap:10px; align-items:center;
+      border: 1px solid rgba(212,175,127,.35);
+      background: rgba(10,35,66,.40);
+      padding: 10px 14px;
+      border-radius: 999px;
+      box-shadow: 0 10px 24px rgba(0,0,0,.10);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      font-size: 14px;
+    }
+
+    /* Header */
+    .header{
+      position: sticky;
+      top: 0;
+      z-index: 30;
+      background: rgba(2, 12, 18, .70);
+      border-bottom: 1px solid rgba(242,239,233,.06);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+    }
+    .header-inner{
+      display:flex; align-items:center; justify-content:space-between;
+      padding: 14px 0;
+      gap: 14px;
+    }
+    .brand{
+      display:flex; align-items:center; gap: 12px;
+      min-width: 180px;
+    }
+    .logo{
+      width: 38px; height: 38px; border-radius: 12px;
+      background: radial-gradient(circle at 30% 30%, rgba(212,175,127,.9), rgba(212,175,127,.25) 60%, rgba(10,35,66,.1));
+      border: 1px solid rgba(212,175,127,.4);
+      box-shadow: var(--shadow2);
+    }
+    .brand strong{letter-spacing:.6px}
+    .nav{
+      display:flex; gap: 16px; align-items:center;
+      opacity:.92;
+    }
+    .nav a{
+      font-size: 14px;
+      padding: 8px 10px;
+      border-radius: 10px;
+      border: 1px solid transparent;
+    }
+    .nav a:hover{
+      border-color: rgba(212,175,127,.22);
+      background: rgba(10,35,66,.25);
+    }
+
+    /* Buttons */
+    .btn{
+      display:inline-flex; align-items:center; justify-content:center;
+      gap: 10px;
+      padding: 12px 16px;
+      border-radius: 14px;
+      font-weight: 700;
+      border: 1px solid rgba(242,239,233,.10);
+      transition: transform .12s ease, box-shadow .12s ease, background .12s ease;
+      will-change: transform;
+      cursor:pointer;
+    }
+    .btn:active{transform: translateY(1px)}
+    .btn-primary{
+      background: linear-gradient(135deg, rgba(212,175,127,.95), rgba(212,175,127,.65));
+      color: #071d30;
+      box-shadow: 0 14px 36px rgba(212,175,127,.25);
+      border-color: rgba(212,175,127,.55);
+    }
+    .btn-primary:hover{
+      transform: translateY(-1px);
+      box-shadow: 0 18px 42px rgba(212,175,127,.30);
+    }
+    .btn-ghost{
+      background: rgba(10,35,66,.35);
+      border-color: rgba(212,175,127,.22);
+    }
+    .btn-ghost:hover{
+      background: rgba(10,35,66,.55);
+      transform: translateY(-1px);
+    }
+
+    /* Hero */
+    .hero{
+      padding: 54px 0 30px;
+    }
+    .hero-grid{
+      display:grid;
+      grid-template-columns: 1.1fr .9fr;
+      gap: 26px;
+      align-items: center;
+    }
+    .hero h1{
+      font-size: clamp(32px, 4.4vw, 54px);
+      line-height: 1.04;
+      margin: 14px 0 12px;
+      letter-spacing: -0.8px;
+    }
+    .hero p{
+      font-size: clamp(16px, 1.4vw, 18px);
+      margin: 0 0 18px;
+      max-width: 54ch;
+      opacity:.90;
+    }
+    .hero-actions{
+      display:flex; gap: 12px; flex-wrap: wrap;
+      margin-top: 16px;
+    }
+    .hero-card{
+      border-radius: var(--radius);
+      border: 1px solid rgba(242,239,233,.08);
+      background:
+        radial-gradient(900px 500px at 70% 10%, rgba(212,175,127,.12), transparent 55%),
+        linear-gradient(180deg, rgba(10,35,66,.45), rgba(2,12,18,.55));
+      box-shadow: var(--shadow);
+      overflow:hidden;
+      position: relative;
+      min-height: 370px;
+    }
+    .hero-card::before{
+      content:"";
+      position:absolute; inset:0;
+      background:
+        linear-gradient(90deg, rgba(10,35,66,.82), rgba(10,35,66,.12)),
+        url("img/hero-jeri.jpg") center/cover no-repeat;
+      opacity: .95;
+    }
+    .hero-card-inner{
+      position:relative;
+      padding: 22px;
+      display:flex;
+      flex-direction:column;
+      justify-content:space-between;
+      min-height: 370px;
+    }
+    .kpis{
+      display:grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 12px;
+    }
+    .kpi{
+      border-radius: 16px;
+      border: 1px solid rgba(212,175,127,.18);
+      background: rgba(2,12,18,.40);
+      padding: 14px 14px;
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+    }
+    .kpi strong{display:block; font-size: 18px; color: var(--gold)}
+    .kpi span{font-size: 13px; opacity:.88}
+
+    /* Sections */
+    section{padding: 54px 0}
+    .section-title{
+      display:flex; align-items:flex-end; justify-content:space-between;
+      gap: 20px;
+      margin-bottom: 18px;
+    }
+    .section-title h2{
+      margin:0;
+      font-size: clamp(22px, 2.6vw, 32px);
+      letter-spacing: -.3px;
+    }
+    .section-title p{
+      margin:0;
+      max-width: 62ch;
+      opacity:.84;
+    }
+
+    .grid-3{
+      display:grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 14px;
+    }
+    .card{
+      border-radius: var(--radius);
+      border: 1px solid rgba(242,239,233,.08);
+      background: rgba(10,35,66,.28);
+      box-shadow: 0 14px 34px rgba(0,0,0,.14);
+      padding: 18px;
+    }
+    .card h3{margin: 8px 0 8px; font-size: 18px}
+    .card p{margin:0; opacity:.84}
+    .badge{
+      display:inline-flex; align-items:center; gap:8px;
+      font-size: 12px;
+      padding: 7px 10px;
+      border-radius: 999px;
+      border: 1px solid rgba(212,175,127,.22);
+      background: rgba(2,12,18,.28);
+      color: var(--gold);
+      width: fit-content;
+    }
+
+    /* Proof */
+    .proof{
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+      align-items: start;
+    }
+    .quote{
+      border-left: 3px solid rgba(212,175,127,.75);
+      padding-left: 14px;
+      margin:0;
+      opacity:.92;
+    }
+    .quote footer{
+      margin-top: 10px;
+      font-size: 13px;
+      opacity:.80;
+    }
+
+    /* Gallery */
+    .gallery{
+      display:grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 10px;
+    }
+    .gallery .ph{
+      border-radius: 16px;
+      overflow:hidden;
+      border: 1px solid rgba(242,239,233,.08);
+      background: rgba(10,35,66,.22);
+      min-height: 140px;
+      position: relative;
+    }
+    .gallery .ph::after{
+      content:"";
+      position:absolute; inset:0;
+      background: linear-gradient(180deg, rgba(2,12,18,.20), rgba(2,12,18,.70));
+    }
+    .gallery .ph span{
+      position:absolute; left:12px; bottom:10px; z-index:2;
+      font-size: 12px; opacity:.85;
+    }
+
+    /* Steps */
+    .steps{
+      display:grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 14px;
+    }
+    .step-num{
+      width: 34px; height: 34px;
+      display:grid; place-items:center;
+      border-radius: 12px;
+      background: rgba(212,175,127,.18);
+      color: var(--gold);
+      border: 1px solid rgba(212,175,127,.28);
+      font-weight: 800;
+      margin-bottom: 10px;
+    }
+
+    /* FAQ */
+    .faq{
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+    }
+    details{
+      border-radius: var(--radius);
+      border: 1px solid rgba(242,239,233,.08);
+      background: rgba(10,35,66,.24);
+      padding: 16px 16px;
+    }
+    summary{
+      cursor:pointer;
+      font-weight: 750;
+      list-style:none;
+    }
+    summary::-webkit-details-marker{display:none}
+    details p{margin: 10px 0 0; opacity:.85}
+
+    /* CTA band */
+    .cta-band{
+      border-radius: calc(var(--radius) + 6px);
+      border: 1px solid rgba(212,175,127,.20);
+      background:
+        radial-gradient(900px 400px at 10% 20%, rgba(212,175,127,.20), transparent 55%),
+        linear-gradient(180deg, rgba(10,35,66,.35), rgba(2,12,18,.55));
+      padding: 22px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap: 16px;
+      box-shadow: var(--shadow);
+    }
+    .cta-band h3{margin:0 0 6px; font-size: 20px}
+    .cta-band p{margin:0; opacity:.84}
+
+    /* Footer */
+    footer{
+      padding: 36px 0 26px;
+      border-top: 1px solid rgba(242,239,233,.06);
+      opacity:.88;
+    }
+    .footer-grid{
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      align-items:start;
+    }
+    .fine{font-size: 12px; opacity:.70; margin-top: 10px}
+
+    /* Sticky WhatsApp CTA (mobile) */
+    .sticky-cta{
+      position: fixed;
+      left: 14px;
+      right: 14px;
+      bottom: 14px;
+      z-index: 50;
+      display:none;
+    }
+    .sticky-cta .btn{
+      width: 100%;
+      justify-content:center;
+      box-shadow: 0 18px 40px rgba(0,0,0,.28);
+    }
+
+    /* Responsive */
+    @media (max-width: 980px){
+      .hero-grid{grid-template-columns: 1fr; }
+      .nav{display:none}
+      .proof{grid-template-columns: 1fr}
+      .grid-3{grid-template-columns: 1fr}
+      .steps{grid-template-columns: 1fr}
+      .faq{grid-template-columns: 1fr}
+      .gallery{grid-template-columns: 1fr 1fr}
+      .sticky-cta{display:block}
+      .cta-band{flex-direction:column; align-items:flex-start}
+    }
+  </style>
 </head>
+
 <body>
 
-<header class="header header-interno">
-  <div class="container header-inner">
+  <!-- HEADER -->
+  <header class="header">
+    <div class="container">
+      <div class="header-inner">
+        <div class="brand">
+          <div class="logo" aria-hidden="true"></div>
+          <div>
+            <strong>JERI ROTA</strong><br />
+            <span class="muted" style="font-size:12px">Premium Travel Experience</span>
+          </div>
+        </div>
 
-    <div class="header-left">
-      <div class="logo">Jeri Rota</div>
-    </div>
+        <nav class="nav" aria-label="Navegação">
+          <a href="#servicos">Serviços</a>
+          <a href="#como-funciona">Como funciona</a>
+          <a href="#depoimentos">Avaliações</a>
+          <a href="#faq">Dúvidas</a>
+        </nav>
 
-    <nav class="nav">
-      <a href="index.html">Início</a>
-      <a href="experiencia.html">Experiência</a>
-      <a href="transporte.html">Transporte</a>
-      <a href="hospedagem.html">Hospedagem</a>
-      <a href="passeios.html">Passeios</a>
-    </nav>
-
-    <div class="header-right">
-      <div class="lang-switch">
-        <a href="transporte.html"><img src="assets/flag-br.svg" alt="Português"></a>
-        <a href="transporte-en.html"><img src="assets/flag-us.svg" alt="English"></a>
-        <a href="transporte-es.html"><img src="assets/flag-es.svg" alt="Español"></a>
+        <a class="btn btn-primary" href="#reservar">Reservar</a>
       </div>
     </div>
+  </header>
 
-  </div>
-</header>
+  <!-- HERO -->
+  <main>
+    <section class="hero" id="topo">
+      <div class="container">
+        <div class="hero-grid">
 
-<section class="hero hero-interno">
-  <div class="hero-bg active" style="background-image: url('assets/transporte-hero.jpg');"></div>
+          <div>
+            <div class="pill">
+              <span style="color:var(--gold); font-weight:800;">●</span>
+              <span>Transfer premium Fortaleza → Jericoacoara</span>
+              <span class="muted">| Atendimento rápido no WhatsApp</span>
+            </div>
 
-  <div class="container hero-content">
-    <span class="hero-eyebrow">Transporte em Jericoacoara</span>
-    <h1>Conforto e organização<br>desde a saída</h1>
-  </div>
-</section>
+            <h1>Chegue em Jericoacoara com conforto, segurança e zero dor de cabeça.</h1>
 
-<section class="manifesto">
-  <div class="container">
-    <p>
-      O transporte até Jericoacoara exige planejamento, experiência local
-      e atenção aos detalhes. A Jeri Rota organiza cada trajeto considerando
-      sua origem, horário e o tipo de experiência que você deseja viver.
-    </p>
-  </div>
-</section>
+            <p>
+              A Jeri Rota organiza seu deslocamento com padrão premium, suporte humano e parceiros confiáveis.
+              Você reserva em minutos e recebe confirmação com tudo explicado.
+            </p>
 
-<section class="pilares">
-  <div class="container">
-    <div class="pilares-grid">
+            <div class="hero-actions" id="reservar">
+              <a class="btn btn-primary" id="waHero" href="#">
+                ✅ Reservar no WhatsApp
+              </a>
+              <a class="btn btn-ghost" href="#servicos">
+                Ver serviços
+              </a>
+            </div>
 
-      <div class="pilar-card">
-        <h2>Como funciona</h2>
-        <p>
-          Você informa sua cidade de origem, data e perfil de viagem.
-          A partir disso, organizamos o melhor formato de transporte,
-          definindo horários, tipo de veículo e pontos de embarque.
-        </p>
+            <p class="muted" style="margin-top:14px; font-size:13px">
+              *Ideal para casais, famílias e viajantes que priorizam conforto e organização.
+            </p>
+          </div>
+
+          <aside class="hero-card" aria-label="Imagem e dados">
+            <div class="hero-card-inner">
+              <div class="kpis">
+                <div class="kpi">
+                  <strong>Atendimento</strong>
+                  <span>WhatsApp rápido e objetivo</span>
+                </div>
+                <div class="kpi">
+                  <strong>Conforto</strong>
+                  <span>Opções compartilhadas e 4x4 executivo</span>
+                </div>
+                <div class="kpi">
+                  <strong>Segurança</strong>
+                  <span>Operação com parceiros confiáveis</span>
+                </div>
+                <div class="kpi">
+                  <strong>Organização</strong>
+                  <span>Confirmação clara e suporte</span>
+                </div>
+              </div>
+
+              <div class="pill" style="width:fit-content">
+                <span>📍</span>
+                <span>Fortaleza • Jericoacoara • Passeios</span>
+              </div>
+            </div>
+          </aside>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- TRUST / VALUE -->
+    <section>
+      <div class="container">
+        <div class="section-title">
+          <div>
+            <h2>O que muda quando você viaja com uma operação premium</h2>
+            <p>Menos risco, menos confusão, mais previsibilidade e uma experiência melhor do começo ao fim.</p>
+          </div>
+        </div>
+
+        <div class="grid-3">
+          <div class="card">
+            <div class="badge">🧭 Roteiro claro</div>
+            <h3>Você sabe exatamente o que vai acontecer</h3>
+            <p>Horário, embarque, confirmação e instruções sem “achismos”.</p>
+          </div>
+
+          <div class="card">
+            <div class="badge">🛡️ Confiança</div>
+            <h3>Parceiros confiáveis e padrão de entrega</h3>
+            <p>Você compra com segurança e recebe suporte quando precisa.</p>
+          </div>
+
+          <div class="card">
+            <div class="badge">✨ Experiência</div>
+            <h3>Turismo com cara de marca séria</h3>
+            <p>Atendimento rápido, postura profissional e comunicação premium.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SERVICES -->
+    <section id="servicos">
+      <div class="container">
+        <div class="section-title">
+          <div>
+            <h2>Serviços Jeri Rota</h2>
+            <p>Escolha o que combina com seu estilo de viagem (e com seu nível de exigência).</p>
+          </div>
+        </div>
+
+        <div class="grid-3">
+          <div class="card">
+            <div class="badge">🚐 Transfer compartilhado</div>
+            <h3>Fortaleza → Jericoacoara</h3>
+            <p>Opção organizada, com confirmação e suporte. Ideal para quem quer custo-benefício sem bagunça.</p>
+          </div>
+
+          <div class="card">
+            <div class="badge">🚙 4x4 Executivo</div>
+            <h3>Transfer privativo premium</h3>
+            <p>Mais conforto, flexibilidade e privacidade. Ótimo para casais, famílias e estrangeiros.</p>
+          </div>
+
+          <div class="card">
+            <div class="badge">🏝️ Experiências</div>
+            <h3>Passeios em Jericoacoara</h3>
+            <p>Leste, Oeste, Lagoa do Paraíso, e opções privativas com parceiros selecionados.</p>
+          </div>
+        </div>
+
+        <div style="height:16px"></div>
+
+        <div class="cta-band">
+          <div>
+            <h3>Quer preço e disponibilidade agora?</h3>
+            <p>Me diga data + quantidade de pessoas + hotel/bairro em Fortaleza. Eu te retorno com as opções.</p>
+          </div>
+          <a class="btn btn-primary" id="waServices" href="#">📲 Falar no WhatsApp</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- GALLERY -->
+    <section>
+      <div class="container">
+        <div class="section-title">
+          <div>
+            <h2>O destino vende — mas a organização fecha</h2>
+            <p>Imagens ajudam a pessoa a se ver lá. E seu atendimento fecha o resto.</p>
+          </div>
+        </div>
+
+        <div class="gallery">
+          <div class="ph" style="background:url('img/gal-1.jpg') center/cover no-repeat;">
+            <span>Lagoa do Paraíso</span>
+          </div>
+          <div class="ph" style="background:url('img/gal-2.jpg') center/cover no-repeat;">
+            <span>Duna do Pôr do Sol</span>
+          </div>
+          <div class="ph" style="background:url('img/gal-3.jpg') center/cover no-repeat;">
+            <span>Pedra Furada</span>
+          </div>
+          <div class="ph" style="background:url('img/gal-4.jpg') center/cover no-repeat;">
+            <span>Passeio de Buggy</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- HOW IT WORKS -->
+    <section id="como-funciona">
+      <div class="container">
+        <div class="section-title">
+          <div>
+            <h2>Como funciona a reserva</h2>
+            <p>Sem formulário gigante. Sem enrolação. Três passos.</p>
+          </div>
+        </div>
+
+        <div class="steps">
+          <div class="card">
+            <div class="step-num">1</div>
+            <h3>Você envia as infos</h3>
+            <p>Data, pessoas e local de embarque (hotel/bairro).</p>
+          </div>
+          <div class="card">
+            <div class="step-num">2</div>
+            <h3>Eu retorno com opções</h3>
+            <p>Compartilhado ou 4x4 executivo, com valores e detalhes claros.</p>
+          </div>
+          <div class="card">
+            <div class="step-num">3</div>
+            <h3>Confirmação e suporte</h3>
+            <p>Você recebe confirmação e orientações. Pronto: viagem organizada.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TESTIMONIALS -->
+    <section id="depoimentos">
+      <div class="container">
+        <div class="section-title">
+          <div>
+            <h2>Avaliações e prova social</h2>
+            <p>Troque estes exemplos por prints reais do WhatsApp/Instagram. Isso aumenta conversão brutalmente.</p>
+          </div>
+        </div>
+
+        <div class="proof">
+          <div class="card">
+            <p class="quote">
+              “Atendimento rápido, tudo bem explicado. Transfer super confortável. Recomendo muito!”
+            </p>
+            <footer class="muted">— Cliente (adicione cidade + data)</footer>
+          </div>
+
+          <div class="card">
+            <p class="quote">
+              “Eu tinha medo de cair em golpe. Aqui foi tudo organizado, confirmação certinha e suporte.”
+            </p>
+            <footer class="muted">— Cliente (adicione cidade + data)</footer>
+          </div>
+        </div>
+
+        <div style="height:14px"></div>
+
+        <div class="cta-band">
+          <div>
+            <h3>Quer reservar com segurança agora?</h3>
+            <p>Chama no WhatsApp e eu te passo disponibilidade e valores do dia.</p>
+          </div>
+          <a class="btn btn-primary" id="waProof" href="#">✅ Reservar no WhatsApp</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section id="faq">
+      <div class="container">
+        <div class="section-title">
+          <div>
+            <h2>Dúvidas rápidas</h2>
+            <p>FAQ corta objeções. Objeção viva = venda morta.</p>
+          </div>
+        </div>
+
+        <div class="faq">
+          <details>
+            <summary>Como funciona o embarque em Fortaleza?</summary>
+            <p>Você informa hotel/bairro e eu confirmo o ponto e horário (com antecedência). Tudo vai escrito na confirmação.</p>
+          </details>
+
+          <details>
+            <summary>É compartilhado ou privativo?</summary>
+            <p>Você escolhe. Compartilhado para custo-benefício. 4x4 executivo para conforto e flexibilidade.</p>
+          </details>
+
+          <details>
+            <summary>Tem suporte se eu tiver dúvidas?</summary>
+            <p>Sim. Você fala direto com atendimento humano pelo WhatsApp.</p>
+          </details>
+
+          <details>
+            <summary>Como faço para reservar?</summary>
+            <p>Clique no WhatsApp, envie data + pessoas + local de embarque. Eu retorno com as opções e valores.</p>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <!-- FINAL CTA -->
+    <section>
+      <div class="container">
+        <div class="cta-band">
+          <div>
+            <h3>Pronto pra ir pra Jericoacoara do jeito certo?</h3>
+            <p>Sem improviso. Sem estresse. Reserva rápida e confirmação organizada.</p>
+          </div>
+          <a class="btn btn-primary" id="waFinal" href="#">📲 Falar com a Jeri Rota</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <strong>Jeri Rota Turismo</strong>
+          <div class="fine">Transfer premium • Passeios • Experiências em Jericoacoara</div>
+          <div class="fine">Paleta: #0a2342 / #d4af7f / #f2efe9</div>
+        </div>
+
+        <div>
+          <strong>Contato</strong>
+          <div class="fine">WhatsApp: (85) SEU NÚMERO</div>
+          <div class="fine">Instagram: @seuinstagram</div>
+        </div>
       </div>
 
-      <div class="pilar-card">
-        <h2>Segurança e conforto</h2>
-        <p>
-          Trabalhamos com veículos regulares e parceiros locais confiáveis,
-          priorizando conforto, pontualidade e uma chegada tranquila
-          em Jericoacoara.
-        </p>
+      <div class="fine" style="margin-top:18px">
+        © 2026 Jeri Rota. Todos os direitos reservados.
       </div>
-
-      <div class="pilar-card">
-        <h2>Acompanhamento</h2>
-        <p>
-          Após a confirmação, acompanhamos todo o processo de transporte,
-          oferecendo suporte antes, durante e na chegada ao destino.
-        </p>
-      </div>
-
     </div>
-  </div>
-</section>
+  </footer>
 
-<section class="cta-final">
-  <div class="container">
-    <h2>Vamos organizar seu transporte para Jericoacoara?</h2>
-
-    <div class="cta-actions">
-      <a href="https://wa.me/5588982274666" class="btn-primary light">
-        Falar com a Jeri Rota
-      </a>
-    </div>
-  </div>
-</section>
-
-<footer class="footer">
-  <div class="container footer-grid">
-
-    <div class="footer-brand">
-      <h4>Jeri Rota</h4>
-      <p>
-        Transporte, hospedagem e passeios em Jericoacoara,
-        organizados com cuidado, segurança e atenção aos detalhes.
-      </p>
-    </div>
-
-    <div class="footer-contact">
-      <h5>Contato</h5>
-      <p>WhatsApp: (88) 98227-4666</p>
-      <p>E-mail: contato@jerirota.com.br</p>
-      <p>Jericoacoara · Ceará · Brasil</p>
-    </div>
-
-    <div class="footer-nav">
-      <h5>Navegação</h5>
-      <p>Experiência</p>
-      <p>Transporte</p>
-      <p>Hospedagem</p>
-      <p>Passeios</p>
-    </div>
-
+  <!-- Sticky CTA Mobile -->
+  <div class="sticky-cta" aria-label="Botão fixo do WhatsApp">
+    <a class="btn btn-primary" id="waSticky" href="#">✅ Reservar no WhatsApp</a>
   </div>
 
-  <div class="footer-bottom">
-    <div class="footer-copy">
-      © 2026 Jeri Rota. Todos os direitos reservados.
-    </div>
-  </div>
-</footer>
+  <script>
+    // ✅ CONFIGURE AQUI
+    const PHONE_E164 = "5585SEUNUMERO"; // Ex: 5585987654321
+
+    // Mensagem pronta (curta, objetiva, alta conversão)
+    const message =
+      "Olá! Quero reservar com a Jeri Rota. " +
+      "Data: __/__/____ | Pessoas: __ | Embarque: (hotel/bairro). " +
+      "Quero opções: (compartilhado / 4x4 executivo).";
+
+    // UTM básico (para anúncios)
+    const params = new URLSearchParams(window.location.search);
+    const utm_source = params.get("utm_source") || "site";
+    const utm_campaign = params.get("utm_campaign") || "landing-transfer";
+    const utm_content = params.get("utm_content") || "cta";
+
+    const waLink = `https://wa.me/${PHONE_E164}?text=${encodeURIComponent(message)}&utm_source=${encodeURIComponent(utm_source)}&utm_campaign=${encodeURIComponent(utm_campaign)}&utm_content=${encodeURIComponent(utm_content)}`;
+
+    // Aplica link em todos os botões WhatsApp
+    ["waHero","waServices","waProof","waFinal","waSticky"].forEach(id=>{
+      const el = document.getElementById(id);
+      if(el) el.href = waLink;
+    });
+  </script>
 
 </body>
 </html>
