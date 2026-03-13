@@ -6,17 +6,16 @@
 <title>Jeri Rota | Premium Travel Experience</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
 
 <style>
 :root{
   --navy:#0a2342;
   --navy-2:#081c36;
-  --navy-3:#102d52;
   --gold:#d4af7f;
   --gold-soft:#ead7bd;
   --light:#f2efe9;
-  --muted:rgba(242,239,233,.72);
+  --muted:rgba(242,239,233,.78);
   --line:rgba(255,255,255,.10);
   --line-gold:rgba(212,175,127,.28);
   --radius:22px;
@@ -45,12 +44,12 @@ img{max-width:100%;display:block}
 }
 
 h1,h2,h3{
-  font-family:'Playfair Display',serif;
-  font-weight:600;
-  letter-spacing:-.02em;
+  font-family:'Montserrat',sans-serif;
+  font-weight:300;
+  letter-spacing:-.03em;
 }
 
-/* NAV */
+/* HEADER */
 .header{
   position:fixed;
   inset:0 0 auto 0;
@@ -81,6 +80,7 @@ h1,h2,h3{
   display:block;
   font-size:.98rem;
   letter-spacing:.18em;
+  font-weight:600;
 }
 .logo-copy span{
   display:block;
@@ -99,6 +99,7 @@ h1,h2,h3{
   text-transform:uppercase;
   letter-spacing:.12em;
   color:rgba(242,239,233,.78);
+  font-weight:400;
 }
 .menu a:hover{color:#fff}
 
@@ -175,6 +176,7 @@ h1,h2,h3{
   font-size:.74rem;
   text-transform:uppercase;
   letter-spacing:.16em;
+  font-weight:400;
 }
 .eyebrow::before{
   content:'';
@@ -196,11 +198,11 @@ h1,h2,h3{
   margin:0 0 20px;
   font-size:clamp(3.2rem,6vw,6.4rem);
   line-height:.94;
-  max-width:10.5ch;
+  max-width:11ch;
 }
 .hero-copy p{
   margin:0;
-  max-width:590px;
+  max-width:620px;
   color:var(--muted);
   font-size:1.05rem;
   line-height:1.95;
@@ -229,6 +231,7 @@ h1,h2,h3{
   font-size:.72rem;
   text-transform:uppercase;
   letter-spacing:.16em;
+  font-weight:500;
 }
 .hero-card h3{
   margin:14px 0 18px;
@@ -275,11 +278,13 @@ h1,h2,h3{
   text-transform:uppercase;
   letter-spacing:.18em;
   margin-bottom:14px;
+  font-weight:500;
 }
 .section-head h2{
   margin:0;
   font-size:clamp(2.1rem,3vw,3.7rem);
   line-height:1.02;
+  max-width:10ch;
 }
 .section-head p{
   margin:0;
@@ -318,6 +323,7 @@ h1,h2,h3{
   margin:0 0 18px;
   font-size:2rem;
   line-height:1.12;
+  max-width:13ch;
 }
 .card-copy p{
   margin:0 0 18px;
@@ -341,10 +347,12 @@ h1,h2,h3{
   font-size:.76rem;
   text-transform:uppercase;
   letter-spacing:.18em;
+  font-weight:500;
 }
 .service h3{
   margin:24px 0 12px;
   font-size:1.6rem;
+  max-width:10ch;
 }
 .service p{
   margin:0;
@@ -379,6 +387,7 @@ h1,h2,h3{
   font-size:.86rem;
   text-transform:uppercase;
   letter-spacing:.14em;
+  font-weight:500;
 }
 .gallery-item.tall{grid-row:span 2}
 
@@ -400,6 +409,7 @@ h1,h2,h3{
   font-size:.82rem;
   text-transform:uppercase;
   letter-spacing:.16em;
+  font-weight:500;
 }
 
 /* CTA */
@@ -417,12 +427,14 @@ h1,h2,h3{
   margin:0 0 16px;
   font-size:clamp(2rem,3vw,3.4rem);
   line-height:1.02;
+  max-width:13ch;
 }
 .cta-box p{
   margin:0;
   color:var(--muted);
   line-height:1.9;
   font-weight:300;
+  max-width:620px;
 }
 .cta-actions{
   display:flex;
@@ -452,6 +464,9 @@ footer{
   .cta-box{grid-template-columns:1fr}
   .hero-card{justify-self:start}
   .gallery{grid-template-columns:1fr 1fr}
+  .section-head h2,
+  .card-copy h3,
+  .cta-box h2{max-width:none}
 }
 
 @media (max-width:860px){
@@ -496,13 +511,13 @@ footer{
 <main>
   <section class="hero" id="topo">
     <div class="container hero-wrap">
-      <div class="eyebrow">Jericoacoara • Curadoria de experiências • Atendimento direto</div>
+      <div class="eyebrow">Jericoacoara • Experiências selecionadas • Atendimento direto</div>
 
       <div class="hero-grid">
         <div class="hero-copy">
           <h1>Uma forma mais elegante de viver Jericoacoara.</h1>
           <p>
-            A Jeri Rota organiza deslocamentos, experiências e orientação para que cada viagem seja conduzida com mais clareza, conforto e tranquilidade. Mais do que vender serviços isolados, nossa proposta é apresentar o destino de forma bem estruturada e visualmente alinhada ao nível de experiência que ele merece.
+            A Jeri Rota organiza deslocamentos, experiências e orientações para que cada viagem aconteça com mais tranquilidade, clareza e conforto. Nossa proposta é permitir que você aproveite o destino com mais segurança e melhor planejamento, desde o primeiro contato.
           </p>
 
           <div class="hero-actions">
@@ -512,18 +527,18 @@ footer{
         </div>
 
         <aside class="hero-card">
-          <small>Direção da marca</small>
-          <h3>Uma curadoria pensada para quem valoriza estética, segurança e organização.</h3>
+          <small>Jeri Rota</small>
+          <h3>Experiências, deslocamentos e orientação em um só lugar.</h3>
           <p>
-            O objetivo da Jeri Rota é reduzir o ruído da viagem e tornar cada etapa mais simples, clara e agradável para quem deseja aproveitar Jericoacoara com mais confiança.
+            Reunimos serviços e atendimento para que sua viagem seja conduzida de forma mais simples, agradável e bem organizada.
           </p>
           <ul class="hero-list">
-            <li>Transfers e deslocamentos organizados</li>
+            <li>Transfers organizados com mais conforto</li>
             <li>Passeios e experiências selecionadas</li>
-            <li>Atendimento rápido e comunicação direta</li>
-            <li>Apresentação premium com operação real</li>
+            <li>Atendimento rápido e comunicação clara</li>
+            <li>Mais praticidade para planejar sua viagem</li>
           </ul>
-          <a class="btn btn-outline" href="#avaliacoes">Ver experiência dos clientes</a>
+          <a class="btn btn-outline" href="#avaliacoes">Ver avaliações</a>
         </aside>
       </div>
     </div>
@@ -534,25 +549,25 @@ footer{
       <div class="section-head">
         <div>
           <span class="section-label">A marca</span>
-          <h2>Uma marca criada para organizar o destino com mais clareza e presença.</h2>
+          <h2>Uma marca criada para tornar Jericoacoara mais simples de viver.</h2>
         </div>
         <p>
-          A Jeri Rota nasceu com a proposta de apresentar Jericoacoara de forma mais bem conduzida. Em vez de oferecer apenas trajetos ou passeios soltos, nossa ideia é estruturar a experiência do visitante com atenção aos detalhes, atendimento direto e uma curadoria que torne o processo mais tranquilo do início ao fim.
+          A Jeri Rota nasceu com a proposta de facilitar a experiência de quem deseja conhecer Jericoacoara. Reunimos transporte, experiências e orientação em uma comunicação direta e organizada, para que cada etapa da viagem aconteça com mais tranquilidade.
         </p>
       </div>
 
       <div class="brand-grid">
         <div class="card-image"></div>
         <div class="card-copy">
-          <h3>Mais do que intermediar serviços, conduzir a viagem com intenção.</h3>
+          <h3>Mais do que vender serviços, organizar a experiência do visitante.</h3>
           <p>
-            Muitos viajantes chegam ao destino sem saber exatamente como funcionam os deslocamentos, quais experiências valem mais a pena ou como organizar a própria viagem com confiança. O trabalho da Jeri Rota é justamente simplificar esse cenário.
+            Muitos viajantes chegam ao destino sem saber exatamente como funcionam os deslocamentos, os passeios ou as melhores formas de aproveitar a região. Nosso trabalho é tornar esse processo mais claro e seguro.
           </p>
           <p>
-            Reunimos transporte, experiências e orientação em uma comunicação mais limpa, mais humana e mais elegante. Isso transforma a percepção da marca e também melhora a experiência prática de quem viaja.
+            Com atendimento direto e uma seleção cuidadosa de serviços, ajudamos cada visitante a planejar melhor sua viagem e aproveitar Jericoacoara com mais leveza.
           </p>
           <p>
-            Em resumo: a proposta é permitir que o visitante aproveite Jericoacoara com mais leveza, sabendo que cada etapa foi pensada com cuidado.
+            Assim, a experiência começa antes mesmo da chegada ao destino.
           </p>
           <a class="btn btn-primary" href="#contato">Falar no WhatsApp</a>
         </div>
@@ -565,10 +580,10 @@ footer{
       <div class="section-head">
         <div>
           <span class="section-label">Serviços</span>
-          <h2>Uma vitrine mais seletiva, mais limpa e mais sofisticada.</h2>
+          <h2>Soluções pensadas para cada etapa da sua viagem.</h2>
         </div>
         <p>
-          A home não precisa tentar vender tudo ao mesmo tempo. O caminho premium é destacar aquilo que sustenta o posicionamento da marca e apresentar cada frente com mais clareza.
+          Da chegada ao destino até as experiências na região, a Jeri Rota reúne opções para que sua viagem aconteça de forma mais prática e organizada.
         </p>
       </div>
 
@@ -585,7 +600,7 @@ footer{
           <div class="service-index">02</div>
           <h3>Passeios</h3>
           <p>
-            Experiências nos principais cenários da região, conectando lagoas, dunas, praias e roteiros clássicos de Jericoacoara.
+            Experiências nos principais pontos da região, conectando lagoas, dunas, praias e roteiros clássicos de Jericoacoara.
           </p>
         </article>
 
@@ -593,7 +608,7 @@ footer{
           <div class="service-index">03</div>
           <h3>Experiências</h3>
           <p>
-            Atividades selecionadas para quem deseja viver o destino com mais intensidade, melhor aproveitamento do tempo e uma organização mais clara.
+            Atividades selecionadas para quem deseja viver o destino com mais intensidade, melhor aproveitamento do tempo e mais tranquilidade.
           </p>
         </article>
       </div>
@@ -605,10 +620,10 @@ footer{
       <div class="section-head">
         <div>
           <span class="section-label">Experiências em Jericoacoara</span>
-          <h2>Mais desejo visual. Menos sensação de catálogo comum.</h2>
+          <h2>Cenários únicos, vivências memoráveis e um destino que vale cada detalhe.</h2>
         </div>
         <p>
-          Dunas, lagoas cristalinas, luz natural, paisagens abertas e momentos bem vividos fazem de Jericoacoara um destino singular. A linguagem visual da marca precisa refletir exatamente isso.
+          Dunas, lagoas cristalinas, praias preservadas e um dos pôr do sol mais conhecidos do Brasil fazem de Jericoacoara um lugar especial. Nossa proposta é conectar você a essas experiências da melhor forma.
         </p>
       </div>
 
@@ -617,7 +632,7 @@ footer{
         <div class="gallery-item" style="background-image:url('gal2.jpg')"><span>Pôr do sol</span></div>
         <div class="gallery-item" style="background-image:url('gal3.jpg')"><span>Dunas & horizonte</span></div>
         <div class="gallery-item" style="background-image:url('gal4.jpg')"><span>Experiência local</span></div>
-        <div class="gallery-item" style="background-image:url('gal5.jpg')"><span>Movimento & chegada</span></div>
+        <div class="gallery-item" style="background-image:url('gal5.jpg')"><span>Chegada & movimento</span></div>
       </div>
     </div>
   </section>
@@ -627,10 +642,10 @@ footer{
       <div class="section-head">
         <div>
           <span class="section-label">Avaliações</span>
-          <h2>Elegância visual precisa vir acompanhada de confiança real.</h2>
+          <h2>Experiência de quem já viajou com a Jeri Rota.</h2>
         </div>
         <p>
-          Em turismo, apresentação bonita sem prova social é castelo de areia. Essa seção existe para sustentar o posicionamento e reforçar que a experiência entregue corresponde à imagem da marca.
+          O atendimento, a organização e a clareza no processo fazem diferença para quem deseja viajar com mais segurança e tranquilidade.
         </p>
       </div>
 
@@ -644,7 +659,7 @@ footer{
 
         <article class="testimonial">
           <p>
-            “Foi muito mais fácil organizar a viagem com a orientação deles. A comunicação foi direta, o processo foi simples e a experiência inteira pareceu mais profissional.”
+            “Foi muito mais fácil organizar a viagem com a orientação deles. A comunicação foi direta, o processo foi simples e a experiência inteira foi muito tranquila.”
           </p>
           <strong>Experiência confirmada</strong>
         </article>
@@ -656,7 +671,7 @@ footer{
     <div class="container">
       <div class="cta-box">
         <div>
-          <h2>Planeje sua experiência em Jericoacoara com mais clareza, estética e tranquilidade.</h2>
+          <h2>Planeje sua experiência em Jericoacoara com mais clareza e tranquilidade.</h2>
           <p>
             Entre em contato para receber orientação, disponibilidade e a melhor forma de organizar sua viagem de acordo com o que você procura.
           </p>
@@ -675,7 +690,7 @@ footer{
     <div class="footer-line"></div>
     <div class="footer-wrap">
       <span>Jeri Rota • Premium Travel Experience</span>
-      <span>Site conceito com direção visual sofisticada</span>
+      <span>Jericoacoara • Ceará • Brasil</span>
     </div>
   </div>
 </footer>
