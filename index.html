@@ -184,7 +184,12 @@ h1,h2,h3{
 @media (prefers-reduced-motion: reduce){
   .hero-video{display:none}
 }
-
+/* AJUSTE PARA CELULAR */
+@media (max-width:768px){
+  .hero-video{
+    object-position:75% center;
+  }
+}
 .eyebrow{
   display:inline-flex;
   align-items:center;
