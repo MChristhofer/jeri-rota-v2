@@ -447,6 +447,9 @@ h1,h2,h3{
 .card-image{
   min-height:620px;
   background:url('experiencia-jeri.jpg') center/cover no-repeat;
+  background-size:100%;
+  background-position:center;
+  transition:background-size .8s ease, filter .35s ease;
 }
 .card-copy{
   padding:48px;
@@ -464,6 +467,17 @@ h1,h2,h3{
   font-weight:300;
   line-height:1.95;
 }
+
+.gallery-item{
+  background-size:100%;
+  background-position:center;
+  transition:
+    background-size .8s ease,
+    transform .35s ease,
+    border-color .35s ease,
+    filter .35s ease;
+}
+
 
 /* SERVICES */
 .services{
@@ -695,6 +709,20 @@ h1,h2,h3{
   }
 }
 
+/* HOVER ZOOM NAS IMAGENS */
+@media (hover:hover) and (pointer:fine){
+  .card-image:hover{
+    background-size:106%;
+    filter:brightness(1.03);
+  }
+
+  .gallery-item:hover{
+    background-size:106%;
+    transform:translateY(-2px);
+    border-color:rgba(212,175,127,.32);
+    filter:brightness(1.04);
+  }
+}
 /* FOOTER */
 footer{
   padding:34px 0 48px;
