@@ -394,7 +394,7 @@ h1,h2,h3{
 }
 
 /* SECTION BASE */
-.section{padding:110px 0}
+.section{padding:120px 0}
 .section-head{
   display:flex;
   justify-content:space-between;
@@ -653,8 +653,33 @@ h1,h2,h3{
 }
 .whatsapp-float:hover{transform:translateY(-2px)}
 
+/* REVEAL ON SCROLL */
+.reveal{
+  opacity:0;
+  transform:translateY(38px);
+  transition:
+    opacity .9s ease,
+    transform .9s ease;
+  will-change:opacity, transform;
+}
 
+.reveal.is-visible{
+  opacity:1;
+  transform:translateY(0);
+}
 
+.reveal-delay-1{transition-delay:.08s}
+.reveal-delay-2{transition-delay:.16s}
+.reveal-delay-3{transition-delay:.24s}
+
+@media (prefers-reduced-motion: reduce){
+  .reveal,
+  .reveal.is-visible{
+    opacity:1;
+    transform:none;
+    transition:none;
+  }
+}
 /* FOOTER */
 footer{
   padding:34px 0 48px;
@@ -788,7 +813,7 @@ footer{
     </div>
   </section>
 
-  <section class="section" id="marca">
+  <section class="section reveal" id="marca">
     <div class="container">
       <div class="section-head">
         <div>
@@ -801,8 +826,8 @@ footer{
       </div>
 
       <div class="brand-grid">
-        <div class="card-image" aria-label="Imagem de experiência em Jericoacoara"></div>
-        <div class="card-copy">
+        <div class="card-image reveal reveal-delay-1" aria-label="Imagem de experiência em Jericoacoara"></div>
+        <div class="card-copy reveal reveal-delay-2">     
           <h3>Mais do que vender serviços, organizar a experiência do visitante.</h3>
           <p>
             Muitos viajantes chegam ao destino sem saber exatamente como funcionam os deslocamentos, os passeios ou as melhores formas de aproveitar a região. Nosso trabalho é tornar esse processo mais claro e seguro.
@@ -819,7 +844,7 @@ footer{
     </div>
   </section>
 
-  <section class="section" id="servicos">
+  <section class="section reveal" id="servicos">
     <div class="container">
       <div class="section-head">
         <div>
@@ -832,7 +857,7 @@ footer{
       </div>
 
       <div class="services">
-        <article class="service">
+        <article class="service reveal reveal-delay-1">
           <div class="service-index">01</div>
           <h3>Transfers</h3>
           <p>
@@ -840,7 +865,7 @@ footer{
           </p>
         </article>
 
-        <article class="service">
+        <article class="service reveal reveal-delay-2">
           <div class="service-index">02</div>
           <h3>Passeios</h3>
           <p>
@@ -848,7 +873,7 @@ footer{
           </p>
         </article>
 
-        <article class="service">
+        <article class="service reveal reveal-delay-3">
           <div class="service-index">03</div>
           <h3>Experiências</h3>
           <p>
@@ -858,7 +883,7 @@ footer{
       </div>
     </div>
   </section>
-  <section class="immersive-image">
+  <section class="immersive-image reveal">
   <div class="immersive-overlay">
     <div class="container immersive-content">
       <span class="section-label">Imersão</span>
@@ -870,7 +895,7 @@ footer{
   </div>
   </section>
 
-  <section class="section" id="experiencias">
+  <section class="section reveal" id="experiencias">
     <div class="container">
       <div class="section-head">
         <div>
@@ -892,7 +917,7 @@ footer{
     </div>
   </section>
 
-  <section class="section" id="avaliacoes">
+  <section class="section reveal" id="avaliacoes">
     <div class="container">
       <div class="section-head">
         <div>
@@ -905,14 +930,14 @@ footer{
       </div>
 
       <div class="testimonials">
-        <article class="testimonial">
+        <<article class="testimonial reveal reveal-delay-1">
           <p>
             “Tudo foi explicado com muita clareza e o atendimento foi rápido. A viagem aconteceu exatamente como combinado, o que trouxe muita segurança para quem não conhecia a região.”
           </p>
           <strong>Cliente Jeri Rota</strong>
         </article>
 
-        <article class="testimonial">
+        <article class="testimonial reveal reveal-delay-2">
           <p>
             “Foi muito mais fácil organizar a viagem com a orientação deles. A comunicação foi direta, o processo foi simples e a experiência inteira foi muito tranquila.”
           </p>
@@ -922,9 +947,9 @@ footer{
     </div>
   </section>
 
-  <section class="section" id="contato">
+  <section class="section reveal" id="contato">
     <div class="container">
-      <div class="cta-box">
+      <div class="cta-box reveal">
         <div>
           <h2>Planeje sua experiência em Jericoacoara com mais clareza e tranquilidade.</h2>
           <p>
@@ -960,6 +985,22 @@ aria-label="Abrir atendimento no WhatsApp">
 
 </a>
 
+<script>
+  const revealObserver = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('is-visible');
+        revealObserver.unobserve(entry.target);
+      }
+    });
+  }, {
+    threshold: 0.16
+  });
+
+  document.querySelectorAll('.reveal').forEach((element) => {
+    revealObserver.observe(element);
+  });
+</script>
 
 </body>
 </html>
