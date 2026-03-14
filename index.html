@@ -393,6 +393,43 @@ h1,h2,h3{
   font-weight:300;
   line-height:1.9;
 }
+/* IMAGEM IMERSIVA */
+
+.immersive-image{
+  min-height:80vh;
+  background:url('imagem-imersiva.jpg') center/cover no-repeat;
+  position:relative;
+  display:flex;
+  align-items:center;
+}
+
+.immersive-overlay{
+  width:100%;
+  min-height:80vh;
+  display:flex;
+  align-items:center;
+  background:
+    linear-gradient(90deg, rgba(6,18,35,.88) 0%, rgba(6,18,35,.55) 45%, rgba(6,18,35,.20) 100%),
+    linear-gradient(180deg, rgba(6,18,35,.10) 0%, rgba(6,18,35,.65) 100%);
+}
+
+.immersive-content{
+  max-width:700px;
+  padding:100px 28px;
+}
+
+.immersive-content h2{
+  margin:0 0 18px;
+  font-size:clamp(2.2rem,4vw,4.2rem);
+  line-height:1.05;
+}
+
+.immersive-content p{
+  margin:0;
+  line-height:1.9;
+  font-size:1.02rem;
+  color:var(--muted);
+}
 
 /* GALLERY */
 .gallery{
@@ -698,6 +735,17 @@ footer{
         </article>
       </div>
     </div>
+  </section>
+  <section class="immersive-image">
+  <div class="immersive-overlay">
+    <div class="container immersive-content">
+      <span class="section-label">Imersão</span>
+      <h2>Mais do que uma viagem, uma experiência que começa no caminho.</h2>
+      <p>
+        Cada detalhe do trajeto até Jericoacoara pode transmitir conforto, expectativa e conexão com o destino.
+      </p>
+    </div>
+  </div>
   </section>
 
   <section class="section" id="experiencias">
