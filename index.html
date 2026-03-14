@@ -680,6 +680,21 @@ h1,h2,h3{
     transition:none;
   }
 }
+
+/* PARALLAX SUAVE */
+
+.immersive-image{
+  background-attachment: fixed;
+  background-position: center;
+  background-size: cover;
+}
+
+@media (max-width:768px){
+  .immersive-image{
+    background-attachment: scroll;
+  }
+}
+
 /* FOOTER */
 footer{
   padding:34px 0 48px;
@@ -883,7 +898,7 @@ footer{
       </div>
     </div>
   </section>
-  <section class="immersive-image reveal">
+  <section class="immersive-image immersive-parallax reveal">
   <div class="immersive-overlay">
     <div class="container immersive-content">
       <span class="section-label">Imersão</span>
