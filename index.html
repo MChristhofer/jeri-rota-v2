@@ -149,8 +149,7 @@ h1,h2,h3{
   overflow:hidden;
   background:url('hero-jeri.jpg') center/cover no-repeat;
 }
-.hero-video-desktop video,
-.hero-video-mobile video{
+.hero-video{
   position:absolute;
   inset:0;
   width:100%;
@@ -182,26 +181,19 @@ h1,h2,h3{
   z-index:2;
   padding:170px 0 90px;
 }
+
+
 @media (prefers-reduced-motion: reduce){
   .hero-video{display:none}
 }
+
 /* AJUSTE PARA CELULAR */
 @media (max-width:768px){
-
-  .hero-video-desktop{
-    display:none;
-  }
-
-  .hero-video-mobile{
-    display:block;
-  }
-
-  .hero-video-mobile video{
+  .hero-video{
     object-position:center center;
   }
+}
 
-}
-}
 .eyebrow{
   display:inline-flex;
   align-items:center;
@@ -643,9 +635,18 @@ footer{
 
 <main>
   <section class="hero" id="topo">
-    <video class="hero-video" autoplay muted loop playsinline poster="hero-jeri.jpg">
-      <source src="hero-jeri.mp4" type="video/mp4">
-    </video>
+    
+    <div class="hero-video-desktop">
+  <video autoplay muted loop playsinline poster="hero-jeri.jpg">
+    <source src="hero-jeri.mp4" type="video/mp4">
+  </video>
+</div>
+
+<div class="hero-video-mobile">
+  <video autoplay muted loop playsinline poster="hero-jeri.jpg">
+    <source src="hero-jeri-mobile.mp4" type="video/mp4">
+  </video>
+</div>
     <div class="hero-overlay"></div>
     <div class="container hero-wrap">
       <div class="eyebrow">Jericoacoara • Experiências selecionadas • Atendimento direto</div>
