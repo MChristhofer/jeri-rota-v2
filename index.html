@@ -115,8 +115,15 @@ h1,h2,h3{
   font-weight:500;
   text-transform:uppercase;
   letter-spacing:.14em;
-  transition:.28s ease;
   cursor:pointer;
+
+  transition:    
+    transform .25s ease,
+    box-shadow .25s ease,
+    background .25s ease,
+    border-color .25s ease,
+    filter .25s ease;
+
 }
 
 .btn-primary{
@@ -128,6 +135,7 @@ h1,h2,h3{
 .btn-primary:hover{
   transform:translateY(-2px);
   box-shadow:0 18px 42px rgba(212,175,127,.28);
+  filter:brightness(1.05);
 }
 
 .btn-outline{
