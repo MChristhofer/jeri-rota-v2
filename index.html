@@ -251,43 +251,45 @@ h1,h2,h3{
     padding:118px 0 58px;
   }
 
-  .hero-grid{
-    grid-template-columns:1fr;
-    gap:22px;
-    margin-top:18px;
-    align-items:start;
-  }
+ .hero-grid{
+  grid-template-columns:1fr;
+  gap:18px;
+  margin-top:18px;
+  align-items:start;
+}
 
-  .hero-copy h1{
-    max-width:320px;
-    font-size:clamp(2.6rem, 11vw, 4rem);
-    line-height:.94;
-    letter-spacing:-0.04em;
-    margin-bottom:18px;
-  }
+.hero-panel{
+  width:100%;
+  max-width:100%;
+  padding:28px 22px;
+  border-radius:24px;
+}
 
-  .hero-copy p{
-    max-width:100%;
-    font-size:1rem;
-    line-height:1.75;
-  }
+.hero-panel h1{
+  max-width:100%;
+  font-size:clamp(2.3rem, 10vw, 3.5rem);
+  line-height:1.05;
+  margin-bottom:16px;
+}
 
-  .hero-actions{
-    display:flex;
-    flex-direction:column;
-    align-items:flex-start;
-    gap:12px;
-  }
+.hero-panel p{
+  max-width:100%;
+  font-size:.98rem;
+  line-height:1.75;
+}
 
-  .hero-actions .btn{
-    width:100%;
-    max-width:270px;
-    justify-content:center;
-  }
+.hero-actions{
+  display:flex;
+  flex-direction:column;
+  align-items:flex-start;
+  gap:12px;
+}
 
-  .hero-card{
-    display:none;
-  }
+.hero-actions .btn{
+  width:100%;
+  max-width:270px;
+  justify-content:center;
+}
 
   .eyebrow{
     font-size:.62rem;
@@ -325,80 +327,52 @@ h1,h2,h3{
 
 .hero-grid{
   display:grid;
-  grid-template-columns:1.05fr .95fr;
-  gap:36px;
-  align-items:end;
-  margin-top:24px;
+  grid-template-columns:1fr;
+  gap:0;
+  margin-top:28px;
 }
 
-.hero-copy h1{
-  margin:0 0 20px;
-  font-size:clamp(3.2rem,6vw,6.2rem);
-  line-height:.98;
-  max-width:12ch;
+.hero-panel{
+  width:min(100%, 520px);
+  border-radius:30px;
+  padding:42px;
+  background:linear-gradient(180deg, rgba(255,255,255,.08), rgba(255,255,255,.03));
+  border:1px solid rgba(255,255,255,.12);
+  box-shadow:var(--shadow);
+  backdrop-filter:blur(18px);
+}
+
+.hero-panel small{
+  display:block;
+  color:var(--gold-soft);
+  font-size:.74rem;
+  text-transform:uppercase;
+  letter-spacing:.18em;
+  font-weight:500;
+}
+
+.hero-panel h1{
+  margin:18px 0 18px;
+  font-size:clamp(2.9rem,5vw,4.7rem);
+  line-height:1.04;
+  max-width:11ch;
   text-wrap:balance;
 }
-.hero-copy p{
+
+.hero-panel p{
   margin:0;
-  max-width:620px;
+  max-width:34ch;
   color:var(--muted);
-  font-size:1.05rem;
-  line-height:1.95;
+  font-size:1.04rem;
+  line-height:1.85;
   font-weight:300;
 }
+
 .hero-actions{
   display:flex;
   gap:14px;
   flex-wrap:wrap;
-  margin-top:34px;
-}
-
-.hero-card{
-  justify-self:end;
-  width:min(100%,430px);
-  border-radius:28px;
-  padding:30px;
-  background:linear-gradient(180deg, rgba(255,255,255,.08), rgba(255,255,255,.03));
-  border:1px solid rgba(255,255,255,.10);
-  box-shadow:var(--shadow);
-  backdrop-filter:blur(18px);
-}
-.hero-card small{
-  display:block;
-  color:var(--gold-soft);
-  font-size:.72rem;
-  text-transform:uppercase;
-  letter-spacing:.16em;
-  font-weight:500;
-}
-.hero-card h3{
-  margin:14px 0 18px;
-  font-size:1.92rem;
-  line-height:1.15;
-  text-wrap:balance;
-}
-.hero-card p{
-  margin:0 0 18px;
-  color:var(--muted);
-  line-height:1.9;
-  font-weight:300;
-}
-.hero-list{
-  list-style:none;
-  padding:0;
-  margin:0 0 26px;
-  display:grid;
-  gap:12px;
-}
-.hero-list li{
-  display:flex;
-  gap:12px;
-  color:rgba(242,239,233,.84);
-  font-weight:300;
-}
-.hero-list li::before{
-  content:'•';
-  color:var(--gold);
+  margin-top:30px;
 }
 
 /* SECTION BASE */
@@ -840,36 +814,22 @@ footer{
     <div class="container hero-wrap">
       <div class="eyebrow">Jericoacoara • Experiências selecionadas • Atendimento direto</div>
 
-      <div class="hero-grid">
-        <div class="hero-copy">
-          <h1>Uma forma mais elegante de viver Jericoacoara.</h1>
-          <p>
-            A Jeri Rota organiza deslocamentos, experiências e orientações para que cada viagem aconteça com mais tranquilidade, clareza e conforto. Nossa proposta é permitir que você aproveite o destino com mais segurança e melhor planejamento, desde o primeiro contato.
-          </p>
+     <div class="hero-grid">
+  <div class="hero-panel">
+    <small>Jeri Rota</small>
 
-          <div class="hero-actions">
-            <a class="btn btn-primary" href="https://wa.me/5588982274666?text=Ol%C3%A1%21%20Quero%20reservar%20uma%20experi%C3%AAncia%20com%20a%20Jeri%20Rota." target="_blank" rel="noopener">Reservar experiência</a>
-            <a class="btn btn-outline" href="#servicos">Explorar serviços</a>
-          </div>
-        </div>
+    <h1>Experiências e deslocamentos para viver Jericoacoara com mais tranquilidade.</h1>
 
-        <aside class="hero-card">
-          <small>Jeri Rota</small>
-          <h3>Experiências, deslocamentos e orientação em um só lugar.</h3>
-          <p>
-            Reunimos serviços e atendimento para que sua viagem seja conduzida de forma mais simples, agradável e bem organizada.
-          </p>
-          <ul class="hero-list">
-            <li>Transfers organizados com mais conforto</li>
-            <li>Passeios e experiências selecionadas</li>
-            <li>Atendimento rápido e comunicação clara</li>
-            <li>Mais praticidade para planejar sua viagem</li>
-          </ul>
-          <a class="btn btn-outline" href="#avaliacoes">Ver avaliações</a>
-        </aside>
-      </div>
+    <p>
+      Transfers, passeios e orientação organizados com clareza desde o primeiro contato.
+    </p>
+
+    <div class="hero-actions">
+      <a class="btn btn-primary" href="https://wa.me/5588982274666?text=Ol%C3%A1%21%20Quero%20reservar%20uma%20experi%C3%AAncia%20com%20a%20Jeri%20Rota." target="_blank" rel="noopener">Reservar experiência</a>
+      <a class="btn btn-outline" href="#servicos">Explorar serviços</a>
     </div>
-  </section>
+  </div>
+</div>
 
   <section class="section reveal" id="marca">
     <div class="container">
