@@ -261,15 +261,15 @@ h1,h2,h3{
 .hero-panel{
   width:100%;
   max-width:100%;
-  padding:28px 22px;
-  border-radius:24px;
+  padding:0;
+  border-radius:0;
 }
 
 .hero-panel h1{
   max-width:100%;
-  font-size:clamp(2.3rem, 10vw, 3.5rem);
-  line-height:1.05;
-  margin-bottom:16px;
+  font-size:clamp(2.1rem, 9vw, 3rem);
+  line-height:1.04;
+  margin-bottom:14px;
 }
 
 .hero-panel p{
@@ -327,20 +327,19 @@ h1,h2,h3{
 
 .hero-grid{
   display:grid;
-  grid-template-columns:620px 1fr;
-  gap:40px;
+  grid-template-columns:1fr;
+  gap:0;
+  margin-top:24px;
   align-items:center;
-  margin-top:28px;
 }
 
 .hero-panel{
-  width:min(100%, 520px);
-  border-radius:30px;
-  padding:42px;
-  background:linear-gradient(180deg, rgba(255,255,255,.08), rgba(255,255,255,.03));
-  border:1px solid rgba(255,255,255,.12);
-  box-shadow:var(--shadow);
-  backdrop-filter:blur(18px);
+  width:min(100%, 760px);
+  padding:0;
+  background:transparent;
+  border:none;
+  box-shadow:none;
+  backdrop-filter:none;
 }
 
 .hero-panel small{
@@ -353,11 +352,13 @@ h1,h2,h3{
 }
 
 .hero-panel h1{
-  margin:18px 0 18px;
-  font-size:clamp(2.9rem,5vw,4.7rem);
-  line-height:1.04;
-  max-width:11ch;
+  margin:16px 0 18px;
+  font-size:clamp(3rem,5vw,5.4rem);
+  line-height:1.02;
+  max-width:10ch;
   text-wrap:balance;
+  text-transform:uppercase;
+  letter-spacing:.08em;
 }
 
 .hero-panel p{
@@ -813,21 +814,21 @@ footer{
 </div>
     <div class="hero-overlay"></div>
     <div class="container hero-wrap">
-      <div class="eyebrow">Jericoacoara • Experiências selecionadas • Atendimento direto</div>
+      <div class="eyebrow">A essência de Jericoacoara, elevada</div>
 
      <div class="hero-grid">
   <div class="hero-panel">
-    <small>Jeri Rota</small>
+  <small>Premium Travel Experience</small>
 
-    <h1>Experiências e deslocamentos para viver Jericoacoara com mais tranquilidade.</h1>
+<h1>Experiências selecionadas</h1>
 
-    <p>
-      Transfers, passeios e orientação organizados com clareza desde o primeiro contato.
-    </p>
+<p>
+  Transfer, passeios e atendimento direto para viver Jeri com mais clareza, conforto e tranquilidade.
+</p>
 
     <div class="hero-actions">
-      <a class="btn btn-primary" href="https://wa.me/5588982274666?text=Ol%C3%A1%21%20Quero%20reservar%20uma%20experi%C3%AAncia%20com%20a%20Jeri%20Rota." target="_blank" rel="noopener">Reservar experiência</a>
-      <a class="btn btn-outline" href="#servicos">Explorar serviços</a>
+      <a class="btn btn-primary" ...>Planejar minha viagem</a>
+<a class="btn btn-outline" href="#servicos">Ver experiências</a>
     </div>
   </div>
 </div>
