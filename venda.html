@@ -1,789 +1,1005 @@
-import React, { useMemo, useState } from "react";
-import { motion } from "framer-motion";
-import { Button } from "@/components/ui/button";
-import { Card, CardContent } from "@/components/ui/card";
-import { Badge } from "@/components/ui/badge";
-import {
-  Accordion,
-  AccordionContent,
-  AccordionItem,
-  AccordionTrigger,
-} from "@/components/ui/accordion";
-import {
-  MapPin,
-  ShieldCheck,
-  Clock3,
-  MessageCircle,
-  Star,
-  Globe,
-  CheckCircle2,
-  CarFront,
-  ChevronRight,
-  Users,
-  CreditCard,
-  Route,
-  Sparkles,
-  ArrowUpRight,
-  Crown,
-  Phone,
-} from "lucide-react";
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Jeri Rota - Landing Page</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --navy: #0a2342;
+      --navy-2: #071a31;
+      --gold: #d4af7f;
+      --gold-2: #c69c62;
+      --white: #ffffff;
+      --off: #f5f1ea;
+      --text: #102033;
+      --muted: #8ea0b6;
+      --line: rgba(255,255,255,0.1);
+      --shadow: 0 18px 50px rgba(0, 0, 0, 0.18);
+      --radius-xl: 28px;
+      --radius-lg: 20px;
+      --radius-md: 16px;
+      --container: 1180px;
+    }
 
-const WHATSAPP_LINK =
-  "https://wa.me/5588982274666?text=Olá,%20quero%20reservar%20meu%20transfer%20para%20Jericoacoara";
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font-family: 'Inter', sans-serif;
+      color: var(--white);
+      background:
+        radial-gradient(circle at top left, rgba(212,175,127,0.12), transparent 26%),
+        linear-gradient(180deg, #071a31 0%, #0a2342 38%, #081c33 100%);
+      overflow-x: hidden;
+    }
 
-const BRAND = {
-  navy: "#0a2342",
-  gold: "#d4af7f",
-  ivory: "#f2efe9",
-  white: "#ffffff",
-  deep: "#001a1a",
-  petrol: "#1a3a44",
-};
+    img { max-width: 100%; display: block; }
+    a { text-decoration: none; color: inherit; }
+    button, input { font: inherit; }
 
-const content = {
-  pt: {
-    navCta: "Reservar agora",
-    heroBadge: "Transfer executivo Fortaleza ⇄ Jericoacoara",
-    heroTitle: "Seu transfer em Jericoacoara começa aqui.",
-    heroSubtitle:
-      "Uma landing page visual, moderna e pensada para anúncios: experiência premium, confiança imediata e reserva rápida no WhatsApp.",
-    primaryCta: "Reservar no WhatsApp",
-    secondaryCta: "Ver serviços",
-    socialProof: "Conforto • Segurança • Pontualidade",
-    formTitle: "Reserve seu transfer",
-    formSubtitle: "Rápido, fácil e seguro",
-    trustTitle: "Por que essa página converte melhor",
-    trustItems: [
-      {
-        icon: ShieldCheck,
-        title: "Confiança imediata",
-        text: "Visual forte, argumentos claros e percepção de marca séria nos primeiros segundos.",
-      },
-      {
-        icon: Clock3,
-        title: "Menos fricção",
-        text: "Tudo foi organizado para reduzir dúvidas e acelerar a decisão do cliente.",
-      },
-      {
-        icon: MessageCircle,
-        title: "Ação direta",
-        text: "O visitante sai do anúncio e entra no WhatsApp com intenção real de compra.",
-      },
-    ],
-    featuresTitle: "Mais que um transfer, uma experiência.",
-    featuresSubtitle:
-      "O objetivo é vender conforto, organização e valor percebido antes mesmo da conversa começar.",
-    features: [
-      {
-        icon: Crown,
-        title: "Conforto premium",
-        text: "Visual sofisticado e sensação de serviço diferenciado.",
-      },
-      {
-        icon: Route,
-        title: "Fluxo claro",
-        text: "O cliente entende rápido como funciona e o que fazer em seguida.",
-      },
-      {
-        icon: CreditCard,
-        title: "Decisão facilitada",
-        text: "CTA forte, leitura leve e estrutura pensada para conversão.",
-      },
-      {
-        icon: Users,
-        title: "Atendimento próximo",
-        text: "Integração direta com WhatsApp para capturar leads quentes.",
-      },
-    ],
-    galleryTitle: "Uma estética que vende antes da conversa",
-    galleryText:
-      "Imagens bonitas e bem posicionadas aumentam percepção de valor e ajudam o anúncio a converter mais.",
-    processTitle: "Como a conversão acontece",
-    process: [
-      "O cliente vê o anúncio",
-      "Entra em uma página visual e objetiva",
-      "Entende o valor do serviço em segundos",
-      "Clica no WhatsApp e inicia a reserva",
-    ],
-    testimonialsTitle: "O que nossos clientes dizem",
-    testimonials: [
-      {
-        name: "Carla M.",
-        city: "São Paulo - SP",
-        text: "Transfer perfeito. Atendimento rápido e sensação de segurança do início ao fim.",
-      },
-      {
-        name: "Ricardo T.",
-        city: "Rio de Janeiro - RJ",
-        text: "Visual bonito, processo simples e comunicação excelente desde o primeiro contato.",
-      },
-      {
-        name: "Amanda L.",
-        city: "Belo Horizonte - MG",
-        text: "Página muito bem feita no celular. Passa confiança e leva direto para a reserva.",
-      },
-    ],
-    faqTitle: "Perguntas frequentes",
-    faqs: [
-      {
-        q: "Essa landing page é focada em anúncio?",
-        a: "Sim. A estrutura foi criada para tráfego pago, leitura rápida e clique direto no WhatsApp.",
-      },
-      {
-        q: "Ela funciona bem no mobile?",
-        a: "Sim. O foco principal é mobile-first, sem perder qualidade visual no desktop.",
-      },
-      {
-        q: "Posso trocar imagens e textos depois?",
-        a: "Sim. A estrutura já está pronta para receber suas fotos reais, provas sociais e informações da operação.",
-      },
-    ],
-    finalTitle: "Reserve agora e aproveite Jericoacoara ao máximo.",
-    finalText:
-      "Foco em conversão, experiência premium e contato rápido para transformar clique em reserva.",
-    finalCta: "Falar no WhatsApp",
-    footer: "Jeri Rota • Landing page premium de conversão",
-  },
-  en: {
-    navCta: "Book now",
-    heroBadge: "Executive transfer Fortaleza ⇄ Jericoacoara",
-    heroTitle: "Your transfer to Jericoacoara starts here.",
-    heroSubtitle:
-      "A modern visual landing page built for ads: premium experience, immediate trust, and fast WhatsApp booking.",
-    primaryCta: "Book on WhatsApp",
-    secondaryCta: "View services",
-    socialProof: "Comfort • Safety • Punctuality",
-    formTitle: "Book your transfer",
-    formSubtitle: "Fast, easy and secure",
-    trustTitle: "Why this page converts better",
-    trustItems: [
-      {
-        icon: ShieldCheck,
-        title: "Instant trust",
-        text: "Strong visuals, clear arguments, and a professional brand feeling from the first seconds.",
-      },
-      {
-        icon: Clock3,
-        title: "Less friction",
-        text: "Everything is organized to reduce doubts and speed up customer decisions.",
-      },
-      {
-        icon: MessageCircle,
-        title: "Direct action",
-        text: "Visitors come from the ad and move into WhatsApp with real booking intent.",
-      },
-    ],
-    featuresTitle: "More than a transfer, an experience.",
-    featuresSubtitle:
-      "The goal is to sell comfort, organization, and perceived value before the conversation even starts.",
-    features: [
-      {
-        icon: Crown,
-        title: "Premium comfort",
-        text: "Sophisticated visuals and a differentiated service feeling.",
-      },
-      {
-        icon: Route,
-        title: "Clear flow",
-        text: "The customer quickly understands how it works and what to do next.",
-      },
-      {
-        icon: CreditCard,
-        title: "Easy decision",
-        text: "Strong CTA, light reading, and a structure built for conversion.",
-      },
-      {
-        icon: Users,
-        title: "Human support",
-        text: "Direct WhatsApp integration to capture hot leads.",
-      },
-    ],
-    galleryTitle: "An aesthetic that sells before the conversation",
-    galleryText:
-      "Beautiful visuals increase perceived value and help paid traffic convert better.",
-    processTitle: "How conversion happens",
-    process: [
-      "The customer sees the ad",
-      "Enters a visual and focused page",
-      "Understands the value in seconds",
-      "Clicks WhatsApp and starts booking",
-    ],
-    testimonialsTitle: "What our customers say",
-    testimonials: [
-      {
-        name: "Carla M.",
-        city: "São Paulo - BR",
-        text: "Perfect transfer. Fast support and a strong sense of safety from start to finish.",
-      },
-      {
-        name: "Ricardo T.",
-        city: "Rio de Janeiro - BR",
-        text: "Beautiful layout, simple flow, and excellent communication from the first contact.",
-      },
-      {
-        name: "Amanda L.",
-        city: "Belo Horizonte - BR",
-        text: "The mobile version looks great. It builds trust and leads naturally to booking.",
-      },
-    ],
-    faqTitle: "Frequently asked questions",
-    faqs: [
-      {
-        q: "Is this landing page built for ads?",
-        a: "Yes. The structure was built for paid traffic, fast reading, and direct WhatsApp conversion.",
-      },
-      {
-        q: "Does it work well on mobile?",
-        a: "Yes. Mobile-first is the main priority, while desktop still keeps a premium look.",
-      },
-      {
-        q: "Can I replace images and copy later?",
-        a: "Yes. The structure is ready for your real photos, social proof, and operational details.",
-      },
-    ],
-    finalTitle: "Book now and enjoy Jericoacoara to the fullest.",
-    finalText:
-      "Built for conversion, premium experience, and fast contact to turn clicks into bookings.",
-    finalCta: "Talk on WhatsApp",
-    footer: "Jeri Rota • Premium conversion landing page",
-  },
-};
+    .container {
+      width: min(calc(100% - 32px), var(--container));
+      margin: 0 auto;
+    }
 
-function SectionTitle({ title, subtitle, align = "left" }: { title: string; subtitle?: string; align?: "left" | "center" }) {
-  return (
-    <div className={align === "center" ? "mx-auto max-w-2xl text-center" : "max-w-2xl"}>
-      <h2
-        className="text-3xl font-semibold leading-tight text-white sm:text-4xl"
-        style={{ fontFamily: "Playfair Display, serif" }}
-      >
-        {title}
-      </h2>
-      {subtitle ? (
-        <p
-          className="mt-3 text-sm leading-7 sm:text-base"
-          style={{ color: "rgba(255,255,255,0.78)", fontFamily: "Montserrat, sans-serif" }}
-        >
-          {subtitle}
-        </p>
-      ) : null}
+    .topbar {
+      position: sticky;
+      top: 0;
+      z-index: 30;
+      backdrop-filter: blur(16px);
+      background: rgba(7, 26, 49, 0.72);
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+    }
+
+    .nav {
+      min-height: 76px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+    }
+
+    .brand-mark {
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      border: 1px solid rgba(212,175,127,0.45);
+      display: grid;
+      place-items: center;
+      color: var(--gold);
+      font-size: 19px;
+      background: rgba(255,255,255,0.02);
+      box-shadow: inset 0 0 0 1px rgba(255,255,255,0.03);
+    }
+
+    .brand-text {
+      line-height: 0.9;
+      font-size: 1.05rem;
+    }
+
+    .brand-text span {
+      display: block;
+      color: var(--gold);
+      font-size: 0.78rem;
+      font-weight: 600;
+      letter-spacing: 0.18em;
+      margin-top: 4px;
+    }
+
+    .nav-links {
+      display: none;
+      gap: 28px;
+      color: rgba(255,255,255,0.86);
+      font-size: 0.96rem;
+    }
+
+    .nav-cta {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .lang {
+      display: none;
+      gap: 8px;
+    }
+
+    .lang span {
+      width: 40px;
+      height: 40px;
+      display: grid;
+      place-items: center;
+      border-radius: 12px;
+      border: 1px solid rgba(212,175,127,0.35);
+      color: rgba(255,255,255,0.86);
+      font-size: 0.86rem;
+      background: rgba(255,255,255,0.03);
+    }
+
+    .lang .active {
+      background: var(--gold);
+      color: var(--navy);
+      font-weight: 700;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      padding: 15px 20px;
+      border-radius: 16px;
+      border: 1px solid transparent;
+      font-weight: 700;
+      cursor: pointer;
+      transition: transform 0.25s ease, box-shadow 0.25s ease, background 0.25s ease, border-color 0.25s ease;
+      box-shadow: none;
+    }
+
+    .btn:hover { transform: translateY(-2px); }
+    .btn-primary {
+      background: linear-gradient(180deg, #ddb680 0%, #c89e62 100%);
+      color: var(--navy);
+      box-shadow: 0 12px 28px rgba(212,175,127,0.24);
+    }
+    .btn-outline {
+      background: rgba(255,255,255,0.03);
+      border-color: rgba(212,175,127,0.3);
+      color: var(--white);
+    }
+
+    .hero {
+      position: relative;
+      padding: 28px 0 30px;
+    }
+
+    .hero-shell {
+      position: relative;
+      overflow: hidden;
+      border-radius: 0 0 34px 34px;
+      min-height: 100svh;
+      background:
+        linear-gradient(90deg, rgba(7,26,49,0.94) 0%, rgba(7,26,49,0.82) 36%, rgba(7,26,49,0.35) 58%, rgba(7,26,49,0.14) 100%),
+        url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1600&q=80') center/cover no-repeat;
+      box-shadow: var(--shadow);
+      isolation: isolate;
+    }
+
+    .hero-shell::after {
+      content: '';
+      position: absolute;
+      inset: auto -10% -18% auto;
+      width: 360px;
+      height: 360px;
+      background: radial-gradient(circle, rgba(212,175,127,0.24), transparent 70%);
+      filter: blur(10px);
+      pointer-events: none;
+      z-index: -1;
+    }
+
+    .hero-grid {
+      position: relative;
+      display: grid;
+      grid-template-columns: 1fr;
+      min-height: calc(100svh - 56px);
+      align-items: center;
+      gap: 26px;
+      padding: 22px 0 180px;
+    }
+
+    .hero-copy {
+      max-width: 640px;
+      padding-top: 16px;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 9px 14px;
+      border: 1px solid rgba(212,175,127,0.28);
+      border-radius: 999px;
+      background: rgba(255,255,255,0.03);
+      color: var(--gold);
+      font-size: 0.76rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      margin-bottom: 18px;
+      backdrop-filter: blur(10px);
+    }
+
+    h1 {
+      margin: 0;
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2.7rem, 8vw, 5rem);
+      line-height: 0.95;
+      letter-spacing: -0.03em;
+      max-width: 10ch;
+    }
+
+    h1 .gold { color: var(--gold); }
+
+    .hero-copy p {
+      margin: 18px 0 0;
+      max-width: 540px;
+      font-size: 1.03rem;
+      line-height: 1.75;
+      color: rgba(255,255,255,0.86);
+    }
+
+    .hero-actions {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 12px;
+      margin-top: 26px;
+    }
+
+    .hero-trust {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 12px;
+      margin-top: 28px;
+    }
+
+    .trust-item {
+      padding: 14px;
+      border-radius: 18px;
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.08);
+      color: rgba(255,255,255,0.92);
+      backdrop-filter: blur(10px);
+    }
+
+    .trust-item strong {
+      display: block;
+      color: var(--gold);
+      font-size: 1rem;
+      margin-bottom: 5px;
+    }
+
+    .trust-item span {
+      font-size: 0.88rem;
+      color: rgba(255,255,255,0.72);
+      line-height: 1.5;
+    }
+
+    .hero-visual {
+      display: none;
+      justify-content: flex-end;
+      align-items: flex-end;
+      min-height: 100%;
+    }
+
+    .vehicle-card {
+      position: relative;
+      width: min(100%, 530px);
+      margin-left: auto;
+      background: linear-gradient(180deg, rgba(255,255,255,0.09), rgba(255,255,255,0.03));
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 28px;
+      padding: 22px;
+      backdrop-filter: blur(12px);
+      box-shadow: var(--shadow);
+    }
+
+    .vehicle-card img {
+      width: 100%;
+      border-radius: 22px;
+      object-fit: cover;
+      aspect-ratio: 4 / 3;
+    }
+
+    .rating-float {
+      position: absolute;
+      right: 18px;
+      bottom: 18px;
+      background: rgba(5,17,32,0.94);
+      color: var(--white);
+      border: 1px solid rgba(212,175,127,0.28);
+      border-radius: 18px;
+      padding: 14px 16px;
+      min-width: 220px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 14px;
+      box-shadow: 0 16px 40px rgba(0,0,0,0.28);
+    }
+
+    .avatars {
+      display: flex;
+      align-items: center;
+    }
+
+    .avatar {
+      width: 38px;
+      height: 38px;
+      border-radius: 50%;
+      border: 2px solid #0c2039;
+      margin-left: -10px;
+      background-size: cover;
+      background-position: center;
+    }
+
+    .avatar:first-child { margin-left: 0; }
+
+    .form-wrap {
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 18px;
+      z-index: 3;
+    }
+
+    .booking-card {
+      background: rgba(255,255,255,0.10);
+      border: 1px solid rgba(255,255,255,0.14);
+      backdrop-filter: blur(18px);
+      border-radius: 26px;
+      padding: 16px;
+      box-shadow: var(--shadow);
+    }
+
+    .booking-head {
+      margin-bottom: 14px;
+    }
+
+    .booking-head strong {
+      display: block;
+      font-size: 1.2rem;
+      margin-bottom: 5px;
+    }
+
+    .booking-head span {
+      color: rgba(255,255,255,0.72);
+      font-size: 0.94rem;
+    }
+
+    .booking-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 12px;
+    }
+
+    .field {
+      background: rgba(255,255,255,0.95);
+      border-radius: 16px;
+      border: 1px solid rgba(16,32,51,0.08);
+      padding: 13px 14px;
+      color: var(--text);
+      box-shadow: inset 0 1px 0 rgba(255,255,255,0.7);
+    }
+
+    .field label {
+      display: block;
+      font-size: 0.78rem;
+      font-weight: 700;
+      color: #4d6078;
+      margin-bottom: 6px;
+    }
+
+    .field input {
+      width: 100%;
+      border: none;
+      outline: none;
+      background: transparent;
+      color: var(--text);
+      font-size: 0.97rem;
+    }
+
+    .field input::placeholder { color: #8091a6; }
+
+    .booking-note {
+      margin-top: 10px;
+      color: rgba(255,255,255,0.68);
+      font-size: 0.82rem;
+    }
+
+    .section {
+      padding: 68px 0;
+    }
+
+    .section-title {
+      text-align: center;
+      max-width: 720px;
+      margin: 0 auto 34px;
+    }
+
+    .section-title .mini {
+      color: var(--gold);
+      text-transform: uppercase;
+      letter-spacing: 0.13em;
+      font-size: 0.78rem;
+      font-weight: 700;
+      margin-bottom: 10px;
+    }
+
+    .section-title h2 {
+      margin: 0 0 12px;
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2rem, 4vw, 3.4rem);
+      line-height: 1.05;
+    }
+
+    .section-title p {
+      margin: 0;
+      color: rgba(255,255,255,0.74);
+      line-height: 1.75;
+    }
+
+    .benefits {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 14px;
+    }
+
+    .benefit-card, .service-card, .review-card, .cta-banner, .gallery-card {
+      border-radius: 24px;
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.08);
+      box-shadow: var(--shadow);
+    }
+
+    .benefit-card {
+      padding: 22px;
+      backdrop-filter: blur(10px);
+    }
+
+    .icon {
+      width: 54px;
+      height: 54px;
+      border-radius: 18px;
+      display: grid;
+      place-items: center;
+      background: rgba(212,175,127,0.12);
+      border: 1px solid rgba(212,175,127,0.22);
+      color: var(--gold);
+      font-size: 1.35rem;
+      margin-bottom: 16px;
+    }
+
+    .benefit-card h3, .service-card h3, .review-card h3 {
+      margin: 0 0 10px;
+      font-size: 1.15rem;
+    }
+
+    .benefit-card p, .service-card p, .review-card p {
+      margin: 0;
+      color: rgba(255,255,255,0.72);
+      line-height: 1.7;
+      font-size: 0.95rem;
+    }
+
+    .services-wrap {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 18px;
+    }
+
+    .service-card {
+      overflow: hidden;
+      transition: transform 0.28s ease, border-color 0.28s ease;
+    }
+
+    .service-card:hover {
+      transform: translateY(-5px);
+      border-color: rgba(212,175,127,0.28);
+    }
+
+    .service-card img {
+      width: 100%;
+      height: 220px;
+      object-fit: cover;
+    }
+
+    .service-body {
+      padding: 20px;
+    }
+
+    .service-chip {
+      display: inline-block;
+      padding: 8px 12px;
+      border-radius: 999px;
+      background: rgba(212,175,127,0.12);
+      border: 1px solid rgba(212,175,127,0.2);
+      color: var(--gold);
+      font-size: 0.78rem;
+      font-weight: 700;
+      margin-bottom: 14px;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+    }
+
+    .proof-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 18px;
+    }
+
+    .review-card {
+      padding: 24px;
+      backdrop-filter: blur(10px);
+    }
+
+    .stars {
+      color: var(--gold);
+      letter-spacing: 0.12em;
+      margin-bottom: 14px;
+      font-size: 0.95rem;
+    }
+
+    .review-user {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-top: 18px;
+    }
+
+    .review-user img {
+      width: 50px;
+      height: 50px;
+      object-fit: cover;
+      border-radius: 50%;
+    }
+
+    .review-user strong {
+      display: block;
+      font-size: 0.98rem;
+    }
+
+    .review-user span {
+      color: rgba(255,255,255,0.64);
+      font-size: 0.88rem;
+    }
+
+    .cta-banner {
+      overflow: hidden;
+      display: grid;
+      grid-template-columns: 1fr;
+      background:
+        linear-gradient(90deg, rgba(7,26,49,0.94) 0%, rgba(7,26,49,0.76) 50%, rgba(7,26,49,0.9) 100%),
+        url('https://images.unsplash.com/photo-1500375592092-40eb2168fd21?auto=format&fit=crop&w=1200&q=80') center/cover no-repeat;
+    }
+
+    .cta-copy {
+      padding: 26px;
+    }
+
+    .cta-copy h3 {
+      margin: 0 0 12px;
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.8rem, 4vw, 3rem);
+      line-height: 1.07;
+      max-width: 12ch;
+    }
+
+    .cta-copy p {
+      margin: 0 0 20px;
+      color: rgba(255,255,255,0.76);
+      line-height: 1.7;
+      max-width: 520px;
+    }
+
+    .cta-actions {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 12px;
+    }
+
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+    }
+
+    .gallery-card {
+      overflow: hidden;
+      min-height: 124px;
+    }
+
+    .gallery-card img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    footer {
+      padding: 42px 0 110px;
+      border-top: 1px solid rgba(255,255,255,0.08);
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 24px;
+    }
+
+    .footer-col h4 {
+      margin: 0 0 12px;
+      font-size: 1rem;
+      color: var(--gold);
+    }
+
+    .footer-col p, .footer-col a {
+      margin: 0;
+      color: rgba(255,255,255,0.72);
+      line-height: 1.8;
+      display: block;
+    }
+
+    .sticky-mobile {
+      position: fixed;
+      left: 14px;
+      right: 14px;
+      bottom: 14px;
+      z-index: 50;
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 10px;
+    }
+
+    .sticky-mobile .btn {
+      min-height: 58px;
+      border-radius: 18px;
+      box-shadow: 0 18px 40px rgba(0,0,0,0.3);
+    }
+
+    @media (min-width: 680px) {
+      .hero-actions,
+      .cta-actions,
+      .booking-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .benefits,
+      .proof-grid,
+      .footer-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .services-wrap { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .gallery-grid { grid-template-columns: repeat(4, 1fr); }
+      .sticky-mobile { max-width: 420px; margin: 0 auto; }
+    }
+
+    @media (min-width: 960px) {
+      .nav-links { display: flex; }
+      .lang { display: flex; }
+
+      .hero-shell {
+        min-height: 930px;
+        border-radius: 0 0 40px 40px;
+      }
+
+      .hero-grid {
+        grid-template-columns: minmax(0, 1.02fr) minmax(440px, 0.98fr);
+        gap: 34px;
+        padding: 34px 0 220px;
+        min-height: 760px;
+      }
+
+      .hero-visual { display: flex; }
+
+      .hero-actions {
+        grid-template-columns: max-content max-content;
+        justify-content: flex-start;
+      }
+
+      .hero-trust {
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+      }
+
+      .booking-grid {
+        grid-template-columns: 1.1fr 1.1fr 0.85fr 0.85fr auto;
+        align-items: end;
+      }
+
+      .benefits { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+      .services-wrap { grid-template-columns: 1.05fr 1fr 1fr; }
+      .proof-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+      .cta-banner {
+        grid-template-columns: 1.05fr 0.95fr;
+        align-items: stretch;
+      }
+      .cta-copy {
+        padding: 42px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+      }
+      .footer-grid { grid-template-columns: 1.2fr 0.8fr 0.8fr 0.8fr; }
+      .sticky-mobile { display: none; }
+    }
+  </style>
+</head>
+<body>
+  <header class="topbar">
+    <div class="container nav">
+      <div class="brand">
+        <div class="brand-mark">✦</div>
+        <div class="brand-text">JERI ROTA <span>PREMIUM TRAVEL</span></div>
+      </div>
+
+      <nav class="nav-links">
+        <a href="#servicos">Serviços</a>
+        <a href="#vantagens">Vantagens</a>
+        <a href="#depoimentos">Depoimentos</a>
+        <a href="#contato">Contato</a>
+      </nav>
+
+      <div class="nav-cta">
+        <div class="lang">
+          <span class="active">PT</span>
+          <span>EN</span>
+        </div>
+        <a class="btn btn-primary" href="#reserva">Reservar Agora</a>
+      </div>
     </div>
-  );
-}
+  </header>
 
-function WhatsAppButton({ children, className = "" }: { children: React.ReactNode; className?: string }) {
-  return (
-    <Button
-      asChild
-      className={`rounded-full border-0 shadow-none ${className}`}
-      style={{ backgroundColor: BRAND.gold, color: BRAND.deep, fontFamily: "Montserrat, sans-serif" }}
-    >
-      <a href={WHATSAPP_LINK} target="_blank" rel="noreferrer">
-        <MessageCircle className="mr-2 h-4 w-4" />
-        {children}
-      </a>
-    </Button>
-  );
-}
+  <main>
+    <section class="hero">
+      <div class="container">
+        <div class="hero-shell">
+          <div class="container hero-grid">
+            <div class="hero-copy">
+              <div class="eyebrow">Conforto · segurança · pontualidade</div>
+              <h1>Seu transfer em <span class="gold">Jericoacoara</span> começa aqui.</h1>
+              <p>Do aeroporto ao paraíso, com atendimento premium, veículos confortáveis e reserva rápida pelo WhatsApp. Uma landing pensada para converter no mobile sem perder força no desktop.</p>
 
-export default function JeriRotaTransferLandingPage() {
-  const [lang, setLang] = useState<"pt" | "en">("pt");
-  const t = useMemo(() => content[lang], [lang]);
+              <div class="hero-actions">
+                <a class="btn btn-primary" href="#reserva">Reservar no WhatsApp</a>
+                <a class="btn btn-outline" href="#servicos">Ver serviços</a>
+              </div>
 
-  return (
-    <div
-      className="min-h-screen text-white"
-      style={{
-        background: `linear-gradient(180deg, ${BRAND.deep} 0%, ${BRAND.navy} 52%, ${BRAND.deep} 100%)`,
-        fontFamily: "Montserrat, sans-serif",
-      }}
-    >
-      <div className="fixed inset-x-0 top-0 z-50 border-b border-white/10 bg-black/20 backdrop-blur-xl">
-        <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-4 sm:px-6 lg:px-8">
-          <div className="flex items-center gap-3">
-            <div
-              className="flex h-10 w-10 items-center justify-center rounded-full border"
-              style={{ borderColor: "rgba(212,175,127,0.35)", color: BRAND.gold }}
-            >
-              <Sparkles className="h-5 w-5" />
+              <div class="hero-trust">
+                <div class="trust-item">
+                  <strong>Motoristas profissionais</strong>
+                  <span>Atendimento seguro e experiente.</span>
+                </div>
+                <div class="trust-item">
+                  <strong>Veículos confortáveis</strong>
+                  <span>Mais espaço, climatização e cuidado.</span>
+                </div>
+                <div class="trust-item">
+                  <strong>Resposta rápida</strong>
+                  <span>Contato simples e fechamento direto.</span>
+                </div>
+                <div class="trust-item">
+                  <strong>Pontualidade</strong>
+                  <span>Operação organizada do início ao fim.</span>
+                </div>
+              </div>
             </div>
-            <div>
-              <p className="text-lg font-semibold tracking-[0.16em] text-white">JERI</p>
-              <p className="-mt-1 text-sm tracking-[0.25em]" style={{ color: BRAND.gold }}>
-                ROTA
-              </p>
+
+            <div class="hero-visual">
+              <div class="vehicle-card">
+                <img src="https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?auto=format&fit=crop&w=1200&q=80" alt="Veículo executivo em praia tropical" />
+                <div class="rating-float">
+                  <div class="avatars">
+                    <div class="avatar" style="background-image:url('https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=400&q=80')"></div>
+                    <div class="avatar" style="background-image:url('https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=400&q=80')"></div>
+                    <div class="avatar" style="background-image:url('https://images.unsplash.com/photo-1438761681033-6461ffad8d80?auto=format&fit=crop&w=400&q=80')"></div>
+                  </div>
+                  <div>
+                    <strong style="display:block;font-size:1.35rem;line-height:1;">5,0 ★★★★★</strong>
+                    <span style="color:rgba(255,255,255,0.72);font-size:0.88rem;">+200 avaliações</span>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
 
-          <div className="hidden items-center gap-8 lg:flex">
-            {[
-              lang === "pt" ? "Início" : "Home",
-              lang === "pt" ? "Serviços" : "Services",
-              lang === "pt" ? "Vantagens" : "Benefits",
-              lang === "pt" ? "Depoimentos" : "Reviews",
-              "FAQ",
-              lang === "pt" ? "Contato" : "Contact",
-            ].map((item) => (
-              <a key={item} href="#" className="text-sm text-white/85 transition hover:text-white">
-                {item}
-              </a>
-            ))}
-          </div>
-
-          <div className="flex items-center gap-3">
-            <button
-              onClick={() => setLang(lang === "pt" ? "en" : "pt")}
-              className="inline-flex items-center gap-2 rounded-full border px-3 py-2 text-xs text-white transition hover:bg-white/10"
-              style={{ borderColor: "rgba(255,255,255,0.14)", background: "rgba(255,255,255,0.05)" }}
-            >
-              <Globe className="h-4 w-4" />
-              {lang === "pt" ? "PT | EN" : "EN | PT"}
-            </button>
-            <WhatsAppButton className="hidden h-11 px-5 sm:inline-flex">{t.navCta}</WhatsAppButton>
+          <div class="form-wrap" id="reserva">
+            <div class="container">
+              <div class="booking-card">
+                <div class="booking-head">
+                  <strong>Consulte sua disponibilidade</strong>
+                  <span>Pré-reserva rápida. Ideal para tráfego pago e conversão no WhatsApp.</span>
+                </div>
+                <div class="booking-grid">
+                  <div class="field">
+                    <label>Origem</label>
+                    <input placeholder="Ex.: Aeroporto de Fortaleza" />
+                  </div>
+                  <div class="field">
+                    <label>Destino</label>
+                    <input placeholder="Ex.: Jericoacoara" />
+                  </div>
+                  <div class="field">
+                    <label>Data</label>
+                    <input placeholder="dd/mm/aaaa" />
+                  </div>
+                  <div class="field">
+                    <label>Passageiros</label>
+                    <input placeholder="1 pessoa" />
+                  </div>
+                  <a class="btn btn-primary" href="#">Consultar via WhatsApp</a>
+                </div>
+                <div class="booking-note">Os dados podem ser enviados direto para o WhatsApp com mensagem pronta.</div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
+    </section>
 
-      <main>
-        <section className="relative overflow-hidden px-4 pb-10 pt-28 sm:px-6 sm:pt-32 lg:px-8">
-          <div
-            className="absolute inset-0"
-            style={{
-              background:
-                "radial-gradient(circle at top left, rgba(212,175,127,0.14), transparent 30%), radial-gradient(circle at top right, rgba(26,58,68,0.35), transparent 30%)",
-            }}
-          />
+    <section class="section" id="vantagens">
+      <div class="container">
+        <div class="section-title">
+          <div class="mini">vantagens</div>
+          <h2>Uma landing feita para vender no celular.</h2>
+          <p>Estrutura enxuta, CTA visível, prova social rápida e experiência visual premium. Menos distração. Mais clique qualificado.</p>
+        </div>
 
-          <div className="mx-auto grid max-w-7xl items-center gap-10 lg:grid-cols-[1.05fr_0.95fr]">
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5 }}
-              className="relative z-10"
-            >
-              <Badge
-                className="mb-5 rounded-full border px-4 py-1.5 text-xs font-medium"
-                style={{
-                  borderColor: "rgba(212,175,127,0.3)",
-                  background: "rgba(212,175,127,0.1)",
-                  color: BRAND.gold,
-                }}
-              >
-                {t.heroBadge}
-              </Badge>
-
-              <p className="mb-4 text-xs uppercase tracking-[0.22em]" style={{ color: "rgba(212,175,127,0.85)" }}>
-                {t.socialProof}
-              </p>
-
-              <h1
-                className="max-w-3xl text-5xl font-semibold leading-[0.95] text-white sm:text-6xl lg:text-7xl"
-                style={{ fontFamily: "Playfair Display, serif" }}
-              >
-                {t.heroTitle}
-              </h1>
-
-              <p className="mt-5 max-w-xl text-base leading-7 text-white/80 sm:text-lg">
-                {t.heroSubtitle}
-              </p>
-
-              <div className="mt-8 flex flex-col gap-3 sm:flex-row">
-                <WhatsAppButton className="h-12 px-6 text-base font-semibold">{t.primaryCta}</WhatsAppButton>
-                <Button
-                  asChild
-                  variant="outline"
-                  className="h-12 rounded-full border px-6 text-base text-white hover:bg-white/10 hover:text-white"
-                  style={{ borderColor: "rgba(212,175,127,0.35)", background: "rgba(255,255,255,0.02)" }}
-                >
-                  <a href="#services">
-                    {t.secondaryCta}
-                    <ChevronRight className="ml-2 h-4 w-4" />
-                  </a>
-                </Button>
-              </div>
-
-              <div className="mt-8 grid grid-cols-1 gap-3 sm:grid-cols-3">
-                {[
-                  { icon: ShieldCheck, label: lang === "pt" ? "Motoristas profissionais" : "Professional drivers" },
-                  { icon: CarFront, label: lang === "pt" ? "Veículos confortáveis" : "Comfortable vehicles" },
-                  { icon: Clock3, label: lang === "pt" ? "Pontualidade garantida" : "Guaranteed punctuality" },
-                ].map((item) => {
-                  const Icon = item.icon;
-                  return (
-                    <motion.div key={item.label} whileHover={{ y: -4 }} transition={{ duration: 0.2 }}>
-                      <Card className="rounded-3xl border-white/10 bg-white/5 backdrop-blur-sm transition hover:border-white/20 hover:bg-white/10">
-                        <CardContent className="flex items-center gap-3 p-4">
-                          <div
-                            className="flex h-11 w-11 items-center justify-center rounded-2xl"
-                            style={{ background: "rgba(212,175,127,0.12)", color: BRAND.gold }}
-                          >
-                            <Icon className="h-5 w-5" />
-                          </div>
-                          <p className="text-sm leading-5 text-white/90">{item.label}</p>
-                        </CardContent>
-                      </Card>
-                    </motion.div>
-                  );
-                })}
-              </div>
-            </motion.div>
-
-            <motion.div
-              initial={{ opacity: 0, scale: 0.98 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.55, delay: 0.05 }}
-              className="relative z-10"
-            >
-              <div className="relative mx-auto max-w-xl">
-                <motion.div
-                  whileHover={{ y: -6, scale: 1.01 }}
-                  transition={{ duration: 0.25 }}
-                  className="overflow-hidden rounded-[32px] border border-white/10 shadow-[0_28px_70px_rgba(0,0,0,0.35)]"
-                >
-                  <div
-                    className="relative min-h-[560px] bg-cover bg-center"
-                    style={{
-                      backgroundImage:
-                        "linear-gradient(to top, rgba(0,0,0,0.55), rgba(0,0,0,0.18)), url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1400&q=80')",
-                    }}
-                  >
-                    <div className="absolute inset-0 bg-gradient-to-r from-[#001a1a]/70 via-transparent to-transparent" />
-                    <div className="absolute inset-x-0 top-0 flex items-center justify-between p-5">
-                      <div>
-                        <p className="text-lg font-semibold tracking-[0.12em] text-white">JERI</p>
-                        <p className="-mt-1 text-xs tracking-[0.25em]" style={{ color: BRAND.gold }}>
-                          ROTA
-                        </p>
-                      </div>
-                      <div className="rounded-full border border-white/15 bg-black/25 px-3 py-1 text-xs text-white/90">
-                        Mobile preview
-                      </div>
-                    </div>
-
-                    <div className="absolute inset-x-0 bottom-0 p-5 sm:p-6">
-                      <div className="rounded-[28px] border border-white/10 bg-black/35 p-5 backdrop-blur-md">
-                        <p className="text-xs uppercase tracking-[0.18em]" style={{ color: BRAND.gold }}>
-                          Premium transfer experience
-                        </p>
-                        <h3
-                          className="mt-3 text-3xl font-semibold leading-tight text-white"
-                          style={{ fontFamily: "Playfair Display, serif" }}
-                        >
-                          {lang === "pt" ? "Seu transfer em Jericoacoara começa aqui." : "Your transfer to Jericoacoara starts here."}
-                        </h3>
-                        <div className="mt-4 grid grid-cols-3 gap-2">
-                          {[
-                            lang === "pt" ? "Profissionais" : "Drivers",
-                            lang === "pt" ? "Conforto" : "Comfort",
-                            lang === "pt" ? "Pontualidade" : "Punctuality",
-                          ].map((item) => (
-                            <div key={item} className="rounded-2xl border border-white/10 bg-white/5 px-3 py-3 text-center text-xs text-white/90">
-                              {item}
-                            </div>
-                          ))}
-                        </div>
-                        <WhatsAppButton className="mt-5 h-11 w-full text-sm font-semibold">
-                          {t.primaryCta}
-                        </WhatsAppButton>
-                      </div>
-                    </div>
-                  </div>
-                </motion.div>
-
-                <motion.div
-                  whileHover={{ y: -4 }}
-                  className="absolute -bottom-6 right-4 rounded-[24px] border border-white/10 bg-[#062135] px-5 py-4 shadow-xl backdrop-blur-md"
-                >
-                  <div className="flex items-center gap-3">
-                    <div className="flex -space-x-2">
-                      {[1, 2, 3, 4].map((n) => (
-                        <div
-                          key={n}
-                          className="h-9 w-9 rounded-full border-2 border-[#062135] bg-white/20"
-                          style={{ background: `linear-gradient(135deg, ${BRAND.gold}, ${BRAND.ivory})` }}
-                        />
-                      ))}
-                    </div>
-                    <div>
-                      <div className="flex items-center gap-2">
-                        <span className="text-2xl font-semibold text-white">5,0</span>
-                        <div className="flex gap-1" style={{ color: BRAND.gold }}>
-                          {Array.from({ length: 5 }).map((_, i) => (
-                            <Star key={i} className="h-4 w-4 fill-current" />
-                          ))}
-                        </div>
-                      </div>
-                      <p className="text-xs text-white/75">+200 avaliações</p>
-                    </div>
-                  </div>
-                </motion.div>
-              </div>
-            </motion.div>
-          </div>
-        </section>
-
-        <section className="relative z-10 mx-auto -mt-2 max-w-7xl px-4 sm:px-6 lg:px-8">
-          <Card className="overflow-hidden rounded-[32px] border-0 bg-white shadow-[0_20px_70px_rgba(0,0,0,0.22)]">
-            <CardContent className="p-6 sm:p-8">
-              <div className="grid gap-6 lg:grid-cols-[1fr_auto] lg:items-end">
-                <div>
-                  <h2
-                    className="text-3xl font-semibold"
-                    style={{ color: BRAND.deep, fontFamily: "Playfair Display, serif" }}
-                  >
-                    {t.formTitle}
-                  </h2>
-                  <p className="mt-2 text-sm" style={{ color: "#5d6975" }}>
-                    {t.formSubtitle}
-                  </p>
-                </div>
-              </div>
-
-              <div className="mt-6 grid gap-3 md:grid-cols-5">
-                {[
-                  lang === "pt" ? "Origem" : "Origin",
-                  lang === "pt" ? "Destino" : "Destination",
-                  lang === "pt" ? "Data" : "Date",
-                  lang === "pt" ? "Passageiros" : "Passengers",
-                ].map((label, index) => (
-                  <div key={label} className={index === 3 ? "md:col-span-1" : "md:col-span-1"}>
-                    <div className="rounded-2xl border border-black/10 bg-[#fbfbfb] px-4 py-4 text-sm text-[#52606d]">
-                      <p className="mb-1 text-xs font-medium uppercase tracking-[0.08em] text-[#7a8691]">{label}</p>
-                      <p>{lang === "pt" ? "Ex.: Jericoacoara" : "Eg.: Jericoacoara"}</p>
-                    </div>
-                  </div>
-                ))}
-
-                <Button
-                  className="h-[74px] rounded-2xl text-sm font-semibold text-[#001a1a] shadow-none"
-                  style={{ backgroundColor: BRAND.gold }}
-                >
-                  {lang === "pt" ? "Consultar disponibilidade" : "Check availability"}
-                </Button>
-              </div>
-
-              <p className="mt-4 text-xs" style={{ color: "#7a8691" }}>
-                {lang === "pt"
-                  ? "Você será redirecionado para o WhatsApp para concluir sua reserva."
-                  : "You will be redirected to WhatsApp to complete your reservation."}
-              </p>
-            </CardContent>
-          </Card>
-        </section>
-
-        <section className="px-4 py-16 sm:px-6 lg:px-8">
-          <div className="mx-auto max-w-7xl">
-            <SectionTitle title={t.trustTitle} subtitle={t.galleryText} align="center" />
-            <div className="mt-10 grid gap-4 md:grid-cols-3">
-              {t.trustItems.map((item) => {
-                const Icon = item.icon;
-                return (
-                  <motion.div key={item.title} whileHover={{ y: -6 }} transition={{ duration: 0.2 }}>
-                    <Card className="rounded-[28px] border-white/10 bg-white/5 backdrop-blur-sm transition hover:border-white/20 hover:bg-white/10">
-                      <CardContent className="p-6">
-                        <div
-                          className="mb-5 inline-flex h-14 w-14 items-center justify-center rounded-2xl"
-                          style={{ background: "rgba(212,175,127,0.14)", color: BRAND.gold }}
-                        >
-                          <Icon className="h-6 w-6" />
-                        </div>
-                        <h3 className="text-xl font-semibold text-white">{item.title}</h3>
-                        <p className="mt-3 text-sm leading-7 text-white/72">{item.text}</p>
-                      </CardContent>
-                    </Card>
-                  </motion.div>
-                );
-              })}
-            </div>
-          </div>
-        </section>
-
-        <section id="services" className="px-4 py-6 sm:px-6 lg:px-8">
-          <div className="mx-auto grid max-w-7xl gap-6 lg:grid-cols-[0.9fr_1.1fr]">
-            <Card className="rounded-[32px] border-0 text-white" style={{ background: `linear-gradient(135deg, ${BRAND.deep}, ${BRAND.navy})` }}>
-              <CardContent className="p-8">
-                <p className="text-xs uppercase tracking-[0.2em]" style={{ color: BRAND.gold }}>
-                  Nossos serviços
-                </p>
-                <h2
-                  className="mt-4 text-4xl font-semibold leading-tight"
-                  style={{ fontFamily: "Playfair Display, serif" }}
-                >
-                  {t.featuresTitle}
-                </h2>
-                <p className="mt-4 text-sm leading-7 text-white/78">{t.featuresSubtitle}</p>
-                <Button
-                  className="mt-8 rounded-full px-6 py-6 text-sm font-semibold"
-                  style={{ backgroundColor: BRAND.gold, color: BRAND.deep }}
-                >
-                  {lang === "pt" ? "Ver todos os serviços" : "View all services"}
-                  <ArrowUpRight className="ml-2 h-4 w-4" />
-                </Button>
-              </CardContent>
-            </Card>
-
-            <div className="grid gap-4 md:grid-cols-3">
-              {[
-                {
-                  title: lang === "pt" ? "Aeroporto → Jericoacoara" : "Airport → Jericoacoara",
-                  text: lang === "pt" ? "Transfer privativo com conforto e pontualidade." : "Private transfer with comfort and punctuality.",
-                  image:
-                    "https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=900&q=80",
-                },
-                {
-                  title: lang === "pt" ? "Passeios e Tours" : "Tours and Experiences",
-                  text: lang === "pt" ? "Descubra o melhor de Jeri com quem conhece a região." : "Discover the best of Jeri with local expertise.",
-                  image:
-                    "https://images.unsplash.com/photo-1500375592092-40eb2168fd21?auto=format&fit=crop&w=900&q=80",
-                },
-                {
-                  title: lang === "pt" ? "Eventos e Grupos" : "Events and Groups",
-                  text: lang === "pt" ? "Soluções personalizadas para sua necessidade." : "Tailored solutions for your group or event.",
-                  image:
-                    "https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?auto=format&fit=crop&w=900&q=80",
-                },
-              ].map((item) => (
-                <motion.div key={item.title} whileHover={{ y: -6 }} transition={{ duration: 0.25 }}>
-                  <Card className="group overflow-hidden rounded-[28px] border-white/10 bg-[#08233a] text-white transition hover:border-[rgba(212,175,127,0.35)]">
-                    <div className="h-52 overflow-hidden">
-                      <img
-                        src={item.image}
-                        alt={item.title}
-                        className="h-full w-full object-cover transition duration-500 group-hover:scale-105"
-                      />
-                    </div>
-                    <CardContent className="p-5">
-                      <h3 className="text-lg font-semibold">{item.title}</h3>
-                      <p className="mt-2 text-sm leading-6 text-white/72">{item.text}</p>
-                    </CardContent>
-                  </Card>
-                </motion.div>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        <section className="px-4 py-16 sm:px-6 lg:px-8">
-          <div className="mx-auto max-w-7xl">
-            <SectionTitle title={t.testimonialsTitle} subtitle={lang === "pt" ? "Segurança visual também converte." : "Visual trust also converts."} />
-            <div className="mt-10 grid gap-4 md:grid-cols-3">
-              {t.testimonials.map((item) => (
-                <motion.div key={item.name} whileHover={{ y: -5 }} transition={{ duration: 0.2 }}>
-                  <Card className="rounded-[28px] border-0 bg-white text-[#0d1826] shadow-lg">
-                    <CardContent className="p-6">
-                      <div className="mb-4 flex gap-1" style={{ color: BRAND.gold }}>
-                        {Array.from({ length: 5 }).map((_, i) => (
-                          <Star key={i} className="h-4 w-4 fill-current" />
-                        ))}
-                      </div>
-                      <p className="text-sm leading-7 text-[#314252]">“{item.text}”</p>
-                      <div className="mt-6 flex items-center gap-3">
-                        <div
-                          className="flex h-11 w-11 items-center justify-center rounded-full text-sm font-semibold"
-                          style={{ background: BRAND.ivory, color: BRAND.deep }}
-                        >
-                          {item.name.charAt(0)}
-                        </div>
-                        <div>
-                          <p className="font-semibold">{item.name}</p>
-                          <p className="text-xs text-[#6f7c88]">{item.city}</p>
-                        </div>
-                      </div>
-                    </CardContent>
-                  </Card>
-                </motion.div>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        <section className="px-4 py-6 sm:px-6 lg:px-8">
-          <div className="mx-auto max-w-5xl rounded-[32px] border border-white/10 bg-white/5 p-6 backdrop-blur-sm sm:p-8">
-            <SectionTitle title={t.faqTitle} align="center" />
-            <Accordion type="single" collapsible className="mt-8 w-full">
-              {t.faqs.map((faq, index) => (
-                <AccordionItem key={index} value={`faq-${index}`} className="border-white/10">
-                  <AccordionTrigger className="text-left text-base text-white hover:no-underline">
-                    {faq.q}
-                  </AccordionTrigger>
-                  <AccordionContent className="text-sm leading-7 text-white/72">{faq.a}</AccordionContent>
-                </AccordionItem>
-              ))}
-            </Accordion>
-          </div>
-        </section>
-
-        <section className="px-4 pb-28 pt-16 sm:px-6 lg:px-8">
-          <div
-            className="mx-auto grid max-w-7xl gap-6 overflow-hidden rounded-[32px] border border-white/10 p-6 sm:p-8 lg:grid-cols-[1fr_auto] lg:items-center"
-            style={{ background: `linear-gradient(135deg, ${BRAND.deep}, ${BRAND.navy})` }}
-          >
-            <div>
-              <p className="text-xs uppercase tracking-[0.2em]" style={{ color: BRAND.gold }}>
-                {lang === "pt" ? "Pronto para sua viagem?" : "Ready for your trip?"}
-              </p>
-              <h2
-                className="mt-3 max-w-2xl text-4xl font-semibold leading-tight text-white"
-                style={{ fontFamily: "Playfair Display, serif" }}
-              >
-                {t.finalTitle}
-              </h2>
-              <p className="mt-4 max-w-2xl text-sm leading-7 text-white/78">{t.finalText}</p>
-
-              <div className="mt-6 flex flex-wrap gap-6 text-sm text-white/80">
-                <div className="flex items-center gap-2">
-                  <Phone className="h-4 w-4" style={{ color: BRAND.gold }} />
-                  <span>{lang === "pt" ? "Atendimento rápido via WhatsApp" : "Fast support on WhatsApp"}</span>
-                </div>
-                <div className="flex items-center gap-2">
-                  <ShieldCheck className="h-4 w-4" style={{ color: BRAND.gold }} />
-                  <span>{lang === "pt" ? "Pagamento facilitado e seguro" : "Easy and secure payment"}</span>
-                </div>
-              </div>
-            </div>
-
-            <div className="flex flex-col gap-3 lg:min-w-[290px]">
-              <WhatsAppButton className="h-14 px-6 text-base font-semibold">{t.finalCta}</WhatsAppButton>
-              <Button
-                variant="outline"
-                className="h-14 rounded-full border text-base text-white hover:bg-white/10 hover:text-white"
-                style={{ borderColor: "rgba(212,175,127,0.35)", background: "transparent" }}
-              >
-                {lang === "pt" ? "Falar com atendente" : "Talk to support"}
-              </Button>
-            </div>
-          </div>
-        </section>
-      </main>
-
-      <a
-        href={WHATSAPP_LINK}
-        target="_blank"
-        rel="noreferrer"
-        className="fixed bottom-24 right-4 z-50 inline-flex h-14 w-14 items-center justify-center rounded-full text-white shadow-[0_12px_30px_rgba(0,0,0,0.35)] transition hover:scale-105 sm:bottom-6"
-        style={{ backgroundColor: "#25D366" }}
-        aria-label="WhatsApp"
-      >
-        <MessageCircle className="h-6 w-6" />
-      </a>
-
-      <div className="fixed inset-x-0 bottom-0 z-40 border-t border-white/10 bg-[#04131f]/95 px-4 py-3 backdrop-blur-xl sm:hidden">
-        <WhatsAppButton className="h-12 w-full text-base font-semibold">{t.primaryCta}</WhatsAppButton>
+        <div class="benefits">
+          <article class="benefit-card">
+            <div class="icon">★</div>
+            <h3>Foco na conversão</h3>
+            <p>Hero claro, CTA forte e formulário pensado para levar direto ao WhatsApp sem fricção desnecessária.</p>
+          </article>
+          <article class="benefit-card">
+            <div class="icon">⌁</div>
+            <h3>Experiência mobile first</h3>
+            <p>Layout otimizado para thumb zone, leitura rápida, contraste forte e botão fixo para capturar o clique.</p>
+          </article>
+          <article class="benefit-card">
+            <div class="icon">◈</div>
+            <h3>Visual premium</h3>
+            <p>Paleta navy + dourado, profundidade com overlay e cards elegantes sem aquelas quebras brancas pobres.</p>
+          </article>
+          <article class="benefit-card">
+            <div class="icon">⚡</div>
+            <h3>Leve para GitHub Pages</h3>
+            <p>Tudo em HTML + CSS puro, sem dependências pesadas, perfeito para subir rápido e manter com facilidade.</p>
+          </article>
+        </div>
       </div>
+    </section>
 
-      <footer className="border-t border-white/10 px-4 py-8 text-white/65 sm:px-6 lg:px-8">
-        <div className="mx-auto flex max-w-7xl flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
-          <div>
-            <p className="text-lg font-semibold tracking-[0.14em] text-white">JERI ROTA</p>
-            <p className="text-sm" style={{ color: BRAND.gold }}>
-              {t.footer}
-            </p>
+    <section class="section" id="servicos">
+      <div class="container">
+        <div class="section-title">
+          <div class="mini">serviços</div>
+          <h2>Mais que um transfer, uma experiência organizada.</h2>
+          <p>Você pode manter a landing enxuta e vender os serviços principais com cards bem posicionados e leitura imediata.</p>
+        </div>
+
+        <div class="services-wrap">
+          <article class="service-card">
+            <img src="https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=1200&q=80" alt="Transfer executivo" />
+            <div class="service-body">
+              <span class="service-chip">Principal oferta</span>
+              <h3>Aeroporto → Jericoacoara</h3>
+              <p>Seu serviço âncora deve aparecer primeiro. É o que o anúncio vai vender. Simples, direto e com CTA imediato.</p>
+            </div>
+          </article>
+          <article class="service-card">
+            <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1200&q=80" alt="Passeios e tours" />
+            <div class="service-body">
+              <span class="service-chip">Upsell</span>
+              <h3>Passeios e experiências</h3>
+              <p>Use como apoio para aumentar ticket. Não precisa roubar atenção do transfer, apenas reforçar valor percebido.</p>
+            </div>
+          </article>
+          <article class="service-card">
+            <img src="https://images.unsplash.com/photo-1519125323398-675f0ddb6308?auto=format&fit=crop&w=1200&q=80" alt="Atendimento para grupos" />
+            <div class="service-body">
+              <span class="service-chip">Personalizado</span>
+              <h3>Grupos e demandas especiais</h3>
+              <p>Mostra flexibilidade operacional sem poluir a página. Ajuda no desktop e dá confiança para quem compara opções.</p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="depoimentos">
+      <div class="container">
+        <div class="section-title">
+          <div class="mini">prova social</div>
+          <h2>Confiança precisa aparecer rápido.</h2>
+          <p>No mobile, ninguém quer ler muito. Três provas fortes já resolvem bem: nota alta, comentário curto e rosto real.</p>
+        </div>
+
+        <div class="proof-grid">
+          <article class="review-card">
+            <div class="stars">★★★★★</div>
+            <p>“Reserva simples, atendimento rápido e viagem muito confortável. Tudo passou segurança desde o primeiro contato.”</p>
+            <div class="review-user">
+              <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=400&q=80" alt="Cliente" />
+              <div><strong>Carla M.</strong><span>São Paulo · SP</span></div>
+            </div>
+          </article>
+          <article class="review-card">
+            <div class="stars">★★★★★</div>
+            <p>“Chegamos sem preocupação nenhuma. Motorista pontual e suporte claro antes do embarque.”</p>
+            <div class="review-user">
+              <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=400&q=80" alt="Cliente" />
+              <div><strong>Ricardo T.</strong><span>Rio de Janeiro · RJ</span></div>
+            </div>
+          </article>
+          <article class="review-card">
+            <div class="stars">★★★★★</div>
+            <p>“Visual profissional, atendimento ótimo e resposta rápida no WhatsApp. Passou muita credibilidade.”</p>
+            <div class="review-user">
+              <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?auto=format&fit=crop&w=400&q=80" alt="Cliente" />
+              <div><strong>Amanda L.</strong><span>Belo Horizonte · MG</span></div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="cta-banner">
+          <div class="cta-copy">
+            <div class="mini" style="color:var(--gold);text-transform:uppercase;letter-spacing:.12em;font-weight:700;margin-bottom:10px;">cta final</div>
+            <h3>Pronto para transformar clique em reserva?</h3>
+            <p>Essa estrutura foi pensada para rodar bem no GitHub Pages, ficar forte no mobile e ainda manter aparência premium no desktop e tablet.</p>
+            <div class="cta-actions">
+              <a class="btn btn-primary" href="#reserva">Reservar no WhatsApp</a>
+              <a class="btn btn-outline" href="#servicos">Explorar serviços</a>
+            </div>
           </div>
-          <div className="flex items-center gap-2 text-sm">
-            <MapPin className="h-4 w-4" style={{ color: BRAND.gold }} />
-            <span>Fortaleza • Jericoacoara</span>
+          <div class="cta-copy" style="padding-top:26px;">
+            <div class="gallery-grid">
+              <div class="gallery-card"><img src="https://images.unsplash.com/photo-1483683804023-6ccdb62f86ef?auto=format&fit=crop&w=800&q=80" alt="Praia" /></div>
+              <div class="gallery-card"><img src="https://images.unsplash.com/photo-1527631746610-bca00a040d60?auto=format&fit=crop&w=800&q=80" alt="Paisagem" /></div>
+              <div class="gallery-card"><img src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=800&q=80" alt="Viagem" /></div>
+              <div class="gallery-card"><img src="https://images.unsplash.com/photo-1519677100203-a0e668c92439?auto=format&fit=crop&w=800&q=80" alt="Sunset" /></div>
+            </div>
           </div>
         </div>
-      </footer>
+      </div>
+    </section>
+  </main>
+
+  <footer id="contato">
+    <div class="container footer-grid">
+      <div class="footer-col">
+        <div class="brand" style="margin-bottom:12px;">
+          <div class="brand-mark">✦</div>
+          <div class="brand-text">JERI ROTA <span>PREMIUM TRAVEL</span></div>
+        </div>
+        <p>Landing page com foco em conversão, visual premium e experiência forte para mobile, desktop e tablet.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Links rápidos</h4>
+        <a href="#servicos">Serviços</a>
+        <a href="#vantagens">Vantagens</a>
+        <a href="#depoimentos">Depoimentos</a>
+      </div>
+      <div class="footer-col">
+        <h4>Contato</h4>
+        <a href="#">(88) 99999-9999</a>
+        <a href="#">@jeri.rota</a>
+        <a href="#">contato@jerirota.com.br</a>
+      </div>
+      <div class="footer-col">
+        <h4>Pagamento</h4>
+        <p>Pix</p>
+        <p>Cartão</p>
+        <p>Atendimento via WhatsApp</p>
+      </div>
     </div>
-  );
-}
+  </footer>
+
+  <div class="sticky-mobile">
+    <a class="btn btn-primary" href="#reserva">Reservar via WhatsApp</a>
+  </div>
+</body>
+</html>
