@@ -27,6 +27,82 @@
 
     * { box-sizing: border-box; }
     html { scroll-behavior: smooth; }
+    <script>
+  function enviarWhatsApp(event) {
+    event.preventDefault();
+
+    const origem = document.getElementById('origem').value.trim();
+    const destino = document.getElementById('destino').value.trim();
+    const data = document.getElementById('data').value.trim();
+    const passageiros = document.getElementById('passageiros').value.trim();
+
+    const mensagem =
+      `Olá, quero consultar um transfer para Jericoacoara.%0A%0A` +
+      `Origem: ${origem || '-'}%0A` +
+      `Destino: ${destino || '-'}%0A` +
+      `Data: ${data || '-'}%0A` +
+      `Passageiros: ${passageiros || '-'}`;
+
+    const url = `https://wa.me/5585982274666?text=${mensagem}`;
+window.location.href = url;  }
+</script>
+
+<script>
+  function formatarData(campo) {
+    let valor = campo.value.replace(/\D/g, '');
+
+    if (valor.length > 2) {
+      valor = valor.replace(/^(\d{2})(\d)/, '$1/$2');
+    }
+
+    if (valor.length > 5) {
+      valor = valor.replace(/^(\d{2})\/(\d{2})(\d)/, '$1/$2/$3');
+    }
+
+    campo.value = valor;
+  }
+</script>
+
+<script>
+  function formatarData(campo) {
+    let valor = campo.value.replace(/\D/g, '');
+
+    if (valor.length > 2) {
+      valor = valor.replace(/^(\d{2})(\d)/, '$1/$2');
+    }
+
+    if (valor.length > 5) {
+      valor = valor.replace(/^(\d{2})\/(\d{2})(\d)/, '$1/$2/$3');
+    }
+
+    campo.value = valor;
+  }
+
+  function enviarWhatsApp(event) {
+    event.preventDefault();
+
+    const origem = document.getElementById('origem').value.trim();
+    const destino = document.getElementById('destino').value.trim();
+    const data = document.getElementById('data').value.trim();
+    const passageiros = document.getElementById('passageiros').value.trim();
+
+    if (!origem || !destino || !data || !passageiros) {
+      alert("Preencha todos os campos antes de continuar.");
+      return;
+    }
+
+    const mensagem =
+      `Olá, quero consultar um transfer para Jericoacoara.%0A%0A` +
+      `Origem: ${origem}%0A` +
+      `Destino: ${destino}%0A` +
+      `Data: ${data}%0A` +
+      `Passageiros: ${passageiros}`;
+
+    const url = `https://wa.me/5585982274666?text=${mensagem}`;
+    window.location.href = url;
+  }
+</script>
+
     body {
       margin: 0;
       font-family: 'Inter', sans-serif;
@@ -851,27 +927,31 @@ h1 {
                   <strong>Consulte sua disponibilidade</strong>
                   <span>Pré-reserva rápida. Ideal para tráfego pago e conversão no WhatsApp.</span>
                 </div>
-                <div class="booking-grid">
-                  <div class="field">
-                    <label>Origem</label>
-                    <input placeholder="Ex.: Aeroporto de Fortaleza" />
-                  </div>
-                  <div class="field">
-                    <label>Destino</label>
-                    <input placeholder="Ex.: Jericoacoara" />
-                  </div>
-                  <div class="field">
-                    <label>Data</label>
-                    <input placeholder="dd/mm/aaaa" />
-                  </div>
-                  <div class="field">
-                    <label>Passageiros</label>
-                    <input placeholder="1 pessoa" />
-                  </div>
-                  <a class="btn btn-primary" href="https://wa.me/5588982274666?text=Olá,%20quero%20consultar%20um%20transfer%20para%20Jericoacoara">
-  Consultar via WhatsApp
-</a>
-                </div>
+              <div class="booking-grid">
+  <div class="field">
+    <label>Origem</label>
+    <input id="origem" placeholder="Ex.: Aeroporto de Fortaleza" />
+  </div>
+
+  <div class="field">
+    <label>Destino</label>
+    <input id="destino" placeholder="Ex.: Jericoacoara" />
+  </div>
+
+ <div class="field">
+  <label>Data</label>
+  <input id="data" type="text" placeholder="dd/mm/aaaa" maxlength="10" oninput="formatarData(this)" />
+</div>
+
+  <div class="field">
+    <label>Passageiros</label>
+    <input id="passageiros" placeholder="1 pessoa" />
+  </div>
+
+  <a class="btn btn-primary" href="#" onclick="enviarWhatsApp(event)">
+    Consultar via WhatsApp
+  </a>
+</div>
                 <div class="booking-note">Os dados podem ser enviados direto para o WhatsApp com mensagem pronta.</div>
               </div>
             </div>
