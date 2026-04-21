@@ -28,7 +28,7 @@
     * { box-sizing: border-box; }
     html { scroll-behavior: smooth; }
    
-
+  
     body {
       margin: 0;
       font-family: 'Inter', sans-serif;
@@ -38,6 +38,7 @@
         linear-gradient(180deg, #071a31 0%, #0a2342 38%, #081c33 100%);
       overflow-x: hidden;
     }
+
 
     img { max-width: 100%; display: block; }
     a { text-decoration: none; color: inherit; }
@@ -103,7 +104,11 @@
   letter-spacing: 0.1em;
   margin-top: 4px;
 }
-
+.logo-img {
+  height: 38px;
+  width: auto;
+  object-fit: contain;
+}
     .nav-links {
       display: none;
       gap: 28px;
@@ -766,7 +771,13 @@ h1 {
   <header class="topbar">
     <div class="container nav">
       <div class="brand">
+  <div class="brand">
   <img src="logo.png" alt="Jeri Rota" class="logo-img">
+
+  <div class="brand-text">
+    JERI ROTA
+    <span>PREMIUM TRAVEL</span>
+  </div>
 </div>
 
       <nav class="nav-links">
