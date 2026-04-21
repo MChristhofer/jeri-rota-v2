@@ -27,81 +27,7 @@
 
     * { box-sizing: border-box; }
     html { scroll-behavior: smooth; }
-    <script>
-  function enviarWhatsApp(event) {
-    event.preventDefault();
-
-    const origem = document.getElementById('origem').value.trim();
-    const destino = document.getElementById('destino').value.trim();
-    const data = document.getElementById('data').value.trim();
-    const passageiros = document.getElementById('passageiros').value.trim();
-
-    const mensagem =
-      `Olá, quero consultar um transfer para Jericoacoara.%0A%0A` +
-      `Origem: ${origem || '-'}%0A` +
-      `Destino: ${destino || '-'}%0A` +
-      `Data: ${data || '-'}%0A` +
-      `Passageiros: ${passageiros || '-'}`;
-
-    const url = `https://wa.me/5585982274666?text=${mensagem}`;
-window.location.href = url;  }
-</script>
-
-<script>
-  function formatarData(campo) {
-    let valor = campo.value.replace(/\D/g, '');
-
-    if (valor.length > 2) {
-      valor = valor.replace(/^(\d{2})(\d)/, '$1/$2');
-    }
-
-    if (valor.length > 5) {
-      valor = valor.replace(/^(\d{2})\/(\d{2})(\d)/, '$1/$2/$3');
-    }
-
-    campo.value = valor;
-  }
-</script>
-
-<script>
-  function formatarData(campo) {
-    let valor = campo.value.replace(/\D/g, '');
-
-    if (valor.length > 2) {
-      valor = valor.replace(/^(\d{2})(\d)/, '$1/$2');
-    }
-
-    if (valor.length > 5) {
-      valor = valor.replace(/^(\d{2})\/(\d{2})(\d)/, '$1/$2/$3');
-    }
-
-    campo.value = valor;
-  }
-
-  function enviarWhatsApp(event) {
-    event.preventDefault();
-
-    const origem = document.getElementById('origem').value.trim();
-    const destino = document.getElementById('destino').value.trim();
-    const data = document.getElementById('data').value.trim();
-    const passageiros = document.getElementById('passageiros').value.trim();
-
-    if (!origem || !destino || !data || !passageiros) {
-      alert("Preencha todos os campos antes de continuar.");
-      return;
-    }
-
-    const mensagem =
-      `Olá, quero consultar um transfer para Jericoacoara.%0A%0A` +
-      `Origem: ${origem}%0A` +
-      `Destino: ${destino}%0A` +
-      `Data: ${data}%0A` +
-      `Passageiros: ${passageiros}`;
-
-    const url = `https://wa.me/5585982274666?text=${mensagem}`;
-    window.location.href = url;
-  }
-</script>
+   
 
     body {
       margin: 0;
@@ -876,8 +802,8 @@ h1 {
   Transfers executivos entre Fortaleza e Jericoacoara,
   com conforto, pontualidade e atendimento direto via WhatsApp.
 </p>
+<div class="hero-actions">
 
-              <a class="btn btn-primary" href="#reserva">reservar agora</a>
                 <a class="btn btn-primary" href="#reserva">Reservar agora</a>
                 <a class="btn btn-outline" href="#servicos">Ver serviços</a>
               </div>
@@ -1149,6 +1075,46 @@ h1 {
   <a class="btn btn-primary" href="https://wa.me/5588982274666?text=Olá,%20quero%20fazer%20minha%20reserva%20para%20Jericoacoara">
     Reservar agora
   </a>
-</div>  </div>
+</div>
+<script>
+  function formatarData(campo) {
+    let valor = campo.value.replace(/\D/g, '');
+
+    if (valor.length > 2) {
+      valor = valor.replace(/^(\d{2})(\d)/, '$1/$2');
+    }
+
+    if (valor.length > 5) {
+      valor = valor.replace(/^(\d{2})\/(\d{2})(\d)/, '$1/$2/$3');
+    }
+
+    campo.value = valor;
+  }
+
+  function enviarWhatsApp(event) {
+    event.preventDefault();
+
+    const origem = document.getElementById('origem').value.trim();
+    const destino = document.getElementById('destino').value.trim();
+    const data = document.getElementById('data').value.trim();
+    const passageiros = document.getElementById('passageiros').value.trim();
+
+    if (!origem || !destino || !data || !passageiros) {
+      alert("Preencha todos os campos antes de continuar.");
+      return;
+    }
+
+    const mensagem =
+      `Olá, quero consultar um transfer para Jericoacoara.%0A%0A` +
+      `Origem: ${origem}%0A` +
+      `Destino: ${destino}%0A` +
+      `Data: ${data}%0A` +
+      `Passageiros: ${passageiros}`;
+
+    const url = `https://wa.me/5585982274666?text=${mensagem}`;
+    window.location.href = url;
+  }
+</script> 
+
 </body>
 </html>
