@@ -176,6 +176,15 @@
       padding: 28px 0 30px;
     }
 
+    .hero-video {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: -2;
+}
+
     .hero-shell {
       position: relative;
       overflow: hidden;
@@ -183,10 +192,21 @@
       min-height: 100svh;
       background:
          linear-gradient(90deg, rgba(7,26,49,0.96) 0%, rgba(7,26,49,0.85) 40%, rgba(7,26,49,0.25) 65%, rgba(7,26,49,0.05) 100%),
-        url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1600&q=80') center/cover no-repeat;
+        <video class="hero-video" autoplay muted loop playsinline>
+  <source src="img/hero-jeri.mp4" type="video/mp4">
+</video>
       box-shadow: var(--shadow);
       isolation: isolate;
     }
+
+    .hero-shell::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(90deg, rgba(7,26,49,0.96) 0%, rgba(7,26,49,0.85) 40%, rgba(7,26,49,0.25) 65%, rgba(7,26,49,0.05) 100%);
+  z-index: -1;
+}
 
     .hero-shell::after {
       content: '';
