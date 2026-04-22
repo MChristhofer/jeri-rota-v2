@@ -176,23 +176,29 @@
       padding: 28px 0 30px;
     }
 
-    .hero-video {
+ .hero-video {
   position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
+
+  /* EXPANDE além do container */
+  top: 50%;
+  left: 50%;
+  width: 120%;
+  height: 120%;
+
+  transform: translate(-50%, -50%);
   object-fit: cover;
+
   z-index: -2;
 }
 
     .hero-shell {
       position: relative;
       overflow: hidden;
-      border-radius: 0 0 34px 34px;
+      width:100%
       min-height: 100svh;
       background:
          linear-gradient(90deg, rgba(7,26,49,0.96) 0%, rgba(7,26,49,0.85) 40%, rgba(7,26,49,0.25) 65%, rgba(7,26,49,0.05) 100%),
-      box-shadow: var(--shadow);
+      box-shadow: none;
       isolation: isolate;
     }
 
