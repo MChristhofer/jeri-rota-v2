@@ -701,7 +701,12 @@ h1 {
     border-radius: 14px;
     white-space: nowrap;
     flex-shrink: 0;
-  }
+
+      display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
    .brand {
     gap: 8px;
   }
@@ -869,7 +874,14 @@ h1 {
           <span class="active">PT</span>
           <span>EN</span>
         </div>
-        <a class="btn btn-primary" href="#reserva">Reservar</a>
+  <a class="btn btn-primary" href="#reserva">
+  <span class="icon">
+    <svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24">
+      <path d="M7 2v2H5a2 2 0 0 0-2 2v2h18V6a2 2 0 0 0-2-2h-2V2h-2v2H9V2H7zm14 8H3v10a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V10z"/>
+    </svg>
+  </span>
+  Reservar
+</a>
       </div>
     </div>
   </header>
