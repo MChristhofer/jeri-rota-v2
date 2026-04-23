@@ -214,13 +214,13 @@
       z-index: -1;
     }
 
-   .hero-grid {
+.hero-grid {
   position: relative;
   display: grid;
   grid-template-columns: 1fr;
-  gap: 22px;
+  gap: 20px;
   align-items: start;
-  padding: 24px 0 32px;
+  padding: 24px 0 280px;
   min-height: auto;
 }
 
@@ -361,13 +361,12 @@ h1 {
 
     .avatar:first-child { margin-left: 0; }
 
-   .form-wrap {
-  position: relative;
-  left: auto;
-  right: auto;
-  bottom: auto;
+.form-wrap {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 18px;
   z-index: 3;
-  margin-top: 20px;
 }
 
     .booking-card {
@@ -737,11 +736,15 @@ h1 {
     padding: 0 0 24px;
   }
 
+  .hero-shell {
+    min-height: 900px;
+  }
+
   .hero-shell::before {
     background: linear-gradient(
       180deg,
       rgba(7,26,49,0.92) 0%,
-      rgba(7,26,49,0.78) 45%,
+      rgba(7,26,49,0.80) 42%,
       rgba(7,26,49,0.88) 100%
     );
   }
@@ -753,17 +756,24 @@ h1 {
 
   h1 {
     font-size: clamp(2.3rem, 9vw, 3.6rem);
-    max-width: 10ch;
+    max-width: 9ch;
   }
 
   .hero-copy p {
     max-width: 100%;
     font-size: 0.98rem;
     line-height: 1.6;
+    margin: 14px 0 0;
   }
 
   .hero-trust {
     grid-template-columns: 1fr;
+    margin-top: 18px;
+  }
+
+  .trust-item:nth-child(3),
+  .trust-item:nth-child(4) {
+    display: none;
   }
 
   .booking-card {
@@ -775,15 +785,6 @@ h1 {
     line-height: 1.15;
   }
 }
-
-  .hero-shell::before {
-    background: linear-gradient(
-      180deg,
-      rgba(7,26,49,0.92) 0%,
-      rgba(7,26,49,0.78) 45%,
-      rgba(7,26,49,0.88) 100%
-    );
-  }
     @media (min-width: 960px) {
       .nav-links { display: flex; }
       .lang { display: flex; }
@@ -792,9 +793,12 @@ h1 {
         min-height: 930px;
         border-radius: 0 0 40px 40px;
       }
-.hero-grid {
-  align-items: center;
-}
+ .hero-grid {
+        grid-template-columns: minmax(0, 1.02fr) minmax(440px, 0.98fr);
+        gap: 34px;
+        padding: 34px 0 220px;
+        min-height: 760px;
+      }
 
 .form-wrap {
   position: absolute;
@@ -804,12 +808,7 @@ h1 {
   margin-top: 0;
 }
 
-      .hero-grid {
-        grid-template-columns: minmax(0, 1.02fr) minmax(440px, 0.98fr);
-        gap: 34px;
-        padding: 34px 0 220px;
-        min-height: 760px;
-      }
+     
 
       .hero-visual { display: flex; }
 
