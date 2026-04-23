@@ -1,0 +1,1287 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Jeri Rota - Landing Page</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --navy: #0a2342;
+      --navy-2: #071a31;
+      --gold: #d4af7f;
+      --gold-2: #c69c62;
+      --white: #ffffff;
+      --off: #f5f1ea;
+      --text: #102033;
+      --muted: #8ea0b6;
+      --line: rgba(255,255,255,0.1);
+      --shadow: 0 18px 50px rgba(0, 0, 0, 0.18);
+      --radius-xl: 28px;
+      --radius-lg: 20px;
+      --radius-md: 16px;
+      --container: 1180px;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+   
+  
+    body {
+      margin: 0;
+      font-family: 'Inter', sans-serif;
+      color: var(--white);
+      background:
+        radial-gradient(circle at top left, rgba(212,175,127,0.12), transparent 26%),
+        linear-gradient(180deg, #071a31 0%, #0a2342 38%, #081c33 100%);
+      overflow-x: hidden;
+    }
+
+
+    img { max-width: 100%; display: block; }
+    a { text-decoration: none; color: inherit; }
+    button, input { font: inherit; }
+
+    .container {
+      width: min(calc(100% - 32px), var(--container));
+      margin: 0 auto;
+    }
+
+    .topbar {
+      position: sticky;
+      top: 0;
+      z-index: 30;
+      backdrop-filter: blur(16px);
+      background: rgba(7, 26, 49, 0.72);
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+    }
+
+    .nav {
+      min-height: 76px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+    }
+
+    .brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  min-width: 0;
+  flex: 1;
+}
+
+    .brand-mark {
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      border: 1px solid rgba(212,175,127,0.45);
+      display: grid;
+      place-items: center;
+      color: var(--gold);
+      font-size: 19px;
+      background: rgba(255,255,255,0.02);
+      box-shadow: inset 0 0 0 1px rgba(255,255,255,0.03);
+    }
+
+.brand-text {
+  line-height: 1;
+  font-size: 0.9rem;
+  min-width: 0;
+  white-space: nowrap;
+}
+
+.brand-text span {
+  display: block;
+  color: var(--gold);
+  font-size: 0.58rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  margin-top: 4px;
+}
+.logo-img {
+  height: 38px;
+  width: auto;
+  object-fit: contain;
+}
+    .nav-links {
+      display: none;
+      gap: 28px;
+      color: rgba(255,255,255,0.86);
+      font-size: 0.96rem;
+    }
+
+    .nav-cta {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .lang {
+      display: none;
+      gap: 8px;
+    }
+
+    .lang span {
+      width: 40px;
+      height: 40px;
+      display: grid;
+      place-items: center;
+      border-radius: 12px;
+      border: 1px solid rgba(212,175,127,0.35);
+      color: rgba(255,255,255,0.86);
+      font-size: 0.86rem;
+      background: rgba(255,255,255,0.03);
+      cursor: pointer;
+      user-select: none;
+    }
+
+    .lang .active {
+      background: var(--gold);
+      color: var(--navy);
+      font-weight: 700;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      padding: 15px 20px;
+      border-radius: 16px;
+      border: 1px solid transparent;
+      font-weight: 700;
+      cursor: pointer;
+      transition: transform 0.25s ease, box-shadow 0.25s ease, background 0.25s ease, border-color 0.25s ease;
+      box-shadow: none;
+    }
+
+    .btn:hover { transform: translateY(-2px); }
+    .btn-primary {
+      background: linear-gradient(180deg, #ddb680 0%, #c89e62 100%);
+      color: var(--navy);
+      box-shadow: 0 12px 28px rgba(212,175,127,0.24);
+    }
+    .btn-outline {
+      background: rgba(255,255,255,0.03);
+      border-color: rgba(212,175,127,0.3);
+      color: var(--white);
+    }
+
+    .hero {
+      position: relative;
+      padding: 28px 0 30px;
+    }
+
+.hero-video {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: -2;
+}
+
+   .hero-shell {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  min-height: auto;
+  isolation: isolate;
+}
+
+   .hero-shell::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(90deg, rgba(7,26,49,0.96) 0%, rgba(7,26,49,0.85) 40%, rgba(7,26,49,0.25) 65%, rgba(7,26,49,0.05) 100%);
+}
+
+    .hero-shell::after {
+      content: '';
+      position: absolute;
+      inset: auto -10% -18% auto;
+      width: 360px;
+      height: 360px;
+      background: radial-gradient(circle, rgba(212,175,127,0.24), transparent 70%);
+      filter: blur(10px);
+      pointer-events: none;
+      z-index: -1;
+    }
+
+.hero-grid {
+  position: relative;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 20px;
+  align-items: start;
+  padding: 24px 0 500px;
+  min-height: auto;
+}
+
+    .hero-copy {
+      max-width: 640px;
+      padding-top: 16px;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 9px 14px;
+      border: 1px solid rgba(212,175,127,0.28);
+      border-radius: 999px;
+      background: rgba(255,255,255,0.03);
+      color: var(--gold);
+      font-size: 0.76rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      margin-bottom: 18px;
+      backdrop-filter: blur(10px);
+    }
+
+h1 {
+  margin: 0;
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(2.7rem, 8vw, 5rem);
+  line-height: 1.05;
+  letter-spacing: -0.03em;
+  max-width: 14ch;
+}
+
+    h1 .gold { color: var(--gold); }
+
+  .hero-copy p {
+  margin: 18px 0 0;
+  max-width: 34ch;
+  font-size: 1.03rem;
+  line-height: 1.7;
+  color: rgba(255,255,255,0.86);
+  text-wrap: pretty;
+}
+
+    .hero-actions {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 12px;
+      margin-top: 26px;
+    }
+
+
+    .trust-item {
+      padding: 14px;
+      border-radius: 18px;
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.08);
+      color: rgba(255,255,255,0.92);
+      backdrop-filter: blur(10px);
+    }
+
+    .trust-item strong {
+      display: block;
+      color: var(--gold);
+      font-size: 1rem;
+      margin-bottom: 5px;
+    }
+
+    .trust-item span {
+      font-size: 0.88rem;
+      color: rgba(255,255,255,0.72);
+      line-height: 1.5;
+    }
+
+    .hero-visual {
+      display: none;
+      justify-content: flex-end;
+      align-items: flex-end;
+      min-height: 100%;
+    }
+
+    .vehicle-card {
+      position: relative;
+      width: min(100%, 530px);
+      margin-left: auto;
+      background: linear-gradient(180deg, rgba(255,255,255,0.09), rgba(255,255,255,0.03));
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 28px;
+      padding: 22px;
+      backdrop-filter: blur(12px);
+      box-shadow: var(--shadow);
+    }
+
+    .vehicle-card img {
+      width: 100%;
+      border-radius: 22px;
+      object-fit: cover;
+      aspect-ratio: 4 / 3;
+    }
+
+    .rating-float {
+      position: absolute;
+      right: 18px;
+      bottom: 18px;
+      background: rgba(5,17,32,0.94);
+      color: var(--white);
+      border: 1px solid rgba(212,175,127,0.28);
+      border-radius: 18px;
+      padding: 14px 16px;
+      min-width: 220px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 14px;
+      box-shadow: 0 16px 40px rgba(0,0,0,0.28);
+    }
+
+    .avatars {
+      display: flex;
+      align-items: center;
+    }
+
+    .avatar {
+      width: 38px;
+      height: 38px;
+      border-radius: 50%;
+      border: 2px solid #0c2039;
+      margin-left: -10px;
+      background-size: cover;
+      background-position: center;
+    }
+
+    .avatar:first-child { margin-left: 0; }
+
+.form-wrap {
+  position: absolute;
+  left: 0;
+  right: 0;
+bottom: -120px;
+  z-index: 3;
+}
+
+    .booking-card {
+      background: rgba(255,255,255,0.10);
+      border: 1px solid rgba(255,255,255,0.14);
+      backdrop-filter: blur(18px);
+      border-radius: 26px;
+      padding: 16px;
+      box-shadow: var(--shadow);
+    }
+
+    .booking-head {
+      margin-bottom: 14px;
+    }
+
+    .booking-head strong {
+      display: block;
+      font-size: 1.2rem;
+      margin-bottom: 5px;
+    }
+
+    .booking-head span {
+      color: rgba(255,255,255,0.72);
+      font-size: 0.94rem;
+    }
+
+    .booking-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 12px;
+    }
+
+    .field {
+      background: rgba(255,255,255,0.95);
+      border-radius: 16px;
+      border: 1px solid rgba(16,32,51,0.08);
+      padding: 13px 14px;
+      color: var(--text);
+      box-shadow: inset 0 1px 0 rgba(255,255,255,0.7);
+    }
+
+    .field label {
+      display: block;
+      font-size: 0.78rem;
+      font-weight: 700;
+      color: #4d6078;
+      margin-bottom: 6px;
+    }
+
+    .field input {
+      width: 100%;
+      border: none;
+      outline: none;
+      background: transparent;
+      color: var(--text);
+      font-size: 0.97rem;
+    }
+
+    .field input::placeholder { color: #8091a6; }
+
+    .booking-note {
+      margin-top: 10px;
+      color: rgba(255,255,255,0.68);
+      font-size: 0.82rem;
+    }
+
+    .section {
+      padding: 68px 0;
+    }
+
+    .section-title {
+      text-align: center;
+      max-width: 720px;
+      margin: 0 auto 34px;
+    }
+
+    .section-title .mini {
+      color: var(--gold);
+      text-transform: uppercase;
+      letter-spacing: 0.13em;
+      font-size: 0.78rem;
+      font-weight: 700;
+      margin-bottom: 10px;
+    }
+
+    .section-title h2 {
+      margin: 0 0 12px;
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2rem, 4vw, 3.4rem);
+      line-height: 1.05;
+    }
+
+    .section-title p {
+      margin: 0;
+      color: rgba(255,255,255,0.74);
+      line-height: 1.75;
+    }
+
+    .benefits {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 14px;
+    }
+
+    .benefit-card, .service-card, .review-card, .cta-banner, .gallery-card {
+      border-radius: 24px;
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.08);
+      box-shadow: var(--shadow);
+    }
+
+    .benefit-card {
+      padding: 22px;
+      backdrop-filter: blur(10px);
+    }
+
+    .icon {
+      width: 54px;
+      height: 54px;
+      border-radius: 18px;
+      display: grid;
+      place-items: center;
+      background: rgba(212,175,127,0.12);
+      border: 1px solid rgba(212,175,127,0.22);
+      color: var(--gold);
+      font-size: 1.35rem;
+      margin-bottom: 16px;
+    }
+
+    .benefit-card h3, .service-card h3, .review-card h3 {
+      margin: 0 0 10px;
+      font-size: 1.15rem;
+    }
+
+    .benefit-card p, .service-card p, .review-card p {
+      margin: 0;
+      color: rgba(255,255,255,0.72);
+      line-height: 1.7;
+      font-size: 0.95rem;
+    }
+
+    .services-wrap {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 18px;
+    }
+
+    .service-card {
+      overflow: hidden;
+      transition: transform 0.28s ease, border-color 0.28s ease;
+    }
+
+    .service-card:hover {
+      transform: translateY(-5px);
+      border-color: rgba(212,175,127,0.28);
+    }
+
+    .service-card img {
+      width: 100%;
+      height: 220px;
+      object-fit: cover;
+    }
+
+    .service-body {
+      padding: 20px;
+    }
+
+    .service-chip {
+      display: inline-block;
+      padding: 8px 12px;
+      border-radius: 999px;
+      background: rgba(212,175,127,0.12);
+      border: 1px solid rgba(212,175,127,0.2);
+      color: var(--gold);
+      font-size: 0.78rem;
+      font-weight: 700;
+      margin-bottom: 14px;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+    }
+
+    .proof-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 18px;
+    }
+
+    .review-card {
+      padding: 24px;
+      backdrop-filter: blur(10px);
+    }
+
+    .stars {
+      color: var(--gold);
+      letter-spacing: 0.12em;
+      margin-bottom: 14px;
+      font-size: 0.95rem;
+    }
+
+    .review-user {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-top: 18px;
+    }
+
+    .review-user img {
+      width: 50px;
+      height: 50px;
+      object-fit: cover;
+      border-radius: 50%;
+    }
+
+    .review-user strong {
+      display: block;
+      font-size: 0.98rem;
+    }
+
+    .review-user span {
+      color: rgba(255,255,255,0.64);
+      font-size: 0.88rem;
+    }
+
+    .cta-banner {
+      overflow: hidden;
+      display: grid;
+      grid-template-columns: 1fr;
+      background:
+        linear-gradient(90deg, rgba(7,26,49,0.94) 0%, rgba(7,26,49,0.76) 50%, rgba(7,26,49,0.9) 100%),
+        url('https://images.unsplash.com/photo-1500375592092-40eb2168fd21?auto=format&fit=crop&w=1200&q=80') center/cover no-repeat;
+    }
+
+    .cta-copy {
+      padding: 26px;
+    }
+
+    .cta-copy h3 {
+      margin: 0 0 12px;
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.8rem, 4vw, 3rem);
+      line-height: 1.07;
+      max-width: 12ch;
+    }
+
+    .cta-copy p {
+      margin: 0 0 20px;
+      color: rgba(255,255,255,0.76);
+      line-height: 1.7;
+      max-width: 520px;
+    }
+
+    .cta-actions {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 12px;
+    }
+
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+    }
+
+    .gallery-card {
+      overflow: hidden;
+      min-height: 124px;
+    }
+
+    .gallery-card img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    footer {
+      padding: 42px 0 110px;
+      border-top: 1px solid rgba(255,255,255,0.08);
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 24px;
+    }
+
+    .footer-col h4 {
+      margin: 0 0 12px;
+      font-size: 1rem;
+      color: var(--gold);
+    }
+
+    .footer-col p, .footer-col a {
+      margin: 0;
+      color: rgba(255,255,255,0.72);
+      line-height: 1.8;
+      display: block;
+    }
+
+    .sticky-mobile {
+      position: fixed;
+      left: 14px;
+      right: 14px;
+      bottom: 14px;
+      z-index: 50;
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 10px;
+    }
+
+    .sticky-mobile .btn {
+      min-height: 58px;
+      border-radius: 18px;
+      box-shadow: 0 18px 40px rgba(0,0,0,0.3);
+    }
+@media (max-width: 679px) {
+  .topbar .container {
+    width: min(calc(100% - 16px), var(--container));
+  }
+.logo-img {
+  height: 30px;
+}
+  .brand-mark {
+    width: 36px;
+    height: 36px;
+    font-size: 16px;
+    flex-shrink: 0;
+  }
+
+  .nav-cta .btn {
+    padding: 12px 14px;
+    font-size: 0.92rem;
+    border-radius: 14px;
+    white-space: nowrap;
+    flex-shrink: 0;
+  }
+   .brand {
+    gap: 8px;
+  }
+
+  .brand-text {
+    font-size: 0.82rem;
+  }
+
+  .brand-text span {
+    font-size: 0.54rem;
+  }
+}
+    @media (min-width: 680px) {
+      .hero-actions,
+      .cta-actions,
+      .booking-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .benefits,
+      .proof-grid,
+      .footer-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .services-wrap { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .gallery-grid { grid-template-columns: repeat(4, 1fr); }
+      .sticky-mobile { max-width: 420px; margin: 0 auto; }
+    }
+@media (max-width: 959px) {
+  .hero {
+    padding: 0 0 24px;
+  }
+
+  .hero-shell {
+    min-height: 900px;
+  }
+
+.hero-shell::before {
+    background: linear-gradient(
+      180deg,
+      rgba(7,26,49,0.92) 0%,
+      rgba(7,26,49,0.80) 42%,
+      rgba(7,26,49,0.88) 100%
+    );
+  }
+
+  .hero-copy {
+    max-width: 100%;
+    padding-top: 6px;
+  }
+
+ h1 {
+  font-size: clamp(2.3rem, 9vw, 3.2rem);
+  max-width: 10ch;
+}
+
+  .hero-copy p {
+    max-width: 100%;
+    font-size: 0.98rem;
+    line-height: 1.6;
+    margin: 14px 0 0;
+  }
+
+
+
+  .trust-item:nth-child(3),
+  .trust-item:nth-child(4) {
+    display: none;
+  }
+
+  .booking-card {
+    padding: 18px;
+  }
+
+  .booking-head strong {
+    font-size: 1.35rem;
+    line-height: 1.15;
+  }
+}
+    @media (min-width: 960px) {
+      .nav-links { display: flex; }
+      .lang { display: flex; }
+
+      .hero-shell {
+        min-height: 930px;
+        border-radius: 0 0 40px 40px;
+      }
+ .hero-grid {
+        grid-template-columns: minmax(0, 1.02fr) minmax(440px, 0.98fr);
+        gap: 34px;
+        padding: 34px 0 340px;
+        min-height: 860px;
+      }
+
+.form-wrap {
+  position: absolute;
+  left: 0;
+  right: 0;
+bottom: 10px;
+  margin-top: 0;
+}
+
+     
+
+      .hero-visual { display: flex; }
+
+      .hero-actions {
+        grid-template-columns: max-content max-content;
+        justify-content: flex-start;
+      }
+
+
+      .booking-grid {
+        grid-template-columns: 1.1fr 1.1fr 0.85fr 0.85fr auto;
+        align-items: end;
+      }
+
+      .benefits { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+      .services-wrap { grid-template-columns: 1.05fr 1fr 1fr; }
+      .proof-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+      .cta-banner {
+        grid-template-columns: 1.05fr 0.95fr;
+        align-items: stretch;
+      }
+      .cta-copy {
+        padding: 42px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+      }
+      .footer-grid { grid-template-columns: 1.2fr 0.8fr 0.8fr 0.8fr; }
+      .sticky-mobile { display: none; }
+    }
+  </style>
+</head>
+<body>
+  <header class="topbar">
+    <div class="container nav">
+      <div class="brand">
+  
+  <img src="logo.png" alt="Jeri Rota" class="logo-img">
+
+  <div class="brand-text">
+    JERI ROTA
+    <span>PREMIUM TRAVEL</span>
+  </div>
+</div>
+
+      <nav class="nav-links">
+        <a href="#servicos" id="nav-servicos">Serviços</a>
+        <a href="#vantagens" id="nav-vantagens">Vantagens</a>
+        <a href="#depoimentos" id="nav-depoimentos">Depoimentos</a>
+        <a href="#contato" id="nav-contato">Contato</a>
+      </nav>
+
+      <div class="nav-cta">
+        <div class="lang">
+          <span id="btn-pt" class="active" onclick="trocarIdioma('pt')">PT</span>
+          <span id="btn-en" onclick="trocarIdioma('en')">EN</span>
+        </div>
+        <a class="btn btn-primary" href="#reserva" id="btn-reservar-topo">Reservar</a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="hero-shell">
+          <video class="hero-video" autoplay muted loop playsinline>
+  <source src="img/hero-jeri.mp4" type="video/mp4">
+</video>
+          <div class="container hero-grid">
+            <div class="hero-copy">
+              <div class="eyebrow" id="hero-eyebrow">Conforto · segurança · pontualidade</div>
+ <h1 id="hero-title">
+  Descubra Jericoacoara com <span class="gold">elegância</span>
+</h1>
+              <p>
+  Transfers executivos entre Fortaleza e Jericoacoara,
+  com conforto, pontualidade e atendimento direto via WhatsApp.
+</p>  
+
+          
+         
+
+          <div class="form-wrap" id="reserva">
+            <div class="container">
+              <div class="booking-card">
+                <div class="booking-head">
+                  <strong id="booking-title">Consulte sua disponibilidade</strong>
+                 <span id="booking-subtitle">Preencha e receba seu atendimento em minutos.</span>
+                </div>
+              <div class="booking-grid">
+  <div class="field">
+    <label id="label-origem">Origem</label>
+    <input id="origem" placeholder="Ex.: Aeroporto de Fortaleza" />
+  </div>
+
+  <div class="field">
+    <label id="label-destino">Destino</label>
+    <input id="destino" placeholder="Ex.: Jericoacoara" />
+  </div>
+
+ <div class="field">
+  <label id="label-data">Data</label>
+  <input id="data" type="text" placeholder="dd/mm/aaaa" maxlength="10" oninput="formatarData(this)" />
+</div>
+
+  <div class="field">
+    <label id="label-passageiros">Passageiros</label>
+    <input id="passageiros" placeholder="1 pessoa" />
+  </div>
+
+  <a class="btn btn-primary" href="#" onclick="enviarWhatsApp(event)" id="btn-whatsapp-form">
+    Consultar via WhatsApp
+  </a>
+</div>
+                <div class="booking-note" id="booking-note">Atendimento rápido e direto via WhatsApp.</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      
+    </section>
+
+    <section class="section" id="vantagens">
+      <div class="container">
+        <div class="section-title">
+          <div class="mini">vantagens</div>
+          <h2>Por que escolher a Jeri Rota?</h2>
+<p>
+  Um serviço pensado para quem não quer dor de cabeça
+  na viagem até Jericoacoara.
+</p>
+        </div>
+
+        <div class="benefits">
+          <article class="benefit-card">
+  <div class="icon">★</div>
+  <h3>Atendimento ágil</h3>
+  <p>Contato rápido, suporte direto e mais praticidade para organizar sua viagem.</p>
+</article>
+          <article class="benefit-card">
+  <div class="icon">⌁</div>
+  <h3>Conforto do início ao fim</h3>
+  <p>Veículos preparados para tornar o trajeto mais tranquilo e agradável.</p>
+</article>
+        <article class="benefit-card">
+  <div class="icon">◈</div>
+  <h3>Mais segurança</h3>
+  <p>Operação organizada e atendimento confiável para você viajar com mais confiança.</p>
+</article>
+        <article class="benefit-card">
+  <div class="icon">⚡</div>
+  <h3>Reserva simplificada</h3>
+  <p>Você fala no WhatsApp e resolve sua reserva de forma rápida e objetiva.</p>
+</article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="servicos">
+      <div class="container">
+        <div class="section-title">
+          <div class="mini">serviços</div>
+<h2>Serviços pensados para sua viagem acontecer com tranquilidade.</h2>
+<p>
+  Soluções selecionadas para quem busca conforto,
+  praticidade e atendimento de confiança.
+</p>        </div>
+
+        <div class="services-wrap">
+          <article class="service-card">
+            <img src="https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=1200&q=80" alt="Transfer executivo" />
+            <div class="service-body">
+              <span class="service-chip">Principal oferta</span>
+              <h3>Transfer Fortaleza → Jericoacoara</h3>
+<p>
+  Saídas organizadas, veículos confortáveis
+  e acompanhamento do início ao fim da viagem.
+</p>
+            </div>
+          </article>
+          <article class="service-card">
+            <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1200&q=80" alt="Passeios e tours" />
+            <div class="service-body">
+              <span class="service-chip">Upsell</span>
+            <h3>Passeios em Jericoacoara</h3>
+<p>
+  Experiências selecionadas para aproveitar o melhor
+  do destino com tranquilidade.
+</p>
+          </article>
+          <article class="service-card">
+            <img src="https://images.unsplash.com/photo-1519125323398-675f0ddb6308?auto=format&fit=crop&w=1200&q=80" alt="Atendimento para grupos" />
+            <div class="service-body">
+              <span class="service-chip">Personalizado</span>
+             <h3>Atendimento personalizado</h3>
+<p>
+  Soluções sob medida para casais, famílias e grupos.
+</p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="depoimentos">
+      <div class="container">
+        <div class="section-title">
+          <div class="mini">prova social</div>
+<h2>Quem viaja com a Jeri Rota sente a diferença.</h2>
+<p>
+  Atendimento elogiado, operação organizada
+  e uma experiência que transmite confiança desde o primeiro contato.
+</p>
+        </div>
+
+        <div class="proof-grid">
+          <article class="review-card">
+            <div class="stars">★★★★★</div>
+            <p>“Reserva simples, atendimento rápido e viagem muito confortável. Tudo passou segurança desde o primeiro contato.”</p>
+            <div class="review-user">
+              <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=400&q=80" alt="Cliente" />
+              <div><strong>Carla M.</strong><span>São Paulo · SP</span></div>
+            </div>
+          </article>
+          <article class="review-card">
+            <div class="stars">★★★★★</div>
+            <p>“Chegamos sem preocupação nenhuma. Motorista pontual e suporte claro antes do embarque.”</p>
+            <div class="review-user">
+              <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=400&q=80" alt="Cliente" />
+              <div><strong>Ricardo T.</strong><span>Rio de Janeiro · RJ</span></div>
+            </div>
+          </article>
+          <article class="review-card">
+            <div class="stars">★★★★★</div>
+            <p>“Visual profissional, atendimento ótimo e resposta rápida no WhatsApp. Passou muita credibilidade.”</p>
+            <div class="review-user">
+              <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?auto=format&fit=crop&w=400&q=80" alt="Cliente" />
+              <div><strong>Amanda L.</strong><span>Belo Horizonte · MG</span></div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="cta-banner">
+          <div class="cta-copy">
+            <div class="mini" style="color:var(--gold);text-transform:uppercase;letter-spacing:.12em;font-weight:700;margin-bottom:10px;">cta final</div>
+<h3>
+  Planeje sua viagem<br>
+  com <span class="gold">segurança</span>
+</h3>
+<p>
+  Fale agora no WhatsApp e organize seu transfer
+  de forma simples e rápida.
+</p>            <div class="cta-actions">
+              <a class="btn btn-primary" href="#reserva">Reservar agora</a>
+              <a class="btn btn-outline" href="#servicos">Explorar serviços</a>
+            </div>
+          </div>
+          <div class="cta-copy" style="padding-top:26px;">
+            <div class="gallery-grid">
+              <div class="gallery-card"><img src="https://images.unsplash.com/photo-1483683804023-6ccdb62f86ef?auto=format&fit=crop&w=800&q=80" alt="Praia" /></div>
+              <div class="gallery-card"><img src="https://images.unsplash.com/photo-1527631746610-bca00a040d60?auto=format&fit=crop&w=800&q=80" alt="Paisagem" /></div>
+              <div class="gallery-card"><img src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=800&q=80" alt="Viagem" /></div>
+              <div class="gallery-card"><img src="https://images.unsplash.com/photo-1519677100203-a0e668c92439?auto=format&fit=crop&w=800&q=80" alt="Sunset" /></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer id="contato">
+    <div class="container footer-grid">
+      <div class="footer-col">
+       
+         <div class="brand" style="margin-bottom:12px;">
+  <img src="logo.png" alt="Jeri Rota" class="logo-img">
+  <div class="brand-text">
+    JERI ROTA
+    <span>PREMIUM TRAVEL</span>
+  </div>
+</div>
+<p>
+  Experiências selecionadas, transfers executivos
+  e atendimento pensado para quem valoriza conforto e confiança.
+</p>      </div>
+      <div class="footer-col">
+        <h4>Links rápidos</h4>
+        <a href="#servicos" id="nav-servicos">Serviços</a>
+        <a href="#vantagens" id="nav-vantagens">Vantagens</a>
+        <a href="#depoimentos" id="nav-depoimentos">Depoimentos</a>
+      </div>
+      <div class="footer-col">
+        <h4>Contato</h4>
+        <a href="#">(88) 98227-4666</a>
+        <a href="#">@jerirota</a>
+        <a href="#">reserva@jerirota.com.br</a>
+      </div>
+      <div class="footer-col">
+        <h4>Pagamento</h4>
+        <p>Pix</p>
+        <p>Cartão</p>
+        <p>Atendimento via WhatsApp</p>
+      </div>
+    </div>
+  </footer>
+
+  
+<div class="sticky-mobile">
+  <a class="btn btn-primary" id="sticky-reservar" href="https://wa.me/5588982274666?text=Olá,%20quero%20fazer%20minha%20reserva%20para%20Jericoacoara">
+    Reservar agora
+  </a>
+</div>
+<script>
+  let idiomaAtual = 'pt';
+
+  function formatarData(campo) {
+    let valor = campo.value.replace(/\D/g, '');
+
+    if (valor.length > 2) {
+      valor = valor.replace(/^(\d{2})(\d)/, '$1/$2');
+    }
+
+    if (valor.length > 5) {
+      valor = valor.replace(/^(\d{2})\/(\d{2})(\d)/, '$1/$2/$3');
+    }
+
+    campo.value = valor;
+  }
+
+  function trocarIdioma(lang) {
+    idiomaAtual = lang;
+
+    const textos = {
+      pt: {
+        navServicos: 'Serviços',
+        navVantagens: 'Vantagens',
+        navDepoimentos: 'Depoimentos',
+        navContato: 'Contato',
+        reservarTopo: 'Reservar',
+        eyebrow: 'Conforto · segurança · pontualidade',
+        title: 'Descubra Jericoacoara com <span class="gold">elegância</span>',
+        heroText: 'Transfers executivos entre Fortaleza e Jericoacoara, com conforto, pontualidade e atendimento direto via WhatsApp.',
+        bookingTitle: 'Consulte sua disponibilidade',
+        bookingSubtitle: 'Preencha e receba seu atendimento em minutos.',
+        labelOrigem: 'Origem',
+        labelDestino: 'Destino',
+        labelData: 'Data',
+        labelPassageiros: 'Passageiros',
+        placeholderOrigem: 'Ex.: Aeroporto de Fortaleza',
+        placeholderDestino: 'Ex.: Jericoacoara',
+        placeholderData: 'dd/mm/aaaa',
+        placeholderPassageiros: '1 pessoa',
+        btnWhatsapp: 'Consultar via WhatsApp',
+        bookingNote: 'Atendimento rápido e direto via WhatsApp.',
+        stickyReservar: 'Reservar agora',
+        whatsappBase: 'Olá, quero consultar um transfer para Jericoacoara.',
+        whatsappOrigem: 'Origem',
+        whatsappDestino: 'Destino',
+        whatsappData: 'Data',
+        whatsappPassageiros: 'Passageiros',
+        whatsappErro: 'Preencha todos os campos antes de continuar.'
+      },
+      en: {
+        navServicos: 'Services',
+        navVantagens: 'Benefits',
+        navDepoimentos: 'Reviews',
+        navContato: 'Contact',
+        reservarTopo: 'Book now',
+        eyebrow: 'Comfort · safety · punctuality',
+        title: 'Discover Jericoacoara with <span class="gold">elegance</span>',
+        heroText: 'Executive transfers between Fortaleza and Jericoacoara with comfort, punctuality and direct WhatsApp support.',
+        bookingTitle: 'Check availability',
+        bookingSubtitle: 'Fill out the form and get assistance in minutes.',
+        labelOrigem: 'Origin',
+        labelDestino: 'Destination',
+        labelData: 'Date',
+        labelPassageiros: 'Passengers',
+        placeholderOrigem: 'Ex.: Fortaleza Airport',
+        placeholderDestino: 'Ex.: Jericoacoara',
+        placeholderData: 'dd/mm/yyyy',
+        placeholderPassageiros: '1 person',
+        btnWhatsapp: 'Check on WhatsApp',
+        bookingNote: 'Fast and direct assistance via WhatsApp.',
+        stickyReservar: 'Book now',
+        whatsappBase: 'Hello, I want to check a transfer to Jericoacoara.',
+        whatsappOrigem: 'Origin',
+        whatsappDestino: 'Destination',
+        whatsappData: 'Date',
+        whatsappPassageiros: 'Passengers',
+        whatsappErro: 'Please fill in all fields before continuing.'
+      }
+    };
+
+    const t = textos[lang];
+
+    document.getElementById('nav-servicos').textContent = t.navServicos;
+    document.getElementById('nav-vantagens').textContent = t.navVantagens;
+    document.getElementById('nav-depoimentos').textContent = t.navDepoimentos;
+    document.getElementById('nav-contato').textContent = t.navContato;
+    document.getElementById('btn-reservar-topo').textContent = t.reservarTopo;
+    document.getElementById('hero-eyebrow').textContent = t.eyebrow;
+    document.getElementById('hero-title').innerHTML = t.title;
+    document.getElementById('hero-text').textContent = t.heroText;
+    document.getElementById('booking-title').textContent = t.bookingTitle;
+    document.getElementById('booking-subtitle').textContent = t.bookingSubtitle;
+    document.getElementById('label-origem').textContent = t.labelOrigem;
+    document.getElementById('label-destino').textContent = t.labelDestino;
+    document.getElementById('label-data').textContent = t.labelData;
+    document.getElementById('label-passageiros').textContent = t.labelPassageiros;
+    document.getElementById('origem').placeholder = t.placeholderOrigem;
+    document.getElementById('destino').placeholder = t.placeholderDestino;
+    document.getElementById('data').placeholder = t.placeholderData;
+    document.getElementById('passageiros').placeholder = t.placeholderPassageiros;
+    document.getElementById('btn-whatsapp-form').textContent = t.btnWhatsapp;
+    document.getElementById('booking-note').textContent = t.bookingNote;
+    document.getElementById('sticky-reservar').textContent = t.stickyReservar;
+
+    const btnPt = document.getElementById('btn-pt');
+    const btnEn = document.getElementById('btn-en');
+    btnPt.classList.toggle('active', lang === 'pt');
+    btnEn.classList.toggle('active', lang === 'en');
+
+    if (lang === 'pt') {
+      document.documentElement.lang = 'pt-BR';
+      document.title = 'Jeri Rota - Landing Page';
+      document.getElementById('sticky-reservar').href = 'https://wa.me/5588982274666?text=Olá,%20quero%20fazer%20minha%20reserva%20para%20Jericoacoara';
+    } else {
+      document.documentElement.lang = 'en';
+      document.title = 'Jeri Rota - Landing Page';
+      document.getElementById('sticky-reservar').href = 'https://wa.me/5588982274666?text=Hello,%20I%20want%20to%20book%20my%20transfer%20to%20Jericoacoara';
+    }
+  }
+
+  function enviarWhatsApp(event) {
+    event.preventDefault();
+
+    const origem = document.getElementById('origem').value.trim();
+    const destino = document.getElementById('destino').value.trim();
+    const data = document.getElementById('data').value.trim();
+    const passageiros = document.getElementById('passageiros').value.trim();
+
+    const t = idiomaAtual === 'en'
+      ? {
+          base: 'Hello, I want to check a transfer to Jericoacoara.',
+          origem: 'Origin',
+          destino: 'Destination',
+          data: 'Date',
+          passageiros: 'Passengers',
+          erro: 'Please fill in all fields before continuing.'
+        }
+      : {
+          base: 'Olá, quero consultar um transfer para Jericoacoara.',
+          origem: 'Origem',
+          destino: 'Destino',
+          data: 'Data',
+          passageiros: 'Passageiros',
+          erro: 'Preencha todos os campos antes de continuar.'
+        };
+
+    if (!origem || !destino || !data || !passageiros) {
+      alert(t.erro);
+      return;
+    }
+
+    const mensagem = encodeURIComponent(
+      `${t.base}
+
+${t.origem}: ${origem}
+${t.destino}: ${destino}
+${t.data}: ${data}
+${t.passageiros}: ${passageiros}`
+    );
+
+    const url = `https://wa.me/5588982274666?text=${mensagem}`;
+    window.location.href = url;
+  }
+</script> 
+
+</body>
+</html>
