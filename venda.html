@@ -211,12 +211,16 @@ src="https://www.facebook.com/tr?id=977786101669349&ev=PageView&noscript=1"
 }
 
 .hero-shell::before {
-  background: linear-gradient(
-    180deg,
-    rgba(7,26,49,0.65) 0%,
-    rgba(7,26,49,0.40) 50%,
-    rgba(7,26,49,0.55) 100%
-  );
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(90deg,
+      rgba(7,26,49,0.96) 0%,
+      rgba(7,26,49,0.85) 40%,
+      rgba(7,26,49,0.25) 65%,
+      rgba(7,26,49,0.05) 100%
+    );
 }
 
     .hero-shell::after {
@@ -894,6 +898,10 @@ bottom: 10px;
       }
       .footer-grid { grid-template-columns: 1.2fr 0.8fr 0.8fr 0.8fr; }
       .sticky-mobile { display: none; }
+    }
+
+    .hero-trust {
+    display: none;
     }
   </style>
 </head>
