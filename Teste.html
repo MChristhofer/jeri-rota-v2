@@ -324,6 +324,16 @@
       font-size: 0.96rem;
     }
 
+    .field select {
+  width: 100%;
+  border: none;
+  outline: none;
+  background: transparent;
+  color: var(--white);
+  font-size: 0.96rem;
+  appearance: none;
+}
+
     .field input::placeholder {
       color: rgba(255,255,255,0.48);
     }
@@ -570,7 +580,14 @@
           <div class="form-grid">
             <label class="field">
               <svg viewBox="0 0 24 24"><path d="M12 21s7-5.1 7-11a7 7 0 0 0-14 0c0 5.9 7 11 7 11Z"/><circle cx="12" cy="10" r="2.5"/></svg>
-              <span><label>Origem</label><input id="origem" placeholder="Ex.: Aeroporto de Fortaleza"></span>
+              <span><label>Origem</label><select id="origem">
+  <option value="">Selecione a origem</option>
+  <option>Fortaleza</option>
+  <option>Jericoacoara</option>
+  <option>Jijoca de Jericoacoara</option>
+  <option>Aeroporto de Cruz</option>
+  <option>Aeroporto de Fortaleza</option>
+</select></span>
             </label>
 
             <label class="field">
@@ -581,8 +598,8 @@
 
             <label class="field">
               <svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="16" rx="3"/><path d="M8 3v4M16 3v4M3 10h18"/></svg>
-              <span><label>Data</label><input id="data" placeholder="dd/mm/aaaa">
-</span>
+              <span><label>Data</label><input id="data" type="text" placeholder="dd/mm/aaaa" maxlength="10" oninput="formatarData(this)"></span>
+
             </label>
 
             <label class="field">
@@ -623,5 +640,20 @@ function enviarWhatsApp() {
 }
 </script>
 
+<script>
+function formatarData(campo) {
+  let valor = campo.value.replace(/\D/g, '');
+
+  if (valor.length > 2) {
+    valor = valor.replace(/^(\d{2})(\d)/, '$1/$2');
+  }
+
+  if (valor.length > 5) {
+    valor = valor.replace(/^(\d{2})\/(\d{2})(\d)/, '$1/$2/$3');
+  }
+
+  campo.value = valor;
+}
+</script>
 </body>
 </html>
