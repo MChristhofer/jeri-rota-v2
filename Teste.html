@@ -570,25 +570,27 @@
           <div class="form-grid">
             <label class="field">
               <svg viewBox="0 0 24 24"><path d="M12 21s7-5.1 7-11a7 7 0 0 0-14 0c0 5.9 7 11 7 11Z"/><circle cx="12" cy="10" r="2.5"/></svg>
-              <span><label>Origem</label><input placeholder="Ex.: Aeroporto de Fortaleza"></span>
+              <span><label>Origem</label><input id="origem" placeholder="Ex.: Aeroporto de Fortaleza"></span>
             </label>
 
             <label class="field">
               <svg viewBox="0 0 24 24"><path d="M12 21s7-5.1 7-11a7 7 0 0 0-14 0c0 5.9 7 11 7 11Z"/><circle cx="12" cy="10" r="2.5"/></svg>
-              <span><label>Destino</label><input placeholder="Ex.: Jericoacoara"></span>
+              <span><label>Destino</label><input id="destino" placeholder="Ex.: Jericoacoara">
+</span>
             </label>
 
             <label class="field">
               <svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="16" rx="3"/><path d="M8 3v4M16 3v4M3 10h18"/></svg>
-              <span><label>Data</label><input placeholder="dd/mm/aaaa"></span>
+              <span><label>Data</label><input id="data" placeholder="dd/mm/aaaa">
+</span>
             </label>
 
             <label class="field">
               <svg viewBox="0 0 24 24"><circle cx="12" cy="7" r="4"/><path d="M5.5 21a6.5 6.5 0 0 1 13 0"/></svg>
-              <span><label>Passageiros</label><input placeholder="1 pessoa"></span>
+              <span><label>Passageiros</label><input id="passageiros" placeholder="1 pessoa"></span>
             </label>
 
-            <button class="booking-submit" type="button">
+            <button class="booking-submit" type="button" onclick="enviarWhatsApp()">
               Reservar agora
               <svg viewBox="0 0 24 24"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
             </button>
@@ -597,5 +599,29 @@
       </div>
     </section>
   </main>
+  <script>
+function enviarWhatsApp() {
+  const origem = document.getElementById('origem').value.trim();
+  const destino = document.getElementById('destino').value.trim();
+  const data = document.getElementById('data').value.trim();
+  const passageiros = document.getElementById('passageiros').value.trim();
+
+  if (!origem || !destino || !data || !passageiros) {
+    alert('Preencha todos os campos.');
+    return;
+  }
+
+  const msg =
+    `Olá, quero consultar o bate-volta para Jericoacoara.%0A%0A` +
+    `Origem: ${origem}%0A` +
+    `Destino: ${destino}%0A` +
+    `Data: ${data}%0A` +
+    `Passageiros: ${passageiros}`;
+
+  const url = `https://wa.me/5588982274666?text=${msg}`;
+  window.open(url, '_blank');
+}
+</script>
+
 </body>
 </html>
