@@ -755,14 +755,16 @@ bottom: -120px;
     min-height: auto;
   }
 
-  .hero-shell::before {
-    background: linear-gradient(
+.hero-shell::before {
+  background:
+    linear-gradient(
       180deg,
-      rgba(7,26,49,0.92) 0%,
-      rgba(7,26,49,0.80) 42%,
+      rgba(7,26,49,0.82) 0%,
+      rgba(7,26,49,0.52) 36%,
+      rgba(7,26,49,0.68) 68%,
       rgba(7,26,49,0.88) 100%
     );
-  }
+}
 
   .hero-grid {
     padding: 24px 0 40px;
@@ -843,6 +845,10 @@ h1 {
   color: rgba(255,255,255,0.68);
   font-size: 0.68rem;
   line-height: 1.25;
+}
+
+.hero-video {
+  filter: saturate(1.08) contrast(1.08) brightness(0.95);
 }
 
 }    @media (min-width: 960px) {
