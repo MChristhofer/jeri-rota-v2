@@ -1,4 +1,4 @@
-﻿const launchDate = "";
+﻿const launchDate = "2026-05-31T23:59:59-03:00";
 
 const countdown = document.querySelector(".countdown");
 const countdownFields = {
@@ -41,3 +41,4 @@ if (launchDate) {
     setInterval(() => updateCountdown(targetDate), 1000);
   }
 }
+
