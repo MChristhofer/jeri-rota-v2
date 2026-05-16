@@ -117,6 +117,7 @@ a {
   color: var(--white);
 }
 
+.hero-picture,
 .hero-media {
   position: absolute;
   inset: 0;
@@ -228,7 +229,8 @@ a {
   position: relative;
   z-index: 3;
   width: min(74rem, calc(100% - 2rem));
-  margin: -3.4rem auto 0;
+  margin: 0 auto;
+  padding-top: clamp(1.25rem, 3vw, 2rem);
 }
 
 .planner {
@@ -590,9 +592,6 @@ a {
     width: 100%;
   }
 
-  .planner-wrap {
-    margin-top: -2.5rem;
-  }
 
   .immersive {
     min-height: 30rem;
@@ -612,3 +611,5 @@ a {
     transform: none;
   }
 }
+
+
