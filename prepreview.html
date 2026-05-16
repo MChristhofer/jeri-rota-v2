@@ -1,0 +1,219 @@
+﻿<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Jeri Rota | Transfers, passeios e hospedagem em Jericoacoara com curadoria local, atendimento direto e suporte em cada etapa da viagem.">
+  <meta name="theme-color" content="#10233a">
+  <title>Jeri Rota | Experiências em Jericoacoara</title>
+  <link rel="icon" href="favicon.ico">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/jeri-luxury.css">
+</head>
+<body>
+  <header class="site-header">
+    <a class="brand" href="#topo" aria-label="Jeri Rota, voltar ao início">
+      <img src="logo-jeri-rota.png" alt="Jeri Rota">
+    </a>
+
+    <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-nav">
+      <span></span>
+      <span></span>
+    </button>
+
+    <nav id="site-nav" class="site-nav" aria-label="Navegação principal">
+      <a href="#essencia">Essência</a>
+      <a href="#servicos">Serviços</a>
+      <a href="#roteiros">Roteiros</a>
+      <a href="#galeria">Galeria</a>
+      <a href="#contato">Contato</a>
+    </nav>
+
+    <a class="header-cta" href="https://wa.me/5588982274666" target="_blank" rel="noopener noreferrer">Planejar viagem</a>
+  </header>
+
+  <main id="topo">
+    <section class="hero">
+      <video class="hero-media" autoplay muted loop playsinline>
+        <source src="hero-jeri.mp4" type="video/mp4">
+      </video>
+      <div class="hero-overlay"></div>
+
+      <div class="hero-content reveal">
+        <span class="eyebrow">Jeri Rota</span>
+        <h1>Jericoacoara, conduzida com cuidado.</h1>
+        <p>Transfers, passeios e hospedagem organizados com curadoria local, atendimento direto e suporte em cada etapa da sua viagem.</p>
+        <div class="hero-actions">
+          <a class="button button-primary" href="https://wa.me/5588982274666" target="_blank" rel="noopener noreferrer">Falar no WhatsApp</a>
+          <a class="button button-ghost" href="#servicos">Conhecer serviços</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="planner-wrap" aria-label="Planeje sua viagem">
+      <form class="planner" id="planner-form">
+        <label>
+          <span>Chegada</span>
+          <input type="date" id="arrival-date" name="arrival-date">
+        </label>
+
+        <label>
+          <span>O que você procura?</span>
+          <select id="travel-need" name="travel-need">
+            <option value="transfer">Transfer</option>
+            <option value="passeios">Passeios</option>
+            <option value="hospedagem">Hospedagem</option>
+            <option value="experiencia completa">Experiência completa</option>
+          </select>
+        </label>
+
+        <label>
+          <span>Viajantes</span>
+          <select id="travelers" name="travelers">
+            <option value="1 pessoa">1 pessoa</option>
+            <option value="2 pessoas">2 pessoas</option>
+            <option value="3 a 4 pessoas">3 a 4 pessoas</option>
+            <option value="5 ou mais pessoas">5 ou mais pessoas</option>
+          </select>
+        </label>
+
+        <button class="button button-dark" type="submit">Solicitar atendimento</button>
+      </form>
+    </section>
+
+    <section class="story section" id="essencia">
+      <div class="story-media reveal">
+        <img src="gal1.jpg" alt="Turista relaxando diante de uma lagoa em Jericoacoara">
+      </div>
+
+      <div class="story-copy reveal">
+        <span class="eyebrow eyebrow-dark">Nossa essência</span>
+        <h2>Uma viagem leve começa muito antes da chegada.</h2>
+        <p>Na Jeri Rota, cada escolha é pensada para que sua experiência em Jericoacoara seja mais simples, bonita e tranquila. Cuidamos do deslocamento, ajudamos a selecionar hospedagens e indicamos os passeios que melhor combinam com o seu ritmo.</p>
+        <p>Você fala com pessoas reais, recebe orientação clara e encontra em um só lugar o que normalmente exigiria várias conversas separadas.</p>
+        <a class="text-link" href="experiencia.html">Conheça a experiência completa</a>
+      </div>
+    </section>
+
+    <section class="collections section" id="servicos">
+      <div class="section-head reveal">
+        <span class="eyebrow eyebrow-dark">Serviços</span>
+        <h2>O essencial da sua viagem, organizado com elegância.</h2>
+      </div>
+
+      <div class="collection-grid">
+        <article class="collection-card reveal">
+          <img src="img/transfer-jeri.jpg" alt="Veículo de transfer da Jeri Rota">
+          <div class="collection-body">
+            <span>Chegada</span>
+            <h3>Transfers</h3>
+            <p>Fortaleza, Cruz, Jijoca e rotas sob medida para chegar a Jeri com conforto e previsibilidade.</p>
+            <a href="transporte.html">Ver transfers</a>
+          </div>
+        </article>
+
+        <article class="collection-card reveal">
+          <img src="img/passeio.jpg" alt="Paisagem de passeio em Jericoacoara">
+          <div class="collection-body">
+            <span>Descoberta</span>
+            <h3>Passeios</h3>
+            <p>Lado Leste, Lado Oeste, lagoas, dunas e roteiros escolhidos para o seu perfil de viagem.</p>
+            <a href="passeios.html">Ver passeios</a>
+          </div>
+        </article>
+
+        <article class="collection-card reveal">
+          <img src="gal4.jpg" alt="Ambiente acolhedor à beira-mar em Jericoacoara">
+          <div class="collection-body">
+            <span>Estadia</span>
+            <h3>Hospedagem</h3>
+            <p>Curadoria por localização, atmosfera e orçamento para você se hospedar com mais acerto.</p>
+            <a href="hospedagem.html">Ver hospedagem</a>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="immersive">
+      <img src="gal2.jpg" alt="Pôr do sol nas dunas de Jericoacoara">
+      <div class="immersive-overlay"></div>
+      <div class="immersive-copy reveal">
+        <span class="eyebrow">O lugar</span>
+        <h2>Jeri não se visita com pressa.</h2>
+        <p>Ela se sente no silêncio das dunas, no dourado do fim de tarde e no tempo que parece desacelerar quando tudo já foi bem cuidado.</p>
+      </div>
+    </section>
+
+    <section class="itineraries section" id="roteiros">
+      <div class="section-head reveal">
+        <span class="eyebrow eyebrow-dark">Roteiros</span>
+        <h2>Três formas de viver Jericoacoara.</h2>
+      </div>
+
+      <div class="itinerary-grid">
+        <article class="itinerary-card reveal">
+          <span>01</span>
+          <h3>Chegar bem</h3>
+          <p>Transfer certo, horários alinhados e suporte para começar a viagem sem desgaste.</p>
+        </article>
+
+        <article class="itinerary-card reveal">
+          <span>02</span>
+          <h3>Explorar Jeri</h3>
+          <p>Passeios com equilíbrio entre clássicos, lagoas, dunas e momentos livres para aproveitar.</p>
+        </article>
+
+        <article class="itinerary-card reveal">
+          <span>03</span>
+          <h3>Viver por inteiro</h3>
+          <p>Hospedagem, deslocamentos e experiências costurados em um roteiro único para você.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="gallery section" id="galeria">
+      <div class="section-head reveal">
+        <span class="eyebrow eyebrow-dark">Galeria</span>
+        <h2>Texturas de uma viagem bem vivida.</h2>
+      </div>
+
+      <div class="gallery-grid">
+        <figure class="gallery-tall reveal"><img src="gal1.jpg" alt="Lagoa em Jericoacoara"></figure>
+        <figure class="reveal"><img src="gal3.jpg" alt="Dunas e lagoa em Jericoacoara"></figure>
+        <figure class="reveal"><img src="gal4.jpg" alt="Ambiente praiano em Jericoacoara"></figure>
+        <figure class="gallery-wide reveal"><img src="gal5.jpg" alt="Paisagem de Jericoacoara"></figure>
+      </div>
+    </section>
+
+    <section class="final-cta section" id="contato">
+      <div class="final-card reveal">
+        <span class="eyebrow eyebrow-dark">Atendimento direto</span>
+        <h2>Conte o que você imagina. Nós ajudamos a dar forma à viagem.</h2>
+        <p>Fale com a Jeri Rota e receba orientação para transfer, passeios, hospedagem ou uma experiência completa em Jericoacoara.</p>
+        <div class="hero-actions hero-actions-dark">
+          <a class="button button-primary" href="https://wa.me/5588982274666" target="_blank" rel="noopener noreferrer">Conversar no WhatsApp</a>
+          <a class="button button-outline" href="https://www.instagram.com/jerirota" target="_blank" rel="noopener noreferrer">Instagram</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div>
+      <img src="logo-jeri-rota.png" alt="Jeri Rota">
+      <p>Transfers, passeios e hospedagem em Jericoacoara.</p>
+    </div>
+
+    <div>
+      <strong>Contato</strong>
+      <a href="https://wa.me/5588982274666" target="_blank" rel="noopener noreferrer">+55 88 98227-4666</a>
+      <a href="https://www.instagram.com/jerirota" target="_blank" rel="noopener noreferrer">@jerirota</a>
+    </div>
+  </footer>
+
+  <script src="js/jeri-luxury.js"></script>
+</body>
+</html>
+
