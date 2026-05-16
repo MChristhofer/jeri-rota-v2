@@ -1,0 +1,1056 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Jeri Rota | Transfers, passeios e experiências premium em Jericoacoara com atendimento direto, organização e conforto.">
+<meta name="theme-color" content="#0a2342">
+<title>Jeri Rota | Premium Travel Experience</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+<style>
+:root{
+  --navy:#0a2342;
+  --navy-2:#081c36;
+  --gold:#d4af7f;
+  --gold-soft:#ead7bd;
+  --light:#f2efe9;
+  --muted:rgba(242,239,233,.78);
+  --line:rgba(255,255,255,.10);
+  --line-gold:rgba(212,175,127,.28);
+  --radius:22px;
+  --shadow:0 18px 60px rgba(0,0,0,.20);
+  --max:1240px;
+}
+
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;
+  font-family:'Montserrat',sans-serif;
+  background:linear-gradient(180deg,#06172d 0%, #0a2342 45%, #08182d 100%);
+  color:var(--light);
+  -webkit-font-smoothing:antialiased;
+  text-rendering:optimizeLegibility;
+}
+
+a{text-decoration:none;color:inherit}
+img{max-width:100%;display:block}
+section[id]{scroll-margin-top:110px}
+
+.container{
+  width:min(100%,var(--max));
+  margin:auto;
+  padding:0 28px;
+}
+
+h1,h2,h3{
+  font-family:'Montserrat',sans-serif;
+  font-weight:300;
+  letter-spacing:-.03em;
+}
+
+/* HEADER */
+.header{
+  position:fixed;
+  inset:0 0 auto 0;
+  z-index:100;
+  backdrop-filter:blur(12px);
+  background:linear-gradient(180deg,rgba(6,18,35,.82),rgba(6,18,35,.48));
+  border-bottom:1px solid rgba(255,255,255,.06);
+}
+
+.nav{
+  min-height:84px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:24px;
+}
+
+.logo-wrap{display:flex;align-items:center;gap:14px}
+.logo-mark{
+  width:42px;
+  height:42px;
+  object-fit:contain;
+}
+.logo-copy strong{
+  display:block;
+  font-size:.98rem;
+  letter-spacing:.18em;
+  font-weight:600;
+}
+.logo-copy span{
+  display:block;
+  color:rgba(242,239,233,.62);
+  font-size:.74rem;
+  font-weight:300;
+}
+
+.menu{
+  display:flex;
+  align-items:center;
+  gap:28px;
+  flex-wrap:wrap;
+}
+.menu a{
+  font-size:.84rem;
+  text-transform:uppercase;
+  letter-spacing:.12em;
+  color:rgba(242,239,233,.78);
+  font-weight:400;
+}
+.menu a:hover{color:#fff}
+
+.btn{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  min-height:52px;
+  padding:0 24px;
+  border-radius:999px;
+  font-size:.76rem;
+  font-weight:500;
+  text-transform:uppercase;
+  letter-spacing:.14em;
+  cursor:pointer;
+
+  transition:    
+    transform .25s ease,
+    box-shadow .25s ease,
+    background .25s ease,
+    border-color .25s ease,
+    filter .25s ease;
+
+}
+
+.btn-primary{
+  background:linear-gradient(135deg,var(--gold-soft),var(--gold));
+  color:#111;
+  border:1px solid rgba(255,255,255,.12);
+  box-shadow:0 12px 36px rgba(212,175,127,.20);
+}
+.btn-primary:hover{
+  transform:translateY(-2px);
+  box-shadow:0 18px 42px rgba(212,175,127,.28);
+  filter:brightness(1.05);
+}
+
+.btn-outline{
+  border:1px solid var(--line-gold);
+  color:var(--light);
+  background:rgba(255,255,255,.02);
+}
+.btn-outline:hover{
+  transform:translateY(-2px);
+  background:rgba(255,255,255,.04);
+}
+
+/* HERO */
+.hero{
+  min-height:100vh;
+  display:flex;
+  align-items:flex-end;
+  position:relative;
+  overflow:hidden;
+  background:url('hero-jeri.jpg') center/cover no-repeat;
+  isolation:isolate;
+}
+
+/* containers dos vídeos */
+.hero-video-desktop,
+.hero-video-mobile{
+  position:absolute;
+  inset:0;
+  width:100%;
+  height:100%;
+  z-index:0;
+  overflow:hidden;
+}
+
+/* vídeo em si */
+.hero-video-desktop video,
+.hero-video-mobile video{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  display:block;
+}
+
+/* desktop aparece por padrão */
+.hero-video-desktop{
+  display:block;
+}
+
+.hero-video-mobile{
+  display:none;
+}
+
+.hero-overlay{
+  position:absolute;
+  inset:0;
+  z-index:1;
+  background:
+    linear-gradient(90deg, rgba(6,18,35,.94) 0%, rgba(6,18,35,.82) 36%, rgba(6,18,35,.48) 62%, rgba(6,18,35,.16) 100%),
+    linear-gradient(180deg, rgba(6,18,35,.12) 0%, rgba(6,18,35,.62) 88%);
+}
+
+.hero::after{
+  content:'';
+  position:absolute;
+  inset:auto 0 0 0;
+  height:180px;
+  z-index:1;
+  background:linear-gradient(180deg, rgba(10,35,66,0), rgba(10,35,66,1));
+}
+
+.hero-wrap{
+  position:relative;
+  z-index:2;
+  padding:170px 0 90px;
+}
+
+@media (prefers-reduced-motion: reduce){
+  .hero-video-desktop,
+  .hero-video-mobile{
+    display:none;
+  }
+}
+
+
+/* AJUSTE PARA CELULAR */
+@media (max-width:768px){
+  .hero{
+    min-height:88svh;
+    align-items:center;
+  }
+
+  .hero-video-desktop{
+    display:none;
+  }
+
+  .hero-video-mobile{
+    display:block;
+  }
+
+  .hero-video-mobile video{
+    object-fit:cover;
+    object-position:72% center;
+    transform:scale(1.08);
+  }
+
+  .hero-overlay{
+    background:
+      linear-gradient(180deg, rgba(6,18,35,.30) 0%, rgba(6,18,35,.58) 26%, rgba(6,18,35,.86) 72%, rgba(6,18,35,.96) 100%),
+      linear-gradient(90deg, rgba(6,18,35,.74) 0%, rgba(6,18,35,.40) 48%, rgba(6,18,35,.16) 100%);
+  }
+
+  .hero-wrap{
+    padding:118px 0 58px;
+  }
+
+ .hero-grid{
+  grid-template-columns:1fr;
+  gap:18px;
+  margin-top:18px;
+  align-items:start;
+}
+
+.hero-panel{
+  width:100%;
+  max-width:100%;
+  padding:0;
+  border-radius:0;
+}
+
+.hero-panel h1{
+  max-width:100%;
+  font-size:clamp(2.1rem, 9vw, 3rem);
+  line-height:1.04;
+  margin-bottom:14px;
+}
+
+.hero-panel p{
+  max-width:100%;
+  font-size:.98rem;
+  line-height:1.75;
+}
+
+.hero-actions{
+  display:flex;
+  flex-direction:column;
+  align-items:flex-start;
+  gap:12px;
+}
+
+.hero-actions .btn{
+  width:100%;
+  max-width:270px;
+  justify-content:center;
+}
+
+  .eyebrow{
+    font-size:.62rem;
+    letter-spacing:.12em;
+    padding:10px 14px;
+    gap:8px;
+    line-height:1.4;
+    max-width:100%;
+    white-space:normal;
+  }
+}
+
+
+.eyebrow{
+  display:inline-flex;
+  align-items:center;
+  gap:10px;
+  padding:11px 18px;
+  border-radius:999px;
+  border:1px solid var(--line-gold);
+  background:rgba(255,255,255,.03);
+  color:var(--gold-soft);
+  font-size:.74rem;
+  text-transform:uppercase;
+  letter-spacing:.16em;
+  font-weight:400;
+}
+.eyebrow::before{
+  content:'';
+  width:8px;
+  height:8px;
+  border-radius:50%;
+  background:var(--gold);
+}
+
+.hero-grid{
+  display:grid;
+  grid-template-columns:1fr;
+  gap:0;
+  margin-top:24px;
+  align-items:center;
+}
+
+.hero-panel{
+  width:min(100%, 760px);
+  padding:0;
+  background:transparent;
+  border:none;
+  box-shadow:none;
+  backdrop-filter:none;
+}
+
+.hero-panel small{
+  display:block;
+  color:var(--gold-soft);
+  font-size:.74rem;
+  text-transform:uppercase;
+  letter-spacing:.18em;
+  font-weight:500;
+}
+
+.hero-panel h1{
+  margin:16px 0 18px;
+  font-size:clamp(3rem,5vw,5.4rem);
+  line-height:1.02;
+  max-width:10ch;
+  text-wrap:balance;
+  text-transform:uppercase;
+  letter-spacing:.08em;
+}
+
+.hero-panel p{
+  margin:0;
+  max-width:34ch;
+  color:var(--muted);
+  font-size:1.04rem;
+  line-height:1.85;
+  font-weight:300;
+}
+
+.hero-actions{
+  display:flex;
+  gap:14px;
+  flex-wrap:wrap;
+  margin-top:30px;
+}
+
+/* SECTION BASE */
+.section{padding:120px 0}
+.section-head{
+  display:flex;
+  justify-content:space-between;
+  align-items:end;
+  gap:30px;
+  margin-bottom:40px;
+}
+.section-label{
+  display:block;
+  color:var(--gold-soft);
+  font-size:.72rem;
+  text-transform:uppercase;
+  letter-spacing:.18em;
+  margin-bottom:14px;
+  font-weight:500;
+}
+.section-head h2{
+  margin:0;
+  font-size:clamp(2.1rem,3vw,3.7rem);
+  line-height:1.02;
+  max-width:10ch;
+  text-wrap:balance;
+}
+.section-head p{
+  margin:0;
+  max-width:560px;
+  color:var(--muted);
+  line-height:1.95;
+  font-weight:300;
+}
+
+/* BRAND */
+.brand-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:26px;
+  align-items:stretch;
+}
+.card-image,
+.card-copy,
+.service,
+.gallery-item,
+.testimonial,
+.cta-box{
+  border:1px solid var(--line);
+  border-radius:var(--radius);
+  overflow:hidden;
+  background:linear-gradient(180deg, rgba(255,255,255,.045), rgba(255,255,255,.02));
+}
+.card-image{
+  min-height:620px;
+  background:url('experiencia-jeri.jpg') center/cover no-repeat;
+  background-size:100%;
+  background-position:center;
+  transition:background-size .8s ease, filter .35s ease;
+}
+.card-copy{
+  padding:48px;
+}
+.card-copy h3{
+  margin:0 0 18px;
+  font-size:2rem;
+  line-height:1.12;
+  max-width:13ch;
+  text-wrap:balance;
+}
+.card-copy p{
+  margin:0 0 18px;
+  color:var(--muted);
+  font-weight:300;
+  line-height:1.95;
+}
+
+.gallery-item{
+  background-size:100%;
+  background-position:center;
+  transition:
+    background-size .8s ease,
+    transform .35s ease,
+    border-color .35s ease,
+    filter .35s ease;
+}
+
+
+/* SERVICES */
+.services{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:18px;
+}
+.service{
+  padding:34px;
+  min-height:285px;
+  transition:transform .25s ease,border-color .25s ease,background .25s ease;
+}
+.service:hover{
+  transform:translateY(-4px);
+  border-color:rgba(212,175,127,.38);
+  background:linear-gradient(180deg, rgba(255,255,255,.07), rgba(255,255,255,.025));
+}
+.service-index{
+  color:var(--gold-soft);
+  font-size:.76rem;
+  text-transform:uppercase;
+  letter-spacing:.18em;
+  font-weight:500;
+}
+.service h3{
+  margin:24px 0 12px;
+  font-size:1.6rem;
+  max-width:10ch;
+}
+.service p{
+  margin:0;
+  color:var(--muted);
+  font-weight:300;
+  line-height:1.9;
+}
+/* IMAGEM IMERSIVA */
+
+.immersive-image{
+  min-height:80vh;
+  background:url('imagem-imersiva.jpg') center/cover no-repeat;
+  position:relative;
+  display:flex;
+  align-items:center;
+}
+
+.immersive-overlay{
+  width:100%;
+  min-height:80vh;
+  display:flex;
+  align-items:center;
+  background:
+    linear-gradient(90deg, rgba(6,18,35,.88) 0%, rgba(6,18,35,.55) 45%, rgba(6,18,35,.20) 100%),
+    linear-gradient(180deg, rgba(6,18,35,.10) 0%, rgba(6,18,35,.65) 100%);
+}
+
+.immersive-content{
+  max-width:700px;
+  padding:100px 28px;
+}
+
+.immersive-content h2{
+  margin:0 0 18px;
+  font-size:clamp(2.2rem,4vw,4.2rem);
+  line-height:1.05;
+}
+
+.immersive-content p{
+  margin:0;
+  line-height:1.9;
+  font-size:1.02rem;
+  color:var(--muted);
+}
+@media (max-width:768px){
+
+  .immersive-image{
+    background:url('imersao-mobile.jpg') center/cover no-repeat;
+  }
+
+}
+
+/* GALLERY */
+.gallery{
+  display:grid;
+  grid-template-columns:1.1fr .9fr .9fr;
+  grid-auto-rows:250px;
+  gap:18px;
+}
+.gallery-item{
+  position:relative;
+  background-size:cover;
+  background-position:center;
+}
+.gallery-item::after{
+  content:'';
+  position:absolute;
+  inset:0;
+  background:linear-gradient(180deg, rgba(10,35,66,.06), rgba(10,35,66,.68));
+}
+.gallery-item span{
+  position:absolute;
+  left:22px;
+  bottom:20px;
+  z-index:2;
+  font-size:.86rem;
+  text-transform:uppercase;
+  letter-spacing:.14em;
+  font-weight:500;
+}
+.gallery-item.tall{grid-row:span 2}
+
+/* TESTIMONIALS */
+.testimonials{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:20px;
+}
+.testimonial{padding:34px}
+.testimonial p{
+  margin:0 0 20px;
+  color:rgba(242,239,233,.84);
+  font-weight:300;
+  line-height:2;
+}
+.testimonial strong{
+  color:var(--gold-soft);
+  font-size:.82rem;
+  text-transform:uppercase;
+  letter-spacing:.16em;
+  font-weight:500;
+}
+/* ESTRELAS DAS AVALIAÇÕES */
+.stars{
+  color:#d4af7f;
+  font-size:20px;
+  letter-spacing:2px;
+  margin-bottom:10px;
+}
+
+/* CTA */
+.cta-box{
+  padding:54px;
+  display:grid;
+  grid-template-columns:1.1fr .9fr;
+  gap:30px;
+  align-items:center;
+  background:
+    radial-gradient(circle at top left, rgba(212,175,127,.18), transparent 30%),
+    linear-gradient(180deg, rgba(255,255,255,.05), rgba(255,255,255,.02));
+}
+.cta-box h2{
+  margin:0 0 16px;
+  font-size:clamp(2rem,3vw,3.4rem);
+  line-height:1.02;
+  max-width:13ch;
+  text-wrap:balance;
+}
+.cta-box p{
+  margin:0;
+  color:var(--muted);
+  line-height:1.9;
+  font-weight:300;
+  max-width:620px;
+}
+.cta-actions{
+  display:flex;
+  gap:14px;
+  justify-content:flex-end;
+  flex-wrap:wrap;
+}
+
+.whatsapp-float{
+  position:fixed;
+  right:22px;
+  bottom:22px;
+  z-index:90;
+  width:58px;
+  height:58px;
+  border-radius:50%;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  background:linear-gradient(135deg,var(--gold-soft),var(--gold));
+  color:#111;
+  box-shadow:0 16px 36px rgba(0,0,0,.28);
+  border:1px solid rgba(255,255,255,.18);
+  font-size:1.2rem;
+  font-weight:600;
+  transition: transform .2s ease;
+}
+.whatsapp-float img{
+  width:46px;
+  height:46px;
+  border-radius:50%;
+}
+.whatsapp-float:hover{transform:translateY(-2px)}
+
+/* REVEAL ON SCROLL */
+.reveal{
+  opacity:0;
+  transform:translateY(38px);
+  transition:
+    opacity .9s ease,
+    transform .9s ease;
+  will-change:opacity, transform;
+}
+
+.reveal.is-visible{
+  opacity:1;
+  transform:translateY(0);
+}
+
+.reveal-delay-1{transition-delay:.08s}
+.reveal-delay-2{transition-delay:.16s}
+.reveal-delay-3{transition-delay:.24s}
+
+@media (prefers-reduced-motion: reduce){
+  .reveal,
+  .reveal.is-visible{
+    opacity:1;
+    transform:none;
+    transition:none;
+  }
+}
+
+/* PARALLAX SUAVE */
+
+.immersive-image{
+  background-attachment: fixed;
+  background-position: center;
+  background-size: cover;
+}
+
+@media (max-width:768px){
+  .immersive-image{
+    background-attachment: scroll;
+  }
+}
+
+/* HOVER ZOOM NAS IMAGENS */
+@media (hover:hover) and (pointer:fine){
+  .card-image:hover{
+    background-size:106%;
+    filter:brightness(1.03);
+  }
+
+  .gallery-item:hover{
+    background-size:106%;
+    transform:translateY(-2px);
+    border-color:rgba(212,175,127,.32);
+    filter:brightness(1.04);
+  }
+}
+/* FOOTER */
+footer{
+  padding:34px 0 48px;
+  color:rgba(242,239,233,.64);
+  font-size:.84rem;
+}
+.footer-line{height:1px;background:rgba(255,255,255,.08);margin-bottom:24px}
+.footer-wrap{
+  display:flex;
+  justify-content:space-between;
+  gap:18px;
+  flex-wrap:wrap;
+}
+
+/* RESPONSIVE */
+@media (max-width:1100px){
+  .hero-grid,
+  .brand-grid,
+  .cta-box{grid-template-columns:1fr}
+  .hero-card{justify-self:start}
+  .gallery{grid-template-columns:1fr 1fr}
+  .section-head h2,
+  .card-copy h3,
+  .cta-box h2{max-width:none}
+}
+
+@media (max-width:860px){
+  .nav{
+    min-height:auto;
+    padding:18px 0;
+    align-items:flex-start;
+    flex-wrap:wrap;
+  }
+  .menu{
+    display:flex;
+    width:100%;
+    gap:14px 18px;
+    order:3;
+    padding-top:6px;
+  }
+  .menu a{font-size:.72rem}
+  .section{padding:84px 0}
+  .hero{min-height:auto}
+  .hero-wrap{padding:160px 0 78px}
+  .hero-copy h1{max-width:none;font-size:clamp(2.5rem,10vw,4.2rem)}
+  .section-head{display:block}
+  .section-head p{margin-top:18px}
+  .services,
+  .gallery,
+  .testimonials{grid-template-columns:1fr}
+  .gallery-item.tall{grid-row:span 1}
+  .card-image{min-height:420px}
+  .cta-actions{justify-content:flex-start}
+  .card-copy,
+  .testimonial,
+  .service,
+  .cta-box{padding:30px}
+}
+</style>
+</head>
+<body>
+
+<header class="header">
+  <div class="container nav">
+    <a href="#topo" class="logo-wrap" aria-label="Voltar ao topo do site Jeri Rota">
+      <img src="logo-jeri-rota.png" class="logo-mark" alt="Logo Jeri Rota">
+      <div class="logo-copy">
+        <strong>JERI ROTA</strong>
+        <span>Premium Travel Experience</span>
+      </div>
+    </a>
+
+    <nav class="menu" aria-label="Navegação principal">
+      <a href="#marca">A marca</a>
+      <a href="#servicos">Serviços</a>
+      <a href="#experiencias">Experiências</a>
+      <a href="#avaliacoes">Avaliações</a>
+      <a href="#contato">Contato</a>
+    </nav>
+
+    <a class="btn btn-primary" href="https://wa.me/5588982274666?text=Ol%C3%A1%21%20Quero%20mais%20informa%C3%A7%C3%B5es%20sobre%20os%20servi%C3%A7os%20da%20Jeri%20Rota." target="_blank" rel="noopener">Reservar</a>
+  </div>
+</header>
+
+<main>
+  <section class="hero" id="topo">
+    
+    <div class="hero-video-desktop">
+  <video autoplay muted loop playsinline poster="hero-jeri.jpg">
+    <source src="hero-jeri.mp4" type="video/mp4">
+  </video>
+</div>
+
+<div class="hero-video-mobile">
+  <video autoplay muted loop playsinline poster="hero-jeri.jpg">
+    <source src="hero-jeri-mobile.mp4" type="video/mp4">
+  </video>
+</div>
+    <div class="hero-overlay"></div>
+    <div class="container hero-wrap">
+      <div class="eyebrow">A essência de Jericoacoara, elevada</div>
+
+     <div class="hero-grid">
+  <div class="hero-panel">
+  <small>Premium Travel Experience</small>
+
+<h1>Experiências selecionadas</h1>
+
+<p>
+  Transfer, passeios e atendimento direto para viver Jeri com mais clareza, conforto e tranquilidade.
+</p>
+
+    <div class="hero-actions">
+      <a class="btn btn-primary" ...>Planejar minha viagem</a>
+<a class="btn btn-outline" href="#servicos">Ver experiências</a>
+    </div>
+  </div>
+</div>
+
+  </div>
+  </section>
+
+  <section class="section reveal" id="marca">
+    <div class="container">
+      <div class="section-head">
+        <div>
+          <span class="section-label">A marca</span>
+          <h2>Uma marca criada para tornar Jericoacoara mais simples de viver.</h2>
+        </div>
+        <p>
+          A Jeri Rota nasceu com a proposta de facilitar a experiência de quem deseja conhecer Jericoacoara. Reunimos transporte, experiências e orientação em uma comunicação direta e organizada, para que cada etapa da viagem aconteça com mais tranquilidade.
+        </p>
+      </div>
+
+      <div class="brand-grid">
+        <div class="card-image reveal reveal-delay-1" aria-label="Imagem de experiência em Jericoacoara"></div>
+        <div class="card-copy reveal reveal-delay-2">     
+          <h3>Mais do que vender serviços, organizar a experiência do visitante.</h3>
+          <p>
+            Muitos viajantes chegam ao destino sem saber exatamente como funcionam os deslocamentos, os passeios ou as melhores formas de aproveitar a região. Nosso trabalho é tornar esse processo mais claro e seguro.
+          </p>
+          <p>
+            Com atendimento direto e uma seleção cuidadosa de serviços, ajudamos cada visitante a planejar melhor sua viagem e aproveitar Jericoacoara com mais leveza.
+          </p>
+          <p>
+            Assim, a experiência começa antes mesmo da chegada ao destino.
+          </p>
+          <a class="btn btn-primary" href="https://wa.me/5588982274666?text=Ol%C3%A1%21%20Quero%20falar%20com%20a%20Jeri%20Rota." target="_blank" rel="noopener">Falar no WhatsApp</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section reveal" id="servicos">
+    <div class="container">
+      <div class="section-head">
+        <div>
+          <span class="section-label">Serviços</span>
+          <h2>Soluções pensadas para cada etapa da sua viagem.</h2>
+        </div>
+        <p>
+          Da chegada ao destino até as experiências na região, a Jeri Rota reúne opções para que sua viagem aconteça de forma mais prática e organizada.
+        </p>
+      </div>
+
+      <div class="services">
+        <article class="service reveal reveal-delay-1">
+          <div class="service-index">01</div>
+          <h3>Transfers</h3>
+          <p>
+            Deslocamentos organizados para quem precisa chegar, sair ou se locomover com mais segurança, conforto e previsibilidade.
+          </p>
+        </article>
+
+        <article class="service reveal reveal-delay-2">
+          <div class="service-index">02</div>
+          <h3>Passeios</h3>
+          <p>
+            Experiências nos principais pontos da região, conectando lagoas, dunas, praias e roteiros clássicos de Jericoacoara.
+          </p>
+        </article>
+
+        <article class="service reveal reveal-delay-3">
+          <div class="service-index">03</div>
+          <h3>Experiências</h3>
+          <p>
+            Atividades selecionadas para quem deseja viver o destino com mais intensidade, melhor aproveitamento do tempo e mais tranquilidade.
+          </p>
+        </article>
+      </div>
+    </div>
+  </section>
+  <section class="immersive-image immersive-parallax reveal">
+  <div class="immersive-overlay">
+    <div class="container immersive-content">
+      <span class="section-label">Imersão</span>
+      <h2>Mais do que uma viagem, uma experiência que começa no caminho.</h2>
+      <p>
+        Cada detalhe do trajeto até Jericoacoara pode transmitir conforto, expectativa e conexão com o destino.
+      </p>
+    </div>
+  </div>
+  </section>
+
+  <section class="section reveal" id="experiencias">
+    <div class="container">
+      <div class="section-head">
+        <div>
+          <span class="section-label">Experiências em Jericoacoara</span>
+          <h2>Cenários únicos, vivências memoráveis e um destino que vale cada detalhe.</h2>
+        </div>
+        <p>
+          Dunas, lagoas cristalinas, praias preservadas e um dos pôr do sol mais conhecidos do Brasil fazem de Jericoacoara um lugar especial. Nossa proposta é conectar você a essas experiências da melhor forma.
+        </p>
+      </div>
+
+      <div class="gallery">
+        <div class="gallery-item tall" style="background-image:url('gal1.jpg')"><span>Lagoas & tranquilidade</span></div>
+        <div class="gallery-item" style="background-image:url('gal2.jpg')"><span>Pôr do sol</span></div>
+        <div class="gallery-item" style="background-image:url('gal3.jpg')"><span>Dunas & horizonte</span></div>
+        <div class="gallery-item" style="background-image:url('gal4.jpg')"><span>Experiência local</span></div>
+        <div class="gallery-item" style="background-image:url('gal5.jpg')"><span>Chegada & movimento</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section reveal" id="avaliacoes">
+    <div class="container">
+      <div class="section-head">
+        <div>
+          <span class="section-label">Avaliações</span>
+          <h2>Avaliações de quem já viveu Jericoacoara com a Jeri Rota.</h2>
+        </div>
+        <p>
+          O atendimento, a organização e a clareza no processo fazem diferença para quem deseja viajar com mais segurança e tranquilidade.
+        </p>
+      </div>
+
+      <div class="testimonials">
+
+<article class="testimonial reveal reveal-delay-1">
+ <div class="stars">★★★★★</div>
+ <p>
+“Organização excelente desde o primeiro contato. Tudo foi explicado com muita clareza e isso trouxe segurança para planejar a viagem.”
+</p>
+<strong>Mariana • São Paulo</strong>
+</article>
+
+<article class="testimonial reveal reveal-delay-2">
+<div class="stars">★★★★★</div>
+<p>
+“Foi muito fácil organizar tudo pelo WhatsApp. Atendimento rápido e a viagem aconteceu exatamente como combinado.”
+</p>
+<strong>Carlos • Belo Horizonte</strong>
+</article>
+
+<article class="testimonial reveal reveal-delay-3">
+<div class="stars">★★★★★</div>
+<p>
+“Experiência muito tranquila. Desde o atendimento até a organização da viagem foi tudo muito bem conduzido.”
+</p>
+<strong>Ana • Fortaleza</strong>
+</article>
+
+</div>
+<div style="text-align:center;margin-top:40px">
+  <p style="margin-top:30px; opacity:.75;">
+⭐ Avaliações reais de clientes que viajaram com a Jeri Rota
+</p>
+
+<p style="opacity:.75;margin-bottom:18px">
+Veja mais avaliações reais no Google
+</p>
+
+<a class="btn btn-outline"
+href="https://www.google.com/search?q=Jeri+rota&stick=H4sIAAAAAAAA_-NgU1I1qDAxMDawTDRIM001TjWyMDG3MqhITU02MjYzNzNKTTEyTDNIWsTK6ZValKlQlF-SCADP_KPiNQAAAA&hl=pt-BR&mat=CZco_-8asw8FElcBTVDHnpK1HqtIyF1p6QVXTxTSuCmQWA7N-flhM9PJJ5SGoKLcQzF8zguQ-RjO69n4QkUsQ2M6bUhwloqPHST6_EJ8S8BzCEAX3PCvKr_M7XzL5bqAwXs&authuser=0"
+target="_blank">
+Ver avaliações no Google
+</a>
+
+</div>
+  </section>
+
+  <section class="section reveal" id="contato">
+    <div class="container">
+      <div class="cta-box reveal">
+        <div>
+          <h2>Planeje sua experiência em Jericoacoara com mais clareza e tranquilidade.</h2>
+          <p>
+            Entre em contato para receber orientação, disponibilidade e a melhor forma de organizar sua viagem de acordo com o que você procura.
+          </p>
+        </div>
+        <div class="cta-actions">
+          <a class="btn btn-primary" href="https://wa.me/558588982274666?text=Ol%C3%A1%21%20Quero%20receber%20informa%C3%A7%C3%B5es%20e%20disponibilidade%20da%20Jeri%20Rota." target="_blank" rel="noopener">Reservar no WhatsApp</a>
+          <a class="btn btn-outline" href="#servicos">Ver serviços</a>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="container">
+    <div class="footer-line"></div>
+    <div class="footer-wrap">
+      <span>Jeri Rota • Premium Travel Experience</span>
+      <span>Jericoacoara • Ceará • Brasil</span>
+    </div>
+  </div>
+</footer>
+
+<a class="whatsapp-float"
+href="https://wa.me/5588982274666?text=Olá! Quero atendimento da Jeri Rota."
+target="_blank"
+rel="noopener"
+aria-label="Abrir atendimento no WhatsApp">
+
+<img src="whatsapp.jpg" alt="WhatsApp">
+
+</a>
+
+<script>
+  const revealObserver = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('is-visible');
+        revealObserver.unobserve(entry.target);
+      }
+    });
+  }, {
+    threshold: 0.16
+  });
+
+  document.querySelectorAll('.reveal').forEach((element) => {
+    revealObserver.observe(element);
+  });
+</script>
+
+</body>
+</html>
