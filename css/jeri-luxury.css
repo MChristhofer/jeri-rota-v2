@@ -1063,5 +1063,351 @@ a {
   transition: transform 260ms ease, opacity 260ms ease, background-color 220ms ease, backdrop-filter 220ms ease, border-color 220ms ease;
 }
 
-@media (max-width: 960px) {`r`n  .site-header.is-hidden-after-hero {`r`n    transform: translateY(-120%);`r`n    opacity: 0;`r`n    pointer-events: none;`r`n  }`r`n}
+@media (max-width: 960px) {
+  .site-header.is-hidden-after-hero {
+    transform: translateY(-120%);
+    opacity: 0;
+    pointer-events: none;
+  }
+}
 
+
+
+/* Brand mark refinement */
+.brand-text {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  color: #d4af7f;
+}
+
+.brand-symbol {
+  width: 1.35rem;
+  height: 1.35rem;
+  object-fit: contain;
+}
+
+
+/* Mobile reveal choreography */
+.reveal {
+  opacity: 0;
+  transition: opacity 720ms ease, transform 720ms ease;
+  will-change: opacity, transform;
+}
+
+.reveal-up {
+  transform: translateY(28px);
+}
+
+.reveal-left {
+  transform: translateX(-28px);
+}
+
+.reveal-right {
+  transform: translateX(28px);
+}
+
+.reveal.is-visible {
+  opacity: 1;
+  transform: translate3d(0, 0, 0);
+}
+
+@media (max-width: 680px) {
+  .planner.reveal {
+    transition-delay: 80ms;
+  }
+
+  .signature-gallery figure:nth-child(2),
+  .collection-card:nth-child(2),
+  .itinerary-card:nth-child(2) {
+    transition-delay: 100ms;
+  }
+
+  .collection-card:nth-child(3),
+  .itinerary-card:nth-child(3) {
+    transition-delay: 180ms;
+  }
+}
+
+/* Refined mobile motion */
+.reveal-down {
+  transform: translateY(-28px);
+}
+
+.reveal-up-alt {
+  transform: translateY(28px);
+}
+
+.reveal-bounce {
+  transform: translateY(26px);
+}
+
+.reveal-bounce.is-visible {
+  animation: planner-bounce 760ms cubic-bezier(0.2, 0.8, 0.2, 1) both;
+}
+
+@keyframes planner-bounce {
+  0% {
+    opacity: 0;
+    transform: translateY(26px);
+  }
+
+  72% {
+    opacity: 1;
+    transform: translateY(-6px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Tight mobile transition between planner and signature section */
+@media (max-width: 680px) {
+  .planner-wrap {
+    width: 100%;
+    margin: -1.5rem 0 0;
+    padding: 0 1rem;
+  }
+
+  .signature-section {
+    margin-top: 0;
+  }
+}
+
+/* Dark background behind the mobile planner */
+@media (max-width: 680px) {
+  .planner-wrap {
+    background: #08182d;
+    padding: 0 1rem 1.5rem;
+  }
+}
+
+/* Service showcase inspired by accommodation cards */
+.service-showcase-head {
+  margin-bottom: 1.6rem;
+}
+
+.service-showcase-head h2 {
+  margin: 0;
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 500;
+  line-height: 1;
+}
+
+.service-showcase-grid {
+  display: grid;
+  gap: 1rem;
+}
+
+.service-feature {
+  position: relative;
+  min-height: 18rem;
+  overflow: hidden;
+  color: var(--white);
+}
+
+.service-feature img {
+  position: absolute;
+  inset: 0;
+  height: 100%;
+  object-fit: cover;
+}
+
+.service-feature-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(5, 11, 18, 0.1), rgba(5, 11, 18, 0.72));
+}
+
+.service-feature-copy {
+  position: absolute;
+  inset: auto 0 0;
+  z-index: 1;
+  padding: 1.1rem;
+}
+
+.service-feature-copy span {
+  display: block;
+  margin-bottom: 0.2rem;
+  font-size: 0.62rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+}
+
+.service-feature-copy h3 {
+  margin: 0;
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: clamp(1.5rem, 4vw, 2rem);
+  font-weight: 500;
+  line-height: 1;
+}
+
+.service-feature-copy p {
+  margin: 0.35rem 0 0;
+  font-size: 0.75rem;
+  color: rgba(255, 250, 244, 0.84);
+}
+
+.service-feature-copy a {
+  display: inline-block;
+  margin-top: 0.9rem;
+  font-size: 0.7rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+}
+
+/* Blue continuity and Essenza-style service details */
+.service-showcase {
+  width: 100%;
+  margin-top: 0;
+  padding: clamp(2rem, 5vw, 3rem) clamp(1rem, 4vw, 3.5rem) clamp(3rem, 6vw, 4rem);
+  background: linear-gradient(180deg, #0a2342 0%, #08182d 100%);
+  color: var(--white);
+}
+
+.service-showcase .eyebrow-dark {
+  color: rgba(212, 175, 127, 0.82);
+}
+
+.service-showcase-head h2 {
+  color: var(--white);
+}
+
+.service-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.7rem 1rem;
+  margin: 0.5rem 0 0;
+  padding: 0;
+  list-style: none;
+  font-size: 0.66rem;
+  color: rgba(255, 250, 244, 0.84);
+}
+
+.service-meta li {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+}
+
+.service-meta span {
+  margin: 0;
+  color: #d4af7f;
+  font-size: 0.72rem;
+  letter-spacing: 0;
+}
+
+/* Scroll zoom effect */
+.scroll-zoom {
+  transform: scale(var(--zoom, 1.08));
+  transition: transform 160ms linear;
+  will-change: transform;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .scroll-zoom {
+    transform: none !important;
+    transition: none !important;
+  }
+}
+
+/* Semantic service icons */
+.service-meta span {
+  font-size: 0.82rem;
+  line-height: 1;
+}
+
+/* Slightly lighter signature block */
+.signature-section {
+  background: linear-gradient(180deg, #0c2749 0%, #12325a 100%);
+}
+
+/* Golden vector meta icons */
+.service-meta .meta-icon {
+  display: inline-flex;
+  width: 0.9rem;
+  height: 0.9rem;
+  color: #d4af7f;
+}
+
+.service-meta .meta-icon svg {
+  width: 100%;
+  height: 100%;
+  fill: currentColor;
+}
+
+/* Stronger scroll zoom response */
+.scroll-zoom {
+  transform: scale(var(--zoom, 1.22));
+}
+
+/* Interactive service metadata */
+.service-meta li {
+  cursor: pointer;
+  transition: color 180ms ease, opacity 180ms ease;
+}
+
+.service-meta li.is-active {
+  color: var(--white);
+}
+
+.service-meta li.is-active .meta-icon {
+  color: var(--white);
+}
+
+/* Stay feature block */
+.stay-feature {
+  width: 100%;
+  display: grid;
+  gap: 1.5rem;
+  padding: clamp(2rem, 5vw, 3rem) clamp(1rem, 4vw, 3.5rem) clamp(3rem, 6vw, 4rem);
+  background: linear-gradient(180deg, #0c2749 0%, #12325a 100%);
+  color: var(--white);
+}
+
+.stay-feature-copy {
+  max-width: 40rem;
+}
+
+.stay-feature-copy h2 {
+  margin: 0;
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: clamp(2rem, 4.2vw, 3.2rem);
+  font-weight: 500;
+  line-height: 1;
+}
+
+.stay-feature-copy p {
+  max-width: 38rem;
+  margin: 1rem 0 0;
+  color: rgba(242, 239, 233, 0.78);
+}
+
+.stay-feature-copy .button {
+  margin-top: 1.35rem;
+}
+
+.stay-feature-media {
+  margin: 0;
+  min-height: 18rem;
+  overflow: hidden;
+}
+
+.stay-feature-media img {
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Golden planner CTA */
+.planner .button-dark {
+  color: #10233a;
+  background: #d4af7f;
+}
+
+.planner .button-dark:hover,
+.planner .button-dark:focus-visible {
+  background: #ead7bd;
+}

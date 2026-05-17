@@ -84,27 +84,59 @@ navLinks.forEach((link) => {
     setActiveNav(targetId);
   });
 });
+function syncMobileHeaderForMenu() {
+  const isMobile = window.matchMedia('(max-width: 960px)').matches;
+  const isOpen = nav.classList.contains('is-open');
+  header.classList.toggle('is-hidden-after-hero', isMobile && isOpen);
+}
 
-const heroSection = document.querySelector('.hero');
-const mobileHeaderQuery = window.matchMedia('(max-width: 960px)');
-const heroVisibilityObserver = new IntersectionObserver((entries) => {
-  entries.forEach((entry) => {
-    const shouldHideHeader = mobileHeaderQuery.matches && !entry.isIntersecting;
-    header.classList.toggle('is-hidden-after-hero', shouldHideHeader);
+menuToggle.addEventListener('click', () => {
+  requestAnimationFrame(syncMobileHeaderForMenu);
+});
 
-    if (shouldHideHeader) {
-      nav.classList.remove('is-open');
-      menuToggle.setAttribute('aria-expanded', 'false');
-    }
+navLinks.forEach((link) => {
+  link.addEventListener('click', () => {
+    requestAnimationFrame(syncMobileHeaderForMenu);
   });
-}, {
-  threshold: 0.18,
 });
 
-heroVisibilityObserver.observe(heroSection);
-mobileHeaderQuery.addEventListener('change', () => {
-  if (!mobileHeaderQuery.matches) {
-    header.classList.remove('is-hidden-after-hero');
-  }
-});
+window.addEventListener('resize', syncMobileHeaderForMenu);
 
+const scrollZoomImages = [...document.querySelectorAll('.scroll-zoom')];
+
+function updateScrollZoom() {
+  const viewportHeight = window.innerHeight;
+
+  scrollZoomImages.forEach((image) => {
+    const rect = image.getBoundingClientRect();
+    const progress = (viewportHeight - rect.top) / (viewportHeight + rect.height);
+    const clamped = Math.min(Math.max(progress, 0), 1);
+    const zoom = 1.22 - clamped * 0.2;
+    image.style.setProperty('--zoom', zoom.toFixed(3));
+  });
+}
+
+updateScrollZoom();
+window.addEventListener('scroll', updateScrollZoom, { passive: true });
+window.addEventListener('resize', updateScrollZoom);
+
+
+const serviceMetaGroups = document.querySelectorAll('.service-meta');
+serviceMetaGroups.forEach((group) => {
+  const items = [...group.querySelectorAll('li')];
+
+  items.forEach((item) => {
+    const activate = () => {
+      items.forEach((entry) => entry.classList.remove('is-active'));
+      item.classList.add('is-active');
+    };
+
+    item.addEventListener('click', activate);
+    item.addEventListener('keydown', (event) => {
+      if (event.key === 'Enter' || event.key === ' ') {
+        event.preventDefault();
+        activate();
+      }
+    });
+  });
+});

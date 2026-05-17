@@ -5,8 +5,18 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="Jeri Rota | Transfers, tours and stays in Jericoacoara with local curation, direct service and support throughout your trip.">
   <meta name="theme-color" content="#10233a">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="en_US">
+  <meta property="og:title" content="Jeri Rota | Experiences in Jericoacoara">
+  <meta property="og:description" content="Transfers, tours and stays in Jericoacoara with direct service, local curation and support throughout your trip.">
+  <meta property="og:image" content="gal2.jpg">
+  <meta property="og:image:alt" content="Jericoacoara ao pôr do sol">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Jeri Rota | Experiences in Jericoacoara">
+  <meta name="twitter:description" content="Transfers, tours and stays in Jericoacoara with direct service, local curation and support throughout your trip.">
+  <meta name="twitter:image" content="gal2.jpg">
   <title>Jeri Rota | Experiences in Jericoacoara</title>
-  <link rel="icon" href="favicon.ico">
+  <link rel="icon" type="image/png" href="logo-jeri-rota.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
@@ -56,7 +66,7 @@
     </section>
 
     <section class="planner-wrap" aria-label="Plan your trip">
-      <form class="planner" id="planner-form">
+      <form class="planner reveal reveal-bounce" id="planner-form">
         <label>
           <span>Arrival</span>
           <input type="date" id="arrival-date" name="arrival-date">
@@ -87,7 +97,7 @@
     </section>
 
     <section class="signature-section" id="essencia">
-      <div class="signature-copy reveal">
+      <div class="signature-copy reveal reveal-up">
         <div class="signature-stars" aria-hidden="true">★★★★★</div>
         <span class="signature-kicker">Exclusivity, care, flow</span>
         <h2>A well-guided trip from the very first contact</h2>
@@ -100,53 +110,66 @@
       </div>
 
       <div class="signature-gallery">
-        <figure class="reveal"><img src="Imagemcarro.png" alt="Veículo da Jeri Rota"></figure>`r`n        <figure class="reveal"><img src="img/bloco2.jpeg" alt="Jericoacoara"></figure>
+        <figure class="reveal reveal-down"><img class="scroll-zoom" src="Imagemcarro.png" alt="Veículo da Jeri Rota"></figure>
+        <figure class="reveal reveal-up-alt"><img class="scroll-zoom" src="img/bloco2.jpeg" alt="Jericoacoara"></figure>
       </div>
     </section>
 
-    <section class="collections section" id="servicos">
-      <div class="section-head reveal">
+    <section class="service-showcase section" id="servicos">
+      <div class="service-showcase-head reveal reveal-up">
         <span class="eyebrow eyebrow-dark">Services</span>
-        <h2>The essentials of your trip, organized with elegance.</h2>
+        <h2>Signature experiences</h2>
       </div>
 
-      <div class="collection-grid">
-        <article class="collection-card reveal">
-          <img src="img/Transfer-jeri.jpg" alt="Veículo de Transfer da Jeri Rota">
-          <div class="collection-body">
-            <span>Arrival</span>
-            <h3>Transfers</h3>
-            <p>Fortaleza, Cruz, Jijoca e rotas sob medida para chegar a Jeri com conforto e previsibilidade.</p>
-            <a href="transporte.html">View transfers</a>
+      <div class="service-showcase-grid">
+        <article class="service-feature reveal reveal-up">
+          <img class="scroll-zoom" src="img/transfer-jeri.jpg" alt="Jericoacoara Transfer">
+          <div class="service-feature-overlay"></div>
+          <div class="service-feature-copy">
+            <span>Arrive in comfort</span>
+            <h3>Jericoacoara Transfer</h3>
+                        <ul class="service-meta" aria-label="Transfer details">
+              <li tabindex="0"><span class="meta-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M16 11a4 4 0 1 0-3.87-5A4 4 0 0 0 16 11Zm-8 0a4 4 0 1 0 0-8 4 4 0 0 0 0 8Zm0 2c-3.33 0-6 1.67-6 4v2h12v-2c0-2.33-2.67-4-6-4Zm8 0c-.52 0-1.02.04-1.5.12 1.5.96 2.5 2.35 2.5 3.88v2H22v-2c0-2.33-2.67-4-6-4Z"/></svg></span> Up to 6 guests</li>
+              <li tabindex="0"><span class="meta-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M11 2h2v8.17l2.88-2.88 1.41 1.42L14.41 11H22v2h-7.59l2.88 2.29-1.41 1.42L13 13.83V22h-2v-8.17l-2.88 2.88-1.41-1.42L9.59 13H2v-2h7.59L6.71 8.71l1.41-1.42L11 10.17V2Z"/></svg></span> Air conditioning</li>
+              <li tabindex="0"><span class="meta-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2 4 5v6c0 5.25 3.44 9.74 8 11 4.56-1.26 8-5.75 8-11V5l-8-3Zm0 4a3 3 0 1 1 0 6 3 3 0 0 1 0-6Zm0 12.75A6.94 6.94 0 0 1 7.5 16c.43-1.45 2.19-2.5 4.5-2.5s4.07 1.05 4.5 2.5a6.94 6.94 0 0 1-4.5 2.75Z"/></svg></span> Licensed driver</li>
+            </ul>
+            <a href="transporte.html">Details →</a>
           </div>
         </article>
 
-        <article class="collection-card reveal">
-          <img src="img/passeio.jpg" alt="Paisagem de passeio em Jericoacoara">
-          <div class="collection-body">
-            <span>Discovery</span>
-            <h3>Tours</h3>
-            <p>Lado Leste, Lado Oeste, lagoas, dunas e roteiros escolhidos para o seu perfil de viagem.</p>
-            <a href="Tours.html">Ver Tours</a>
-          </div>
-        </article>
-
-        <article class="collection-card reveal">
-          <img src="gal4.jpg" alt="Ambiente acolhedor à beira-mar em Jericoacoara">
-          <div class="collection-body">
-            <span>Stay</span>
-            <h3>Stays</h3>
-            <p>Curadoria por localização, atmosfera e orçamento para você se hospedar com mais acerto.</p>
-            <a href="Stays.html">Ver Stays</a>
+        <article class="service-feature reveal reveal-up">
+          <img class="scroll-zoom" src="img/passeios.png" alt="Tours in Jericoacoara">
+          <div class="service-feature-overlay"></div>
+          <div class="service-feature-copy">
+            <span>Selected itineraries</span>
+            <h3>Tours in Jericoacoara</h3>
+                        <ul class="service-meta" aria-label="Tour details">
+              <li tabindex="0"><span class="meta-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M16 11a4 4 0 1 0-3.87-5A4 4 0 0 0 16 11Zm-8 0a4 4 0 1 0 0-8 4 4 0 0 0 0 8Zm0 2c-3.33 0-6 1.67-6 4v2h12v-2c0-2.33-2.67-4-6-4Zm8 0c-.52 0-1.02.04-1.5.12 1.5.96 2.5 2.35 2.5 3.88v2H22v-2c0-2.33-2.67-4-6-4Z"/></svg></span> Up to 12 guests</li>
+              <li tabindex="0"><span class="meta-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m15 5-6-3-6 3v16l6-3 6 3 6-3V2l-6 3Zm-6 11.8-4 2V6.2l4-2v12.6Zm6 1.98-4-2V4.2l4 2v12.58Zm4-2-2 1V6.2l2-1v11.58Z"/></svg></span> Custom itineraries</li>
+              <li tabindex="0"><span class="meta-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20Zm3.7 6.3-2.1 5.3-5.3 2.1 2.1-5.3 5.3-2.1ZM12 13.2A1.2 1.2 0 1 0 12 10.8a1.2 1.2 0 0 0 0 2.4Z"/></svg></span> Local guides</li>
+            </ul>
+            <a href="passeios.html">Details →</a>
           </div>
         </article>
       </div>
     </section>
 
+    <section class="stay-feature" id="hospedagem">
+      <div class="stay-feature-copy reveal reveal-up">
+        <span class="eyebrow">Stays</span>
+        <h2>Selected stays for your travel style</h2>
+        <p>Jeri Rota helps you choose stays that match your profile, budget and way of experiencing Jericoacoara. Location, comfort and atmosphere are considered together so your stay completes the travel experience.</p>
+        <a class="button button-hero-outline" href="hospedagem.html">Check stays</a>
+      </div>
+
+      <figure class="stay-feature-media reveal reveal-up">
+        <img class="scroll-zoom" src="img/rede2.jpg" alt="Stay in Jericoacoara">
+      </figure>
+    </section>
     <section class="immersive">
-      <img src="gal2.jpg" alt="Pôr do sol nas dunas de Jericoacoara">
+      <img class="scroll-zoom" src="gal2.jpg" alt="Pôr do sol nas dunas de Jericoacoara">
       <div class="immersive-overlay"></div>
-      <div class="immersive-copy reveal">
+      <div class="immersive-copy reveal reveal-up">
         <span class="eyebrow">The place</span>
         <h2>Jeri is not meant to be rushed.</h2>
         <p>You feel it in the silence of the dunes, the gold of late afternoon and the way time seems to slow down when everything has already been well cared for.</p>
@@ -154,25 +177,25 @@
     </section>
 
     <section class="itineraries section" id="roteiros">
-      <div class="section-head reveal">
+      <div class="section-head reveal reveal-up">
         <span class="eyebrow eyebrow-dark">Journeys</span>
         <h2>Three ways to experience Jericoacoara.</h2>
       </div>
 
       <div class="itinerary-grid">
-        <article class="itinerary-card reveal">
+        <article class="itinerary-card reveal reveal-up">
           <span>01</span>
           <h3>Arrive well</h3>
           <p>The right transfer, aligned schedules and support to begin the trip without friction.</p>
         </article>
 
-        <article class="itinerary-card reveal">
+        <article class="itinerary-card reveal reveal-up">
           <span>02</span>
           <h3>Explore Jeri</h3>
           <p>Tours com equilíbrio entre clássicos, lagoas, dunas e momentos livres para aproveitar.</p>
         </article>
 
-        <article class="itinerary-card reveal">
+        <article class="itinerary-card reveal reveal-up">
           <span>03</span>
           <h3>Live it fully</h3>
           <p>Stays, deslocamentos e experiências costurados em um roteiro único para você.</p>
@@ -181,21 +204,21 @@
     </section>
 
     <section class="gallery section" id="galeria">
-      <div class="section-head reveal">
+      <div class="section-head reveal reveal-up">
         <span class="eyebrow eyebrow-dark">Gallery</span>
         <h2>Textures of a trip well lived.</h2>
       </div>
 
       <div class="gallery-grid">
-        <figure class="gallery-tall reveal"><img src="gal1.jpg" alt="Lagoa em Jericoacoara"></figure>
-        <figure class="reveal"><img src="gal3.jpg" alt="Dunas e lagoa em Jericoacoara"></figure>
-        <figure class="reveal"><img src="gal4.jpg" alt="Ambiente praiano em Jericoacoara"></figure>
-        <figure class="gallery-wide reveal"><img src="gal5.jpg" alt="Paisagem de Jericoacoara"></figure>
+        <figure class="gallery-tall reveal reveal-left"><img src="gal1.jpg" alt="Lagoa em Jericoacoara"></figure>
+        <figure class="reveal reveal-up"><img src="gal3.jpg" alt="Dunas e lagoa em Jericoacoara"></figure>
+        <figure class="reveal reveal-up"><img src="gal4.jpg" alt="Ambiente praiano em Jericoacoara"></figure>
+        <figure class="gallery-wide reveal reveal-right"><img src="gal5.jpg" alt="Paisagem de Jericoacoara"></figure>
       </div>
     </section>
 
     <section class="final-cta section" id="contato">
-      <div class="final-card reveal">
+      <div class="final-card reveal reveal-up">
         <span class="eyebrow eyebrow-dark">Direct service</span>
         <h2>Tell us what you imagine. We help shape the trip.</h2>
         <p>Fale com a Jeri Rota e receba orientação para Transfer, Tours, Stays ou uma Complete experience em Jericoacoara.</p>
@@ -223,6 +246,21 @@
   <script src="js/jeri-luxury.js"></script>
 </body>
 </html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
