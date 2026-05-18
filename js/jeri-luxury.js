@@ -3,6 +3,12 @@ const menuToggle = document.querySelector('.menu-toggle');
 const nav = document.querySelector('.site-nav');
 const plannerForm = document.querySelector('#planner-form');
 
+window.addEventListener('load', () => {
+  if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    plannerForm.classList.add('is-kicking');
+  }
+});
+
 function syncHeaderState() {
   header.classList.toggle('is-scrolled', window.scrollY > 24);
 }

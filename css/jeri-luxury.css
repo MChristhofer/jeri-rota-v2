@@ -222,31 +222,68 @@ a {
 
 .planner-wrap {
   position: relative;
-  z-index: 3;
-  width: min(74rem, calc(100% - 2rem));
-  margin: 0 auto;
-  padding-top: clamp(1.25rem, 3vw, 2rem);
+  z-index: 1;
+  width: 100%;
+  margin: 0;
+  padding: clamp(2rem, 4vw, 3rem) clamp(1rem, 4vw, 3.5rem);
+  background: #08182d;
 }
 
 .planner {
   display: grid;
   grid-template-columns: 1.15fr 1.2fr 1fr auto;
-  gap: 0;
-  overflow: hidden;
-  border-radius: 1.4rem;
-  background: var(--white);
-  box-shadow: var(--shadow);
+  width: min(74rem, 100%);
+  margin: 0 auto;
+  gap: 1rem;
+  background: transparent;
+  box-shadow: none;
+}
+
+.planner.is-kicking {
+  animation: planner-kick 1.2s ease-in-out 1 both;
+  transform-origin: center center;
+}
+
+@keyframes planner-kick {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+
+  12% {
+    transform: scale(1.035);
+  }
+
+  24% {
+    transform: scale(1);
+  }
+
+  40% {
+    transform: scale(1.035);
+  }
+
+  52% {
+    transform: scale(1);
+  }
+
+  68% {
+    transform: scale(1.035);
+  }
+
+  80% {
+    transform: scale(1);
+  }
 }
 
 .planner label {
   display: grid;
   gap: 0.45rem;
-  padding: 1rem 1.15rem;
-  border-right: 1px solid var(--line);
+  padding: 0;
+  border-right: 0;
 }
 
 .planner span {
-  color: rgba(20, 34, 53, 0.52);
+  color: rgba(255, 250, 244, 0.58);
   font-size: 0.68rem;
   letter-spacing: 0.18em;
   text-transform: uppercase;
@@ -255,9 +292,11 @@ a {
 .planner input,
 .planner select {
   width: 100%;
-  border: 0;
-  background: transparent;
-  color: var(--ink);
+  min-height: 4rem;
+  padding: 0 1rem;
+  border: 1px solid rgba(255, 250, 244, 0.08);
+  background: rgba(255, 250, 244, 0.035);
+  color: var(--white);
   font: inherit;
 }
 
@@ -267,6 +306,7 @@ a {
 }
 
 .planner .button {
+  min-width: 15rem;
   border-radius: 0;
 }
 
@@ -528,7 +568,7 @@ a {
 
   .planner label {
     border-right: 0;
-    border-bottom: 1px solid var(--line);
+    border-bottom: 0;
   }
 
   .story,
@@ -785,18 +825,9 @@ a {
   margin: auto auto clamp(6rem, 16vh, 9rem);
 }
 
-.planner-wrap {
-  margin: -2.25rem auto 0;
-  padding-top: 0;
-}
-
 @media (max-width: 680px) {
   .hero-content {
     margin-bottom: clamp(5.4rem, 14vh, 7rem);
-  }
-
-  .planner-wrap {
-    margin-top: -1.5rem;
   }
 }
 
@@ -1180,11 +1211,10 @@ a {
   }
 }
 
-/* Dark background behind the mobile planner */
+/* Integrated planner block */
 @media (max-width: 680px) {
   .planner-wrap {
-    background: #08182d;
-    padding: 0 1rem 1.5rem;
+    padding: 1.5rem 1rem 2rem;
   }
 }
 
@@ -1315,6 +1345,10 @@ a {
   .scroll-zoom {
     transform: none !important;
     transition: none !important;
+  }
+
+  .planner.is-kicking {
+    animation: none;
   }
 }
 
