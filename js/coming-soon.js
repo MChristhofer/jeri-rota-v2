@@ -1,6 +1,7 @@
 ﻿const launchDate = "2026-07-31T23:59:59-03:00";
 
 const countdown = document.querySelector(".countdown");
+const countdownLaunchDate = countdown?.dataset.launchDate || launchDate;
 const countdownFields = {
   days: document.querySelector("#days"),
   hours: document.querySelector("#hours"),
@@ -32,8 +33,8 @@ function updateCountdown(targetDate) {
   countdownFields.seconds.textContent = pad(seconds);
 }
 
-if (launchDate) {
-  const targetDate = new Date(launchDate).getTime();
+if (countdownLaunchDate) {
+  const targetDate = new Date(countdownLaunchDate).getTime();
 
   if (!Number.isNaN(targetDate)) {
     countdown.hidden = false;
