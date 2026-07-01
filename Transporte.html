@@ -1,145 +1,394 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8" />
-  <title>Transporte em Jericoacoara — Jeri Rota</title>
-  <meta name="description" content="Transporte para Jericoacoara com conforto, segurança e organização. Traslados planejados de acordo com sua origem, horário e estilo de viagem.">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
-  <link rel="icon" href="favicon.ico" type="image/x-icon">
-  <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
-
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
-
-  <link rel="stylesheet" href="style.css" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Transfer para Jericoacoara com atendimento direto, organização local e suporte pelo WhatsApp.">
+  <meta name="theme-color" content="#10233a">
+  <title>Transfer Jericoacoara | Jeri Rota</title>
+  <link rel="icon" type="image/png" href="logo-jeri-rota.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/jeri-luxury.css?v=transfer-redesign-6">
 </head>
 <body>
+  <header class="site-header">
+    <a class="brand brand-text" href="prepreview.html" aria-label="Jeri Rota, voltar ao início">JERI ROTA</a>
 
-<header class="header header-interno">
-  <div class="container header-inner">
+    <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-nav" aria-label="Abrir menu">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
 
-    <div class="header-left">
-      <div class="logo">Jeri Rota</div>
+    <div class="language-switcher" aria-label="Idiomas">
+      <a href="transporte.html" aria-label="Português"><img src="assets/flag-br.svg" alt=""></a>
+      <a href="prepreview-en.html" aria-label="English"><img src="assets/flag-us.svg" alt=""></a>
+      <a href="prepreview-es.html" aria-label="Español"><img src="assets/flag-es.svg" alt=""></a>
     </div>
 
-    <nav class="nav">
-      <a href="index.html">Início</a>
-      <a href="experiencia.html">Experiência</a>
-      <a href="transporte.html">Transporte</a>
-      <a href="hospedagem.html">Hospedagem</a>
+    <nav id="site-nav" class="site-nav" aria-label="Navegação principal">
+      <a href="prepreview.html">Home</a>
+      <a href="transporte.html" aria-current="page">Transfer</a>
       <a href="passeios.html">Passeios</a>
+      <a href="hospedagem.html">Hospedagem</a>
+      <a href="jericoacoara.html">Jericoacoara</a>
+      <a href="contato.html">Contato</a>
     </nav>
+  </header>
 
-    <div class="header-right">
-      <div class="lang-switch">
-        <a href="transporte.html"><img src="assets/flag-br.svg" alt="Português"></a>
-        <a href="transporte-en.html"><img src="assets/flag-us.svg" alt="English"></a>
-        <a href="transporte-es.html"><img src="assets/flag-es.svg" alt="Español"></a>
+  <main class="transfer-booking-page">
+    <section class="transfer-booking-hero" aria-label="Transfer Jericoacoara">
+      <img class="transfer-hero-background" src="img/transfer-jeri.jpg" alt="" aria-hidden="true" data-transfer-hero-background>
+      <div class="transfer-booking-copy reveal reveal-up">
+        <span class="eyebrow">Transfer Jericoacoara</span>
+        <h1 id="transfer-title">Sua rota até Jeri, combinada antes de você sair.</h1>
+        <p>Escolha origem, destino, data e passageiros. A equipe recebe tudo pelo WhatsApp e retorna com a melhor orientação para chegada ou saída.</p>
+
+        <div class="transfer-assurance" aria-label="Diferenciais do transfer">
+          <span>Atendimento direto</span>
+          <span>Rotas para aeroporto e vila</span>
+          <span>Suporte local</span>
+        </div>
+      </div>
+
+      <form class="transfer-booking-form reveal" id="transfer-form" aria-label="Solicitar cotação de transfer">
+        <div class="transfer-form-head">
+          <span>Solicitar cotação</span>
+          <strong>Resposta pelo WhatsApp</strong>
+        </div>
+
+        <label>
+          <span>Origem</span>
+          <select id="transfer-origin" name="transfer-origin">
+            <option value="Fortaleza">Fortaleza</option>
+            <option value="Aeroporto de Cruz">Aeroporto de Cruz</option>
+            <option value="Jijoca">Jijoca</option>
+            <option value="Jericoacoara">Jericoacoara</option>
+          </select>
+        </label>
+
+        <label>
+          <span>Destino</span>
+          <select id="transfer-destination" name="transfer-destination">
+            <option value="Jericoacoara">Jericoacoara</option>
+            <option value="Fortaleza">Fortaleza</option>
+            <option value="Aeroporto de Cruz">Aeroporto de Cruz</option>
+            <option value="Jijoca">Jijoca</option>
+          </select>
+        </label>
+
+        <div class="transfer-form-row">
+          <label>
+            <span>Data</span>
+            <input type="date" id="transfer-date" name="transfer-date">
+          </label>
+
+          <label data-transfer-time-custom>
+            <span>Horário</span>
+            <input type="time" id="transfer-time" name="transfer-time">
+            <small data-transfer-time-note></small>
+          </label>
+
+          <label data-transfer-time-fixed hidden>
+            <span>Horário</span>
+            <select id="transfer-time-select" name="transfer-time-select"></select>
+            <small data-transfer-fixed-note></small>
+          </label>
+        </div>
+
+        <label>
+          <span>Passageiros</span>
+          <select id="transfer-travelers" name="transfer-travelers">
+            <option value="1 pessoa">1 pessoa</option>
+            <option value="2 pessoas">2 pessoas</option>
+            <option value="3 a 4 pessoas">3 a 4 pessoas</option>
+            <option value="5 ou mais pessoas">5 ou mais pessoas</option>
+          </select>
+        </label>
+
+        <label>
+          <span>Tipo de transporte</span>
+          <select id="transfer-vehicle" name="transfer-vehicle">
+            <option value="Ônibus" data-hero="img/carrofortaleza.jpeg" data-preview="img/carrofortaleza.jpeg" data-time-mode="fixed" data-times="02:40,03:00,03:30,04:00" data-origin-only="Fortaleza">Ônibus</option>
+            <option value="Micro-ônibus" data-hero="FOTOAEROPORTO.PNG.jpeg" data-preview="carrocosta.png" data-time-mode="fixed" data-times="07:00" data-origin-only="Fortaleza">Micro-ônibus</option>
+            <option value="Hillux privativa" data-hero="Imagemcarro.png" data-preview="Imagemcarro.png" data-time-mode="arranged" selected>Hillux privativa</option>
+            <option value="Hillux compartilhada" data-hero="carrolateral.png" data-preview="carrolateral.png" data-time-mode="business">Hillux compartilhada</option>
+          </select>
+        </label>
+
+        <button type="submit">Enviar rota no WhatsApp</button>
+      </form>
+
+      <div class="transfer-booking-media reveal" aria-hidden="true">
+        <img src="Imagemcarro.png" alt="" data-transfer-vehicle-preview>
+        <div class="transfer-live-route">
+          <span>FOR</span>
+          <i></i>
+          <span>JERI</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="transfer-route-picker" aria-labelledby="routes-title">
+      <div class="transfer-panel-heading reveal reveal-up">
+        <span class="eyebrow">Rotas rápidas</span>
+        <h2 id="routes-title">Toque na rota e já chame a equipe</h2>
+        <p>Atalhos para os trajetos mais procurados, sem precisar preencher tudo outra vez.</p>
+      </div>
+
+      <div class="transfer-route-cards">
+        <a href="https://wa.me/5588982274666?text=Ol%C3%A1%21%20Quero%20cotar%20um%20transfer%20de%20Fortaleza%20para%20Jericoacoara." target="_blank" rel="noopener noreferrer" class="transfer-route-card reveal">
+          <span class="transfer-card-kicker">Aeroporto ou hotel</span>
+          <h3>Fortaleza para Jericoacoara</h3>
+          <p>Para quem chega por Fortaleza e quer seguir direto para a vila.</p>
+          <span class="transfer-card-action">Cotar esta rota</span>
+        </a>
+        <a href="https://wa.me/5588982274666?text=Ol%C3%A1%21%20Quero%20cotar%20um%20transfer%20de%20Jericoacoara%20para%20Fortaleza." target="_blank" rel="noopener noreferrer" class="transfer-route-card reveal">
+          <span class="transfer-card-kicker">Retorno</span>
+          <h3>Jericoacoara para Fortaleza</h3>
+          <p>Saída combinada com antecedência para aeroporto, hotel ou endereço.</p>
+          <span class="transfer-card-action">Cotar esta rota</span>
+        </a>
+        <a href="https://wa.me/5588982274666?text=Ol%C3%A1%21%20Quero%20cotar%20um%20transfer%20do%20Aeroporto%20de%20Cruz%20para%20Jericoacoara." target="_blank" rel="noopener noreferrer" class="transfer-route-card reveal">
+          <span class="transfer-card-kicker">Chegada curta</span>
+          <h3>Aeroporto de Cruz para Jeri</h3>
+          <p>Trajeto objetivo para chegar na hospedagem com apoio local.</p>
+          <span class="transfer-card-action">Cotar esta rota</span>
+        </a>
+        <a href="https://wa.me/5588982274666?text=Ol%C3%A1%21%20Quero%20cotar%20um%20transfer%20de%20Jijoca%20para%20Jericoacoara." target="_blank" rel="noopener noreferrer" class="transfer-route-card reveal">
+          <span class="transfer-card-kicker">Trecho final</span>
+          <h3>Jijoca para Jericoacoara</h3>
+          <p>Opção para organizar o acesso final até a vila de Jericoacoara.</p>
+          <span class="transfer-card-action">Cotar esta rota</span>
+        </a>
+      </div>
+    </section>
+
+    <section class="transfer-types-section" aria-labelledby="types-title">
+      <div class="transfer-panel-heading reveal reveal-up">
+        <span class="eyebrow">Tipos de transfer</span>
+        <h2 id="types-title">Escolha o formato que combina com sua viagem</h2>
+        <p>Cada tipo de transporte atende uma necessidade diferente. A equipe confirma disponibilidade, valores e ponto de encontro pelo WhatsApp.</p>
+      </div>
+
+      <div class="transfer-type-grid">
+        <article class="transfer-type-card reveal">
+          <span>Privativo</span>
+          <h3>Hillux privativa</h3>
+          <p>Para quem quer sair em um horário combinado e fazer o trajeto com mais exclusividade, conforto e flexibilidade.</p>
+          <ul>
+            <li>Horários a combinar</li>
+            <li>Boa opção para família, casal ou grupo fechado</li>
+            <li>Rota alinhada antes da saída</li>
+          </ul>
+        </article>
+
+        <article class="transfer-type-card reveal">
+          <span>Compartilhado</span>
+          <h3>Hillux compartilhada</h3>
+          <p>Uma opção prática para dividir o trajeto com outros viajantes, mantendo apoio da equipe e organização antecipada.</p>
+          <ul>
+            <li>Atendimento de 08:00 às 18:00</li>
+            <li>Horário conforme encaixe e disponibilidade</li>
+            <li>Ideal para quem tem flexibilidade no dia</li>
+          </ul>
+        </article>
+
+        <article class="transfer-type-card reveal">
+          <span>Saída de Fortaleza</span>
+          <h3>Ônibus</h3>
+          <p>Alternativa com origem em Fortaleza e horários fixos, indicada para quem prefere um formato mais econômico.</p>
+          <ul>
+            <li>Origem somente Fortaleza</li>
+            <li>Horários fixos no formulário</li>
+            <li>Destino combinado conforme a rota disponível</li>
+          </ul>
+        </article>
+
+        <article class="transfer-type-card reveal">
+          <span>Saída de Fortaleza</span>
+          <h3>Micro-ônibus</h3>
+          <p>Formato compartilhado com origem em Fortaleza, pensado para grupos maiores ou encaixes em horário definido.</p>
+          <ul>
+            <li>Origem somente Fortaleza</li>
+            <li>Saída às 07:00</li>
+            <li>Confirmação feita pelo WhatsApp</li>
+          </ul>
+        </article>
+      </div>
+    </section>
+
+    <section class="transfer-journey-section" aria-labelledby="journey-title">
+      <div class="transfer-panel-heading reveal reveal-up">
+        <span class="eyebrow">Como funciona</span>
+        <h2 id="journey-title">Da mensagem ao embarque</h2>
+      </div>
+
+      <div class="transfer-journey-line">
+        <article class="reveal">
+          <span>01</span>
+          <h3>Envie sua rota</h3>
+          <p>Origem, destino, data, horário e quantidade de passageiros.</p>
+        </article>
+        <article class="reveal">
+          <span>02</span>
+          <h3>Receba a orientação</h3>
+          <p>A equipe confirma o melhor formato e tira dúvidas antes da saída.</p>
+        </article>
+        <article class="reveal">
+          <span>03</span>
+          <h3>Siga para Jeri</h3>
+          <p>O trajeto acontece com tudo já combinado pelo WhatsApp.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="transfer-proof-section" aria-labelledby="proof-title">
+      <div class="transfer-proof-image reveal">
+        <img src="carrofrente.png" alt="Veículo da Jeri Rota visto de frente">
+      </div>
+
+      <div class="transfer-proof-content reveal reveal-up">
+        <span class="eyebrow">Tudo combinado</span>
+        <h2 id="proof-title">Você chega sabendo quem fala com você, onde encontrar e qual é o próximo passo.</h2>
+        <ul class="transfer-checklist">
+          <li>Ponto de encontro alinhado antes da viagem</li>
+          <li>Horário pensado para voo, check-in ou saída da vila</li>
+          <li>Orientação sobre bagagem e número de passageiros</li>
+          <li>Contato da equipe pelo WhatsApp durante o atendimento</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="transfer-car-detail" aria-label="Detalhes do veículo">
+      <img class="reveal" src="carrovidro.png" alt="Detalhe do veículo da Jeri Rota">
+      <img class="reveal" src="carroroda.png" alt="Detalhe da roda do veículo da Jeri Rota">
+    </section>
+
+    <section class="transfer-faq-slim" aria-labelledby="faq-title">
+      <div class="transfer-panel-heading reveal reveal-up">
+        <span class="eyebrow">Dúvidas comuns</span>
+        <h2 id="faq-title">Antes de cotar</h2>
+        <p>Respostas rápidas para escolher o transfer com mais clareza antes de chamar a equipe.</p>
+      </div>
+
+      <div class="transfer-question-clean">
+        <details class="reveal" open>
+          <summary>Vocês atendem aeroporto, hotel e pousada?</summary>
+          <p>Sim. Informe onde você estará e para onde precisa ir para a equipe orientar o ponto de encontro.</p>
+        </details>
+        <details class="reveal">
+          <summary>Ônibus e micro-ônibus saem de quais cidades?</summary>
+          <p>Essas duas opções saem somente de Fortaleza. Para outras origens, a equipe orienta opções de Hillux conforme disponibilidade.</p>
+        </details>
+        <details class="reveal">
+          <summary>A Hillux privativa tem horário fixo?</summary>
+          <p>Não. Na opção privativa, os horários são combinados com a equipe conforme sua chegada, saída, voo ou hospedagem.</p>
+        </details>
+        <details class="reveal">
+          <summary>Qual é o horário da Hillux compartilhada?</summary>
+          <p>A Hillux compartilhada funciona das 08:00 às 18:00, com encaixe conforme rota, disponibilidade e quantidade de passageiros.</p>
+        </details>
+        <details class="reveal">
+          <summary>Posso pedir ida e volta?</summary>
+          <p>Sim. Chame pelo WhatsApp e informe as duas datas para a equipe organizar a melhor combinação.</p>
+        </details>
+        <details class="reveal">
+          <summary>Posso levar malas?</summary>
+          <p>Sim. Informe a quantidade de bagagens junto com o número de passageiros para a equipe indicar o transporte mais adequado.</p>
+        </details>
+        <details class="reveal">
+          <summary>Vocês atendem grupos?</summary>
+          <p>Sim. Para grupos, a equipe avalia quantidade de pessoas, bagagens, origem, destino e melhor formato de veículo.</p>
+        </details>
+        <details class="reveal">
+          <summary>O orçamento sai automaticamente?</summary>
+          <p>Não. A mensagem abre no WhatsApp e a equipe responde com as opções conforme sua rota.</p>
+        </details>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-intro">
+      <h2>Jeri Rota</h2>
+      <p>Transfers, passeios e hospedagens selecionadas para viver Jericoacoara com mais conforto, clareza e cuidado em cada etapa da viagem.</p>
+
+      <div class="footer-social">
+        <a href="https://www.instagram.com/jerirota" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M7.5 2h9A5.5 5.5 0 0 1 22 7.5v9a5.5 5.5 0 0 1-5.5 5.5h-9A5.5 5.5 0 0 1 2 16.5v-9A5.5 5.5 0 0 1 7.5 2Zm0 2A3.5 3.5 0 0 0 4 7.5v9A3.5 3.5 0 0 0 7.5 20h9a3.5 3.5 0 0 0 3.5-3.5v-9A3.5 3.5 0 0 0 16.5 4h-9Zm10.25 1.5a1.25 1.25 0 1 1 0 2.5 1.25 1.25 0 0 1 0-2.5ZM12 7a5 5 0 1 1 0 10 5 5 0 0 1 0-10Zm0 2a3 3 0 1 0 0 6 3 3 0 0 0 0-6Z"/>
+          </svg>
+        </a>
+        <a href="https://wa.me/5588982274666" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp">
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M19.05 4.94A9.9 9.9 0 0 0 3.5 16.73L2 22l5.4-1.42A9.9 9.9 0 1 0 19.05 4.94ZM12 20a7.93 7.93 0 0 1-4.06-1.12l-.29-.17-3.2.84.86-3.12-.19-.31A8 8 0 1 1 12 20Zm4.38-5.99c-.24-.12-1.43-.71-1.65-.79-.22-.08-.38-.12-.54.12-.16.24-.62.79-.76.95-.14.16-.28.18-.52.06-.24-.12-1-.37-1.91-1.18-.71-.63-1.18-1.4-1.32-1.64-.14-.24-.02-.37.1-.49.11-.11.24-.28.36-.42.12-.14.16-.24.24-.4.08-.16.04-.3-.02-.42-.06-.12-.54-1.3-.74-1.78-.2-.48-.4-.41-.54-.42h-.46c-.16 0-.42.06-.64.3-.22.24-.84.82-.84 2s.86 2.32.98 2.48c.12.16 1.69 2.58 4.1 3.62.57.25 1.02.4 1.37.51.58.18 1.11.15 1.53.09.47-.07 1.43-.58 1.63-1.14.2-.56.2-1.04.14-1.14-.06-.1-.22-.16-.46-.28Z"/>
+          </svg>
+        </a>
+        <a href="https://www.google.com.br/maps/place/Jeri+rota/@-2.7957513,-40.5173192,16z/data=!3m1!4b1!4m6!3m5!1s0x40309a0f5e3e2847:0xeec236762ed21f0b!8m2!3d-2.795762!4d-40.5121694!16s%2Fg%2F11yhvj7y22?hl=pt-BR&amp;entry=ttu" target="_blank" rel="noopener noreferrer" aria-label="Google">
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M21.35 11.1h-9.18v2.98h5.27c-.23 1.6-1.79 4.71-5.27 4.71-3.18 0-5.77-2.63-5.77-5.79s2.59-5.79 5.77-5.79c1.81 0 3.02.77 3.71 1.43l2.53-2.44C16.8 4.7 14.68 3.9 12.17 3.9 7.48 3.9 3.66 7.72 3.66 12.4s3.82 8.5 8.51 8.5c4.91 0 8.16-3.45 8.16-8.31 0-.56-.06-.98-.13-1.49Z"/>
+          </svg>
+        </a>
       </div>
     </div>
 
-  </div>
-</header>
-
-<section class="hero hero-interno">
-  <div class="hero-bg active" style="background-image: url('assets/transporte-hero.jpg');"></div>
-
-  <div class="container hero-content">
-    <span class="hero-eyebrow">Transporte em Jericoacoara</span>
-    <h1>Conforto e organização<br>desde a saída</h1>
-  </div>
-</section>
-
-<section class="manifesto">
-  <div class="container">
-    <p>
-      O transporte até Jericoacoara exige planejamento, experiência local
-      e atenção aos detalhes. A Jeri Rota organiza cada trajeto considerando
-      sua origem, horário e o tipo de experiência que você deseja viver.
-    </p>
-  </div>
-</section>
-
-<section class="pilares">
-  <div class="container">
-    <div class="pilares-grid">
-
-      <div class="pilar-card">
-        <h2>Como funciona</h2>
-        <p>
-          Você informa sua cidade de origem, data e perfil de viagem.
-          A partir disso, organizamos o melhor formato de transporte,
-          definindo horários, tipo de veículo e pontos de embarque.
-        </p>
+    <div class="footer-columns">
+      <div>
+        <strong>Serviços</strong>
+        <a class="footer-nav-link" href="transporte.html">Transfer Jericoacoara</a>
+        <a class="footer-nav-link" href="passeios.html">Passeios</a>
+        <a class="footer-nav-link" href="hospedagem.html">Hospedagem</a>
       </div>
 
-      <div class="pilar-card">
-        <h2>Segurança e conforto</h2>
-        <p>
-          Trabalhamos com veículos regulares e parceiros locais confiáveis,
-          priorizando conforto, pontualidade e uma chegada tranquila
-          em Jericoacoara.
-        </p>
+      <div>
+        <strong>Experiências</strong>
+        <a class="footer-nav-link" href="prepreview.html#destination-story-title">Jericoacoara</a>
       </div>
 
-      <div class="pilar-card">
-        <h2>Acompanhamento</h2>
-        <p>
-          Após a confirmação, acompanhamos todo o processo de transporte,
-          oferecendo suporte antes, durante e na chegada ao destino.
-        </p>
+      <div>
+        <strong>Contato</strong>
+        <a class="footer-contact-link" href="https://wa.me/5588982274666" target="_blank" rel="noopener noreferrer">
+          <span class="footer-contact-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24"><path d="M6.62 10.79a15.05 15.05 0 0 0 6.59 6.59l2.2-2.2a1 1 0 0 1 1.02-.24 11.36 11.36 0 0 0 3.57.57 1 1 0 0 1 1 1V20a1 1 0 0 1-1 1C10.61 21 3 14.39 3 6a1 1 0 0 1 1-1h3.49a1 1 0 0 1 1 1 11.36 11.36 0 0 0 .57 3.57 1 1 0 0 1-.24 1.02l-2.2 2.2Z"/></svg>
+          </span>
+          (88) 98227-4666
+        </a>
+        <a class="footer-contact-link" href="https://wa.me/558591539856" target="_blank" rel="noopener noreferrer">
+          <span class="footer-contact-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24"><path d="M6.62 10.79a15.05 15.05 0 0 0 6.59 6.59l2.2-2.2a1 1 0 0 1 1.02-.24 11.36 11.36 0 0 0 3.57.57 1 1 0 0 1 1 1V20a1 1 0 0 1-1 1C10.61 21 3 14.39 3 6a1 1 0 0 1 1-1h3.49a1 1 0 0 1 1 1 11.36 11.36 0 0 0 .57 3.57 1 1 0 0 1-.24 1.02l-2.2 2.2Z"/></svg>
+          </span>
+          (85) 9153-9856
+        </a>
+        <a class="footer-contact-link" href="mailto:reserva@jerirota.com.br">
+          <span class="footer-contact-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24"><path d="M20 5H4a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2Zm0 2-8 5L4 7h16Zm0 10H4V9.35l7.47 4.67a1 1 0 0 0 1.06 0L20 9.35V17Z"/></svg>
+          </span>
+          reserva@jerirota.com.br
+        </a>
       </div>
-
-    </div>
-  </div>
-</section>
-
-<section class="cta-final">
-  <div class="container">
-    <h2>Vamos organizar seu transporte para Jericoacoara?</h2>
-
-    <div class="cta-actions">
-      <a href="https://wa.me/5588982274666" class="btn-primary light">
-        Falar com a Jeri Rota
-      </a>
-    </div>
-  </div>
-</section>
-
-<footer class="footer">
-  <div class="container footer-grid">
-
-    <div class="footer-brand">
-      <h4>Jeri Rota</h4>
-      <p>
-        Transporte, hospedagem e passeios em Jericoacoara,
-        organizados com cuidado, segurança e atenção aos detalhes.
-      </p>
     </div>
 
-    <div class="footer-contact">
-      <h5>Contato</h5>
-      <p>WhatsApp: (88) 98227-4666</p>
-      <p>E-mail: contato@jerirota.com.br</p>
-      <p>Jericoacoara · Ceará · Brasil</p>
+    <div class="footer-bottom">
+      <span>© 2026 Jeri Rota. Todos os direitos reservados.</span>
+      <span>Desenvolvido por Markus Christhofer.</span>
     </div>
+  </footer>
 
-    <div class="footer-nav">
-      <h5>Navegação</h5>
-      <p>Experiência</p>
-      <p>Transporte</p>
-      <p>Hospedagem</p>
-      <p>Passeios</p>
-    </div>
+  <script>
+    if ('scrollRestoration' in history) {
+      history.scrollRestoration = 'manual';
+    }
 
-  </div>
-
-  <div class="footer-bottom">
-    <div class="footer-copy">
-      © 2026 Jeri Rota. Todos os direitos reservados.
-    </div>
-  </div>
-</footer>
-
+    if (!window.location.hash) {
+      window.addEventListener('load', () => {
+        window.requestAnimationFrame(() => window.scrollTo(0, 0));
+        window.setTimeout(() => window.scrollTo(0, 0), 180);
+      });
+    }
+  </script>
+  <script src="js/jeri-luxury.js?v=transfer-redesign-5"></script>
 </body>
 </html>

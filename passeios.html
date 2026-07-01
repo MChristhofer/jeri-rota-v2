@@ -1,146 +1,291 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8" />
-  <title>Passeios em Jericoacoara — Jeri Rota</title>
-  <meta name="description" content="Passeios em Jericoacoara com guias locais e roteiros bem planejados. Experiências autênticas pelos principais cenários da região, no seu ritmo.">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
-  <link rel="icon" href="favicon.ico" type="image/x-icon">
-  <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
-
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
-
-  <link rel="stylesheet" href="style.css" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Passeios em Jericoacoara com roteiros pelo litoral leste, litoral oeste, Pedra Furada, quadriciclo e experiências personalizadas com apoio local.">
+  <meta name="theme-color" content="#10233a">
+  <title>Passeios em Jericoacoara | Jeri Rota</title>
+  <link rel="icon" type="image/png" href="logo-jeri-rota.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/jeri-luxury.css?v=passeios-redesign-1">
 </head>
 <body>
+  <header class="site-header">
+    <a class="brand brand-text" href="prepreview.html" aria-label="Jeri Rota, voltar ao início">JERI ROTA</a>
 
-<header class="header header-interno">
-  <div class="container header-inner">
+    <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-nav" aria-label="Abrir menu">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
 
-    <div class="header-left">
-      <div class="logo">Jeri Rota</div>
+    <div class="language-switcher" aria-label="Idiomas">
+      <a href="passeios.html" aria-label="Português"><img src="assets/flag-br.svg" alt=""></a>
+      <a href="prepreview-en.html" aria-label="English"><img src="assets/flag-us.svg" alt=""></a>
+      <a href="prepreview-es.html" aria-label="Español"><img src="assets/flag-es.svg" alt=""></a>
     </div>
 
-    <nav class="nav">
-      <a href="index.html">Início</a>
-      <a href="experiencia.html">Experiência</a>
-      <a href="transporte - Copia.html">Transporte</a>
+    <nav id="site-nav" class="site-nav" aria-label="Navegação principal">
+      <a href="prepreview.html">Home</a>
+      <a href="transporte.html">Transfer</a>
+      <a href="passeios.html" aria-current="page">Passeios</a>
       <a href="hospedagem.html">Hospedagem</a>
-      <a href="passeios.html">Passeios</a>
+      <a href="jericoacoara.html">Jericoacoara</a>
+      <a href="contato.html">Contato</a>
     </nav>
+  </header>
 
-    <div class="header-right">
-      <div class="lang-switch">
-        <a href="passeios.html"><img src="assets/flag-br.svg" alt="Português"></a>
-        <a href="passeios-en.html"><img src="assets/flag-us.svg" alt="English"></a>
-        <a href="passeios-es.html"><img src="assets/flag-es.svg" alt="Español"></a>
+  <main class="tours-page">
+    <section class="tours-hero" aria-labelledby="tours-title">
+      <img class="tours-hero-media" src="img/passeio.jpg" alt="Passeio em Jericoacoara com paisagem de dunas e mar">
+      <div class="tours-hero-overlay"></div>
+
+      <div class="tours-hero-content reveal reveal-up">
+        <span class="hero-kicker">Passeios em Jericoacoara</span>
+        <h1 id="tours-title">Roteiros para viver Jeri no ritmo certo</h1>
+        <p>Escolha entre os clássicos do litoral leste e oeste, experiências de quadriciclo, Pedra Furada, bate e volta e passeios sob medida com orientação da equipe local.</p>
+        <div class="hero-actions">
+          <a class="button button-primary" href="#roteiros">Ver roteiros</a>
+          <a class="button button-ghost" href="https://wa.me/5588982274666?text=Ol%C3%A1%21%20Quero%20ver%20op%C3%A7%C3%B5es%20de%20passeios%20em%20Jericoacoara." target="_blank" rel="noopener noreferrer">Chamar no WhatsApp</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="tours-essentials" aria-label="Diferenciais dos passeios">
+      <article class="reveal">
+        <span>01</span>
+        <strong>Roteiros alinhados antes da saída</strong>
+        <p>A equipe confirma pontos de encontro, duração aproximada e perfil do passeio antes do embarque.</p>
+      </article>
+      <article class="reveal">
+        <span>02</span>
+        <strong>Experiência local em cada parada</strong>
+        <p>Paradas pensadas para aproveitar lagoas, dunas, paisagens e restaurantes sem correria desnecessária.</p>
+      </article>
+      <article class="reveal">
+        <span>03</span>
+        <strong>Apoio pelo WhatsApp</strong>
+        <p>Você fala direto com a equipe para combinar data, grupo, preferências e melhor formato.</p>
+      </article>
+    </section>
+
+    <section class="tours-section" id="roteiros" aria-labelledby="routes-heading">
+      <div class="tours-section-head reveal reveal-up">
+        <span class="eyebrow eyebrow-dark">Roteiros</span>
+        <h2 id="routes-heading">Escolha o passeio que combina com seu dia</h2>
+        <p>As opções abaixo são uma base para começar a conversa. A equipe confirma disponibilidade, valores e detalhes conforme data, quantidade de pessoas e preferências.</p>
+      </div>
+
+      <div class="tour-card-grid">
+        <article class="tour-card reveal">
+          <img src="img/rede2.jpg" alt="Lagoa com redes sobre a água em Jericoacoara">
+          <div class="tour-card-body">
+            <span>Litoral Leste</span>
+            <h3>Lagoas, dunas e descanso</h3>
+            <p>Roteiro para quem quer curtir paisagens clássicas, lagoas transparentes e paradas com estrutura para aproveitar com calma.</p>
+            <ul>
+              <li>Lagoas e pontos panorâmicos</li>
+              <li>Paradas para fotos e banho</li>
+              <li>Bom para casal, família e grupo</li>
+            </ul>
+            <a href="https://wa.me/5588982274666?text=Ol%C3%A1%21%20Quero%20cotar%20o%20passeio%20do%20Litoral%20Leste%20em%20Jericoacoara." target="_blank" rel="noopener noreferrer">Cotar passeio</a>
+          </div>
+        </article>
+
+        <article class="tour-card reveal">
+          <img src="img/oeste.jpg" alt="Paisagem do litoral oeste de Jericoacoara">
+          <div class="tour-card-body">
+            <span>Litoral Oeste</span>
+            <h3>Mangue, dunas e aventura</h3>
+            <p>Um dia mais cênico, com travessias, dunas e paradas que mostram outro lado da região de Jericoacoara.</p>
+            <ul>
+              <li>Roteiro intenso e fotogênico</li>
+              <li>Paradas com paisagens variadas</li>
+              <li>Ideal para primeira viagem a Jeri</li>
+            </ul>
+            <a href="https://wa.me/5588982274666?text=Ol%C3%A1%21%20Quero%20cotar%20o%20passeio%20do%20Litoral%20Oeste%20em%20Jericoacoara." target="_blank" rel="noopener noreferrer">Cotar passeio</a>
+          </div>
+        </article>
+
+        <article class="tour-card reveal">
+          <img src="img/quadri.jpg" alt="Quadriciclo em trilha de areia na região de Jericoacoara">
+          <div class="tour-card-body">
+            <span>Quadriciclo</span>
+            <h3>Roteiro com mais liberdade</h3>
+            <p>Experiência para quem quer sentir o caminho, passar por trilhas de areia e fazer um passeio com mais movimento.</p>
+            <ul>
+              <li>Boa opção para casais e amigos</li>
+              <li>Roteiro definido com orientação</li>
+              <li>Paradas combinadas antes da saída</li>
+            </ul>
+            <a href="https://wa.me/5588982274666?text=Ol%C3%A1%21%20Quero%20cotar%20um%20passeio%20de%20quadriciclo%20em%20Jericoacoara." target="_blank" rel="noopener noreferrer">Cotar passeio</a>
+          </div>
+        </article>
+
+        <article class="tour-card reveal">
+          <img src="img/pedra-desktop.jpg" alt="Pedra Furada em Jericoacoara">
+          <div class="tour-card-body">
+            <span>Pedra Furada</span>
+            <h3>O cartão-postal de Jeri</h3>
+            <p>Uma experiência para visitar um dos símbolos de Jericoacoara com orientação sobre melhor horário e acesso.</p>
+            <ul>
+              <li>Paisagem clássica da vila</li>
+              <li>Boa escolha para fotos</li>
+              <li>Horário ajustado ao clima e maré</li>
+            </ul>
+            <a href="https://wa.me/5588982274666?text=Ol%C3%A1%21%20Quero%20organizar%20um%20passeio%20para%20a%20Pedra%20Furada%20em%20Jericoacoara." target="_blank" rel="noopener noreferrer">Cotar passeio</a>
+          </div>
+        </article>
+
+        <article class="tour-card reveal">
+          <img src="img/batevolta.jpg" alt="Paisagem de praia em passeio bate e volta">
+          <div class="tour-card-body">
+            <span>Bate e volta</span>
+            <h3>Jeri em um dia bem planejado</h3>
+            <p>Para quem tem pouco tempo e quer organizar chegada, passeio e retorno com clareza antes de sair.</p>
+            <ul>
+              <li>Roteiro objetivo</li>
+              <li>Combinação com transfer</li>
+              <li>Indicado para agendas curtas</li>
+            </ul>
+            <a href="https://wa.me/5588982274666?text=Ol%C3%A1%21%20Quero%20cotar%20um%20bate%20e%20volta%20para%20Jericoacoara." target="_blank" rel="noopener noreferrer">Cotar passeio</a>
+          </div>
+        </article>
+
+        <article class="tour-card reveal">
+          <img src="img/personalizado.jpg" alt="Passeio personalizado em Jericoacoara ao pôr do sol">
+          <div class="tour-card-body">
+            <span>Personalizado</span>
+            <h3>Um roteiro do seu jeito</h3>
+            <p>Para quem quer combinar passeio, transfer, pousada, horários e preferências em uma mesma conversa.</p>
+            <ul>
+              <li>Indicado para grupos e famílias</li>
+              <li>Paradas escolhidas com a equipe</li>
+              <li>Planejamento mais flexível</li>
+            </ul>
+            <a href="https://wa.me/5588982274666?text=Ol%C3%A1%21%20Quero%20montar%20um%20passeio%20personalizado%20em%20Jericoacoara." target="_blank" rel="noopener noreferrer">Montar roteiro</a>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="tours-feature" aria-labelledby="experience-heading">
+      <figure class="tours-feature-media reveal">
+        <img class="scroll-zoom" src="img/passeios.png" alt="Passeio em Jericoacoara com veículo sobre areia clara">
+      </figure>
+      <div class="tours-feature-copy reveal reveal-up">
+        <span class="eyebrow eyebrow-dark">Como funciona</span>
+        <h2 id="experience-heading">Você fala o que quer viver, a equipe orienta o melhor caminho</h2>
+        <p>Antes do passeio, a Jeri Rota ajuda a entender qual roteiro faz mais sentido para sua data, seu grupo e o tempo disponível. Depois, tudo segue combinado pelo WhatsApp: encontro, horário, paradas e detalhes importantes.</p>
+        <ol>
+          <li>Envie data, quantidade de pessoas e tipo de passeio.</li>
+          <li>Receba a melhor opção para o seu perfil.</li>
+          <li>Confirme os detalhes e aproveite Jeri sem improviso.</li>
+        </ol>
+      </div>
+    </section>
+
+    <section class="tours-gallery-section" aria-labelledby="gallery-heading">
+      <div class="tours-section-head reveal reveal-up">
+        <span class="eyebrow eyebrow-dark">Cenários</span>
+        <h2 id="gallery-heading">Lagoas, areia, vento e pôr do sol</h2>
+      </div>
+
+      <div class="tours-gallery">
+        <figure class="tours-gallery-large reveal">
+          <img src="img/bloco2.jpeg" alt="Passeio em paisagem de Jericoacoara">
+        </figure>
+        <figure class="reveal">
+          <img src="img/rede2.jpeg" alt="Rede sobre lagoa em Jericoacoara">
+        </figure>
+        <figure class="reveal">
+          <img src="img/pedra-mobile.jpg" alt="Pedra Furada em Jericoacoara">
+        </figure>
+        <figure class="tours-gallery-wide reveal">
+          <img src="img/passeio.jpg" alt="Passeio pelas dunas de Jericoacoara">
+        </figure>
+      </div>
+    </section>
+
+    <section class="tours-final-cta reveal" aria-labelledby="cta-heading">
+      <div>
+        <span class="eyebrow">Planeje seu dia</span>
+        <h2 id="cta-heading">Vamos escolher seus passeios em Jericoacoara?</h2>
+        <p>Conte a data da viagem, quantas pessoas vão com você e quais experiências chamaram sua atenção.</p>
+      </div>
+      <a class="button button-primary" href="https://wa.me/5588982274666?text=Ol%C3%A1%21%20Quero%20planejar%20meus%20passeios%20em%20Jericoacoara%20com%20a%20Jeri%20Rota." target="_blank" rel="noopener noreferrer">Falar com a Jeri Rota</a>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-intro">
+      <h2>Jeri Rota</h2>
+      <p>Transfers, passeios e hospedagens selecionadas para viver Jericoacoara com mais conforto, clareza e cuidado em cada etapa da viagem.</p>
+
+      <div class="footer-social">
+        <a href="https://www.instagram.com/jerirota" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M7.5 2h9A5.5 5.5 0 0 1 22 7.5v9a5.5 5.5 0 0 1-5.5 5.5h-9A5.5 5.5 0 0 1 2 16.5v-9A5.5 5.5 0 0 1 7.5 2Zm0 2A3.5 3.5 0 0 0 4 7.5v9A3.5 3.5 0 0 0 7.5 20h9a3.5 3.5 0 0 0 3.5-3.5v-9A3.5 3.5 0 0 0 16.5 4h-9Zm10.25 1.5a1.25 1.25 0 1 1 0 2.5 1.25 1.25 0 0 1 0-2.5ZM12 7a5 5 0 1 1 0 10 5 5 0 0 1 0-10Zm0 2a3 3 0 1 0 0 6 3 3 0 0 0 0-6Z"/>
+          </svg>
+        </a>
+        <a href="https://wa.me/5588982274666" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp">
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M19.05 4.94A9.9 9.9 0 0 0 3.5 16.73L2 22l5.4-1.42A9.9 9.9 0 1 0 19.05 4.94ZM12 20a7.93 7.93 0 0 1-4.06-1.12l-.29-.17-3.2.84.86-3.12-.19-.31A8 8 0 1 1 12 20Zm4.38-5.99c-.24-.12-1.43-.71-1.65-.79-.22-.08-.38-.12-.54.12-.16.24-.62.79-.76.95-.14.16-.28.18-.52.06-.24-.12-1-.37-1.91-1.18-.71-.63-1.18-1.4-1.32-1.64-.14-.24-.02-.37.1-.49.11-.11.24-.28.36-.42.12-.14.16-.24.24-.4.08-.16.04-.3-.02-.42-.06-.12-.54-1.3-.74-1.78-.2-.48-.4-.41-.54-.42h-.46c-.16 0-.42.06-.64.3-.22.24-.84.82-.84 2s.86 2.32.98 2.48c.12.16 1.69 2.58 4.1 3.62.57.25 1.02.4 1.37.51.58.18 1.11.15 1.53.09.47-.07 1.43-.58 1.63-1.14.2-.56.2-1.04.14-1.14-.06-.1-.22-.16-.46-.28Z"/>
+          </svg>
+        </a>
+        <a href="https://www.google.com.br/maps/place/Jeri+rota/@-2.7957513,-40.5173192,16z/data=!3m1!4b1!4m6!3m5!1s0x40309a0f5e3e2847:0xeec236762ed21f0b!8m2!3d-2.795762!4d-40.5121694!16s%2Fg%2F11yhvj7y22?hl=pt-BR&amp;entry=ttu" target="_blank" rel="noopener noreferrer" aria-label="Google">
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M21.35 11.1h-9.18v2.98h5.27c-.23 1.6-1.79 4.71-5.27 4.71-3.18 0-5.77-2.63-5.77-5.79s2.59-5.79 5.77-5.79c1.81 0 3.02.77 3.71 1.43l2.53-2.44C16.8 4.7 14.68 3.9 12.17 3.9 7.48 3.9 3.66 7.72 3.66 12.4s3.82 8.5 8.51 8.5c4.91 0 8.16-3.45 8.16-8.31 0-.56-.06-.98-.13-1.49Z"/>
+          </svg>
+        </a>
       </div>
     </div>
 
-  </div>
-</header>
-
-<section class="hero hero-interno">
-  <div class="hero-bg active" style="background-image: url('assets/passeios-hero.jpg');"></div>
-
-  <div class="container hero-content">
-    <span class="hero-eyebrow">Passeios em Jericoacoara</span>
-    <h1>Experiências autênticas<br>pelos cenários de Jeri</h1>
-  </div>
-</section>
-
-<section class="manifesto">
-  <div class="container">
-    <p>
-      Jericoacoara oferece paisagens únicas e experiências marcantes.
-      Os passeios organizados pela Jeri Rota priorizam roteiros bem planejados,
-      guias locais e tempo suficiente para aproveitar cada parada com tranquilidade.
-    </p>
-  </div>
-</section>
-
-<section class="pilares">
-  <div class="container">
-    <div class="pilares-grid">
-
-      <div class="pilar-card">
-        <h2>Roteiros bem definidos</h2>
-        <p>
-          Organizamos passeios pelos principais pontos da região,
-          respeitando o ritmo do grupo e evitando correria
-          ou roteiros excessivamente engessados.
-        </p>
+    <div class="footer-columns">
+      <div>
+        <strong>Serviços</strong>
+        <a class="footer-nav-link" href="transporte.html">Transfer Jericoacoara</a>
+        <a class="footer-nav-link" href="passeios.html">Passeios</a>
+        <a class="footer-nav-link" href="hospedagem.html">Hospedagem</a>
       </div>
 
-      <div class="pilar-card">
-        <h2>Guias locais</h2>
-        <p>
-          Trabalhamos com condutores experientes e conhecedores
-          da região, garantindo segurança, informação
-          e uma vivência mais autêntica de Jericoacoara.
-        </p>
+      <div>
+        <strong>Experiências</strong>
+        <a class="footer-nav-link" href="prepreview.html#destination-story-title">Jericoacoara</a>
       </div>
 
-      <div class="pilar-card">
-        <h2>Flexibilidade e cuidado</h2>
-        <p>
-          Sempre que possível, adaptamos horários e paradas
-          de acordo com o perfil do grupo,
-          mantendo o passeio confortável e bem aproveitado.
-        </p>
+      <div>
+        <strong>Contato</strong>
+        <a class="footer-contact-link" href="tel:+5588982274666">
+          <span class="footer-contact-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24"><path d="M6.62 10.79a15.05 15.05 0 0 0 6.59 6.59l2.2-2.2a1 1 0 0 1 1.02-.24 11.36 11.36 0 0 0 3.57.57 1 1 0 0 1 1 1V20a1 1 0 0 1-1 1C10.61 21 3 14.39 3 6a1 1 0 0 1 1-1h3.49a1 1 0 0 1 1 1 11.36 11.36 0 0 0 .57 3.57 1 1 0 0 1-.24 1.02l-2.2 2.2Z"/></svg>
+          </span>
+          (88) 98227-4666
+        </a>
+        <a class="footer-contact-link" href="tel:+558591539856">
+          <span class="footer-contact-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24"><path d="M6.62 10.79a15.05 15.05 0 0 0 6.59 6.59l2.2-2.2a1 1 0 0 1 1.02-.24 11.36 11.36 0 0 0 3.57.57 1 1 0 0 1 1 1V20a1 1 0 0 1-1 1C10.61 21 3 14.39 3 6a1 1 0 0 1 1-1h3.49a1 1 0 0 1 1 1 11.36 11.36 0 0 0 .57 3.57 1 1 0 0 1-.24 1.02l-2.2 2.2Z"/></svg>
+          </span>
+          (85) 9153-9856
+        </a>
+        <a class="footer-contact-link" href="mailto:reserva@jerirota.com.br">
+          <span class="footer-contact-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24"><path d="M20 5H4a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2Zm0 2-8 5L4 7h16Zm0 10H4V9.35l7.47 4.67a1 1 0 0 0 1.06 0L20 9.35V17Z"/></svg>
+          </span>
+          reserva@jerirota.com.br
+        </a>
       </div>
-
-    </div>
-  </div>
-</section>
-
-<section class="cta-final">
-  <div class="container">
-    <h2>Vamos planejar seus passeios em Jericoacoara?</h2>
-
-    <div class="cta-actions">
-      <a href="https://wa.me/5588982274666" class="btn-primary light">
-        Falar com a Jeri Rota
-      </a>
-    </div>
-  </div>
-</section>
-
-<footer class="footer">
-  <div class="container footer-grid">
-
-    <div class="footer-brand">
-      <h4>Jeri Rota</h4>
-      <p>
-        Transporte, hospedagem e passeios em Jericoacoara,
-        organizados com cuidado, atenção e experiência local.
-      </p>
     </div>
 
-    <div class="footer-contact">
-      <h5>Contato</h5>
-      <p>WhatsApp: (88) 98227-4666</p>
-      <p>E-mail: contato@jerirota.com.br</p>
-      <p>Jericoacoara · Ceará · Brasil</p>
+    <div class="footer-bottom">
+      <span>© 2026 Jeri Rota. Todos os direitos reservados.</span>
+      <span>Desenvolvido por Markus Christhofer.</span>
     </div>
+  </footer>
 
-    <div class="footer-nav">
-      <h5>Navegação</h5>
-      <p>Experiência</p>
-      <p>Transporte</p>
-      <p>Hospedagem</p>
-      <p>Passeios</p>
-    </div>
-
-  </div>
-
-  <div class="footer-bottom">
-    <div class="footer-copy">
-      © 2026 Jeri Rota. Todos os direitos reservados.
-    </div>
-  </div>
-</footer>
-
+  <script src="js/jeri-luxury.js?v=passeios-redesign-1"></script>
 </body>
 </html>
