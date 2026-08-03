@@ -103,3 +103,14 @@
 @media (width<=480px){
   .hero-actions{margin:clamp(150px,24svh,190px) 0 16px}
 }
+
+/* Video layer for the hero; the existing photo remains the loading fallback. */
+.hero{background-image:url('/hero-jr.webp')}
+.hero-media{z-index:0;pointer-events:none;position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:64% center}
+.hero:after{content:"";z-index:1;pointer-events:none;position:absolute;inset:0;background:linear-gradient(90deg,rgba(7,24,34,.96) 0%,rgba(7,24,34,.84) 34%,rgba(7,24,34,.42) 58%,rgba(7,24,34,.08) 78%,rgba(7,24,34,0) 100%)}
+
+@media (width<=760px){
+  .hero{background-image:url('/hero-jr.webp')}
+  .hero-media{object-position:64% bottom}
+  .hero:after{background:linear-gradient(180deg,rgba(7,24,34,.97) 0%,rgba(7,24,34,.91) 34%,rgba(7,24,34,.56) 55%,rgba(7,24,34,.08) 72%,rgba(7,24,34,.18) 100%)}
+}
