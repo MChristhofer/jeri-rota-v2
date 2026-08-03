@@ -100,6 +100,6 @@
   .hero-actions .button,.hero-actions .text-link{width:100%}
 }
 
-@media (width<=430px){
+@media (width<=480px){
   .hero-actions{margin:clamp(150px,24svh,190px) 0 16px}
 }
