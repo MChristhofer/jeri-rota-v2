@@ -101,5 +101,5 @@
 }
 
 @media (width<=430px){
-  .hero-actions{margin:clamp(90px,15svh,135px) 0 16px}
+  .hero-actions{margin:clamp(150px,24svh,190px) 0 16px}
 }
