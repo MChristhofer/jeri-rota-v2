@@ -221,3 +221,47 @@
 @media (prefers-reduced-motion:reduce){
   .services .service-card,.services .service-card:before,.services .service-icon,.services .service-icon svg,.services .service-card .card-link{transition:none}
 }
+
+/* Rota das Emoções becomes a photographic destination card. */
+.emotions-route{
+  isolation:isolate;
+  position:relative;
+  min-height:310px;
+  max-width:none;
+  margin-top:34px;
+  padding:clamp(1.5rem,3vw,2.4rem);
+  overflow:hidden;
+  border:1px solid rgba(240,207,131,.45);
+  border-radius:18px;
+  background-image:url('/img/rota-das-emocoes.png');
+  background-position:center 52%;
+  background-size:cover;
+  box-shadow:0 22px 48px rgba(3,18,27,.24);
+  transition:transform .35s ease,box-shadow .35s ease,background-size .7s ease;
+}
+.emotions-route:before{
+  content:"";
+  z-index:-1;
+  position:absolute;
+  inset:0;
+  background:linear-gradient(90deg,rgba(4,20,30,.94) 0%,rgba(4,20,30,.72) 42%,rgba(4,20,30,.16) 72%,rgba(4,20,30,.08) 100%);
+}
+.emotions-route:hover,.emotions-route:focus-within{transform:translateY(-5px);background-size:106%;box-shadow:0 30px 65px rgba(3,18,27,.34)}
+.emotions-route>span{align-self:flex-start;width:46px;height:46px;color:#10293c;background:#edbd50}
+.emotions-route div{align-self:flex-end;max-width:430px;gap:4px}
+.emotions-route small{color:#f0cf83;font-size:.62rem}
+.emotions-route b{color:#fff;font-size:clamp(1.6rem,3vw,2.5rem);line-height:1.05}
+.emotions-route p{color:rgba(255,255,255,.86);max-width:360px;margin-top:8px;font-size:.84rem}
+.emotions-route .route-link{align-self:flex-end;padding:.8rem 1.15rem;border:0;border-radius:999px;color:#102535;background:#edbd50;white-space:nowrap}
+
+@media (width<=760px){
+  .emotions-route{align-items:flex-start;flex-direction:column;justify-content:flex-end;min-height:390px;background-position:58% center}
+  .emotions-route:before{background:linear-gradient(180deg,rgba(4,20,30,.06) 20%,rgba(4,20,30,.9) 72%,rgba(4,20,30,.98) 100%)}
+  .emotions-route>span{position:absolute;top:20px;left:20px}
+  .emotions-route div{align-self:stretch}
+  .emotions-route .route-link{align-self:flex-start;margin-top:10px}
+}
+
+@media (prefers-reduced-motion:reduce){
+  .emotions-route{transition:none}
+}
