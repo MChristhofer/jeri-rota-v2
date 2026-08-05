@@ -247,7 +247,7 @@
   background:linear-gradient(90deg,rgba(4,20,30,.94) 0%,rgba(4,20,30,.72) 42%,rgba(4,20,30,.16) 72%,rgba(4,20,30,.08) 100%);
 }
 .emotions-route:hover,.emotions-route:focus-within{transform:translateY(-5px);background-size:106%;box-shadow:0 30px 65px rgba(3,18,27,.34)}
-.emotions-route>span{align-self:flex-start;width:46px;height:46px;color:#10293c;background:#edbd50}
+.emotions-route>span{display:none}
 .emotions-route div{align-self:flex-end;max-width:430px;gap:4px}
 .emotions-route small{color:#f0cf83;font-size:.62rem}
 .emotions-route b{color:#fff;font-size:clamp(1.6rem,3vw,2.5rem);line-height:1.05}
@@ -257,7 +257,6 @@
 @media (width<=760px){
   .emotions-route{align-items:flex-start;flex-direction:column;justify-content:flex-end;min-height:390px;background-position:58% center}
   .emotions-route:before{background:linear-gradient(180deg,rgba(4,20,30,.06) 20%,rgba(4,20,30,.9) 72%,rgba(4,20,30,.98) 100%)}
-  .emotions-route>span{position:absolute;top:20px;left:20px}
   .emotions-route div{align-self:stretch}
   .emotions-route .route-link{align-self:flex-start;margin-top:10px}
 }
