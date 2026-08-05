@@ -264,3 +264,12 @@
 @media (prefers-reduced-motion:reduce){
   .emotions-route{transition:none}
 }
+
+/* Compact translation shortcuts in the main header. */
+.language-switcher{display:flex;align-items:center;gap:5px;margin-left:auto;margin-right:16px;padding:5px;background:rgba(255,255,255,.62);border:1px solid rgba(16,45,60,.1);border-radius:999px}
+.language-flag{display:grid;place-items:center;width:31px;height:31px;border-radius:50%;font-size:1.12rem;line-height:1;filter:saturate(.9);transition:transform .2s ease,background .2s ease,box-shadow .2s ease}
+.language-flag img{display:block;width:24px;height:24px;object-fit:cover;border-radius:50%;box-shadow:0 1px 4px rgba(7,30,45,.2)}
+.language-flag:hover,.language-flag:focus-visible{background:#fff;filter:saturate(1.1);transform:translateY(-2px) scale(1.08);box-shadow:0 7px 16px rgba(7,30,45,.15)}
+@media (width<=980px){.language-switcher{margin-left:auto;margin-right:8px}}
+@media (width<=480px){.language-switcher{gap:1px;margin-right:3px;padding:3px}.language-flag{width:27px;height:27px;font-size:.98rem}.language-flag img{width:21px;height:21px}.brand small{display:none}}
+@media (prefers-reduced-motion:reduce){.language-flag{transition:none}}
