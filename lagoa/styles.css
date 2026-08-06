@@ -1,0 +1,143 @@
+:root {
+  --ink: #10242a;
+  --deep: #071a20;
+  --gold: #f4b52c;
+  --cream: #f8f4eb;
+  --white: #fff;
+  --muted: #5d6b6e;
+  font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  color: var(--ink);
+  background: var(--cream);
+}
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body { margin: 0; background: var(--cream); }
+img { display: block; width: 100%; }
+a { color: inherit; text-decoration: none; }
+
+.header {
+  position: fixed;
+  z-index: 20;
+  top: 18px;
+  left: 50%;
+  display: flex;
+  width: min(1160px, calc(100% - 32px));
+  min-height: 64px;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  padding: 10px 16px;
+  border: 1px solid rgba(255,255,255,.55);
+  border-radius: 24px;
+  background: rgba(255,255,255,.9);
+  box-shadow: 0 16px 45px rgba(5,20,25,.18);
+  backdrop-filter: blur(18px);
+  transform: translateX(-50%);
+}
+.brand { display: inline-flex; align-items: center; gap: 10px; }
+.brand img { width: 40px; height: 40px; object-fit: contain; }
+.brand span { display: grid; line-height: 1.05; }
+.brand strong { font-size: .83rem; letter-spacing: .14em; }
+.brand small { margin-top: 5px; color: #6e7778; font-size: .63rem; }
+.header nav { display: flex; align-items: center; gap: 28px; font-size: .86rem; font-weight: 700; }
+.header nav a:hover { color: #c48700; }
+
+.button {
+  display: inline-flex;
+  min-height: 52px;
+  align-items: center;
+  justify-content: center;
+  padding: 0 24px;
+  border-radius: 999px;
+  background: var(--gold);
+  color: #17262a;
+  font-size: .9rem;
+  font-weight: 800;
+  box-shadow: 0 12px 30px rgba(244,181,44,.25);
+  transition: transform .2s ease, box-shadow .2s ease;
+}
+.button:hover { transform: translateY(-2px); box-shadow: 0 16px 38px rgba(244,181,44,.35); }
+.button-small { min-height: 44px; padding: 0 20px; background: var(--deep); color: var(--white); box-shadow: none; }
+
+.hero { position: relative; min-height: 760px; overflow: hidden; background: var(--deep); }
+.hero-image { position: absolute; inset: 0; height: 100%; object-fit: cover; }
+.hero-shade { position: absolute; inset: 0; background: linear-gradient(90deg, rgba(4,20,25,.88) 0%, rgba(4,20,25,.5) 48%, rgba(4,20,25,.08) 80%), linear-gradient(0deg, rgba(4,20,25,.45), transparent 48%); }
+.hero-content { position: relative; z-index: 2; display: flex; width: min(1160px, calc(100% - 48px)); min-height: 760px; margin: auto; flex-direction: column; justify-content: center; align-items: flex-start; padding-top: 90px; color: var(--white); }
+.eyebrow { display: inline-flex; align-items: center; gap: 10px; color: var(--gold); font-size: .72rem; font-weight: 900; letter-spacing: .18em; }
+.eyebrow::before { width: 30px; height: 1px; background: currentColor; content: ""; }
+.eyebrow.dark { color: #a56f00; }
+h1, h2 { margin: 20px 0; letter-spacing: -.045em; line-height: .98; }
+h1 { max-width: 760px; font-size: clamp(3.2rem, 6.5vw, 6rem); }
+h2 { font-size: clamp(2.4rem, 4.2vw, 4.3rem); }
+h1 em, h2 em { display: block; color: var(--gold); font-family: Georgia, serif; font-weight: 500; }
+.hero-content > p { max-width: 620px; margin: 0; color: rgba(255,255,255,.82); font-size: 1.12rem; line-height: 1.7; }
+.hero-actions { display: flex; align-items: center; gap: 26px; margin-top: 34px; }
+.text-link { padding-bottom: 5px; border-bottom: 1px solid rgba(255,255,255,.5); font-weight: 700; }
+
+.section { width: min(1160px, calc(100% - 48px)); margin: auto; padding: 110px 0; }
+.intro { display: grid; grid-template-columns: .85fr 1.15fr; gap: 80px; align-items: end; }
+.section-copy p, .planning-copy p { color: var(--muted); font-size: 1.04rem; line-height: 1.75; }
+.feature-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+.feature-grid article { min-height: 255px; padding: 28px; border: 1px solid #e0dbd0; border-radius: 24px; background: var(--white); box-shadow: 0 18px 55px rgba(13,35,41,.06); }
+.feature-grid span { color: #b57c00; font-size: .72rem; font-weight: 900; letter-spacing: .15em; }
+.feature-grid h3 { margin: 70px 0 12px; font-size: 1.25rem; }
+.feature-grid p { margin: 0; color: var(--muted); font-size: .9rem; line-height: 1.55; }
+
+.gallery-section { padding: 110px max(24px, calc((100% - 1160px)/2)); background: var(--deep); color: var(--white); }
+.gallery-heading { max-width: 760px; margin-bottom: 52px; }
+.gallery { display: grid; grid-auto-rows: 410px; grid-template-columns: repeat(2, 1fr); gap: 18px; }
+.gallery figure { position: relative; overflow: hidden; margin: 0; border-radius: 28px; background: #0b2026; }
+.gallery figure.wide { grid-column: span 2; }
+.gallery img { height: 100%; object-fit: cover; transition: transform .6s ease; }
+.gallery figure:hover img { transform: scale(1.035); }
+.gallery figcaption { position: absolute; right: 20px; bottom: 20px; left: 20px; padding: 16px 18px; border: 1px solid rgba(255,255,255,.2); border-radius: 16px; background: rgba(7,26,32,.68); font-size: .82rem; font-weight: 800; backdrop-filter: blur(12px); }
+
+.planning { display: grid; grid-template-columns: 1fr 1fr; gap: 72px; align-items: center; }
+.planning-image { overflow: hidden; min-height: 650px; border-radius: 30px; box-shadow: 0 28px 70px rgba(13,35,41,.13); }
+.planning-image img { height: 650px; object-fit: cover; }
+.planning-copy ul { display: grid; gap: 12px; margin: 28px 0 34px; padding: 0; list-style: none; }
+.planning-copy li { display: flex; align-items: center; gap: 12px; font-weight: 700; }
+.planning-copy li::before { display: grid; width: 26px; height: 26px; place-items: center; border-radius: 50%; background: var(--gold); content: "✓"; font-size: .74rem; }
+
+.final-cta { display: flex; min-height: 500px; flex-direction: column; justify-content: center; align-items: center; padding: 80px 24px; background: linear-gradient(rgba(4,20,25,.78), rgba(4,20,25,.84)), url("images/lagoa-revoada.jpg") center 46%/cover; color: var(--white); text-align: center; }
+.final-cta h2 { max-width: 850px; margin-bottom: 10px; }
+.final-cta p { margin: 0 0 30px; color: rgba(255,255,255,.78); }
+
+footer { display: grid; grid-template-columns: 1.2fr 1fr 1fr; align-items: center; gap: 30px; padding: 54px max(24px, calc((100% - 1160px)/2)); background: #041318; color: rgba(255,255,255,.68); font-size: .78rem; }
+.brand-light { color: var(--white); }
+.brand-light small { color: rgba(255,255,255,.6); }
+footer p:last-child { text-align: right; }
+.floating-whatsapp { position: fixed; z-index: 15; right: 22px; bottom: 22px; padding: 15px 20px; border-radius: 999px; background: #18333b; color: var(--white); box-shadow: 0 12px 35px rgba(0,0,0,.25); font-size: .82rem; font-weight: 900; }
+
+@media (max-width: 900px) {
+  .header { top: 10px; min-height: 58px; border-radius: 18px; }
+  .header nav { display: none; }
+  .button-small { display: none; }
+  .hero, .hero-content { min-height: 700px; }
+  .hero-content { justify-content: flex-end; padding-bottom: 74px; }
+  .hero-shade { background: linear-gradient(0deg, rgba(4,20,25,.94), rgba(4,20,25,.08) 80%); }
+  .intro, .planning { grid-template-columns: 1fr; gap: 42px; }
+  .feature-grid { grid-template-columns: 1fr; }
+  .feature-grid article { min-height: 180px; }
+  .feature-grid h3 { margin-top: 38px; }
+  .gallery { grid-auto-rows: 340px; }
+  footer { grid-template-columns: 1fr; }
+  footer p:last-child { text-align: left; }
+}
+
+@media (max-width: 620px) {
+  .brand img { width: 34px; height: 34px; }
+  .hero-content { width: calc(100% - 32px); }
+  h1 { font-size: clamp(2.8rem, 14vw, 4.4rem); }
+  .hero-content > p { font-size: .98rem; }
+  .hero-actions { width: 100%; flex-direction: column; align-items: stretch; gap: 18px; text-align: center; }
+  .section { width: calc(100% - 32px); padding: 80px 0; }
+  .gallery-section { padding: 80px 16px; }
+  .gallery { display: block; }
+  .gallery figure { height: 380px; margin-bottom: 14px; }
+  .gallery figure.wide { grid-column: auto; }
+  .planning-image, .planning-image img { min-height: 460px; height: 460px; }
+  .final-cta { min-height: 520px; }
+  .floating-whatsapp { right: 14px; bottom: 14px; }
+}
