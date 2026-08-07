@@ -15,7 +15,7 @@
   function wa(label, className) { return '<a class="' + (className || "button") + '" data-action="whatsapp" data-service="' + slug + '" href="' + whatsappUrl + '" target="_blank" rel="noopener noreferrer">' + icon + label + "</a>"; }
 
   root.innerHTML = `
-    <header class="site-header"><a class="brand" href="/" aria-label="Jeri Rota — início"><img src="/logo.png" alt="Jeri Rota"></a><nav aria-label="Navegação principal"><a href="/">Início</a><a href="/transporte.html">Transfer</a><a href="/passeios.html">Passeios</a><a href="/hospedagem.html">Hospedagem</a></nav>${wa("Falar no WhatsApp", "header-wa")}</header>
+    <header class="site-header"><a class="brand" href="/" aria-label="Jeri Rota — início"><img src="/logo.png" alt="Jeri Rota"></a><button class="menu-toggle" type="button" aria-expanded="false" aria-controls="service-nav"><span></span><span></span><span></span><span class="sr-only">Abrir menu</span></button><nav id="service-nav" aria-label="Navegação principal"><a href="/">Início</a><a href="/hospedagem-jericoacoara/" ${slug === "hospedagem-jericoacoara" ? 'aria-current="page"' : ""}>Hospedagem</a><div class="nav-group"><button type="button" aria-expanded="false">Passeios <span>⌄</span></button><div class="nav-submenu"><a href="/passeio-lado-leste/" ${slug === "passeio-lado-leste" ? 'aria-current="page"' : ""}>Lado Leste</a><a href="/passeio-lado-oeste/" ${slug === "passeio-lado-oeste" ? 'aria-current="page"' : ""}>Lado Oeste</a><a href="/extremo-leste/" ${slug === "extremo-leste" ? 'aria-current="page"' : ""}>Extremo Leste</a></div></div><div class="nav-group"><button type="button" aria-expanded="false">Transfers <span>⌄</span></button><div class="nav-submenu"><a href="/transfer-4x4/" ${slug === "transfer-4x4" ? 'aria-current="page"' : ""}>Hilux 4x4</a><a href="/onibus-madrugada/" ${slug === "onibus-madrugada" ? 'aria-current="page"' : ""}>Ônibus da Madrugada</a></div></div><a href="/rota-das-emocoes/" ${slug === "rota-das-emocoes" ? 'aria-current="page"' : ""}>Rota das Emoções</a></nav>${wa("Falar no WhatsApp", "header-wa")}</header>
     <main>
       <section class="hero" style="--hero-image:url('${data.hero}')"><div class="hero-shade"></div><div class="hero-content"><span class="eyebrow">${data.eyebrow}</span><h1>${data.title}</h1><p>${data.lead}</p>${wa("Consultar disponibilidade")}</div></section>
       <section class="summary wrap" aria-label="Resumo do serviço">${data.summary.map(function (item) { return `<article><span>${item[0]}</span><strong>${item[1]}</strong></article>`; }).join("")}</section>
@@ -32,6 +32,20 @@
   document.querySelectorAll('[data-action="whatsapp"]').forEach(function (link) {
     link.addEventListener("click", function () {
       if (window.fbq) window.fbq("trackCustom", "WhatsAppClick", { service: slug });
+    });
+  });
+  var menuToggle = document.querySelector(".menu-toggle");
+  var serviceNav = document.querySelector("#service-nav");
+  menuToggle.addEventListener("click", function () {
+    var open = menuToggle.getAttribute("aria-expanded") === "true";
+    menuToggle.setAttribute("aria-expanded", String(!open));
+    serviceNav.classList.toggle("is-open", !open);
+  });
+  document.querySelectorAll(".nav-group > button").forEach(function (button) {
+    button.addEventListener("click", function () {
+      var open = button.getAttribute("aria-expanded") === "true";
+      document.querySelectorAll(".nav-group > button").forEach(function (other) { if (other !== button) other.setAttribute("aria-expanded", "false"); });
+      button.setAttribute("aria-expanded", String(!open));
     });
   });
 })();
