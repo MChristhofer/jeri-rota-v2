@@ -8,7 +8,8 @@
     return;
   }
 
-  var whatsappNumber = "5588982274666";
+  window.JERI_ROTA_CONFIG = window.JERI_ROTA_CONFIG || { whatsappNumber: "5588982274666" };
+  var whatsappNumber = window.JERI_ROTA_CONFIG.whatsappNumber;
   var whatsappUrl = "https://wa.me/" + whatsappNumber + "?text=" + encodeURIComponent(data.message);
   var icon = '<svg aria-hidden="true" viewBox="0 0 32 32"><path d="M16 3a13 13 0 0 0-11 20L3 29l6-2a13 13 0 1 0 7-24Zm0 23a10 10 0 0 1-5-1.4l-.4-.2-3.5 1.1 1.1-3.4-.2-.4A10 10 0 1 1 16 26Zm5.5-7.3c-.3-.2-1.8-.9-2.1-1-.3-.1-.5-.2-.7.2l-1 1.2c-.2.2-.4.2-.7.1-1.8-.9-3-1.7-4.2-3.8-.3-.5.3-.5.9-1.7.1-.2 0-.5 0-.7l-.9-2.2c-.2-.5-.5-.5-.7-.5h-.6c-.2 0-.6.1-.9.4-.3.4-1.2 1.2-1.2 2.9s1.3 3.4 1.4 3.6c.2.2 2.5 3.8 6 5.3 2.3 1 3.2 1.1 4.4.9.7-.1 1.8-.7 2-1.4.3-.7.3-1.3.2-1.4-.2-.3-.5-.4-.9-.5Z"/></svg>';
   function list(items) { return items.map(function (item) { return "<li>" + item + "</li>"; }).join(""); }
