@@ -16,7 +16,7 @@
   function wa(label, className) { return '<a class="' + (className || "button") + '" data-action="whatsapp" data-service="' + slug + '" href="' + whatsappUrl + '" target="_blank" rel="noopener noreferrer">' + icon + label + "</a>"; }
 
   root.innerHTML = `
-    <header class="site-header"><a class="brand" href="/" aria-label="Jeri Rota — início"><img src="/logo.png" alt="Jeri Rota"></a><button class="menu-toggle" type="button" aria-expanded="false" aria-controls="service-nav"><span></span><span></span><span></span><span class="sr-only">Abrir menu</span></button><nav id="service-nav" aria-label="Navegação principal"><a href="/">Início</a><a href="/hospedagem-jericoacoara/" ${slug === "hospedagem-jericoacoara" ? 'aria-current="page"' : ""}>Hospedagem</a><div class="nav-group"><button type="button" aria-expanded="false">Passeios <span>⌄</span></button><div class="nav-submenu"><a href="/passeio-lado-leste/" ${slug === "passeio-lado-leste" ? 'aria-current="page"' : ""}>Lado Leste</a><a href="/passeio-lado-oeste/" ${slug === "passeio-lado-oeste" ? 'aria-current="page"' : ""}>Lado Oeste</a><a href="/extremo-leste/" ${slug === "extremo-leste" ? 'aria-current="page"' : ""}>Extremo Leste</a></div></div><div class="nav-group"><button type="button" aria-expanded="false">Transfers <span>⌄</span></button><div class="nav-submenu"><a href="/transfer-4x4/" ${slug === "transfer-4x4" ? 'aria-current="page"' : ""}>Hilux 4x4</a><a href="/onibus-madrugada/" ${slug === "onibus-madrugada" ? 'aria-current="page"' : ""}>Ônibus da Madrugada</a></div></div><a href="/rota-das-emocoes/" ${slug === "rota-das-emocoes" ? 'aria-current="page"' : ""}>Rota das Emoções</a></nav>${wa("Falar no WhatsApp", "header-wa")}</header>
+    <header class="site-header service-site-header"><div class="wrap header-inner"><a class="brand" href="/" aria-label="Jeri Rota — página inicial"><span class="brand-mark"><img src="/jeri-rota-logo.png" alt="" width="52" height="52"></span><span class="brand-copy"><b>JERI ROTA</b><small>Experiências no Ceará</small></span></a><button class="menu-toggle" type="button" aria-expanded="false" aria-controls="service-nav"><span></span><span></span><span></span><span class="sr-only">Abrir menu</span></button><nav id="service-nav" class="service-nav" aria-label="Navegação principal"><a href="/">Início</a><a href="/#servicos">Serviços</a><a href="/#destinos">Destinos</a><a href="/#como-funciona">Como funciona</a><a href="/#informacoes">Informações</a><a href="/#duvidas">Dúvidas</a>${wa("WhatsApp ↗", "header-wa")}</nav></div></header>
     <main>
       <section class="hero" style="--hero-image:url('${data.hero}')"><div class="hero-shade"></div><div class="hero-content"><span class="eyebrow">${data.eyebrow}</span><h1>${data.title}</h1><p>${data.lead}</p>${wa("Consultar disponibilidade")}</div></section>
       <section class="summary wrap" aria-label="Resumo do serviço">${data.summary.map(function (item) { return `<article><span>${item[0]}</span><strong>${item[1]}</strong></article>`; }).join("")}</section>
@@ -27,7 +27,7 @@
       <section class="important section"><div class="wrap"><span class="eyebrow">Antes de reservar</span><h2>Informações importantes</h2><ul>${list(data.important)}</ul></div></section>
       <section class="final-cta"><div class="wrap"><span class="eyebrow">Atendimento direto</span><h2>Vamos organizar ${data.title.toLowerCase()}?</h2><p>Envie sua data e a quantidade de pessoas. A equipe responde com as opções disponíveis.</p>${wa("Pedir informações no WhatsApp")}</div></section>
     </main>
-    <footer><div class="wrap"><a class="footer-brand" href="/"><img src="/logo.png" alt="Jeri Rota"></a><p>Transfer, hospedagem e passeios em Jericoacoara com atendimento pelo WhatsApp.</p><nav aria-label="Links do rodapé"><a href="/">Início</a><a href="/politica-privacidade.html">Privacidade</a><a href="/termos-uso.html">Termos de uso</a></nav><small>© ${new Date().getFullYear()} Jeri Rota. Todos os direitos reservados.</small></div></footer>
+    <footer class="site-footer"><div class="wrap"><div class="footer-grid"><div><a class="brand brand-light" href="/" aria-label="Jeri Rota — página inicial"><span class="brand-mark"><img src="/jeri-rota-logo.png" alt="" width="52" height="52"></span><span class="brand-copy"><b>JERI ROTA</b><small>Experiências no Ceará</small></span></a><p>Transfers, passeios, hospedagens, pacotes e roteiros personalizados por Jericoacoara e outros destinos do Ceará.</p></div><nav aria-label="Navegue"><h3>Navegue</h3><a href="/#servicos">Serviços</a><a href="/#destinos">Destinos</a><a href="/#como-funciona">Como funciona</a><a href="/#duvidas">Dúvidas</a></nav><div class="footer-column"><h3>Passeios principais</h3><a href="/passeio-lado-leste/">Lado Leste</a><a href="/passeio-lado-oeste/">Lado Oeste</a><a href="/extremo-leste/">Extremo Leste</a><a href="/rota-das-emocoes/">Rota das Emoções</a></div><div class="footer-column"><h3>Fale com a gente</h3><a href="https://wa.me/5588982274666" target="_blank" rel="noopener noreferrer">WhatsApp (88) 98227-4666</a><a href="https://wa.me/5585997157910" target="_blank" rel="noopener noreferrer">WhatsApp (85) 99715-7910</a><a href="https://www.instagram.com/jerirota" target="_blank" rel="noopener noreferrer">Instagram @jerirota</a><a href="mailto:contato@jerirota.com.br">contato@jerirota.com.br</a></div></div><div class="legal"><span>© ${new Date().getFullYear()} Jeri Rota. Todos os direitos reservados.</span><span>Imagens ilustrativas. Consulte disponibilidade.</span><span>CNPJ 45.413.366/0001-77</span></div></div></footer>
     ${wa("<span>Falar no WhatsApp</span>", "mobile-wa")}`;
 
   document.querySelectorAll('[data-action="whatsapp"]').forEach(function (link) {
@@ -42,11 +42,10 @@
     menuToggle.setAttribute("aria-expanded", String(!open));
     serviceNav.classList.toggle("is-open", !open);
   });
-  document.querySelectorAll(".nav-group > button").forEach(function (button) {
-    button.addEventListener("click", function () {
-      var open = button.getAttribute("aria-expanded") === "true";
-      document.querySelectorAll(".nav-group > button").forEach(function (other) { if (other !== button) other.setAttribute("aria-expanded", "false"); });
-      button.setAttribute("aria-expanded", String(!open));
+  serviceNav.querySelectorAll("a").forEach(function (link) {
+    link.addEventListener("click", function () {
+      menuToggle.setAttribute("aria-expanded", "false");
+      serviceNav.classList.remove("is-open");
     });
   });
 })();
