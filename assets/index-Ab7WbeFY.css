@@ -273,3 +273,18 @@
 @media (width<=980px){.language-switcher{margin-left:auto;margin-right:8px}}
 @media (width<=480px){.language-switcher{gap:1px;margin-right:3px;padding:3px}.language-flag{width:27px;height:27px;font-size:.98rem}.language-flag img{width:21px;height:21px}.brand small{display:none}}
 @media (prefers-reduced-motion:reduce){.language-flag{transition:none}}
+
+/* Smooth handoff from the lightweight hero cover to the playing video. */
+.hero{background-color:#071822;background-image:url('/hero-jr.webp');background-position:60% center;background-size:cover}
+.hero .hero-media{opacity:0;transition:opacity .75s ease}
+.hero .hero-media.is-ready{opacity:1}
+
+/* Keep the service photographs clean, without decorative icons. */
+.services .service-icon{display:none!important}
+
+@media (prefers-reduced-motion:reduce){.hero .hero-media{transition:none}}
+
+/* Mobile crop: keep the vehicle framed while pushing the AI artifact above the viewport. */
+@media (width<=760px){
+  .hero .hero-media{object-position:72% bottom;transform:scale(1.08);transform-origin:center bottom}
+}
