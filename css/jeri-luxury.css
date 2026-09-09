@@ -19,6 +19,31 @@ html {
   scroll-behavior: smooth;
 }
 
+.skip-link {
+  position: absolute;
+  top: -40px;
+  left: 1rem;
+  z-index: 100;
+  padding: 0.7rem 1rem;
+  border-radius: 0.5rem;
+  background: #fff;
+  color: #08182d;
+  font-weight: 600;
+}
+
+.skip-link:focus {
+  top: 1rem;
+}
+
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible {
+  outline: 3px solid #f1c98f;
+  outline-offset: 3px;
+}
+
 body {
   margin: 0;
   color: var(--ink);
@@ -4718,5 +4743,4 @@ a {
     min-height: 21rem;
   }
 }
-
 
