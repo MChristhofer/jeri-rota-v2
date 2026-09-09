@@ -37,7 +37,7 @@ window.JERI_ROTA_SERVICES = {
     route: ["Envie a data, quantidade de participantes e local de hospedagem ou embarque.", "A equipe apresenta o roteiro previsto, duração aproximada, modalidade e transporte disponíveis.", "Você recebe valor, inclusões, eventuais taxas ou atividades opcionais e confirma sua escolha.", "Ponto e horário de encontro são enviados pelo WhatsApp após a confirmação manual da reserva."],
     included: ["Transporte conforme a modalidade confirmada", "Organização do passeio contratado", "Informações do roteiro, duração e embarque antes da confirmação", "Suporte da equipe pelo WhatsApp"],
     notIncluded: ["Entradas, consumos ou taxas não descritas na proposta", "Alimentação quando não indicada como incluída", "Atividades opcionais contratadas durante o passeio"],
-    gallery: [["/Oeste.jpg", "Experiência no passeio do lado oeste"], ["/img/oeste.jpg", "Paisagem do litoral oeste"], ["/img/quadri.jpg", "Aventura nas paisagens de Jericoacoara"]],
+    gallery: [["/oeste-lagoa-aerea.jpeg", "Vista aérea da lagoa e da estrutura do passeio no lado oeste"], ["/oeste-barcos.jpeg", "Visitantes junto aos barcos no litoral oeste"], ["/oeste-duna-lagoa.jpeg", "Descida de duna até a lagoa no passeio lado oeste"]],
     important: ["O valor de R$ 110 é uma referência inicial por pessoa na modalidade compartilhada; opção privativa é cotada conforme grupo e data.", "Roteiro, paradas, duração aproximada, transporte, horário e local de embarque são confirmados na proposta.", "Atividades opcionais, entradas, alimentação e eventuais taxas são informadas separadamente quando não incluídas.", "Condições naturais ou de segurança podem exigir ajustes no roteiro."],
     message: "Olá! Quero cotar o Passeio Lado Oeste em Jericoacoara."
   },
