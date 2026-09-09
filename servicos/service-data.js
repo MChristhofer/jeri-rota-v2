@@ -78,7 +78,7 @@ window.JERI_ROTA_SERVICES = {
     eyebrow: "Roteiro personalizado",
     title: "Rota das Emoções",
     lead: "Planeje uma experiência pela Rota das Emoções com atendimento local e roteiro construído conforme sua viagem.",
-    hero: "/rota-lencois-lagoa.png",
+    hero: "/Rotaemoção.jpg",
     summary: [["Valor inicial", "R$ 5.000 por pacote/roteiro"], ["Roteiro", "Personalizado"], ["Duração", "Conforme a rota escolhida"]],
     description: "Uma travessia pelo Ceará, Piauí e Maranhão, unindo dunas, lagoas, manguezais e vilarejos litorâneos. Você escolhe o ponto de partida, o ritmo e as experiências que quer viver.",
     itineraryEyebrow: "Roteiro das emoções",
