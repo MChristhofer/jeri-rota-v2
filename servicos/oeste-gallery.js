@@ -5,8 +5,8 @@
 
   oeste.hero = "/Oeste.jpg";
   oeste.gallery = [
-    ["/img/oeste-previa-1.jpg", "Descida pelas dunas em direção à lagoa"],
-    ["/img/oeste-previa-2.jpg", "Vista aérea da lagoa e estrutura de apoio"],
-    ["/img/oeste-previa-3.jpg", "Parada do passeio com barcos no litoral oeste"]
+    ["/oeste-lagoa-aerea.jpeg", "Vista aérea da lagoa e da estrutura do passeio no lado oeste"],
+    ["/oeste-barcos.jpeg", "Visitantes junto aos barcos no litoral oeste"],
+    ["/oeste-duna-lagoa.jpeg", "Descida de duna até a lagoa no passeio lado oeste"]
   ];
 })();
