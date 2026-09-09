@@ -8,15 +8,37 @@
     return;
   }
 
+  var headerStyleHref = "/servicos/header-standard.css?v=1";
+  if (!document.querySelector('link[href^="/servicos/header-standard.css"]')) {
+    var headerStyle = document.createElement("link");
+    headerStyle.rel = "stylesheet";
+    headerStyle.href = headerStyleHref;
+    document.head.appendChild(headerStyle);
+  }
+
   window.JERI_ROTA_CONFIG = window.JERI_ROTA_CONFIG || { whatsappNumber: "5588982274666" };
   var whatsappNumber = window.JERI_ROTA_CONFIG.whatsappNumber;
   var whatsappUrl = "https://wa.me/" + whatsappNumber + "?text=" + encodeURIComponent(data.message);
+  var currentPageUrl = window.location.origin + window.location.pathname;
   var icon = '<svg aria-hidden="true" viewBox="0 0 32 32"><path d="M16 3a13 13 0 0 0-11 20L3 29l6-2a13 13 0 1 0 7-24Zm0 23a10 10 0 0 1-5-1.4l-.4-.2-3.5 1.1 1.1-3.4-.2-.4A10 10 0 1 1 16 26Zm5.5-7.3c-.3-.2-1.8-.9-2.1-1-.3-.1-.5-.2-.7.2l-1 1.2c-.2.2-.4.2-.7.1-1.8-.9-3-1.7-4.2-3.8-.3-.5.3-.5.9-1.7.1-.2 0-.5 0-.7l-.9-2.2c-.2-.5-.5-.5-.7-.5h-.6c-.2 0-.6.1-.9.4-.3.4-1.2 1.2-1.2 2.9s1.3 3.4 1.4 3.6c.2.2 2.5 3.8 6 5.3 2.3 1 3.2 1.1 4.4.9.7-.1 1.8-.7 2-1.4.3-.7.3-1.3.2-1.4-.2-.3-.5-.4-.9-.5Z"/></svg>';
   function list(items) { return items.map(function (item) { return "<li>" + item + "</li>"; }).join(""); }
-  function wa(label, className) { return '<a class="' + (className || "button") + '" data-action="whatsapp" data-service="' + slug + '" href="' + whatsappUrl + '" target="_blank" rel="noopener noreferrer">' + icon + label + "</a>"; }
+  function wa(label, className) {
+    var iconMarkup = className === "header-wa" ? "" : icon;
+    return '<a class="' + (className || "button") + '" data-action="whatsapp" data-service="' + slug + '" href="' + whatsappUrl + '" target="_blank" rel="noopener noreferrer">' + iconMarkup + label + "</a>";
+  }
+  function translateUrl(language) {
+    return "https://translate.google.com/translate?sl=pt&tl=" + language + "&u=" + encodeURIComponent(currentPageUrl);
+  }
+
+  var languageSwitcher = '<nav class="language-switcher" aria-label="Traduzir o site">' +
+    '<a class="language-flag" href="' + currentPageUrl + '" aria-label="Ver site em português" title="Português (Brasil)" rel="noopener"><img src="/assets/lang-br.svg" alt="" aria-hidden="true"></a>' +
+    '<a class="language-flag" href="' + translateUrl("en") + '" aria-label="Traduzir para inglês" title="Traduzir para inglês" rel="noopener"><img src="/assets/lang-us.svg" alt="" aria-hidden="true"></a>' +
+    '<a class="language-flag" href="' + translateUrl("es") + '" aria-label="Traduzir para espanhol" title="Traduzir para espanhol" rel="noopener"><img src="/assets/lang-es.svg" alt="" aria-hidden="true"></a>' +
+    '<a class="language-flag" href="' + translateUrl("fr") + '" aria-label="Traduzir para francês" title="Traduzir para francês" rel="noopener"><img src="/assets/flag-fr.svg" alt="" aria-hidden="true"></a>' +
+    '</nav>';
 
   root.innerHTML = `
-    <header class="site-header service-site-header"><div class="wrap header-inner"><a class="brand" href="/" aria-label="Jeri Rota — página inicial"><span class="brand-mark"><img src="/jeri-rota-logo.png" alt="" width="52" height="52"></span><span class="brand-copy"><b>JERI ROTA</b><small>Experiências no Ceará</small></span></a><button class="menu-toggle" type="button" aria-expanded="false" aria-controls="service-nav"><span></span><span></span><span></span><span class="sr-only">Abrir menu</span></button><nav id="service-nav" class="service-nav" aria-label="Navegação principal"><a href="/">Início</a><a href="/#servicos">Serviços</a><a href="/#catalogo">Passeios e catálogo</a><a href="/#como-funciona">Como funciona</a><a href="/#informacoes">Informações</a><a href="/#duvidas">Dúvidas</a>${wa("WhatsApp ↗", "header-wa")}</nav></div></header>
+    <header class="site-header service-site-header"><div class="wrap header-inner"><a class="brand" href="/" aria-label="Jeri Rota — página inicial"><span class="brand-mark"><img src="/jeri-rota-logo.png" alt="" width="52" height="52"></span><span class="brand-copy"><b>JERI ROTA</b><small>Experiências no Ceará</small></span></a>${languageSwitcher}<button class="menu-toggle" type="button" aria-expanded="false" aria-controls="service-nav"><span></span><span></span><span></span><span class="sr-only">Abrir menu</span></button><nav id="service-nav" class="service-nav" aria-label="Navegação principal"><a href="/">Início</a><a href="/#servicos">Serviços</a><a href="/#catalogo">Destinos</a><a href="/#como-funciona">Como funciona</a><a href="/#informacoes">Informações</a><a href="/#duvidas">Dúvidas</a>${wa("WhatsApp ↗", "header-wa")}</nav></div></header>
     <main>
       <section class="hero" style="--hero-image:url('${data.hero}')"><div class="hero-shade"></div><div class="hero-content"><span class="eyebrow">${data.eyebrow}</span><h1>${data.title}</h1><p>${data.lead}</p>${wa("Consultar disponibilidade")}</div></section>
       <section class="summary wrap" aria-label="Resumo do serviço">${data.summary.map(function (item) { return `<article><span>${item[0]}</span><strong>${item[1]}</strong></article>`; }).join("")}</section>
