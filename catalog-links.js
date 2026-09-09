@@ -1,12 +1,10 @@
 (function () {
   var products = [
-    ["Transfer Hilux 4x4", "Transfer privativo com conforto e segurança.", "R$ 800", "por veículo/trecho · rota confirmada no atendimento", "/Hillux.jpg", "/transfer-4x4/"],
-    ["Ônibus da Madrugada", "Transporte compartilhado em horário especial.", "R$ 200", "por pessoa · trecho confirmado na proposta", "/Onibus.jpg", "/onibus-madrugada/"],
-    ["Passeio Lado Leste", "Dunas, lagoas e paisagens do lado leste.", "R$ 100", "por pessoa na opção compartilhada · privativo sob consulta", "/Leste.jpg", "/passeio-lado-leste/"],
-    ["Passeio Lado Oeste", "Mangue Seco e praias do lado oeste.", "R$ 110", "por pessoa na opção compartilhada · privativo sob consulta", "/Oeste.jpg", "/passeio-lado-oeste/"],
-    ["Passeio Extremo Leste", "Uma experiência completa pelo litoral leste.", "R$ 150", "por pessoa na opção compartilhada · privativo sob consulta", "/Extremo.jpg", "/extremo-leste/"],
-    ["Hospedagem em Jericoacoara", "Opções selecionadas para sua estadia em Jeri.", "R$ 350", "por diária · acomodação conforme disponibilidade", "/Hospedagem.jpg", "/hospedagem-jericoacoara/"],
-    ["Rota das Emoções", "Expedição personalizada entre Ceará e Maranhão.", "R$ 5.000", "por pacote/roteiro · composição confirmada na proposta", "/Rotaemoção.jpg", "/rota-das-emocoes/"]
+    ["Lado Leste", "Praias, lagoas e dunas para conhecer Jericoacoara por outro ângulo.", "/leste-lagoa-aerea.png", "/passeio-lado-leste/"],
+    ["Lado Oeste", "Manguezais, travessias e lagoas em uma experiência completa.", "/oeste-lagoa-aerea.jpeg", "/passeio-lado-oeste/"],
+    ["Extremo Leste", "Dunas, lagoas naturais e espaços de lazer para aproveitar o dia.", "/extremo-clube-piscina.png", "/extremo-leste/"],
+    ["Rota das Emoções", "Uma viagem entre Ceará, Piauí e Maranhão, feita no seu ritmo.", "/rota-lencois-lagoa.png", "/rota-das-emocoes/"],
+    ["Outros destinos", "Conte para onde você quer ir e receba uma orientação personalizada.", "/outros-destinos.png", "https://wa.me/5588982274666?text=Olá!%20Quero%20consultar%20um%20destino%20que%20não%20está%20na%20lista."]
   ];
 
   var reviewsReadUrl = "https://g.page/r/CQsf0i52NsLuEAE";
@@ -63,11 +61,23 @@
     var toursColumn = footerColumns[2];
     if (!toursColumn) return;
 
-    toursColumn.innerHTML = '<h3>Passeios principais</h3>' +
+    toursColumn.innerHTML = '<h3>Destinos principais</h3>' +
       '<a href="/passeio-lado-leste/">Lado Leste</a>' +
       '<a href="/passeio-lado-oeste/">Lado Oeste</a>' +
       '<a href="/extremo-leste/">Extremo Leste</a>' +
       '<a href="/rota-das-emocoes/">Rota das Emoções</a>';
+  }
+
+  function standardizeServices() {
+    var cards = document.querySelectorAll(".service-grid .service-card");
+    Array.prototype.slice.call(cards, 3).forEach(function (card) { card.remove(); });
+  }
+
+  function standardizeDestinations() {
+    var label = document.querySelector(".destination-line span");
+    var list = document.querySelector(".destination-line p");
+    if (label) label.textContent = "DESTINOS EM DESTAQUE";
+    if (list) list.textContent = "Lado Leste · Lado Oeste · Extremo Leste · Rota das Emoções · Outros destinos";
   }
 
   function addCatalog() {
@@ -80,9 +90,10 @@
     section.id = "catalogo";
     section.className = "catalog-section";
     section.setAttribute("aria-labelledby", "catalog-title");
-    section.innerHTML = '<div class="container"><div class="catalog-heading"><span class="eyebrow light">CATÁLOGO JERI ROTA</span><h2 id="catalog-title">Escolha sua próxima <em>experiência</em></h2><p>Veja valores iniciais, a forma de cobrança e os detalhes de cada serviço. A confirmação final depende da data, disponibilidade, rota e modalidade escolhidas.</p></div><div class="catalog-grid">' + products.map(function (product, index) {
-      return '<a class="catalog-card' + (index === 0 ? ' featured' : '') + '" href="' + product[5] + '" style="--catalog-image:url(&quot;' + product[4] + '&quot;)"><img src="' + product[4] + '" alt="' + product[0] + '" loading="lazy" width="640" height="430"><span class="catalog-label">A partir de ' + product[2] + '</span><div class="catalog-card-copy"><h3>' + product[0] + '</h3><p>' + product[1] + '</p><small class="catalog-price-note">' + product[3] + '</small><strong>Ver detalhes <i>→</i></strong></div></a>';
-    }).join("") + '</div><p class="catalog-disclaimer">Valores exibidos são referências iniciais. Antes do pagamento, a equipe informa disponibilidade, modalidade, inclusões, despesas extras e condições aplicáveis ao serviço escolhido.</p></div>';
+    section.innerHTML = '<div class="container"><div class="catalog-heading"><span class="eyebrow light">DESTINOS JERI ROTA</span><h2 id="catalog-title">Escolha seu próximo <em>destino</em></h2><p>Conheça os roteiros disponíveis ou conte para a equipe qual experiência deseja realizar.</p></div><div class="catalog-grid">' + products.map(function (product, index) {
+      var isOtherDestination = product[3].indexOf("wa.me") !== -1;
+      return '<a class="catalog-card' + (index === 0 ? ' featured' : '') + '" href="' + product[3] + '"' + (isOtherDestination ? ' target="_blank" rel="noopener noreferrer"' : '') + ' style="--catalog-image:url(&quot;' + product[2] + '&quot;)"><img src="' + product[2] + '" alt="' + product[0] + '" loading="lazy" width="640" height="430"><span class="catalog-label">Destino</span><div class="catalog-card-copy"><h3>' + product[0] + '</h3><p>' + product[1] + '</p><strong>' + (isOtherDestination ? 'Consultar no WhatsApp' : 'Ver roteiro') + ' <i>→</i></strong></div></a>';
+    }).join("") + '</div><p class="catalog-disclaimer">Roteiros, horários e disponibilidade são confirmados pela equipe antes da reserva.</p></div>';
 
     hero.insertAdjacentElement("afterend", section);
     destinations.remove();
@@ -90,6 +101,8 @@
     improveReviews();
     reinforceRealOperation();
     standardizeFooter();
+    standardizeServices();
+    standardizeDestinations();
   }
 
   function init() {
@@ -98,6 +111,8 @@
     improveReviews();
     reinforceRealOperation();
     standardizeFooter();
+    standardizeServices();
+    standardizeDestinations();
   }
 
   if (document.readyState === "complete") init();
