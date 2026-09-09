@@ -73,6 +73,48 @@
     Array.prototype.slice.call(cards, 3).forEach(function (card) { card.remove(); });
   }
 
+  function configureServiceCards() {
+    var services = [
+      {
+        title: "Transfer Hilux 4x4",
+        description: "Deslocamento privativo com conforto e segurança para sua chegada ou saída.",
+        image: "/Hillux.jpg",
+        href: "/transfer-4x4/"
+      },
+      {
+        title: "Ônibus da Madrugada",
+        description: "Transporte compartilhado para Jericoacoara, com roteiro pensado para a sua viagem.",
+        image: "/Onibus.jpg",
+        href: "/onibus-madrugada/"
+      },
+      {
+        title: "Hospedagem em Jericoacoara",
+        description: "Encontre uma hospedagem alinhada ao seu perfil, período e experiência em Jeri.",
+        image: "/Hospedagem.jpg",
+        href: "/hospedagem-jericoacoara/"
+      }
+    ];
+
+    var cards = document.querySelectorAll(".service-grid .service-card");
+    services.forEach(function (service, index) {
+      var card = cards[index];
+      if (!card) return;
+
+      var title = card.querySelector("h3");
+      var description = card.querySelector("p");
+      var link = card.querySelector(".card-link");
+      if (title) title.textContent = service.title;
+      if (description) description.textContent = service.description;
+      card.style.backgroundImage = "linear-gradient(180deg, rgba(4, 22, 33, .08) 0%, rgba(4, 22, 33, .95) 100%), url('" + service.image + "')";
+      if (link) {
+        link.href = service.href;
+        link.removeAttribute("target");
+        link.removeAttribute("rel");
+        link.innerHTML = "Ver detalhes <span>→</span>";
+      }
+    });
+  }
+
   function standardizeDestinations() {
     var label = document.querySelector(".destination-line span");
     var list = document.querySelector(".destination-line p");
@@ -102,6 +144,7 @@
     reinforceRealOperation();
     standardizeFooter();
     standardizeServices();
+    configureServiceCards();
     standardizeDestinations();
   }
 
@@ -112,6 +155,7 @@
     reinforceRealOperation();
     standardizeFooter();
     standardizeServices();
+    configureServiceCards();
     standardizeDestinations();
   }
 
