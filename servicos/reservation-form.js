@@ -9,7 +9,7 @@
   trigger.className = "button reservation-trigger";
   trigger.dataset.service = "transfer-4x4";
   trigger.dataset.action = "reservation";
-  trigger.textContent = "Reservar agora";
+  trigger.textContent = "Solicitar reserva";
   existingCta.insertAdjacentElement("afterend", trigger);
 
   var mobileTrigger = document.createElement("button");
@@ -17,7 +17,7 @@
   mobileTrigger.className = "mobile-reservation";
   mobileTrigger.dataset.service = "transfer-4x4";
   mobileTrigger.dataset.action = "reservation";
-  mobileTrigger.textContent = "Reservar Transfer";
+  mobileTrigger.textContent = "Solicitar reserva";
   document.body.appendChild(mobileTrigger);
 
   var modal = document.createElement("div");
@@ -26,7 +26,7 @@
   modal.innerHTML = `
     <div class="reservation-backdrop" data-close-reservation></div>
     <section class="reservation-dialog" role="dialog" aria-modal="true" aria-labelledby="reservation-title">
-      <header class="reservation-head"><div><span class="eyebrow dark">Solicitação online</span><h2 id="reservation-title">Solicitar reserva</h2><p>Preencha os dados para consultar disponibilidade e valor.</p></div><button class="reservation-close" type="button" data-close-reservation aria-label="Fechar formulário">×</button></header>
+      <header class="reservation-head"><div><span class="eyebrow dark">Solicitação online</span><h2 id="reservation-title">Solicitar reserva</h2><p>Preencha os dados para consultar disponibilidade e valor. O envio não confirma automaticamente a reserva.</p></div><button class="reservation-close" type="button" data-close-reservation aria-label="Fechar formulário">×</button></header>
       <div class="reservation-body">
         <div class="reservation-progress" aria-label="Etapas da solicitação"><span class="is-active" data-step-indicator="form">1</span> Dados <i></i><span data-step-indicator="summary">2</span> Revisão</div>
         <form id="reservation-form" novalidate>
@@ -43,10 +43,10 @@
             <div class="reservation-field full"><label for="reservation-notes">Observações</label><textarea id="reservation-notes" name="notes" placeholder="Bagagens, necessidades específicas ou outras informações"></textarea><span class="field-error" id="error-notes"></span></div>
           </div>
           <datalist id="reservation-locations"><option value="Aeroporto de Fortaleza"><option value="Fortaleza"><option value="Jericoacoara"><option value="Jijoca"><option value="Aeroporto de Jericoacoara"><option value="Preá"><option value="Cumbuco"><option value="Barra Grande"><option value="Parnaíba"><option value="Barreirinhas"><option value="São Luís"><option value="Outro"></datalist>
-          <p class="reservation-note">Esta é uma solicitação. A reserva ficará aguardando confirmação manual da equipe Jeri Rota.</p>
+          <p class="reservation-note">Esta é uma solicitação. A reserva fica aguardando confirmação manual da equipe Jeri Rota após a verificação de disponibilidade, valor e condições.</p>
           <div class="reservation-actions"><button class="reservation-button" type="submit" data-service="transfer-4x4" data-action="reservation-review">Revisar solicitação</button></div>
         </form>
-        <section class="reservation-summary" hidden aria-labelledby="summary-title"><div class="reservation-summary-card"><span class="eyebrow dark">Confira antes de enviar</span><h3 id="summary-title" tabindex="-1">Confirme os dados da sua reserva</h3><p class="reservation-summary-route" data-summary-route></p><dl class="reservation-summary-list" data-summary-list></dl></div><p class="reservation-status">Solicitação aguardando confirmação da equipe.</p><div class="reservation-actions"><button class="reservation-button secondary" type="button" data-edit-reservation>Voltar e editar</button><a class="reservation-button whatsapp" href="#" target="_blank" rel="noopener noreferrer" data-service="transfer-4x4" data-action="whatsapp-reservation">Enviar pelo WhatsApp</a></div></section>
+        <section class="reservation-summary" hidden aria-labelledby="summary-title"><div class="reservation-summary-card"><span class="eyebrow dark">Confira antes de enviar</span><h3 id="summary-title" tabindex="-1">Revise os dados da sua solicitação</h3><p class="reservation-summary-route" data-summary-route></p><dl class="reservation-summary-list" data-summary-list></dl></div><p class="reservation-status">Solicitação aguardando confirmação da equipe.</p><div class="reservation-actions"><button class="reservation-button secondary" type="button" data-edit-reservation>Voltar e editar</button><a class="reservation-button whatsapp" href="#" target="_blank" rel="noopener noreferrer" data-service="transfer-4x4" data-action="whatsapp-reservation">Enviar solicitação pelo WhatsApp</a></div></section>
       </div>
     </section>`;
   document.body.appendChild(modal);
@@ -130,7 +130,7 @@
     lines.push("", "🚘 Tipo de transfer: " + data.transferType);
     if (data.flight) lines.push("", "✈️ Número do voo: " + data.flight);
     if (data.notes) lines.push("", "📝 Observações:", data.notes);
-    lines.push("", "Gostaria de confirmar disponibilidade e valor.");
+    lines.push("", "Gostaria de confirmar disponibilidade, valor e condições para concluir a reserva.");
     var params = new URLSearchParams(location.search);
     var utm = ["utm_source", "utm_campaign", "utm_content"].filter(function (key) { return params.get(key); }).map(function (key) { return key + "=" + params.get(key); });
     if (utm.length) lines.push("", "Referência: " + utm.join(" | "));
