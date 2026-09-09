@@ -106,12 +106,29 @@
       if (title) title.textContent = service.title;
       if (description) description.textContent = service.description;
       card.style.backgroundImage = "linear-gradient(180deg, rgba(4, 22, 33, .08) 0%, rgba(4, 22, 33, .95) 100%), url('" + service.image + "')";
+      card.style.cursor = "pointer";
+      card.setAttribute("role", "link");
+      card.setAttribute("tabindex", "0");
+      card.setAttribute("aria-label", "Ver detalhes: " + service.title);
       if (link) {
         link.href = service.href;
         link.removeAttribute("target");
         link.removeAttribute("rel");
         link.innerHTML = "Ver detalhes <span>→</span>";
       }
+      if (!card.dataset.serviceCardLinked) {
+        card.dataset.serviceCardLinked = "true";
+        card.addEventListener("click", function (event) {
+          if (event.target.closest("a")) return;
+          window.location.href = card.dataset.serviceHref;
+        });
+        card.addEventListener("keydown", function (event) {
+          if (event.key !== "Enter" && event.key !== " ") return;
+          event.preventDefault();
+          window.location.href = card.dataset.serviceHref;
+        });
+      }
+      card.dataset.serviceHref = service.href;
     });
   }
 
