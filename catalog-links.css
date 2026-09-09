@@ -21,6 +21,10 @@
 .catalog-card:hover strong i{transform:translateX(4px)}
 .catalog-disclaimer{max-width:900px;margin:24px auto 0;color:#aebdc5;text-align:center;font-size:.78rem;line-height:1.6}
 .review-read-button{margin-right:10px}
+@media(min-width:901px){
+  #servicos .section-heading.split{grid-template-columns:minmax(0,1.75fr) minmax(270px,.65fr);gap:50px}
+  #servicos .section-heading h2{max-width:780px;font-size:clamp(2.5rem,3.75vw,4rem);letter-spacing:-.035em}
+}
 @media(max-width:900px){.catalog-heading{grid-template-columns:1fr}.catalog-grid{grid-template-columns:repeat(2,1fr)}.catalog-card.featured{grid-column:span 2}.review-read-button{margin-right:6px}}
 @media(max-width:600px){
   .hero{min-height:auto!important}
