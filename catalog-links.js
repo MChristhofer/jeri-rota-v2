@@ -58,6 +58,18 @@
     if (aboutCaption) aboutCaption.textContent = "Operação de transfer 4x4 da Jeri Rota";
   }
 
+  function standardizeFooter() {
+    var footerColumns = document.querySelectorAll(".footer .footer-grid > div");
+    var toursColumn = footerColumns[2];
+    if (!toursColumn) return;
+
+    toursColumn.innerHTML = '<h3>Passeios principais</h3>' +
+      '<a href="/passeio-lado-leste/">Lado Leste</a>' +
+      '<a href="/passeio-lado-oeste/">Lado Oeste</a>' +
+      '<a href="/extremo-leste/">Extremo Leste</a>' +
+      '<a href="/rota-das-emocoes/">Rota das Emoções</a>';
+  }
+
   function addCatalog() {
     if (document.querySelector("#catalogo")) return;
     var hero = document.querySelector("#inicio");
@@ -77,6 +89,7 @@
     fixNavigation();
     improveReviews();
     reinforceRealOperation();
+    standardizeFooter();
   }
 
   function init() {
@@ -84,6 +97,7 @@
     fixNavigation();
     improveReviews();
     reinforceRealOperation();
+    standardizeFooter();
   }
 
   if (document.readyState === "complete") init();
