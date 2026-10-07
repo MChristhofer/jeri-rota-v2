@@ -76,6 +76,40 @@
   translations.fr["Logística local provisória: € 44,68"] = "Logistique locale provisoire : 44,68 €";
   translations.en["O investimento total considera a composição comercial completa da proposta. A alternativa do Carmel com café da manhã e jantar será ajustada caso escolhida. Conversão de referência: € 1 = R$ 5,5953 (BCE, 07/10/2026)."] = "The total investment reflects the complete commercial proposal. The Carmel breakfast-and-dinner option will be adjusted if selected. Reference conversion: €1 = R$5.5953 (ECB, October 7, 2026).";
   translations.fr["O investimento total considera a composição comercial completa da proposta. A alternativa do Carmel com café da manhã e jantar será ajustada caso escolhida. Conversão de referência: € 1 = R$ 5,5953 (BCE, 07/10/2026)."] = "L’investissement total correspond à l’ensemble de la proposition commerciale. L’option Carmel avec petit-déjeuner et dîner sera ajustée si elle est choisie. Conversion de référence : 1 € = 5,5953 R$ (BCE, 07/10/2026).";
+  Object.assign(translations.en, {
+    "Icaraizinho · Experiência 1": "Icaraizinho · Experience 1",
+    "Icaraizinho · Experiência 2": "Icaraizinho · Experience 2",
+    "Moitas: percurso terrestre + barco": "Moitas: overland route + boat",
+    "Descoberta da Taíba e de suas praias": "Discovering Taíba and its beaches",
+    "Confirmado após o check-out": "Confirmed after check-out",
+    "Utilização das áreas comuns e de lazer": "Use of common and leisure areas",
+    "O late check-out poderá ser solicitado no próprio dia, sujeito à disponibilidade. A estrutura para banho e troca de roupa após a atividade esportiva ainda não foi confirmada.": "Late check-out may be requested on the day, subject to availability. Shower and changing facilities after the sports activity have not yet been confirmed.",
+    "Curadoria de restaurantes pela rota": "Restaurant curation along the route",
+    "Importante:": "Important:",
+    "refeições não expressamente incluídas nos hotéis e serviços serão pagas diretamente pelo casal.": "meals not expressly included in the hotels and services will be paid directly by the couple.",
+    "Suporte operacional da Jeri Rota durante toda a viagem": "Jeri Rota operational support throughout the journey",
+    "Pagamento integral antes da efetivação das reservas.": "Full payment before reservations are finalized.",
+    "Com acréscimo das respectivas tarifas cobradas para o recebimento internacional.": "Subject to the applicable fees charged for international receipt.",
+    "Disponibilidade consultada em 07/10/2026. Valores e disponibilidade permanecem sujeitos à reconfirmação até a efetivação das reservas.": "Availability checked on October 7, 2026. Rates and availability remain subject to reconfirmation until reservations are finalized.",
+    "O Carmel informou possibilidade de bloqueio da Vila Árvore até 08/10/2026, sujeito à confirmação.": "Carmel indicated the possibility of holding Vila Árvore until October 8, 2026, subject to confirmation."
+  });
+  Object.assign(translations.fr, {
+    "Icaraizinho · Experiência 1": "Icaraizinho · Expérience 1",
+    "Icaraizinho · Experiência 2": "Icaraizinho · Expérience 2",
+    "Moitas: percurso terrestre + barco": "Moitas : parcours terrestre + bateau",
+    "Descoberta da Taíba e de suas praias": "Découverte de Taíba et de ses plages",
+    "Confirmado após o check-out": "Confirmé après le check-out",
+    "Utilização das áreas comuns e de lazer": "Utilisation des espaces communs et de loisirs",
+    "O late check-out poderá ser solicitado no próprio dia, sujeito à disponibilidade. A estrutura para banho e troca de roupa após a atividade esportiva ainda não foi confirmada.": "Le départ tardif pourra être demandé le jour même, sous réserve de disponibilité. Les installations pour se doucher et se changer après l’activité sportive ne sont pas encore confirmées.",
+    "Curadoria de restaurantes pela rota": "Sélection de restaurants tout au long du voyage",
+    "Importante:": "Important :",
+    "refeições não expressamente incluídas nos hotéis e serviços serão pagas diretamente pelo casal.": "les repas non expressément inclus dans les hôtels et services seront réglés directement par le couple.",
+    "Suporte operacional da Jeri Rota durante toda a viagem": "Assistance opérationnelle de Jeri Rota pendant tout le voyage",
+    "Pagamento integral antes da efetivação das reservas.": "Paiement intégral avant la finalisation des réservations.",
+    "Com acréscimo das respectivas tarifas cobradas para o recebimento internacional.": "Avec ajout des frais applicables au paiement international.",
+    "Disponibilidade consultada em 07/10/2026. Valores e disponibilidade permanecem sujeitos à reconfirmação até a efetivação das reservas.": "Disponibilité consultée le 07/10/2026. Les tarifs et disponibilités restent soumis à reconfirmation jusqu’à la finalisation des réservations.",
+    "O Carmel informou possibilidade de bloqueio da Vila Árvore até 08/10/2026, sujeito à confirmação.": "Carmel a indiqué la possibilité de bloquer la Vila Árvore jusqu’au 08/10/2026, sous réserve de confirmation."
+  });
 
   var textNodes = [];
   var walker = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT, {
