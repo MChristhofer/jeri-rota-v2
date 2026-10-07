@@ -3,7 +3,7 @@
 
   var proposalConfig = {
     whatsapp: "5588982274666",
-    sustainableTourismFee: "R$ 41,50 por pessoa",
+    sustainableTourismFee: "€ 7,42 por pessoa",
     sustainableTourismFeeNote: "Valor válido por 10 dias a partir da emissão desta proposta."
   };
 
@@ -68,10 +68,14 @@
     "Forma preferencial para o pagamento internacional.": "Mode privilégié pour le paiement international."
   });
 
-  translations.en["R$ 41,50 por pessoa"] = "R$ 41.50 per person";
+  translations.en["€ 7,42 por pessoa"] = "€7.42 per person";
   translations.en["Valor válido por 10 dias a partir da emissão desta proposta."] = "Rate valid for 10 days from the date this proposal is issued.";
-  translations.fr["R$ 41,50 por pessoa"] = "41,50 R$ par personne";
+  translations.fr["€ 7,42 por pessoa"] = "7,42 € par personne";
   translations.fr["Valor válido por 10 dias a partir da emissão desta proposta."] = "Tarif valable pendant 10 jours à compter de l’émission de cette proposition.";
+  translations.en["Logística local provisória: € 44,68"] = "Provisional local logistics: €44.68";
+  translations.fr["Logística local provisória: € 44,68"] = "Logistique locale provisoire : 44,68 €";
+  translations.en["O investimento total considera a composição comercial completa da proposta. A alternativa do Carmel com café da manhã e jantar será ajustada caso escolhida. Conversão de referência: € 1 = R$ 5,5953 (BCE, 07/10/2026)."] = "The total investment reflects the complete commercial proposal. The Carmel breakfast-and-dinner option will be adjusted if selected. Reference conversion: €1 = R$5.5953 (ECB, October 7, 2026).";
+  translations.fr["O investimento total considera a composição comercial completa da proposta. A alternativa do Carmel com café da manhã e jantar será ajustada caso escolhida. Conversão de referência: € 1 = R$ 5,5953 (BCE, 07/10/2026)."] = "L’investissement total correspond à l’ensemble de la proposition commerciale. L’option Carmel avec petit-déjeuner et dîner sera ajustée si elle est choisie. Conversion de référence : 1 € = 5,5953 R$ (BCE, 07/10/2026).";
 
   var textNodes = [];
   var walker = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT, {
