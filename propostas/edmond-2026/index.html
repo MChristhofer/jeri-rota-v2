@@ -116,11 +116,39 @@
         <div class="day-date"><span>30</span><small>OUT</small></div>
         <div class="day-copy">
           <p class="location">30/10 · Wingfoil em Icaraizinho</p>
-          <h3>Aula semiprivativa com instrutor francófono</h3>
-          <p>Sessão de 3 horas para Edmond e Caroline, acompanhados por <strong>um único instrutor que fala francês</strong>, com atenção especial à Caroline.</p>
-          <p class="wingfoil-service-note"><strong>Incluído:</strong> equipamento Duotone 2026, rádio de comunicação, instrutor qualificado e buggy ou quadriciclo de apoio.</p>
-          <p class="wingfoil-service-note">O serviço inclui a busca do casal no Makena Hotel e o transporte de retorno após a atividade.</p>
-          <div class="price-line"><span>Experiência Wingfoil</span><strong>€ 178,72</strong></div>
+          <h3 data-icarai-heading>Wingfoil semiprivativo — um instrutor para o casal</h3>
+          <p data-icarai-description>Aula prevista de 2 horas para Edmond e Caroline, com um instrutor para ambos, dois equipamentos e prática simultânea. Maior atenção à Caroline; horários a combinar com a escola.</p>
+          <fieldset class="wingfoil-plan-picker" aria-label="Escolha a modalidade do Wingfoil em Icaraizinho">
+            <legend>Escolha a modalidade para o casal</legend>
+            <label class="wingfoil-plan">
+              <input type="radio" name="icarai-wingfoil-plan" value="semi" data-price-cents="37900" checked>
+              <span class="wingfoil-plan-text"><strong>Semiprivativa · dois equipamentos</strong><small>Um instrutor para ambos, com prática simultânea.</small></span>
+              <span class="wingfoil-plan-price">€ 379,00</span>
+            </label>
+            <label class="wingfoil-plan">
+              <input type="radio" name="icarai-wingfoil-plan" value="shared" data-price-cents="29900">
+              <span class="wingfoil-plan-text"><strong>Compartilhada · um equipamento</strong><small>Um instrutor; o casal alterna a prática durante a sessão.</small></span>
+              <span class="wingfoil-plan-price">€ 299,00</span>
+            </label>
+            <p class="wingfoil-plan-caption">Valores indicativos para Icaraizinho, ainda sem confirmação da escola. Instrutor francófono, equipamentos e transporte a partir do Makena estão sujeitos à disponibilidade e eventual custo adicional.</p>
+          </fieldset>
+          <div class="price-line"><span data-icarai-price-label>Wingfoil Icaraizinho · semiprivativa</span><strong data-icarai-trip-price aria-live="polite">€ 379,00</strong></div>
+          <details class="itinerary-details">
+            <summary><span>Ver detalhes da aula, horários e condições</span><span class="details-plus" aria-hidden="true"></span></summary>
+            <div class="itinerary-details-content"><div class="itinerary-details-grid">
+              <section><h4>Programação</h4><ul>
+                <li>30/10 — Aula prevista de 2 horas; horário sujeito à confirmação.</li>
+                <li>Dois participantes: Caroline, iniciante, e Edmond, intermediário.</li>
+                <li>Um instrutor para os dois, com atenção prioritária à Caroline.</li>
+              </ul></section>
+              <section><h4>Modalidade e condições</h4><ul>
+                <li data-icarai-equipment>Modalidade semiprivativa prevista: dois equipamentos para prática simultânea, sujeitos à confirmação da escola.</li>
+                <li>Instrutor que fale francês, se disponível; eventual suplemento será informado antes da reserva.</li>
+                <li>Equipamentos incluídos e transporte de ida e volta ao Makena a confirmar com o fornecedor.</li>
+                <li>Valores indicativos de venda; disponibilidade, preço final e política de reagendamento ainda dependem da confirmação da escola.</li>
+              </ul></section>
+            </div></div>
+          </details>
         </div>
       </article>
 
@@ -274,7 +302,7 @@
     <section class="investment section shell" aria-labelledby="investment-title">
       <div class="investment-hero">
         <div class="investment-intro"><p class="eyebrow light">Investimento</p><h2 id="investment-title">Uma viagem desenhada para duas pessoas</h2></div>
-        <div class="investment-total"><span>Investimento total para 2 pessoas</span><strong data-proposal-total aria-live="polite">€ 4.552,14</strong><small>Total calculado pela soma dos serviços listados, considerando uma hospedagem em Taíba e a modalidade de Wingfoil selecionada em Preá.</small></div>
+        <div class="investment-total"><span>Investimento total para 2 pessoas</span><strong data-proposal-total aria-live="polite">€ 4.752,42</strong><small>Total calculado pela soma dos serviços listados, considerando uma hospedagem em Taíba e as modalidades de Wingfoil selecionadas em Icaraizinho e Preá.</small></div>
       </div>
       <h3 class="investment-list-title">Resumo dos serviços por data</h3>
       <div class="service-values" aria-label="Serviços e valores em ordem cronológica">
@@ -293,10 +321,10 @@
           <span class="service-description">Moitas · buggy + barco privativos</span>
           <strong class="service-amount">€ 98,30</strong>
         </div>
-        <div class="service-line" data-service-cents="17872">
+        <div class="service-line" data-service-cents="37900" data-variable-service="icarai">
           <time class="service-date">30/10</time>
-          <span class="service-description">Wingfoil Icaraizinho · 3 horas</span>
-          <strong class="service-amount">€ 178,72</strong>
+          <span class="service-description" data-icarai-summary-label>Wingfoil Icaraizinho · semiprivativa (estimativa)</span>
+          <strong class="service-amount" data-icarai-summary-price aria-live="polite">€ 379,00</strong>
         </div>
         <div class="service-line" data-service-cents="4468">
           <time class="service-date">31/10</time>
@@ -344,7 +372,7 @@
           <strong class="service-amount">€ 178,72</strong>
         </div>
       </div>
-      <p class="investment-note">Valores em euros. A seleção da aula de Wingfoil em Preá atualiza automaticamente o total. As duas hospedagens de Taíba são alternativas, não cobranças cumulativas. Eventuais tarifas da plataforma de pagamento serão informadas separadamente antes da confirmação.</p>
+      <p class="investment-note">Valores em euros. A escolha da modalidade em cada destino atualiza o total automaticamente. A aula em Icaraizinho ainda é uma estimativa, sujeita à confirmação da escola. Apenas uma hospedagem em Taíba está contabilizada. Tarifas de pagamento, se houver, serão informadas antes da confirmação.</p>
     </section>
 
     <section class="payment section">
@@ -448,7 +476,7 @@
       </div>
     </div>
   </footer>
-  <script src="./proposta.js?v=20261009-12"></script>
-  <script src="./orcamento-interativo.js?v=20261009-13"></script>
+  <script src="./proposta.js?v=20261009-14"></script>
+  <script src="./orcamento-interativo.js?v=20261009-14"></script>
 </body>
 </html>
