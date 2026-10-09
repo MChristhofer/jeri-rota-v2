@@ -280,6 +280,52 @@
     "Estas condições não afastam os direitos assegurados ao consumidor pela legislação brasileira aplicável.": "Ces conditions n’écartent pas les droits garantis au consommateur par la législation brésilienne applicable."
   });
 
+
+  /* Taíba: traduções da proposta revisada */
+  Object.assign(translations.en, {
+  "05 NOV · TAÍBA": "NOV 05 · TAÍBA",
+  "Duas opções para sua última noite": "Two charming options for your final night",
+  "Selecionamos duas hospedagens mais acessíveis e acolhedoras para 5 a 6 de novembro. O casal poderá escolher uma delas, ambas com quarto duplo e café da manhã.": "We have selected two more affordable charming stays for November 5–6. Choose one of the two, both offering a double room and breakfast.",
+  "Opção 01": "Option 01",
+  "Opção 02": "Option 02",
+  "Hospedagem · 05/11 a 06/11": "Accommodation · Nov 5–6",
+  "Ambiente rústico e acolhedor, a poucos passos da praia. Quarto de casal com ar-condicionado e frigobar; piscina e café da manhã incluído.": "A welcoming rustic atmosphere near the beach. Double room with air conditioning and minibar; pool and breakfast included.",
+  "Hospedagem em meio a jardins e coqueiros, próxima à praia, com quartos confortáveis, piscina e café da manhã incluído.": "A stay surrounded by gardens and coconut palms, near the beach, with comfortable rooms, pool and breakfast included.",
+  "1 noite · 2 adultos": "1 night · 2 adults",
+  "Referência: R$ 550,00": "Reference: BRL 550.00",
+  "Conhecer a hospedagem ↗": "Explore the property ↗",
+  "As duas acomodações são alternativas de escolha, não reservas simultâneas. Valores e disponibilidade sujeitos a reconfirmação. Apenas a opção selecionada integrará o investimento final.": "These two stays are alternatives, not simultaneous reservations. Rates and availability are subject to reconfirmation. Only the selected option will be included in the final total.",
+  "06 NOV · DIA LIVRE": "NOV 06 · FREE DAY",
+  "Manhã livre em Taíba": "Free morning in Taíba",
+  "Tempo para descansar, aproveitar a hospedagem e organizar a partida com tranquilidade. Não há aula de Wingfoil prevista neste dia.": "Time to relax, enjoy the accommodation and prepare for departure. No Wingfoil lesson is scheduled for this day.",
+  "Em revisão": "Under revision",
+  "Atualização financeira em andamento. O total final será apresentado com a hospedagem escolhida e os serviços ajustados.": "The financial update is in progress. The final total will reflect the selected stay and adjusted services.",
+  "Hospedagem Taíba · uma opção à escolha": "Taíba accommodation · one option to choose",
+  "As duas opções de Taíba serão reconfirmadas após a escolha do casal; nenhuma reserva está garantida nesta etapa.": "Both Taíba options will be reconfirmed after the couple makes their selection; neither is reserved yet.",
+  "O valor de Taíba considera somente uma das duas hospedagens propostas. Revisaremos o investimento total após consolidar os ajustes de Wingfoil e os demais serviços. A diferença da proposta anterior será corrigida, sem atribuí-la a tarifas de pagamento não discriminadas. Conversão de referência utilizada nos preços ilustrativos: € 1 = R$ 5,5953 (BCE, 07/10/2026).": "The Taíba amount includes only one of the two options. We will update the total after consolidating the Wingfoil and other service changes. The earlier discrepancy will be corrected, without attributing it to undisclosed payment fees. Indicative conversion: €1 = BRL 5.5953 (ECB, Oct 7, 2026)."
+});
+  Object.assign(translations.fr, {
+  "05 NOV · TAÍBA": "05 NOV · TAÍBA",
+  "Duas opções para sua última noite": "Deux hébergements de charme pour votre dernière nuit",
+  "Selecionamos duas hospedagens mais acessíveis e acolhedoras para 5 a 6 de novembro. O casal poderá escolher uma delas, ambas com quarto duplo e café da manhã.": "Nous avons sélectionné deux hébergements de charme plus abordables pour la nuit du 5 au 6 novembre. Vous pourrez choisir une chambre double avec petit-déjeuner dans l'un des deux établissements.",
+  "Opção 01": "Option 01",
+  "Opção 02": "Option 02",
+  "Hospedagem · 05/11 a 06/11": "Hébergement · du 05/11 au 06/11",
+  "Ambiente rústico e acolhedor, a poucos passos da praia. Quarto de casal com ar-condicionado e frigobar; piscina e café da manhã incluído.": "Ambiance rustique et accueillante, à quelques pas de la plage. Chambre double climatisée avec minibar ; piscine et petit-déjeuner inclus.",
+  "Hospedagem em meio a jardins e coqueiros, próxima à praia, com quartos confortáveis, piscina e café da manhã incluído.": "Hébergement entouré de jardins et de cocotiers, près de la plage, avec chambres confortables, piscine et petit-déjeuner inclus.",
+  "1 noite · 2 adultos": "1 nuit · 2 adultes",
+  "Referência: R$ 550,00": "Référence : 550 R$",
+  "Conhecer a hospedagem ↗": "Découvrir l'établissement ↗",
+  "As duas acomodações são alternativas de escolha, não reservas simultâneas. Valores e disponibilidade sujeitos a reconfirmação. Apenas a opção selecionada integrará o investimento final.": "Ces deux hébergements sont des alternatives, et non deux réservations. Tarifs et disponibilités à reconfirmer. Seule l'option choisie figurera dans le montant final.",
+  "06 NOV · DIA LIVRE": "06 NOV · JOURNÉE LIBRE",
+  "Manhã livre em Taíba": "Matinée libre à Taíba",
+  "Tempo para descansar, aproveitar a hospedagem e organizar a partida com tranquilidade. Não há aula de Wingfoil prevista neste dia.": "Temps libre pour se reposer, profiter de l'hébergement et préparer tranquillement le départ. Aucun cours de Wingfoil n'est prévu ce jour-là.",
+  "Em revisão": "En cours de révision",
+  "Atualização financeira em andamento. O total final será apresentado com a hospedagem escolhida e os serviços ajustados.": "Le budget est en cours de révision. Le total définitif tiendra compte de l'hébergement choisi et des prestations ajustées.",
+  "Hospedagem Taíba · uma opção à escolha": "Hébergement Taíba · une option au choix",
+  "As duas opções de Taíba serão reconfirmadas após a escolha do casal; nenhuma reserva está garantida nesta etapa.": "Les deux hébergements de Taíba seront reconfirmés après votre choix ; aucune réservation n'est encore garantie.",
+  "O valor de Taíba considera somente uma das duas hospedagens propostas. Revisaremos o investimento total após consolidar os ajustes de Wingfoil e os demais serviços. A diferença da proposta anterior será corrigida, sem atribuí-la a tarifas de pagamento não discriminadas. Conversão de referência utilizada nos preços ilustrativos: € 1 = R$ 5,5953 (BCE, 07/10/2026).": "Le montant pour Taíba ne comprend qu'un seul des deux hébergements. Le total sera actualisé après les ajustements du Wingfoil et des autres prestations. L'écart du budget précédent sera corrigé, sans l'attribuer à des frais de paiement non détaillés. Conversion indicative : 1 € = 5,5953 R$ (BCE, 07/10/2026)."
+});
   var textNodes = [];
   var walker = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT, {
     acceptNode: function (node) {
