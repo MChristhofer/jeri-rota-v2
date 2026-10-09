@@ -468,6 +468,8 @@
   "Horários e duração das paradas sujeitos ao planejamento com o motorista.": "Timing and duration of stops to be arranged with the driver.",
   "Refeições e bebidas não incluídas.": "Meals and drinks not included."
 });
+  Object.assign(translations.en, {"Uma sessão de 2 horas para Edmond e Caroline, com um instrutor francófono e transporte incluído. Início sugerido às 13h.":"A two-hour session for Edmond and Caroline with a French-speaking instructor and transfers included. Suggested start at 1 pm.","Escolha a modalidade para o casal":"Choose the lesson option for the couple","Semiprivativa · dois equipamentos":"Semi-private · two equipment sets","Um instrutor francófono para ambos, com prática simultânea.":"One French-speaking instructor for both, allowing simultaneous practice.","Compartilhada · um equipamento":"Shared · one equipment set","Um instrutor francófono; os dois alunos se alternam durante a sessão.":"One French-speaking instructor; the couple takes turns using the equipment.","Ambas incluem instrutor francófono sem suplemento e transporte de ida e volta. A seleção atualiza o investimento total automaticamente.":"Both options include a French-speaking instructor at no extra charge and round-trip transport. Your selection automatically updates the total.","Wingfoil Preá · modalidade selecionada":"Wingfoil Preá · selected option","Um instrutor para o casal; um ou dois equipamentos conforme a modalidade escolhida acima.":"One instructor for the couple; one or two equipment sets depending on the selected option.","Valor conforme a modalidade escolhida acima, já incluindo o transporte. Reserva sujeita à aprovação do casal.":"Price follows the selected option above, including transport. Reservation subject to the couple's approval.","Total calculado pela soma dos serviços listados, considerando uma hospedagem em Taíba e a modalidade de Wingfoil selecionada em Preá.":"Total calculated by summing all listed services, including one Taíba accommodation and the selected Wingfoil option in Preá.","Resumo dos serviços por data":"Services in chronological order","Moitas · buggy + barco privativos":"Moitas · private buggy + boat","Wingfoil Icaraizinho · 3 horas":"Wingfoil Icaraizinho · 3 hours","Lençóis Cearenses · Lado Leste":"Lençóis Cearenses · East Route","Jericoacoara · Lado Leste":"Jericoacoara · East Side","Wingfoil Preá · modalidade à escolha":"Wingfoil Preá · selected option","Jericoacoara · Lado Oeste":"Jericoacoara · West Side","Hospedagem Taíba · uma opção à escolha":"Taíba accommodation · one option to choose","Transfer Taíba → Aeroporto":"Taíba → Airport transfer","Valores em euros. A seleção da aula de Wingfoil em Preá atualiza automaticamente o total. As duas hospedagens de Taíba são alternativas, não cobranças cumulativas. Eventuais tarifas da plataforma de pagamento serão informadas separadamente antes da confirmação.":"Prices in euros. The Preá Wingfoil option automatically updates the total. The two Taíba accommodations are alternatives, not cumulative charges. Any payment-platform fees will be disclosed separately before confirmation."});
+  Object.assign(translations.fr, {"Uma sessão de 2 horas para Edmond e Caroline, com um instrutor francófono e transporte incluído. Início sugerido às 13h.":"Une séance de deux heures pour Edmond et Caroline avec un moniteur francophone et le transport inclus. Début conseillé à 13h.","Escolha a modalidade para o casal":"Choisissez la formule pour le couple","Semiprivativa · dois equipamentos":"Semi-privée · deux équipements","Um instrutor francófono para ambos, com prática simultânea.":"Un moniteur francophone pour les deux, avec pratique simultanée.","Compartilhada · um equipamento":"Partagée · un équipement","Um instrutor francófono; os dois alunos se alternam durante a sessão.":"Un moniteur francophone ; vous utilisez le même équipement à tour de rôle.","Ambas incluem instrutor francófono sem suplemento e transporte de ida e volta. A seleção atualiza o investimento total automaticamente.":"Les deux formules comprennent un moniteur francophone sans supplément et le transfert aller-retour. Votre choix met à jour automatiquement le montant total.","Wingfoil Preá · modalidade selecionada":"Wingfoil à Preá · formule choisie","Um instrutor para o casal; um ou dois equipamentos conforme a modalidade escolhida acima.":"Un moniteur pour le couple ; un ou deux équipements selon la formule sélectionnée ci-dessus.","Valor conforme a modalidade escolhida acima, já incluindo o transporte. Reserva sujeita à aprovação do casal.":"Le montant correspond à la formule sélectionnée, transport compris. Réservation soumise à votre accord.","Total calculado pela soma dos serviços listados, considerando uma hospedagem em Taíba e a modalidade de Wingfoil selecionada em Preá.":"Total obtenu par la somme des prestations indiquées, comprenant un seul hébergement à Taíba et la formule Wingfoil choisie à Preá.","Resumo dos serviços por data":"Récapitulatif des prestations par date","Moitas · buggy + barco privativos":"Moitas · buggy et bateau privés","Wingfoil Icaraizinho · 3 horas":"Wingfoil à Icaraizinho · 3 heures","Lençóis Cearenses · Lado Leste":"Lençóis Cearenses · Circuit Est","Jericoacoara · Lado Leste":"Jericoacoara · Côté Est","Wingfoil Preá · modalidade à escolha":"Wingfoil à Preá · formule au choix","Jericoacoara · Lado Oeste":"Jericoacoara · Côté Ouest","Hospedagem Taíba · uma opção à escolha":"Hébergement à Taíba · une option au choix","Transfer Taíba → Aeroporto":"Transfert Taíba → Aéroport","Valores em euros. A seleção da aula de Wingfoil em Preá atualiza automaticamente o total. As duas hospedagens de Taíba são alternativas, não cobranças cumulativas. Eventuais tarifas da plataforma de pagamento serão informadas separadamente antes da confirmação.":"Tarifs en euros. Le choix du cours de Wingfoil à Preá actualise automatiquement le total. Les deux hébergements de Taíba sont des alternatives, non des frais cumulés. Les éventuels frais de la plateforme de paiement seront communiqués séparément avant confirmation."});
   var textNodes = [];
   var walker = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT, {
     acceptNode: function (node) {
@@ -542,3 +544,45 @@ if (heroVideo) {
   else heroVideo.addEventListener('canplay', startHeroVideo, { once: true });
   document.addEventListener('pointerdown', startHeroVideo, { once: true });
 }
+
+
+/* Prix interactifs, en centimes, pour conserver une somme exacte. */
+(function () {
+  "use strict";
+  var inputs = document.querySelectorAll('input[name="prea-wingfoil-plan"]');
+  var line = document.querySelector('[data-variable-service="prea"]');
+  var itineraryPrice = document.querySelector('[data-prea-trip-price]');
+  var summaryPrice = document.querySelector('[data-prea-summary-price]');
+  var total = document.querySelector('[data-proposal-total]');
+  if (!inputs.length || !line || !itineraryPrice || !summaryPrice || !total) return;
+
+  function displayEuro(cents) {
+    return "€ " + (cents / 100).toLocaleString("pt-BR", {
+      minimumFractionDigits: 2,
+      maximumFractionDigits: 2
+    });
+  }
+
+  function refreshBudget() {
+    var selected = document.querySelector('input[name="prea-wingfoil-plan"]:checked');
+    if (!selected) return;
+    var price = Number(selected.getAttribute("data-price-cents"));
+    if (!Number.isSafeInteger(price) || price < 0) return;
+    line.setAttribute("data-service-cents", String(price));
+    itineraryPrice.textContent = displayEuro(price);
+    summaryPrice.textContent = displayEuro(price);
+
+    var sum = 0;
+    document.querySelectorAll(".service-values [data-service-cents]").forEach(function (item) {
+      var amount = Number(item.getAttribute("data-service-cents"));
+      if (Number.isSafeInteger(amount) && amount >= 0) sum += amount;
+    });
+    total.textContent = displayEuro(sum);
+  }
+
+  inputs.forEach(function (input) { input.addEventListener("change", refreshBudget); });
+  document.querySelectorAll("[data-language]").forEach(function (button) {
+    button.addEventListener("click", refreshBudget);
+  });
+  refreshBudget();
+})();
