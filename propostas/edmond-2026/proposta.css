@@ -106,3 +106,21 @@
 .taiba-amenity svg{width:16px;height:16px;flex-shrink:0}
 @media(max-width:780px){.taiba-options-grid{grid-template-columns:1fr}.taiba-stay-card .hotel-photo img{height:300px}}
 @media(max-width:460px){.taiba-stay-card .hotel-photo img{height:230px}.taiba-stay-card .stay-heading{flex-wrap:wrap}.taiba-stay-card .taiba-amenities{gap:6px}}
+
+
+/* Roteiros expansíveis por data */
+.itinerary-details{margin-top:18px;border-top:1px solid var(--line);width:100%}
+.itinerary-details summary{list-style:none;display:flex;align-items:center;justify-content:space-between;gap:14px;padding:15px 0;cursor:pointer;color:#84622b;font-size:.85rem;font-weight:750}
+.itinerary-details summary::-webkit-details-marker{display:none}
+.itinerary-details summary:focus-visible{outline:2px solid #a77930;outline-offset:4px;border-radius:5px}
+.details-plus{flex:0 0 29px;width:29px;height:29px;border:1px solid #d8c49c;border-radius:50%;position:relative}
+.details-plus:before,.details-plus:after{content:"";position:absolute;background:#836129;top:50%;left:50%;transform:translate(-50%,-50%);width:11px;height:1.5px}
+.details-plus:after{transform:translate(-50%,-50%) rotate(90deg);transition:transform .15s}
+.itinerary-details[open] .details-plus:after{transform:translate(-50%,-50%) rotate(0deg)}
+.itinerary-details-content{padding:18px 19px 21px;background:#f9f5ed;border-radius:14px;margin:2px 0 4px}
+.itinerary-details-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px}
+.itinerary-details-content h4{margin:0 0 12px;color:#18313e;font-size:.82rem;font-weight:850;text-transform:uppercase;letter-spacing:.06em}
+.itinerary-details-content ul{padding-left:18px;margin:0;color:#485b66;font-size:.84rem}
+.itinerary-details-content li{padding:3px 0;line-height:1.55}
+.itinerary-details-content li::marker{color:#a77d3b}
+@media(max-width:700px){.itinerary-details-grid{grid-template-columns:1fr;gap:18px}.itinerary-details-content{padding:16px}.itinerary-details summary{font-size:.82rem}}
