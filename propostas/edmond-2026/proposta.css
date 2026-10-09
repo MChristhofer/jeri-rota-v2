@@ -65,8 +65,8 @@
 .taiba-option{min-width:0;overflow:hidden;background:#fff;border:1px solid #decba6;border-radius:var(--radius);box-shadow:0 14px 45px rgba(7,31,45,.06)}
 .taiba-option-cover{min-height:265px;padding:32px;display:flex;flex-direction:column;justify-content:end;color:#fff;background-color:#174457;background-size:cover;background-position:center;position:relative;isolation:isolate}
 .taiba-option-cover:before{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(180deg,rgba(3,25,35,.06),rgba(3,25,35,.83))}
-.taiba-option-cover-catavento{background-image:url("https://cataventotaiba.com/wp-content/uploads/2021/08/slider-01.jpg")}
-.taiba-option-cover-arco{background-image:url("https://arcomundial.com/wp-content/uploads/2020/03/IMG_20200124_125610522-1024x768.jpg")}
+.taiba-option-cover-catavento{background-image:linear-gradient(145deg,#417a7d,#163745 65%,#102c38)}
+.taiba-option-cover-arco{background-image:linear-gradient(145deg,#bb9f68,#426d68 65%,#173f48)}
 .taiba-option-cover span{align-self:flex-start;margin-bottom:auto;font-size:.7rem;font-weight:800;letter-spacing:.13em;text-transform:uppercase;background:#f6f0e8;color:#1e3b46;border-radius:20px;padding:7px 12px}
 .taiba-option-cover strong{font-family:Georgia,"Times New Roman",serif;font-size:clamp(2rem,3vw,2.8rem);line-height:1.05;font-weight:500}
 .taiba-option-cover small{font-size:.8rem;letter-spacing:.09em;text-transform:uppercase;margin-top:7px}
