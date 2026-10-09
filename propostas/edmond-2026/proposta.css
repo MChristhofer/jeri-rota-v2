@@ -182,3 +182,13 @@
  .pedra-furada-card{grid-template-columns:1fr;padding:25px 22px;gap:25px;margin-bottom:38px}
  .pedra-furada-support{padding:18px 19px}
 }
+
+
+/* Seleção de hospedagem em Taíba: única opção refletida no orçamento. */
+.taiba-stay-card{transition:border-color .2s ease,box-shadow .2s ease}
+.taiba-stay-card.taiba-chosen{border-color:#b48b49;box-shadow:0 0 0 2px rgba(180,139,73,.18),0 14px 34px rgba(7,31,45,.08)}
+.taiba-choice{display:flex;align-items:center;gap:12px;margin-top:21px;padding:13px 15px;border:1px solid #decfb2;border-radius:12px;background:#fffdf9;cursor:pointer;color:#234452;font-size:.84rem;font-weight:750}
+.taiba-choice input{accent-color:#966a2e;width:18px;height:18px;margin:0;flex:none}
+.taiba-choice:hover{border-color:#bd9a5b}
+.taiba-choice:focus-within{outline:2px solid #b28a4a;outline-offset:2px}
+.taiba-chosen .taiba-choice{border-color:#b48b49;background:#f2e7d1}
