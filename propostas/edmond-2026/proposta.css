@@ -192,3 +192,32 @@
 .taiba-choice:hover{border-color:#bd9a5b}
 .taiba-choice:focus-within{outline:2px solid #b28a4a;outline-offset:2px}
 .taiba-chosen .taiba-choice{border-color:#b48b49;background:#f2e7d1}
+
+
+/* Custos locais — tabelas claras para Edmond & Caroline */
+.local-costs{padding-top:76px;padding-bottom:84px}
+.local-costs-header{max-width:850px;margin-bottom:32px}
+.local-costs-header h2{max-width:850px;font-size:clamp(2.1rem,4vw,3.25rem)}
+.local-costs-header>p:last-child{margin:17px 0 0;max-width:790px;color:var(--muted)}
+.local-cost-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+.local-cost-card{min-width:0;background:#fff;border:1px solid #e3d6c4;border-radius:20px;box-shadow:0 11px 34px rgba(7,31,45,.045);padding:25px 24px 20px}
+.local-cost-card h3{font-size:1.46rem;line-height:1.25;margin:0 0 3px}
+.local-cost-card>p{margin:0 0 18px;color:var(--muted);font-size:.83rem}
+.local-cost-table{width:100%;border-collapse:collapse;font-size:.81rem;line-height:1.4}
+.local-cost-table thead th{color:#677681;font-weight:750;font-size:.69rem;text-transform:uppercase;letter-spacing:.045em;text-align:right;padding:11px 3px;border-bottom:1px solid var(--line)}
+.local-cost-table thead th:first-child{text-align:left}
+.local-cost-table tbody th{font-weight:580;text-align:left}
+.local-cost-table td,.local-cost-table tbody th{padding:13px 3px;border-bottom:1px solid #eee7dc;vertical-align:top}
+.local-cost-table td{text-align:right;white-space:nowrap;font-variant-numeric:tabular-nums}
+.local-cost-table .local-cost-subtotal th,.local-cost-table .local-cost-subtotal td{font-weight:800;color:var(--navy);border-bottom:none;border-top:2px solid #dfcca9;padding-top:16px}
+.local-cost-summary{display:flex;justify-content:space-between;align-items:center;gap:25px;margin-top:20px;padding:25px 30px;border:1px solid #d8c7a9;border-radius:18px;background:#f7f1e6}
+.local-cost-summary h3{font-size:1.22rem;margin:0 0 5px}
+.local-cost-summary p{font-size:.81rem;color:var(--muted);margin:0;max-width:680px}
+.local-cost-summary>strong{font-size:clamp(1.55rem,3vw,2.3rem);color:#725020;font-family:Georgia,"Times New Roman",serif;font-weight:600;white-space:nowrap;font-variant-numeric:tabular-nums}
+.local-cost-gift{display:flex;align-items:center;justify-content:space-between;gap:18px;margin-top:16px;padding:16px 24px;border:1px solid #e7dfd2;border-radius:14px}
+.local-cost-gift strong{font-size:.92rem}
+.local-cost-gift span{font-weight:750;color:#8b642f;text-align:right;white-space:nowrap}
+.local-costs-footnote{margin:22px 0 0;color:var(--muted);font-size:.79rem;line-height:1.75}
+@media(max-width:900px){.local-cost-grid{grid-template-columns:1fr}}
+@media(max-width:640px){.local-costs{padding-top:55px;padding-bottom:60px}.local-cost-card{padding:21px 15px}.local-cost-table{font-size:.74rem}.local-cost-table thead th{font-size:.64rem}.local-cost-table td,.local-cost-table tbody th{padding:11px 2px}.local-cost-summary{padding:19px;align-items:flex-start;flex-direction:column;gap:12px}.local-cost-gift{align-items:flex-start;flex-direction:column}.local-cost-gift span{text-align:left}}
+@media print{.local-cost-card,.local-cost-summary,.local-cost-gift{break-inside:avoid}}
