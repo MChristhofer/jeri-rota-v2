@@ -21,7 +21,7 @@
 
     var variants = {
       semi: {
-        cents: 31276,
+        cents: 37900,
         pt: {
           title: "Wingfoil semiprivativo — instrutor francófono",
           description: "Aula de 2 horas para Edmond e Caroline com um instrutor francófono, dois equipamentos e prática simultânea. Transporte de ida e volta incluído; saída sugerida para iniciar a aula às 13h.",
@@ -45,7 +45,7 @@
         }
       },
       shared: {
-        cents: 24127,
+        cents: 29900,
         pt: {
           title: "Wingfoil compartilhado — instrutor francófono",
           description: "Aula de 2 horas para Edmond e Caroline com um instrutor francófono e um equipamento compartilhado. Os dois alternam a prática durante a sessão, com atenção especial à Caroline. Transporte de ida e volta incluído; início sugerido às 13h.",
