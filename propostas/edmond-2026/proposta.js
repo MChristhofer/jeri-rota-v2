@@ -509,6 +509,43 @@
   "Wingfoil semiprivativo — um instrutor para o casal": "Semi-private Wingfoil — one instructor for the couple",
   "Aula prevista de 2 horas para Edmond e Caroline, com um instrutor para ambos, dois equipamentos e prática simultânea. Maior atenção à Caroline; horários a combinar com a escola.": "Proposed 2-hour lesson for Edmond and Caroline, with one instructor, two equipment sets and simultaneous practice. Extra attention for Caroline; time to be arranged with the school."
 });
+  // Pedra Furada e atendimento contínuo da central de operações.
+  Object.assign(translations.fr, {
+  "Jericoacoara · experiência opcional": "Jericoacoara · expérience facultative",
+  "Pedra Furada — uma descoberta no seu ritmo": "Pedra Furada — une découverte à votre rythme",
+  "Uma caminhada para descobrir um dos cenários mais emblemáticos de Jericoacoara, sem comprometer a liberdade da viagem. O casal pode fazer a trilha por conta própria ou verificar a possibilidade de integrar um pequeno grupo organizado no local.": "Une randonnée pour découvrir l'un des sites les plus emblématiques de Jericoacoara, en toute liberté. Vous pouvez parcourir le sentier par vous-mêmes ou vous renseigner sur la possibilité de rejoindre un petit groupe organisé sur place.",
+  "Quando visitar?": "Quand découvrir ce site ?",
+  "02/11": "02/11",
+  "— Após o passeio Leste, se houver tempo e disposição.": "— Après l'excursion du côté Est, si le temps et votre énergie le permettent.",
+  "03/11": "03/11",
+  "— Depois da aula de Wingfoil.": "— Après votre cours de Wingfoil.",
+  "04/11": "04/11",
+  "— Após o passeio Oeste.": "— Après l'excursion du côté Ouest.",
+  "Outro momento livre": "Un autre moment libre",
+  "— Durante a estadia em Jericoacoara, conforme a preferência do casal.": "— Pendant votre séjour à Jericoacoara, selon vos envies.",
+  "A melhor opção será definida conforme o horário de retorno, a luz do dia, o clima e as condições da trilha. Acompanhamento presencial de guia, se desejado, depende de contratação específica.": "Nous déterminerons ensemble le meilleur moment selon vos horaires de retour, la lumière du jour, la météo et l'état du sentier. Si vous souhaitez un guide sur place, sa prestation devra être réservée séparément.",
+  "Jeri Rota ao lado de vocês, durante toda a experiência": "Jeri Rota à vos côtés, tout au long de cette expérience",
+  "Nossa central de operações acompanhará a programação à distância e estará disponível pelo WhatsApp para fornecer orientações atualizadas durante o passeio: acesso à trilha, horários recomendados e ajustes necessários. Assim, vocês aproveitam a visita com liberdade e o suporte da nossa equipe em tempo real.": "Notre centrale d'opérations suivra votre programme à distance et restera disponible sur WhatsApp pour vous fournir des informations actualisées pendant la visite : accès au sentier, horaires conseillés et éventuels ajustements. Vous profiterez ainsi de votre découverte en toute liberté, avec l'assistance de notre équipe en temps réel.",
+  "Nossa central de operações acompanhará a programação de ponta a ponta, do primeiro transfer ao retorno ao aeroporto. Durante os passeios, nossa equipe estará disponível pelo WhatsApp para orientações atualizadas, reconfirmações e apoio diante de mudanças operacionais.": "Notre centrale d'opérations suivra votre programme du premier transfert jusqu'au retour à l'aéroport. Pendant les excursions, notre équipe restera disponible sur WhatsApp pour vous communiquer des informations actualisées, reconfirmer les prestations et vous aider en cas d'ajustement opérationnel."
+});
+  Object.assign(translations.en, {
+  "Jericoacoara · experiência opcional": "Jericoacoara · optional experience",
+  "Pedra Furada — uma descoberta no seu ritmo": "Pedra Furada — discover it at your own pace",
+  "Uma caminhada para descobrir um dos cenários mais emblemáticos de Jericoacoara, sem comprometer a liberdade da viagem. O casal pode fazer a trilha por conta própria ou verificar a possibilidade de integrar um pequeno grupo organizado no local.": "A walk to discover one of Jericoacoara's most iconic landscapes, without compromising your freedom. You may hike independently or enquire about joining a small group arranged locally.",
+  "Quando visitar?": "When to visit?",
+  "02/11": "Nov 2",
+  "— Após o passeio Leste, se houver tempo e disposição.": "— After the East Side excursion, if time and energy allow.",
+  "03/11": "Nov 3",
+  "— Depois da aula de Wingfoil.": "— After your Wingfoil lesson.",
+  "04/11": "Nov 4",
+  "— Após o passeio Oeste.": "— After the West Side excursion.",
+  "Outro momento livre": "Another free moment",
+  "— Durante a estadia em Jericoacoara, conforme a preferência do casal.": "— During your stay in Jericoacoara, whenever you prefer.",
+  "A melhor opção será definida conforme o horário de retorno, a luz do dia, o clima e as condições da trilha. Acompanhamento presencial de guia, se desejado, depende de contratação específica.": "We will choose the best time according to your return schedule, daylight, weather and trail conditions. An in-person guide, if desired, requires a separate booking.",
+  "Jeri Rota ao lado de vocês, durante toda a experiência": "Jeri Rota by your side throughout the experience",
+  "Nossa central de operações acompanhará a programação à distância e estará disponível pelo WhatsApp para fornecer orientações atualizadas durante o passeio: acesso à trilha, horários recomendados e ajustes necessários. Assim, vocês aproveitam a visita com liberdade e o suporte da nossa equipe em tempo real.": "Our operations team will follow your itinerary remotely and remain available on WhatsApp to provide up-to-date guidance during the visit: trail access, recommended times and any necessary adjustments. This lets you explore freely while receiving real-time support from our team.",
+  "Nossa central de operações acompanhará a programação de ponta a ponta, do primeiro transfer ao retorno ao aeroporto. Durante os passeios, nossa equipe estará disponível pelo WhatsApp para orientações atualizadas, reconfirmações e apoio diante de mudanças operacionais.": "Our operations team will follow your itinerary from the first transfer to the return to the airport. During excursions, our team will remain available on WhatsApp for up-to-date guidance, reconfirmations and help with operational changes."
+});
   var textNodes = [];
   var walker = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT, {
     acceptNode: function (node) {
