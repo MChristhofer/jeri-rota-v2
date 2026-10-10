@@ -58,7 +58,7 @@
         const cents = Number(el.getAttribute("data-service-cents"));
         if (Number.isSafeInteger(cents) && cents >= 0) sum += cents;
       });
-      total.textContent = euros(sum);
+      total.textContent = euros(sum) + (lang() === "fr" ? " + hôtel Carlore Taíba (tarif en attente)" : lang() === "en" ? " + Carlore Taíba (rate pending)" : " + Carlore Taíba (valor pendente)");
     }
     document.querySelectorAll('.wingfoil-plan-picker').forEach(picker => {
       picker.addEventListener("change", update);
