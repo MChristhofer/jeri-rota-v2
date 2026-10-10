@@ -336,3 +336,4 @@
   .pending .makena-proof{transition:none}
   .pending .makena-proof:hover{transform:none}
 }
+\n/* Carlore: cartão fotográfico na mesma escala de Vila Kalango */\n.taiba-options-grid .taiba-chosen .hotel-photo img{display:block;width:100%;height:clamp(300px,38vw,475px);object-fit:cover;object-position:center;border-radius:14px}\n.taiba-options-grid .taiba-chosen{box-shadow:0 8px 24px rgba(17,40,52,.05)}\n@media(max-width:650px){.taiba-options-grid .taiba-chosen .hotel-photo img{height:240px}}\n
