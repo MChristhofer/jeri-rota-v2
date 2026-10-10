@@ -1,5 +1,5 @@
 /* Aprovação concisa da proposta Edmond & Caroline — Jeri Rota.
-   A mensagem envia somente hospedagem, modalidades Wingfoil e total atualizado. */
+   A mensagem envia hospedagem, sessões semiprivativas e investimento total. */
 (function () {
   "use strict";
 
@@ -57,13 +57,7 @@
       var lang = /^fr/i.test(document.documentElement.lang) ? "fr" :
         /^en/i.test(document.documentElement.lang) ? "en" : "pt";
       var l = labels[lang];
-      var hotelName = "Carlore Taíba";
-      var ic = document.querySelector('input[name="icarai-wingfoil-plan"]:checked');
-      var pr = document.querySelector('input[name="prea-wingfoil-plan"]:checked');
-      var modality = function (input) {
-        return input && input.value === "shared" ? l.shared : l.semi;
-      };
-
+      var hotelName = "Carlore Hotel · Taíba";
       var total = 0;
       document.querySelectorAll(".service-values .service-line[data-service-cents]").forEach(function (row) {
         var service = row.getAttribute("data-variable-service");
@@ -77,10 +71,10 @@
         l.hotel + ": " + hotelName,
         "",
         l.wing + ":",
-        "• " + l.ic + ": " + modality(ic),
-        "• " + l.pr + ": " + modality(pr),
+        "• " + l.ic + ": " + l.semi,
+        "• " + l.pr + ": " + l.semi,
         "",
-        l.total + ": " + euro(total) + (lang === "fr" ? " + Carlore Taíba (tarif en attente)" : lang === "en" ? " + Carlore Taíba (rate pending)" : " + Carlore Taíba (valor pendente)"),
+        l.total + ": " + euro(total),
         "",
         l.close
       ].join("\n");
