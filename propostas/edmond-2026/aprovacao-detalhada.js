@@ -20,8 +20,8 @@
       pr: "Preá · 03/11",
       semi: "Semiprivativa (dois equipamentos)",
       shared: "Compartilhada (um equipamento alternado)",
-      total: "Subtotal provisório (sem hospedagem em Jericoacoara)",
-      close: "Aguardamos a nova hospedagem em Jericoacoara para encaminhar o valor final e as condições de pagamento por e-mail."
+      total: "Valor total previsto para o casal",
+      close: "A categoria Apartamento da Vila Kalango substitui o bangalô. Aguardamos a reconfirmação da disponibilidade e enviaremos por e-mail as condições de pagamento."
     },
     fr: {
       missingHotel: "Veuillez sélectionner votre hébergement à Taíba avant de valider la proposition.",
@@ -32,8 +32,8 @@
       pr: "Préa · 03/11",
       semi: "Semi-privé (deux équipements)",
       shared: "Partagé (un équipement utilisé à tour de rôle)",
-      total: "Sous-total provisoire (hors hébergement à Jericoacoara)",
-      close: "Nous attendons le nouvel hébergement à Jericoacoara avant l’envoi par e-mail du prix final et des modalités de paiement."
+      total: "Montant total prévu pour deux personnes",
+      close: "L’Appartement de Vila Kalango remplace le bungalow. Sa disponibilité sera reconfirmée avant l’envoi par e-mail des modalités de paiement."
     },
     en: {
       missingHotel: "Please select your Taíba accommodation before approving the proposal.",
@@ -44,8 +44,8 @@
       pr: "Préa · November 3",
       semi: "Semi-private (two equipment sets)",
       shared: "Shared (one alternating equipment set)",
-      total: "Provisional subtotal (excluding Jericoacoara accommodation)",
-      close: "We are awaiting the new Jericoacoara hotel before emailing the final price and payment terms."
+      total: "Estimated total for two people",
+      close: "The Vila Kalango Apartment replaces the bungalow. Availability will be reconfirmed before payment details are emailed."
     }
   };
 
