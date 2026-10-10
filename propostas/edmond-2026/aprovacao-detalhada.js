@@ -13,7 +13,7 @@
   var labels = {
     pt: {
       missingHotel: "Selecione a hospedagem em Taíba antes de aprovar a proposta.",
-      intro: "Olá, Christhofer! Gostaríamos de aprovar a proposta de Edmond e Caroline (28/10 a 06/11/2026) com as seguintes escolhas:",
+      intro: "Olá, Christhofer! Confirmamos as escolhas da proposta de Edmond e Caroline (28/10 a 06/11/2026) com as seguintes escolhas:",
       hotel: "Hospedagem em Taíba (05–06/11)",
       wing: "Wingfoil",
       ic: "Icaraizinho · 30/10",
@@ -21,11 +21,11 @@
       semi: "Semiprivativa (dois equipamentos)",
       shared: "Compartilhada (um equipamento alternado)",
       total: "Valor total para o casal",
-      close: "Podemos prosseguir com a reserva?"
+      close: "Aguardamos a tarifa do Carlore Taíba para validar o total definitivo."
     },
     fr: {
       missingHotel: "Veuillez sélectionner votre hébergement à Taíba avant de valider la proposition.",
-      intro: "Bonjour Christhofer ! Nous souhaitons valider la proposition d'Edmond et Caroline (du 28/10 au 06/11/2026) avec les choix suivants :",
+      intro: "Bonjour Christhofer ! Nous confirmons les choix de la proposition d'Edmond et Caroline (du 28/10 au 06/11/2026) avec les choix suivants :",
       hotel: "Hébergement à Taíba (05–06/11)",
       wing: "Wingfoil",
       ic: "Icaraizinho · 30/10",
@@ -33,11 +33,11 @@
       semi: "Semi-privé (deux équipements)",
       shared: "Partagé (un équipement utilisé à tour de rôle)",
       total: "Montant total pour deux personnes",
-      close: "Pouvons-nous procéder à la réservation ?"
+      close: "Nous attendons le tarif du Carlore Taíba pour valider le total définitif."
     },
     en: {
       missingHotel: "Please select your Taíba accommodation before approving the proposal.",
-      intro: "Hello Christhofer! We would like to approve Edmond and Caroline's proposal (October 28 to November 6, 2026) with the following choices:",
+      intro: "Hello Christhofer! We confirm the selections for Edmond and Caroline's proposal (October 28 to November 6, 2026) with the following choices:",
       hotel: "Taíba accommodation (November 5–6)",
       wing: "Wingfoil",
       ic: "Icaraizinho · October 30",
@@ -45,7 +45,7 @@
       semi: "Semi-private (two equipment sets)",
       shared: "Shared (one alternating equipment set)",
       total: "Total for two people",
-      close: "May we proceed with the booking?"
+      close: "We are waiting for the Carlore Taíba rate to validate the final total."
     }
   };
 
@@ -57,17 +57,7 @@
       var lang = /^fr/i.test(document.documentElement.lang) ? "fr" :
         /^en/i.test(document.documentElement.lang) ? "en" : "pt";
       var l = labels[lang];
-      var hotel = document.querySelector('input[name="taiba-hotel"]:checked');
-
-      if (!hotel) {
-        event.preventDefault();
-        window.alert(l.missingHotel);
-        var section = document.querySelector(".taiba-lodging");
-        if (section) section.scrollIntoView({ behavior: "smooth", block: "center" });
-        return;
-      }
-
-      var hotelName = hotel.value === "catavento" ? "Pousada Catavento Taíba" : "Arco Mundial Taíba";
+      var hotelName = "Carlore Taíba";
       var ic = document.querySelector('input[name="icarai-wingfoil-plan"]:checked');
       var pr = document.querySelector('input[name="prea-wingfoil-plan"]:checked');
       var modality = function (input) {
@@ -78,8 +68,6 @@
       document.querySelectorAll(".service-values .service-line[data-service-cents]").forEach(function (row) {
         var service = row.getAttribute("data-variable-service");
         var cents = Number(row.getAttribute("data-service-cents"));
-        if (service === "icarai" && ic) cents = Number(ic.getAttribute("data-price-cents"));
-        if (service === "prea" && pr) cents = Number(pr.getAttribute("data-price-cents"));
         if (Number.isSafeInteger(cents) && cents >= 0) total += cents;
       });
 
@@ -92,7 +80,7 @@
         "• " + l.ic + ": " + modality(ic),
         "• " + l.pr + ": " + modality(pr),
         "",
-        l.total + ": " + euro(total),
+        l.total + ": " + euro(total) + (lang === "fr" ? " + Carlore Taíba (tarif en attente)" : lang === "en" ? " + Carlore Taíba (rate pending)" : " + Carlore Taíba (valor pendente)"),
         "",
         l.close
       ].join("\n");
