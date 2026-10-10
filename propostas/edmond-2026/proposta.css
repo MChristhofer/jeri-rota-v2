@@ -221,3 +221,13 @@
 @media(max-width:900px){.local-cost-grid{grid-template-columns:1fr}}
 @media(max-width:640px){.local-costs{padding-top:55px;padding-bottom:60px}.local-cost-card{padding:21px 15px}.local-cost-table{font-size:.74rem}.local-cost-table thead th{font-size:.64rem}.local-cost-table td,.local-cost-table tbody th{padding:11px 2px}.local-cost-summary{padding:19px;align-items:flex-start;flex-direction:column;gap:12px}.local-cost-gift{align-items:flex-start;flex-direction:column}.local-cost-gift span{text-align:left}}
 @media print{.local-cost-card,.local-cost-summary,.local-cost-gift{break-inside:avoid}}
+
+/* Comprovante oficial Makena — link documental discreto */
+.makena-proof{display:flex;align-items:center;gap:13px;max-width:460px;margin-top:16px;padding:15px 18px;border:1px solid rgba(152,109,45,.26);background:rgba(255,255,255,.65);border-radius:13px;text-decoration:none;transition:background .2s ease,border-color .2s ease}
+.makena-proof:hover,.makena-proof:focus-visible{background:#fff;border-color:#bb9153}
+.makena-proof-icon{width:36px;height:42px;display:grid;place-items:center;flex:none;border-radius:9px;background:#ede2d1;color:#815d30;font-size:.69rem;font-weight:800;letter-spacing:.08em}
+.makena-proof-text{display:grid;gap:2px;min-width:0}
+.makena-proof-text strong{font-size:.87rem;color:#2c3d43;font-weight:750}
+.makena-proof-text small{font-size:.74rem;color:#687980}
+.makena-proof-arrow{margin-left:auto;font-size:1.25rem;color:#98743f;line-height:1}
+@media(max-width:640px){.makena-proof{padding:12px;gap:10px}.makena-proof-text strong{font-size:.77rem}.makena-proof-text small{font-size:.66rem}}
