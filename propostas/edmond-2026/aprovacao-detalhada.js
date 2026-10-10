@@ -20,8 +20,8 @@
       pr: "Preá · 03/11",
       semi: "Semiprivativa (dois equipamentos)",
       shared: "Compartilhada (um equipamento alternado)",
-      total: "Valor total para o casal",
-      close: "Aguardamos a tarifa do Carlore Taíba para validar o total definitivo."
+      total: "Subtotal provisório (sem hospedagem em Jericoacoara)",
+      close: "Aguardamos a nova hospedagem em Jericoacoara para encaminhar o valor final e as condições de pagamento por e-mail."
     },
     fr: {
       missingHotel: "Veuillez sélectionner votre hébergement à Taíba avant de valider la proposition.",
@@ -32,8 +32,8 @@
       pr: "Préa · 03/11",
       semi: "Semi-privé (deux équipements)",
       shared: "Partagé (un équipement utilisé à tour de rôle)",
-      total: "Montant total pour deux personnes",
-      close: "Nous attendons le tarif du Carlore Taíba pour valider le total définitif."
+      total: "Sous-total provisoire (hors hébergement à Jericoacoara)",
+      close: "Nous attendons le nouvel hébergement à Jericoacoara avant l’envoi par e-mail du prix final et des modalités de paiement."
     },
     en: {
       missingHotel: "Please select your Taíba accommodation before approving the proposal.",
@@ -44,8 +44,8 @@
       pr: "Préa · November 3",
       semi: "Semi-private (two equipment sets)",
       shared: "Shared (one alternating equipment set)",
-      total: "Total for two people",
-      close: "We are waiting for the Carlore Taíba rate to validate the final total."
+      total: "Provisional subtotal (excluding Jericoacoara accommodation)",
+      close: "We are awaiting the new Jericoacoara hotel before emailing the final price and payment terms."
     }
   };
 
