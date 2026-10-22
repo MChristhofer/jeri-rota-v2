@@ -664,6 +664,32 @@
   "Proposta personalizada revisada em 22/10/2026. Apartamento Vila Kalango substitui o bangalô, com valor mantido e confirmação por e-mail antes do pagamento.": "Proposition personnalisée révisée le 22 octobre 2026. L’appartement Vila Kalango remplace le bungalow, au prix indiqué inchangé, sous réserve de confirmation par e-mail avant paiement."
 });
 
+  // Pagamentos efetivos e ajuste contratual: substitui oferta de meios de pagamento.
+  Object.assign(translations.en, {
+  "Acompanhamento financeiro": "Financial overview",
+  "Pagamentos e ajustes do roteiro": "Payments and itinerary adjustments",
+  "Os pagamentos das hospedagens e do sinal inicial já foram realizados.": "Accommodation payments and the initial deposit have already been made.",
+  "O passeio privativo previsto para 31/10 foi cancelado a pedido de Edmond e excluído do valor atualizado da proposta. A conciliação dos valores pagos e de eventuais saldos seguirá as condições contratuais, sem cobrança adicional de tarifas Wise ou PayPal por esta atualização.": "The private tour planned for October 31 was cancelled at Edmond’s request and removed from the updated proposal total. Reconciliation of payments made and any outstanding balance will follow the contract, with no additional Wise or PayPal fee charged as part of this update.",
+  "Pagamentos registrados": "Payments recorded",
+  "Hospedagens e sinal inicial": "Accommodation and initial deposit",
+  "Pagamentos efetuados. Os respectivos comprovantes e o saldo contratual serão considerados na conciliação financeira da viagem.": "Payments have been made. The corresponding receipts and contractual balance will be taken into account in the trip’s financial reconciliation.",
+  "Ajuste de 22/10/2026": "Adjustment dated 22 October 2026",
+  "Passeio de 31/10 cancelado": "October 31 tour cancelled",
+  "Valor original: € 44,68. Valor retirado da proposta atualizada. A forma de abatimento ou de eventual devolução será definida conforme os pagamentos e o contrato.": "Original price: €44.68. This amount has been removed from the updated proposal. Any offset or refund will be determined according to the payments and the contract."
+});
+  Object.assign(translations.fr, {
+  "Acompanhamento financeiro": "Suivi financier",
+  "Pagamentos e ajustes do roteiro": "Paiements et ajustements du programme",
+  "Os pagamentos das hospedagens e do sinal inicial já foram realizados.": "Les règlements des hébergements et de l’acompte initial ont déjà été effectués.",
+  "O passeio privativo previsto para 31/10 foi cancelado a pedido de Edmond e excluído do valor atualizado da proposta. A conciliação dos valores pagos e de eventuais saldos seguirá as condições contratuais, sem cobrança adicional de tarifas Wise ou PayPal por esta atualização.": "L’excursion privée prévue le 31 octobre a été annulée à la demande d’Edmond et déduite du montant actualisé de la proposition. Le rapprochement des sommes versées et des éventuels soldes suivra les dispositions contractuelles, sans frais supplémentaires Wise ou PayPal liés à cette mise à jour.",
+  "Pagamentos registrados": "Paiements enregistrés",
+  "Hospedagens e sinal inicial": "Hébergements et acompte initial",
+  "Pagamentos efetuados. Os respectivos comprovantes e o saldo contratual serão considerados na conciliação financeira da viagem.": "Les paiements ont été effectués. Les justificatifs correspondants et le solde contractuel seront pris en compte dans le rapprochement financier du voyage.",
+  "Ajuste de 22/10/2026": "Ajustement du 22 octobre 2026",
+  "Passeio de 31/10 cancelado": "Excursion du 31 octobre annulée",
+  "Valor original: € 44,68. Valor retirado da proposta atualizada. A forma de abatimento ou de eventual devolução será definida conforme os pagamentos e o contrato.": "Prix initial : 44,68 €. Ce montant a été déduit de la proposition actualisée. Les modalités de déduction ou d’un éventuel remboursement seront définies en fonction des paiements et du contrat."
+});
+
   var textNodes = [];
   var walker = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT, {
     acceptNode: function (node) {
