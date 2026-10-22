@@ -337,3 +337,14 @@
   .pending .makena-proof:hover{transform:none}
 }
 \n/* Carlore: cartão fotográfico na mesma escala de Vila Kalango */\n.taiba-options-grid .taiba-chosen .hotel-photo img{display:block;width:100%;height:clamp(300px,38vw,475px);object-fit:cover;object-position:center;border-radius:14px}\n.taiba-options-grid .taiba-chosen{box-shadow:0 8px 24px rgba(17,40,52,.05)}\n@media(max-width:650px){.taiba-options-grid .taiba-chosen .hotel-photo img{height:240px}}\n
+/* Revisão Edmond 22/10/2026: passeio de 31/10 cancelado, preservado no histórico */
+.day-card-canceled{background:#f8f7f4;border:1px solid #d9d5cd;box-shadow:none}
+.day-card-canceled .day-date{filter:grayscale(1);opacity:.74}
+.day-card-canceled .day-copy h3{color:#666;}
+.cancelled-badge{display:inline-block;padding:5px 10px;border-radius:5px;background:#e9e3dd;color:#645548;font-size:.72rem;font-weight:850;letter-spacing:.08em;margin-bottom:8px}
+.day-card-canceled .price-line strong del,.service-line-canceled .service-amount del{color:#888;text-decoration:line-through;font-weight:500}
+.day-card-canceled .cancelled-info{color:#776b60;font-size:.88rem;font-style:italic}
+.investment .service-values .service-line-canceled{background:#f3f1ed;opacity:.82}
+.investment .service-line-canceled .service-description{text-decoration:line-through;text-decoration-color:#b6ada4;color:#756b65}
+.investment .service-line-canceled .service-amount{display:flex;gap:8px;align-items:center;justify-content:flex-end;flex-wrap:wrap}
+.investment .service-line-canceled .service-amount span{color:#555;font-weight:750}
