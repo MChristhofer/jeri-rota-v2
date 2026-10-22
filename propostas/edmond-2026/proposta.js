@@ -638,6 +638,32 @@
   Object.assign(translations.fr, {"A sessão semiprivativa tem duração de 2 horas, no dia 30/10. O traslado de ida e volta ao Makena Hotel está incluído no valor apresentado.":"La séance semi-privée du 30/10 dure 2 heures. Le transfert aller-retour depuis le Makena Hotel est inclus dans le tarif indiqué.","O valor da sessão semiprivativa inclui o transporte de ida e volta. Reserva sujeita à confirmação final da escola.":"Le prix de la séance semi-privée comprend le transfert aller-retour. Réservation sous réserve de confirmation définitive par l’école."});
   Object.assign(translations.en, {"A sessão semiprivativa tem duração de 2 horas, no dia 30/10. O traslado de ida e volta ao Makena Hotel está incluído no valor apresentado.":"The semi-private session on October 30 lasts 2 hours. Round-trip transfer from Makena Hotel is included in the stated price.","O valor da sessão semiprivativa inclui o transporte de ida e volta. Reserva sujeita à confirmação final da escola.":"The semi-private session price includes round-trip transportation. Booking is subject to the school’s final confirmation."});
 
+  // Cancelamento do passeio de 31/10, preservado como registro histórico.
+  Object.assign(translations.en, {
+  "CANCELADO": "CANCELLED",
+  "31/10 · Icaraizinho · dia livre": "Oct 31 · Icaraizinho · free day",
+  "Passeio aos Lençóis Cearenses — cancelado": "Lençóis Cearenses excursion — cancelled",
+  "O passeio privativo de buggy para Caetanos e Lençóis Cearenses, previsto para 31/10, foi cancelado a pedido de Edmond em 22/10/2026. Esta data permanece livre, sem excursão programada.": "The private buggy excursion to Caetanos and Lençóis Cearenses planned for October 31 was cancelled at Edmond's request on October 22, 2026. This is now a free day with no excursion scheduled.",
+  "Valor original do passeio cancelado": "Original price of cancelled excursion",
+  "As informações abaixo foram preservadas apenas como registro da programação anterior. O passeio não será realizado.": "The details below are retained only as a record of the previous itinerary. This excursion will not take place.",
+  "Ver roteiro originalmente previsto (registro histórico)": "View previous itinerary (historical record)",
+  "Lençóis Cearenses · Lado Leste — cancelado": "Lençóis Cearenses · East Side — cancelled",
+  "Total anterior: € 4.892,93. Ajuste pelo cancelamento do passeio de 31/10: − € 44,68. Os pagamentos já efetuados serão conciliados separadamente; os demais serviços permanecem inalterados nesta revisão.": "Previous total: €4,892.93. Adjustment for the cancelled October 31 excursion: −€44.68. Payments already made will be reconciled separately; all other services remain unchanged in this revision.",
+  "Proposta personalizada revisada em 22/10/2026. Apartamento Vila Kalango substitui o bangalô, com valor mantido e confirmação por e-mail antes do pagamento.": "Personalized proposal revised October 22, 2026. The Vila Kalango Apartment replaces the bungalow at the same listed price, with email confirmation before payment."
+});
+  Object.assign(translations.fr, {
+  "CANCELADO": "ANNULÉ",
+  "31/10 · Icaraizinho · dia livre": "31/10 · Icaraizinho · journée libre",
+  "Passeio aos Lençóis Cearenses — cancelado": "Excursion aux Lençóis Cearenses — annulée",
+  "O passeio privativo de buggy para Caetanos e Lençóis Cearenses, previsto para 31/10, foi cancelado a pedido de Edmond em 22/10/2026. Esta data permanece livre, sem excursão programada.": "L’excursion privée en buggy vers Caetanos et les Lençóis Cearenses, prévue le 31 octobre, a été annulée à la demande d’Edmond le 22 octobre 2026. Cette journée reste libre, sans excursion programmée.",
+  "Valor original do passeio cancelado": "Prix initial de l’excursion annulée",
+  "As informações abaixo foram preservadas apenas como registro da programação anterior. O passeio não será realizado.": "Les informations ci-dessous sont conservées uniquement à titre d’historique de l’ancien programme. Cette excursion n’aura pas lieu.",
+  "Ver roteiro originalmente previsto (registro histórico)": "Voir l’itinéraire initial (archives)",
+  "Lençóis Cearenses · Lado Leste — cancelado": "Lençóis Cearenses · Côte Est — annulé",
+  "Total anterior: € 4.892,93. Ajuste pelo cancelamento do passeio de 31/10: − € 44,68. Os pagamentos já efetuados serão conciliados separadamente; os demais serviços permanecem inalterados nesta revisão.": "Ancien total : 4 892,93 €. Ajustement lié à l’annulation de l’excursion du 31/10 : −44,68 €. Les paiements déjà effectués feront l’objet d’un rapprochement séparé ; les autres prestations restent inchangées dans cette révision.",
+  "Proposta personalizada revisada em 22/10/2026. Apartamento Vila Kalango substitui o bangalô, com valor mantido e confirmação por e-mail antes do pagamento.": "Proposition personnalisée révisée le 22 octobre 2026. L’appartement Vila Kalango remplace le bungalow, au prix indiqué inchangé, sous réserve de confirmation par e-mail avant paiement."
+});
+
   var textNodes = [];
   var walker = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT, {
     acceptNode: function (node) {
