@@ -1,0 +1,60 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="700" viewBox="0 0 1200 700" role="img" aria-labelledby="ttl desc">
+<title id="ttl">Mapa regional ilustrado de Jericoacoara e roteiros Jeri Rota</title><desc id="desc">Mapa com costa, mar, dunas e lagoas. Jericoacoara é a base; Guriú, Mangue Seco e Tatajuba a oeste; Lagoa Azul, Buraco Azul e Lagun Beach a leste; Alchymist/Lagoa do Paraíso ao sudeste; Barrinha a leste. Localizações aproximadas.</desc>
+<defs>
+ <linearGradient id="mar" x1="0" x2=".85" y1="0" y2="1"><stop offset="0" stop-color="#005672"/><stop offset=".52" stop-color="#0e839e"/><stop offset="1" stop-color="#76d0d4"/></linearGradient>
+ <linearGradient id="areia" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#efe4c5"/><stop offset="1" stop-color="#e3d3ac"/></linearGradient>
+ <linearGradient id="lagoa" x1="0" x2=".8" y1="0" y2="1"><stop offset="0" stop-color="#3aa8a6"/><stop offset=".6" stop-color="#68c7c4"/><stop offset="1" stop-color="#bbdfca"/></linearGradient>
+ <radialGradient id="terra"><stop offset="0" stop-color="#d1d1ad"/><stop offset="1" stop-color="#e8d9b8"/></radialGradient>
+ <filter id="shadow" x="-20%" y="-40%" width="150%" height="190%"><feDropShadow dx="0" dy="5" stdDeviation="7" flood-color="#0a2936" flood-opacity=".16"/></filter>
+ <pattern id="foam" width="36" height="20" patternUnits="userSpaceOnUse"><path d="M0 13 Q8 6 15 13 T30 13" fill="none" stroke="white" stroke-opacity=".17" stroke-width="1.2"/></pattern>
+ <pattern id="sandgrain" width="50" height="45" patternUnits="userSpaceOnUse"><circle cx="8" cy="8" r=".9" fill="#ad9569" opacity=".28"/><circle cx="35" cy="24" r=".7" fill="#ad9569" opacity=".21"/></pattern>
+</defs>
+<rect width="1200" height="700" fill="#f8f5ed"/>
+<rect width="1200" height="430" fill="url(#mar)"/>
+<rect width="1200" height="430" fill="url(#foam)"/>
+<g opacity=".20" fill="none" stroke="#e3fdff" stroke-width="3"><path d="M0 94Q140 50 285 75T590 68T900 85T1200 53"/><path d="M0 150Q200 101 350 130T700 132T1200 110"/><path d="M0 204Q147 173 350 195T720 176T1200 190"/></g>
+<path d="M0 333 C115 315 185 322 245 305 C308 286 342 300 412 293 C489 284 525 246 580 259 C655 276 717 282 759 275 C857 259 955 293 1060 279 C1122 272 1161 277 1200 283 L1200 700 L0 700Z" fill="url(#areia)"/>
+<path d="M0 333 C115 315 185 322 245 305 C308 286 342 300 412 293 C489 284 525 246 580 259 C655 276 717 282 759 275 C857 259 955 293 1060 279 C1122 272 1161 277 1200 283" fill="none" stroke="#d9f3ef" stroke-width="12" opacity=".72"/>
+<path d="M0 345 C115 327 185 334 245 317 C308 298 342 312 412 305 C489 296 525 258 580 271 C655 288 717 294 759 287 C857 271 955 305 1060 291 C1122 284 1161 289 1200 295" fill="none" stroke="#fffef4" stroke-width="5" opacity=".72"/>
+<path d="M0 358 C115 340 185 347 245 330 C308 311 342 325 412 318 C489 309 525 271 580 284 C655 301 717 307 759 300 C857 284 955 318 1060 304 C1122 297 1161 302 1200 308 L1200 700 L0 700Z" fill="url(#sandgrain)"/>
+<!-- inland patches, dunes and ridges -->
+<path d="M0 445 Q85 395 165 413 T345 435 T510 418 T675 473 T855 436 T1030 455 T1200 401 V700 H0Z" fill="url(#terra)" opacity=".65"/>
+<g fill="#a2b58f" opacity=".64"><path d="M20 437Q83 398 138 429T256 421Q303 432 311 467T216 505T55 489Z"/><path d="M340 494 Q383 451 444 475T550 474T626 514T546 558T377 539Z"/><path d="M849 415Q920 377 982 413T1121 432T1200 466V552Q1081 521 974 541T849 481Z"/></g>
+<g fill="none" stroke="#baae89" stroke-width="3" opacity=".65"><path d="M11 531Q118 478 219 535T442 549T657 527T924 550T1190 529"/><path d="M0 573Q136 523 261 569T498 589T771 567T1180 595"/><path d="M24 638Q179 584 345 642T699 627T1166 642"/></g>
+<g fill="none" stroke="#fff9e8" stroke-width="12" stroke-linecap="round" opacity=".65"><path d="M71 594 Q222 541 331 579 T569 570"/><path d="M592 587Q780 507 971 559T1179 552"/></g>
+<!-- mangue and estuary at Guriu -->
+<path d="M318 300Q349 322 346 355Q353 381 317 397Q285 414 273 446Q254 464 218 476" fill="none" stroke="#6bb9ae" stroke-width="22" opacity=".86"/>
+<path d="M318 300Q349 322 346 355Q353 381 317 397Q285 414 273 446Q254 464 218 476" fill="none" stroke="#b8e8d2" stroke-width="8" opacity=".85"/>
+<path d="M120 474Q171 445 209 456T271 485T235 520T145 512Z" fill="#729e8c" opacity=".7"/>
+<!-- lagoons -->
+<path d="M705 459 Q744 418 789 434 Q841 447 831 485 Q823 516 776 525 Q716 531 685 504 Q671 481 705 459Z" fill="url(#lagoa)" stroke="#fff9e7" stroke-width="7"/>
+<path d="M853 398Q887 373 921 389Q939 410 906 431Q868 440 845 419Z" fill="url(#lagoa)" stroke="#fff9e7" stroke-width="5"/>
+<path d="M612 407Q655 384 682 407Q694 426 665 444Q630 447 609 430Z" fill="url(#lagoa)" stroke="#fff9e7" stroke-width="5"/>
+<path d="M128 542Q173 525 215 545Q225 564 195 575Q150 585 124 561Z" fill="#84c9bb" opacity=".8"/>
+<!-- route traces as directional references, not exact roads -->
+<path d="M557 282 Q448 311 332 371 T169 481" fill="none" stroke="#b08a42" stroke-width="4" stroke-dasharray="6 10" stroke-linecap="round"/>
+<path d="M557 282Q686 331 843 393" fill="none" stroke="#177e9d" stroke-width="4" stroke-dasharray="6 10" stroke-linecap="round"/>
+<path d="M557 282Q616 402 759 485" fill="none" stroke="#467f6c" stroke-width="4" stroke-dasharray="6 10" stroke-linecap="round"/>
+<path d="M557 282Q744 295 1003 356" fill="none" stroke="#ad6d4d" stroke-width="4" stroke-dasharray="6 10" stroke-linecap="round"/>
+<g font-family="Georgia,Times New Roman,serif" fill="#fff"><text x="575" y="103" text-anchor="middle" font-size="26" letter-spacing="8" opacity=".92">OCEANO ATLÂNTICO</text></g>
+<!-- compass -->
+<g transform="translate(1112 98)" stroke="#f9efdb" stroke-width="2" fill="none" opacity=".94"><circle r="32"/><path d="M0-48L0 48M-48 0L48 0"/><path d="M0-31L9 0L0 31L-9 0Z" fill="#f0d3a3"/><text y="-60" text-anchor="middle" fill="#fff" font-family="sans-serif" font-size="15" stroke="none">N</text></g>
+<!-- labels and markers -->
+<g filter="url(#shadow)">
+ <circle cx="557" cy="282" r="17" fill="#071f2d" stroke="#fff" stroke-width="5"/><circle cx="557" cy="282" r="5" fill="#e5bd75"/>
+ <rect x="446" y="215" width="222" height="46" rx="19" fill="#071f2d"/><text x="557" y="244" fill="#fff" font-family="Georgia,serif" text-anchor="middle" font-size="21">Jericoacoara</text>
+</g>
+<g font-family="Arial,sans-serif" fill="#203846" font-size="16" font-weight="700" filter="url(#shadow)">
+ <circle cx="329" cy="367" r="10" fill="#b08a42" stroke="#fff" stroke-width="3"/><rect x="255" y="388" width="125" height="34" rx="12" fill="#fff"/><text x="318" y="410" text-anchor="middle">Guriú</text>
+ <circle cx="224" cy="460" r="10" fill="#b08a42" stroke="#fff" stroke-width="3"/><rect x="92" y="418" width="148" height="34" rx="12" fill="#fff"/><text x="166" y="440" text-anchor="middle">Mangue Seco</text>
+ <circle cx="167" cy="507" r="10" fill="#b08a42" stroke="#fff" stroke-width="3"/><rect x="58" y="526" width="140" height="34" rx="12" fill="#fff"/><text x="128" y="548" text-anchor="middle">Tatajuba</text>
+ <circle cx="845" cy="393" r="10" fill="#177e9d" stroke="#fff" stroke-width="3"/><rect x="799" y="346" width="133" height="34" rx="12" fill="#fff"/><text x="865" y="368" text-anchor="middle">Lagoa Azul</text>
+ <circle cx="923" cy="410" r="10" fill="#177e9d" stroke="#fff" stroke-width="3"/><rect x="926" y="409" width="143" height="34" rx="12" fill="#fff"/><text x="997" y="431" text-anchor="middle">Buraco Azul</text>
+ <circle cx="962" cy="356" r="10" fill="#177e9d" stroke="#fff" stroke-width="3"/><rect x="951" y="308" width="159" height="34" rx="12" fill="#fff"/><text x="1031" y="330" text-anchor="middle">Lagun Beach</text>
+ <circle cx="759" cy="485" r="11" fill="#467f6c" stroke="#fff" stroke-width="3"/><rect x="657" y="535" width="213" height="36" rx="12" fill="#fff"/><text x="763" y="558" text-anchor="middle">Lagoa do Paraíso</text>
+ <rect x="691" y="574" width="140" height="28" rx="10" fill="#ecf5e6"/><text x="761" y="593" fill="#386654" font-size="13" text-anchor="middle">Alchymist</text>
+ <circle cx="1003" cy="356" r="11" fill="#ad6d4d" stroke="#fff" stroke-width="3"/><rect x="1035" y="361" width="117" height="36" rx="12" fill="#fff"/><text x="1094" y="384" text-anchor="middle">Barrinha</text>
+</g>
+<!-- regional naming -->
+<g font-family="Georgia,serif" font-size="22" letter-spacing="2" opacity=".38" fill="#6f684e"><text x="215" y="635">LADO OESTE</text><text x="825" y="636">LADO LESTE</text><text x="516" y="675" font-size="14" letter-spacing="2">DUNAS E LAGOAS DA REGIÃO</text></g>
+</svg>
