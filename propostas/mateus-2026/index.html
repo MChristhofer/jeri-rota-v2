@@ -39,7 +39,15 @@
 @media(max-width:900px){.mateus-flow{display:flex;overflow-x:auto}.mateus-flow li{flex:0 0 140px}.mateus-flow li:after{display:none}.map-legend{grid-template-columns:repeat(2,1fr)}}
 @media(max-width:640px){.hero{min-height:680px}.mateus-day{grid-template-columns:1fr;gap:16px;padding:23px}.mateus-day .day-date{width:68px;height:68px}.day-figure img{aspect-ratio:4/3;max-height:none}.highlight-strip{grid-template-columns:1fr 1fr}.highlight-strip img{height:145px}.highlight-strip img:last-child{grid-column:1/-1}.mateus-inclusions{grid-template-columns:1fr}.map-area{padding:16px}.map-legend{grid-template-columns:1fr 1fr}.investment-hero{padding:34px 24px}.proposal-header{gap:10px}.proposal-header span{font-size:.55rem}}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
-</style></head>
+
+.geo-map-bar{display:flex;justify-content:space-between;gap:12px;align-items:center;margin-bottom:17px;color:#18313e;font-size:.87rem}
+.geo-map-bar span{color:#65747b;font-size:.75rem}
+#mateus-geo-map{width:100%;height:510px;border-radius:18px;overflow:hidden;background:#c8ded9;z-index:1}
+#mateus-geo-map .leaflet-popup-content-wrapper{border-radius:12px;font-family:inherit}
+.map-legend i{display:inline-block;width:9px;height:9px;border-radius:50%;margin-right:8px}
+.map-fallback{font-size:.8rem;color:#815d29}
+@media(max-width:640px){#mateus-geo-map{height:420px}.geo-map-bar{display:block}.geo-map-bar span{display:block;margin-top:3px}.map-legend{grid-template-columns:1fr 1fr}}
+</style><link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzxG6r9bJM9SJyrOgpWdqPmwWY=" crossorigin=""></head>
 <body>
 <header class="proposal-header">
 <a class="brand" href="https://www.jerirota.com.br" aria-label="Jeri Rota"><img src="/logo-jeri-rota.png" alt="Logo Jeri Rota" width="205" height="69"></a>
@@ -78,27 +86,16 @@
 <section class="section shell" aria-labelledby="map-title">
 <div class="section-heading compact"><div><p class="eyebrow">Visão dos destinos</p><h2 id="map-title">O mapa da sua viagem</h2></div><p>Jericoacoara é a base. Os passeios seguem quatro circuitos diferentes, com transporte privativo e ritmo pensado para o grupo.</p></div>
 <div class="map-area">
-<svg viewBox="0 0 920 360" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Mapa esquemático dos roteiros: Lado Oeste à esquerda, Jericoacoara no centro, Lado Leste e Barrinha à direita, e Lagoa do Paraíso abaixo.">
-<defs><linearGradient id="sea" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#c8eced"/><stop offset="1" stop-color="#5bbbc9"/></linearGradient></defs>
-<rect width="920" height="360" rx="20" fill="#e7f3f1"/>
-<path d="M0 0H920V160C790 136 714 160 639 146C544 127 482 165 393 150C272 131 230 166 0 139Z" fill="url(#sea)"/>
-<path d="M0 152C160 175 279 150 392 160C502 180 555 135 656 159C771 185 830 148 920 172V360H0Z" fill="#e7dfc6"/>
-<path d="M0 226C148 206 196 267 314 238C403 218 460 273 559 226C661 191 718 255 920 222" fill="none" stroke="#cbbf99" stroke-width="5" stroke-linecap="round" opacity=".7"/>
-<g fill="none" stroke-width="4" stroke-dasharray="7 8" stroke-linecap="round">
-<path d="M463 169 Q270 139 140 195" stroke="#b28b44"/>
-<path d="M463 169 Q635 190 743 153" stroke="#277da1"/>
-<path d="M463 169 Q516 245 584 280" stroke="#56806c"/>
-<path d="M463 169 Q715 187 823 232" stroke="#b77550"/>
-</g>
-<g><circle cx="463" cy="169" r="18" fill="#071f2d"/><circle cx="463" cy="169" r="6" fill="#e5c081"/><rect x="379" y="117" width="168" height="34" rx="9" fill="#071f2d"/><text x="463" y="139" fill="#fff" font-family="sans-serif" font-weight="700" font-size="16" text-anchor="middle">JERICOACOARA</text></g>
-<g font-family="sans-serif" font-size="15" font-weight="700">
-<circle cx="140" cy="195" r="14" fill="#b28b44"/><rect x="55" y="222" width="181" height="39" rx="9" fill="#fff"/><text x="145" y="247" fill="#173544" text-anchor="middle">LADO OESTE</text>
-<circle cx="743" cy="153" r="14" fill="#277da1"/><rect x="685" y="92" width="134" height="39" rx="9" fill="#fff"/><text x="752" y="117" fill="#173544" text-anchor="middle">LADO LESTE</text>
-<circle cx="584" cy="280" r="14" fill="#56806c"/><rect x="498" y="300" width="178" height="39" rx="9" fill="#fff"/><text x="587" y="325" fill="#173544" text-anchor="middle">LAGOA DO PARAÍSO</text>
-<circle cx="823" cy="232" r="14" fill="#b77550"/><rect x="750" y="255" width="148" height="39" rx="9" fill="#fff"/><text x="824" y="280" fill="#173544" text-anchor="middle">BARRINHA</text></g>
-</svg>
-<div class="map-legend"><div><strong>Segunda · Leste</strong>Lagoa Azul, Buraco Azul, Lagun Beach</div><div><strong>Terça · Oeste</strong>Guriú, Mangue Seco, Tatajuba</div><div><strong>Quarta · Lagoa</strong>Alchymist Beach Club</div><div><strong>Quinta · Barrinha</strong>Extremo Leste e pôr do sol</div></div>
-<p class="map-caption">Mapa esquemático para leitura do roteiro; não representa posições precisas, distâncias ou tempos de deslocamento.</p>
+ <div class="geo-map-bar"><strong>Jericoacoara e arredores</strong><span>Mapa geográfico interativo · OpenStreetMap</span></div>
+ <div id="mateus-geo-map" aria-label="Mapa geográfico interativo da região de Jericoacoara e dos locais previstos nos passeios"></div>
+ <div class="map-legend">
+  <div><strong><i style="background:#287da1"></i>Segunda · Lado Leste</strong>Lagoa Azul, Buraco Azul e Lagun Beach</div>
+  <div><strong><i style="background:#b38b48"></i>Terça · Lado Oeste</strong>Guriú, Mangue Seco e Tatajuba</div>
+  <div><strong><i style="background:#50816e"></i>Quarta · Lagoa do Paraíso</strong>Alchymist Beach Club</div>
+  <div><strong><i style="background:#b56e4c"></i>Quinta · Extremo Leste</strong>Barrinha e pôr do sol</div>
+ </div>
+ <p class="map-caption">Mapa geográfico para localização dos atrativos. Os marcadores indicam pontos de referência aproximados, não trajetos, distâncias ou horários de deslocamento. A rota efetiva será definida pelo operador.</p>
+ <p class="map-fallback"><a href="https://www.openstreetmap.org/#map=11/-2.841/-40.506" target="_blank" rel="noopener noreferrer">Abrir mapa da região no OpenStreetMap</a></p>
 </div></section>
 
 <section class="itinerary section shell" aria-labelledby="itinerary-title">
@@ -117,7 +114,7 @@
   <div class="day-copy">
     <p class="location">DOMINGO · 08/11 · Jericoacoara · Vila</p><h3>Um domingo no ritmo de vocês</h3>
     <p>Dia livre para voltar aos seus lugares preferidos, percorrer as ruas de areia, escolher um bom restaurante ou simplesmente curtir a praia. Sem compromissos marcados: Jericoacoara merece ser aproveitada com calma.</p>
-    <figure class="day-figure"><img src="/jeri-sunset.jpg" loading="lazy" alt="Fim de tarde na região de Jericoacoara"><figcaption>Fim de tarde na região de Jericoacoara</figcaption></figure>
+    <figure class="day-figure"><img src="/jeri-sunset.jpg" loading="lazy" alt="Paisagens da região de Jericoacoara"><figcaption>Fim de tarde na região de Jericoacoara</figcaption></figure>
     <details class="itinerary-details"><summary><span>Ver detalhes desta experiência</span><span class="details-plus" aria-hidden="true"></span></summary><div class="itinerary-details-content"><ul><li>Dia livre — sem passeio contratado para esta data.</li><li>Sugestões de restaurantes e passeios complementares podem ser solicitadas.</li></ul></div></details>
   </div>
 </article>
@@ -214,4 +211,32 @@
 <script>
 (function(){var v=document.querySelector('.hero video');if(!v)return;function start(){var p=v.play();if(p&&p.catch)p.catch(function(){});}if(v.readyState>=2)start();else v.addEventListener('canplay',start,{once:true});document.addEventListener('pointerdown',start,{once:true});})();
 </script>
-</body></html>
+
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+<script>
+(function(){
+var el=document.getElementById("mateus-geo-map");
+if(!el||typeof L==="undefined"){if(el)el.innerHTML='<p style="padding:24px;color:#1d3944">Mapa interativo indisponível nesta conexão. Use o link OpenStreetMap abaixo.</p>';return;}
+var map=L.map(el,{scrollWheelZoom:false}).setView([-2.836,-40.506],11);
+L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",{maxZoom:18,attribution:'&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'}).addTo(map);
+var points=[
+["Jericoacoara",-2.79517,-40.51523,"#071f2d","Base da viagem"],
+["Lagoa Azul (referência de acesso)",-2.851523,-40.432568,"#287da1","Segunda · Lado Leste"],
+["Buraco Azul Caiçara",-2.853829,-40.405879,"#287da1","Segunda · Lado Leste"],
+["Lagun Beach",-2.84398,-40.41257,"#287da1","Segunda · Lado Leste"],
+["Mangue Seco",-2.84901,-40.56192,"#b38b48","Terça · Lado Oeste"],
+["Rio Guriú (estuário)",-2.84694,-40.58194,"#b38b48","Terça · Lado Oeste"],
+["Tatajuba (referência)",-2.871139,-40.658337,"#b38b48","Terça · Lado Oeste"],
+["Alchymist / Lagoa do Paraíso",-2.847307,-40.454424,"#50816e","Quarta · Lagoa do Paraíso"],
+["Barrinha",-2.81502,-40.35228,"#b56e4c","Quinta · Extremo Leste"]
+];
+var coords=[];
+points.forEach(function(p,i){
+ L.circleMarker([p[1],p[2]],{radius:i===0?10:7,weight:2,color:"#fff",fillColor:p[3],fillOpacity:1})
+ .addTo(map).bindPopup("<strong>"+p[0]+"</strong><br>"+p[4]);
+ coords.push([p[1],p[2]]);
+});
+map.fitBounds(coords,{padding:[28,28]});
+setTimeout(function(){map.invalidateSize();},150);
+})();
+</script></body></html>
