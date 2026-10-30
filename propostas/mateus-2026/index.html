@@ -42,12 +42,16 @@
 
 .geo-map-bar{display:flex;justify-content:space-between;gap:12px;align-items:center;margin-bottom:17px;color:#18313e;font-size:.87rem}
 .geo-map-bar span{color:#65747b;font-size:.75rem}
-#mateus-geo-map{width:100%;height:510px;border-radius:18px;overflow:hidden;background:#c8ded9;z-index:1}
-#mateus-geo-map .leaflet-popup-content-wrapper{border-radius:12px;font-family:inherit}
+
+.mateus-map-figure{margin:0;background:#f7f3e9;border-radius:18px;overflow:hidden;border:1px solid #e9e2d4}
+.mateus-map-figure img{display:block;width:100%;height:auto;max-height:none}
+.mateus-map-figure figcaption{padding:12px 17px;color:#5f6f78;font-size:.76rem;line-height:1.55}
+.geo-map-bar{display:flex;justify-content:space-between;gap:12px;align-items:center;margin-bottom:17px;color:#18313e;font-size:.87rem}
+.geo-map-bar span{color:#65747b;font-size:.75rem}
 .map-legend i{display:inline-block;width:9px;height:9px;border-radius:50%;margin-right:8px}
-.map-fallback{font-size:.8rem;color:#815d29}
-@media(max-width:640px){#mateus-geo-map{height:420px}.geo-map-bar{display:block}.geo-map-bar span{display:block;margin-top:3px}.map-legend{grid-template-columns:1fr 1fr}}
-</style><link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzxG6r9bJM9SJyrOgpWdqPmwWY=" crossorigin=""></head>
+.map-fallback{font-size:.88rem;color:#815d29;font-weight:750}.map-fallback a{text-decoration:underline;text-underline-offset:3px}
+@media(max-width:640px){.geo-map-bar{display:block}.geo-map-bar span{display:block;margin-top:3px}.map-legend{grid-template-columns:1fr 1fr}.mateus-map-figure figcaption{font-size:.69rem}}
+</style></head>
 <body>
 <header class="proposal-header">
 <a class="brand" href="https://www.jerirota.com.br" aria-label="Jeri Rota"><img src="/logo-jeri-rota.png" alt="Logo Jeri Rota" width="205" height="69"></a>
@@ -86,16 +90,16 @@
 <section class="section shell" aria-labelledby="map-title">
 <div class="section-heading compact"><div><p class="eyebrow">Visão dos destinos</p><h2 id="map-title">O mapa da sua viagem</h2></div><p>Jericoacoara é a base. Os passeios seguem quatro circuitos diferentes, com transporte privativo e ritmo pensado para o grupo.</p></div>
 <div class="map-area">
- <div class="geo-map-bar"><strong>Jericoacoara e arredores</strong><span>Mapa geográfico interativo · OpenStreetMap</span></div>
- <div id="mateus-geo-map" aria-label="Mapa geográfico interativo da região de Jericoacoara e dos locais previstos nos passeios"></div>
- <div class="map-legend">
-  <div><strong><i style="background:#287da1"></i>Segunda · Lado Leste</strong>Lagoa Azul, Buraco Azul e Lagun Beach</div>
-  <div><strong><i style="background:#b38b48"></i>Terça · Lado Oeste</strong>Guriú, Mangue Seco e Tatajuba</div>
-  <div><strong><i style="background:#50816e"></i>Quarta · Lagoa do Paraíso</strong>Alchymist Beach Club</div>
-  <div><strong><i style="background:#b56e4c"></i>Quinta · Extremo Leste</strong>Barrinha e pôr do sol</div>
- </div>
- <p class="map-caption">Mapa geográfico para localização dos atrativos. Os marcadores indicam pontos de referência aproximados, não trajetos, distâncias ou horários de deslocamento. A rota efetiva será definida pelo operador.</p>
- <p class="map-fallback"><a href="https://www.openstreetmap.org/#map=11/-2.841/-40.506" target="_blank" rel="noopener noreferrer">Abrir mapa da região no OpenStreetMap</a></p>
+<div class="geo-map-bar"><strong>Jericoacoara e arredores</strong><span>Mapa regional ilustrado · posições aproximadas</span></div>
+<figure class="mateus-map-figure"><img src="./mapa-regiao.svg?v=20261030-corrigido" width="1200" height="700" loading="eager" alt="Mapa regional dos atrativos de Jericoacoara: a oeste Guriú, Mangue Seco e Tatajuba; a leste Lagoa Azul, Buraco Azul e Lagun Beach; ao sudeste Lagoa do Paraíso e Alchymist; mais a leste Barrinha."><figcaption>Ilustração cartográfica para orientação visual. Os traços pontilhados indicam a direção geral dos passeios, não estradas ou rotas exatas.</figcaption></figure>
+<div class="map-legend">
+<div><strong><i style="background:#287da1"></i>Segunda · Lado Leste</strong>Lagoa Azul, Buraco Azul e Lagun Beach</div>
+<div><strong><i style="background:#b38b48"></i>Terça · Lado Oeste</strong>Guriú, Mangue Seco e Tatajuba</div>
+<div><strong><i style="background:#50816e"></i>Quarta · Lagoa do Paraíso</strong>Alchymist Beach Club</div>
+<div><strong><i style="background:#b56e4c"></i>Quinta · Extremo Leste</strong>Barrinha e pôr do sol</div>
+</div>
+<p class="map-caption">Para conferir a geografia, distâncias e vias reais, abra o mapa de localização abaixo. O planejamento final dos deslocamentos depende do operador.</p>
+<p class="map-fallback"><a href="https://www.google.com/maps/@-2.837,-40.505,11z" target="_blank" rel="noopener noreferrer">Ver mapa geográfico real no Google Maps ↗</a></p>
 </div></section>
 
 <section class="itinerary section shell" aria-labelledby="itinerary-title">
@@ -212,31 +216,4 @@
 (function(){var v=document.querySelector('.hero video');if(!v)return;function start(){var p=v.play();if(p&&p.catch)p.catch(function(){});}if(v.readyState>=2)start();else v.addEventListener('canplay',start,{once:true});document.addEventListener('pointerdown',start,{once:true});})();
 </script>
 
-<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
-<script>
-(function(){
-var el=document.getElementById("mateus-geo-map");
-if(!el||typeof L==="undefined"){if(el)el.innerHTML='<p style="padding:24px;color:#1d3944">Mapa interativo indisponível nesta conexão. Use o link OpenStreetMap abaixo.</p>';return;}
-var map=L.map(el,{scrollWheelZoom:false}).setView([-2.836,-40.506],11);
-L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",{maxZoom:18,attribution:'&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'}).addTo(map);
-var points=[
-["Jericoacoara",-2.79517,-40.51523,"#071f2d","Base da viagem"],
-["Lagoa Azul (referência de acesso)",-2.851523,-40.432568,"#287da1","Segunda · Lado Leste"],
-["Buraco Azul Caiçara",-2.853829,-40.405879,"#287da1","Segunda · Lado Leste"],
-["Lagun Beach",-2.84398,-40.41257,"#287da1","Segunda · Lado Leste"],
-["Mangue Seco",-2.84901,-40.56192,"#b38b48","Terça · Lado Oeste"],
-["Rio Guriú (estuário)",-2.84694,-40.58194,"#b38b48","Terça · Lado Oeste"],
-["Tatajuba (referência)",-2.871139,-40.658337,"#b38b48","Terça · Lado Oeste"],
-["Alchymist / Lagoa do Paraíso",-2.847307,-40.454424,"#50816e","Quarta · Lagoa do Paraíso"],
-["Barrinha",-2.81502,-40.35228,"#b56e4c","Quinta · Extremo Leste"]
-];
-var coords=[];
-points.forEach(function(p,i){
- L.circleMarker([p[1],p[2]],{radius:i===0?10:7,weight:2,color:"#fff",fillColor:p[3],fillOpacity:1})
- .addTo(map).bindPopup("<strong>"+p[0]+"</strong><br>"+p[4]);
- coords.push([p[1],p[2]]);
-});
-map.fitBounds(coords,{padding:[28,28]});
-setTimeout(function(){map.invalidateSize();},150);
-})();
-</script></body></html>
+</body></html>
