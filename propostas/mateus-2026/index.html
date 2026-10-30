@@ -18,7 +18,7 @@
 .day-figure figcaption{position:absolute;bottom:0;right:0;max-width:100%;padding:8px 14px;color:#fff;background:rgba(5,26,39,.72);font-size:.68rem;letter-spacing:.02em}
 .mateus-day .itinerary-details-content{padding:0 4px 10px;color:#576873}
 .mateus-day .itinerary-details-content li{margin:8px 0}
-.mateus-flow{grid-template-columns:repeat(7,minmax(0,1fr))}
+.mateus-flow{grid-template-columns:repeat(8,minmax(0,1fr))}
 .mateus-flow li{padding:20px 10px;min-height:122px}.mateus-flow span{font-size:.62rem}.mateus-flow strong{font-size:.86rem}
 .highlight-strip{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:34px}
 .highlight-strip img{width:100%;height:220px;object-fit:cover;border-radius:16px}
@@ -51,6 +51,24 @@
 .map-legend i{display:inline-block;width:9px;height:9px;border-radius:50%;margin-right:8px}
 .map-fallback{font-size:.88rem;color:#815d29;font-weight:750}.map-fallback a{text-decoration:underline;text-underline-offset:3px}
 @media(max-width:640px){.geo-map-bar{display:block}.geo-map-bar span{display:block;margin-top:3px}.map-legend{grid-template-columns:1fr 1fr}.mateus-map-figure figcaption{font-size:.69rem}}
+
+/* Revisão visual final: prioridade para as experiências, mantendo o design do Edmond */
+.mateus-day.featured-experience{border-color:#e5d2ac;background:linear-gradient(140deg,#fffefb 12%,#fcf7ed 100%);box-shadow:0 18px 45px rgba(8,39,52,.07)}
+.mateus-day.light-experience{background:#fff;box-shadow:0 9px 30px rgba(8,39,52,.045)}
+.journey-intro{padding:30px 36px;margin-bottom:30px;border-left:4px solid var(--gold);border-radius:0 16px 16px 0;background:#f6f0e4;color:#4a626c}
+.journey-intro strong{font:500 1.45rem Georgia,serif;color:var(--navy)}.journey-intro p{max-width:920px;line-height:1.75;margin-bottom:0}
+.experience-intro{font-size:1rem;color:#536b74!important;line-height:1.78}
+.mateus-day .day-figure{margin-top:25px}
+.mateus-day.featured-experience .day-figure img{aspect-ratio:16/7;max-height:460px}
+.mateus-day.light-experience .day-figure img{aspect-ratio:21/7;max-height:270px}
+.mateus-day .day-figure figcaption{background:rgba(4,24,36,.78);font-size:.69rem}
+.gallery-title{margin-top:85px}.gallery-title h3{font-size:clamp(1.85rem,3vw,2.6rem);max-width:780px;line-height:1.18}
+.mateus-gallery{display:grid;grid-template-columns:repeat(3,1fr);gap:17px;margin-top:28px}
+.mateus-gallery figure{margin:0;background:#f7f1e7;border-radius:17px;overflow:hidden}.mateus-gallery img{width:100%;height:235px;object-fit:cover}
+.mateus-gallery figcaption{padding:13px 17px;font-size:.78rem;color:#63717a}
+.mateus-flow li strong{font-size:.8rem}
+@media(max-width:760px){.journey-intro{padding:24px}.mateus-gallery{grid-template-columns:1fr 1fr}.mateus-gallery figure:last-child{grid-column:1/-1}.mateus-gallery img{height:200px}.mateus-day.featured-experience .day-figure img,.mateus-day.light-experience .day-figure img{aspect-ratio:4/3;max-height:340px}.mateus-flow{overflow-x:auto}}
+@media(max-width:440px){.mateus-gallery{grid-template-columns:1fr}.mateus-gallery figure:last-child{grid-column:auto}}
 </style></head>
 <body>
 <header class="proposal-header">
@@ -71,20 +89,20 @@
 </div></section>
 
 <section class="overview section shell" aria-labelledby="overview-title">
-<div class="section-heading"><div><p class="eyebrow">A sua experiência</p><h2 id="overview-title">Uma semana para redescobrir Jeri</h2></div>
-<p>Como você já conhece a vila, desenhamos uma viagem com novos cenários e tempo de verdade para aproveitar cada parada. Quatro dias de passeios privativos, sem deixar de lado a liberdade de descansar.</p></div>
+<div class="section-heading"><div><p class="eyebrow">A sua experiência</p><h2 id="overview-title">Redescobrir Jeri no seu próprio ritmo</h2></div>
+<p>Uma programação para quatro viajantes que já conhecem a vila e querem novas experiências. O conforto dos deslocamentos privativos, dias com identidade própria e a liberdade de escolher como aproveitar o restante da semana.</p></div>
 <ol class="route-flow mateus-flow" aria-label="Linha do tempo da viagem">
 <li><span>07 NOV</span><strong>Chegada</strong></li><li><span>08 NOV</span><strong>Dia livre</strong></li>
 <li><span>09 NOV</span><strong>Lado Leste</strong></li><li><span>10 NOV</span><strong>Lado Oeste</strong></li>
-<li><span>11 NOV</span><strong>Alchymist</strong></li><li><span>12 NOV</span><strong>Barrinha</strong></li>
+<li><span>11 NOV</span><strong>Alchymist</strong></li><li><span>12 NOV</span><strong>Barrinha</strong></li><li><span>13 NOV</span><strong>Dia livre</strong></li>
 <li><span>14 NOV</span><strong>Retorno</strong></li></ol>
 <div class="profile-grid"><span>4 viajantes</span><span>Transfers privativos</span><span>4 passeios privativos</span><span>Natureza e lagoas</span><span>Experiências sem correria</span><span>Suporte Jeri Rota</span></div>
 </section>
 
 <section class="curation section">
 <div class="shell split-feature">
-<div class="feature-photo"><img src="/jeri-sunset.jpg" alt="Pôr do sol no litoral de Jericoacoara" loading="lazy"></div>
-<div class="feature-copy"><p class="eyebrow light">Curadoria Jeri Rota</p><h2>Mais que conhecer. É voltar e sentir algo novo.</h2><p>Não é necessário correr por todos os lugares em um único dia. A escolha de cada experiência considera paisagens, tempo de permanência e o que faz mais sentido para quem já visitou Jericoacoara.</p><p>Da Lagoa Azul às dunas da Barrinha, uma programação que dá espaço tanto à aventura quanto ao descanso.</p></div>
+<div class="feature-photo"><img src="/Extremo.jpg" alt="Dunas e coqueirais da região da Barrinha" loading="lazy"></div>
+<div class="feature-copy"><p class="eyebrow light">Curadoria Jeri Rota</p><h2>Mais que conhecer. É voltar e sentir algo novo.</h2><p>Não é necessário correr por todos os lugares em um único dia. A seleção reúne cenários diferentes e respeita o que você nos contou que gostaria de conhecer: lagoas, dunas, bons lugares para permanecer e um pôr do sol especial.</p><p>Da Lagoa Azul às dunas da Barrinha, uma programação que dá espaço tanto à aventura quanto ao descanso.</p></div>
 </div></section>
 
 <section class="section shell" aria-labelledby="map-title">
@@ -103,82 +121,95 @@
 </div></section>
 
 <section class="itinerary section shell" aria-labelledby="itinerary-title">
-<div class="section-heading compact"><div><p class="eyebrow">Roteiro personalizado</p><h2 id="itinerary-title">Dia a dia da experiência</h2></div><p>Programação sugerida de 07 a 14 de novembro, com 4 passeios privativos e transfers de chegada e saída. Dias livres sem programação contratada.</p></div>
-<article class="day-card mateus-day ">
-  <div class="day-date"><span>07</span><small>NOV</small></div>
-  <div class="day-copy">
-    <p class="location">SÁBADO · 07/11 · Aeroporto de Jericoacoara → Vila</p><h3>Sua chegada, com tudo organizado</h3>
-    <p>Recepção no Aeroporto de Jericoacoara (Cruz) e traslado privativo até a hospedagem na vila. Chegada do voo informada para 17h. O começo da viagem fica por nossa conta, para vocês aproveitarem o destino desde o primeiro momento.</p>
-    <figure class="day-figure"><img src="/jeri-aerial.jpg" loading="lazy" alt="Chegada à região de Jericoacoara"><figcaption>Chegada à região de Jericoacoara</figcaption></figure>
-    <details class="itinerary-details"><summary><span>Ver detalhes desta experiência</span><span class="details-plus" aria-hidden="true"></span></summary><div class="itinerary-details-content"><ul><li>Recepção e transporte privativo para o grupo de quatro pessoas.</li><li>Horário operacional ajustado à confirmação dos dados do voo e endereço da hospedagem.</li><li>Hospedagem não incluída neste orçamento.</li></ul></div></details>
-  </div>
-</article>
-<article class="day-card mateus-day ">
-  <div class="day-date"><span>08</span><small>NOV</small></div>
-  <div class="day-copy">
-    <p class="location">DOMINGO · 08/11 · Jericoacoara · Vila</p><h3>Um domingo no ritmo de vocês</h3>
-    <p>Dia livre para voltar aos seus lugares preferidos, percorrer as ruas de areia, escolher um bom restaurante ou simplesmente curtir a praia. Sem compromissos marcados: Jericoacoara merece ser aproveitada com calma.</p>
-    <figure class="day-figure"><img src="/jeri-aerial.jpg" loading="lazy" alt="Paisagens da região de Jericoacoara"><figcaption>Vista da região de Jericoacoara · imagem ilustrativa</figcaption></figure>
-    <details class="itinerary-details"><summary><span>Ver detalhes desta experiência</span><span class="details-plus" aria-hidden="true"></span></summary><div class="itinerary-details-content"><ul><li>Dia livre — sem passeio contratado para esta data.</li><li>Sugestões de restaurantes e passeios complementares podem ser solicitadas.</li></ul></div></details>
-  </div>
-</article>
-<article class="day-card mateus-day featured">
-  <div class="day-date"><span>09</span><small>NOV</small></div>
-  <div class="day-copy">
-    <p class="location">SEGUNDA · 09/11 · Lado Leste · Lagoas e cenários</p><h3>Lagoa Azul, Buraco Azul e Lagun Beach</h3>
-    <p>Começamos pela experiência que você mais queria conhecer: a Lagoa Azul. O percurso do Lado Leste também permite explorar paradas de lazer e belas paisagens, como o Buraco Azul e o Lagun Beach, de acordo com a condição dos atrativos e a programação do dia.</p>
-    <figure class="day-figure"><img src="/lagoa/images/balanco.jpg" loading="lazy" alt="Paisagens das lagoas de Jijoca · imagem ilustrativa"><figcaption>Lagoa da região de Jijoca · imagem ilustrativa</figcaption></figure>
-    <details class="itinerary-details"><summary><span>Ver detalhes desta experiência</span><span class="details-plus" aria-hidden="true"></span></summary><div class="itinerary-details-content"><ul><li>Lagoa Azul: visita condicionada ao nível de água e acesso na data.</li><li>Buraco Azul: contemplação e opção de permanência, com ingresso à parte.</li><li>Lagun Beach: parada programável conforme tempo e disponibilidade.</li><li>Passeio privativo com roteiro ajustável dentro das condições operacionais.</li></ul></div></details>
-  </div>
-</article>
-<article class="day-card mateus-day ">
-  <div class="day-date"><span>10</span><small>NOV</small></div>
-  <div class="day-copy">
-    <p class="location">TERÇA · 10/11 · Lado Oeste · Natureza e aventura</p><h3>Guriú, Mangue Seco e Tatajuba</h3>
-    <p>O lado mais aventureiro da viagem: manguezais, travessia pelo Guriú, dunas e a Lagoa Grande em Tatajuba. Um roteiro que combina movimento, natureza e tempo para apreciar as paisagens.</p>
-    <figure class="day-figure"><img src="/oeste-duna-lagoa.jpeg" loading="lazy" alt="Paisagens do Lado Oeste · imagem ilustrativa"><figcaption>Dunas e lagoa de Tatajuba · imagem ilustrativa</figcaption></figure>
-    <details class="itinerary-details"><summary><span>Ver detalhes desta experiência</span><span class="details-plus" aria-hidden="true"></span></summary><div class="itinerary-details-content"><ul><li>Visita à região de Guriú e ao Mangue Seco.</li><li>Dunas de Tatajuba e Lagoa Grande, conforme condições de acesso.</li><li>Atividades extras nas dunas, travessias, alimentação e consumo local não estão incluídos quando cobrados separadamente.</li></ul></div></details>
-  </div>
-</article>
-<article class="day-card mateus-day ">
-  <div class="day-date"><span>11</span><small>NOV</small></div>
-  <div class="day-copy">
-    <p class="location">QUARTA · 11/11 · Lagoa do Paraíso</p><h3>Alchymist Beach Club: um dia para desacelerar</h3>
-    <p>Uma experiência dedicada a aproveitar a Lagoa do Paraíso. Em vez de visitar tudo rapidamente, a proposta é reservar tempo para relaxar, fotografar, curtir as redes na água e aproveitar a gastronomia do local.</p>
-    <figure class="day-figure"><img src="/img/rede2.jpg" loading="lazy" alt="Lagoa do Paraíso · imagem ilustrativa"><figcaption>Redes na lagoa · imagem ilustrativa da experiência</figcaption></figure>
-    <details class="itinerary-details"><summary><span>Ver detalhes desta experiência</span><span class="details-plus" aria-hidden="true"></span></summary><div class="itinerary-details-content"><ul><li>Transporte privativo de ida e volta para o dia de passeio.</li><li>O beach club é um estabelecimento aberto ao público: o caráter privativo refere-se ao transporte e à organização do passeio.</li><li>Ingressos, day use, alimentação e bebidas são pagos à parte, conforme as regras do estabelecimento.</li></ul></div></details>
-  </div>
-</article>
-<article class="day-card mateus-day ">
-  <div class="day-date"><span>12</span><small>NOV</small></div>
-  <div class="day-copy">
-    <p class="location">QUINTA · 12/11 · Extremo Leste · Barrinha</p><h3>Barrinha: paisagens serenas e pôr do sol</h3>
-    <p>Para fechar a sequência de passeios, uma rota de praias, coqueirais e dunas que oferece outro olhar sobre a região. Nossa sugestão inclui uma pausa para almoço e, quando o clima e a logística permitirem, o pôr do sol na Barrinha.</p>
-    <figure class="day-figure"><img src="/Extremo.jpg" loading="lazy" alt="Região do Extremo Leste · imagem ilustrativa"><figcaption>Região do Extremo Leste · imagem ilustrativa</figcaption></figure>
-    <details class="itinerary-details"><summary><span>Ver detalhes desta experiência</span><span class="details-plus" aria-hidden="true"></span></summary><div class="itinerary-details-content"><ul><li>Passeio privativo com deslocamento à região da Barrinha.</li><li>Parada para almoço por conta dos viajantes.</li><li>Pôr do sol sujeito às condições de tempo, maré e operação; a programação será reconfirmada.</li></ul></div></details>
-  </div>
-</article>
-<article class="day-card mateus-day ">
-  <div class="day-date"><span>13</span><small>NOV</small></div>
-  <div class="day-copy">
-    <p class="location">SEXTA · 13/11 · Jericoacoara · Dia livre</p><h3>Tempo para viver o que ficou de fora</h3>
-    <p>Um dia livre para revisitar a praia, descansar, fazer compras ou aproveitar novos endereços da vila. A liberdade de escolher também faz parte de uma viagem bem planejada.</p>
-    <figure class="day-figure"><img src="/img/pedra-desktop.jpg" loading="lazy" alt="Jericoacoara · imagem ilustrativa"><figcaption>Jericoacoara · imagem ilustrativa</figcaption></figure>
-    <details class="itinerary-details"><summary><span>Ver detalhes desta experiência</span><span class="details-plus" aria-hidden="true"></span></summary><div class="itinerary-details-content"><ul><li>Sem passeio ou traslado adicional incluído nesta data.</li></ul></div></details>
-  </div>
-</article>
-<article class="day-card mateus-day ">
-  <div class="day-date"><span>14</span><small>NOV</small></div>
-  <div class="day-copy">
-    <p class="location">SÁBADO · 14/11 · Vila → Aeroporto de Jericoacoara</p><h3>Retorno com tranquilidade</h3>
-    <p>Transfer privativo da hospedagem ao Aeroporto de Jericoacoara. Horário do voo de retorno informado para 17h30; o embarque e a saída da vila serão coordenados com antecedência.</p>
-    <figure class="day-figure"><img src="/jeri-aerial.jpg" loading="lazy" alt="Despedida de Jericoacoara"><figcaption>Despedida de Jericoacoara</figcaption></figure>
-    <details class="itinerary-details"><summary><span>Ver detalhes desta experiência</span><span class="details-plus" aria-hidden="true"></span></summary><div class="itinerary-details-content"><ul><li>Traslado de retorno para os quatro passageiros.</li><li>Horário de coleta sujeito à confirmação do voo e à orientação operacional para apresentação no aeroporto.</li></ul></div></details>
-  </div>
-</article>
-</section>
-
-<section class="section soft-section" aria-labelledby="included-title"><div class="shell">
+<div class="section-heading compact"><div><p class="eyebrow">Roteiro Jeri Rota Signature</p><h2 id="itinerary-title">A sua semana em Jericoacoara</h2></div><p>De 7 a 14 de novembro de 2026: dois transfers privativos, quatro dias de passeios privativos e dias livres para aproveitar a vila.</p></div>
+<div class="journey-intro"><strong>Uma viagem para quem já conhece Jeri.</strong><p>Mateus, selecionamos experiências distintas para vocês não passarem a semana repetindo o mesmo cenário. Priorizamos a Lagoa Azul que você citou, um dia de aventura no Oeste, um dia inteiro no Alchymist e um encerramento na Barrinha. As paradas serão reconfirmadas antes da reserva, especialmente onde o acesso e as condições naturais variam.</p></div>
+<article class="day-card mateus-day light-experience" id="dia-07">
+<div class="day-date"><span>07</span><small>NOV</small></div>
+<div class="day-copy">
+<p class="location">SÁBADO · Aeroporto de Jericoacoara → Vila</p>
+<h3>A chegada já faz parte da viagem</h3>
+<p class="experience-intro">A partir do desembarque, a prioridade é uma chegada tranquila. O transfer privativo recebe os quatro viajantes no Aeroporto de Jericoacoara (Cruz) e segue para a hospedagem na vila.</p>
+<figure class="day-figure"><img src="/jeri-aerial.jpg"  loading="lazy" alt="Vista aérea da Vila de Jericoacoara · acervo Jeri Rota"><figcaption>Vista aérea da Vila de Jericoacoara · acervo Jeri Rota</figcaption></figure>
+<details class="itinerary-details"><summary><span>Orientações para este dia</span><span class="details-plus" aria-hidden="true"></span></summary>
+<div class="itinerary-details-content"><ul><li>Chegada do voo informada: 17h00.</li><li>Motorista e ponto de encontro serão reconfirmados antes do embarque.</li><li>É importante informar o número do voo e o endereço da hospedagem.</li></ul></div></details>
+</div></article>
+<article class="day-card mateus-day light-experience" id="dia-08">
+<div class="day-date"><span>08</span><small>NOV</small></div>
+<div class="day-copy">
+<p class="location">DOMINGO · Jericoacoara · Vila</p>
+<h3>Um domingo para sentir Jeri</h3>
+<p class="experience-intro">A proposta é deixar o domingo livre: caminhar pelas ruas de areia, escolher um restaurante sem pressa, voltar à praia e acompanhar o fim de tarde na Vila. Um primeiro dia leve, sem compromissos obrigatórios.</p>
+<figure class="day-figure"><img src="https://jerihotel.com/pt/images/jericoacoara/slide-jericoacoara-4.jpg" onerror="this.onerror=null;this.src='/jeri-aerial.jpg'" loading="lazy" alt="Praia da Vila ao entardecer · foto ilustrativa (Jeri Hotel)"><figcaption>Praia da Vila ao entardecer · foto ilustrativa (Jeri Hotel)</figcaption></figure>
+<details class="itinerary-details"><summary><span>Orientações para este dia</span><span class="details-plus" aria-hidden="true"></span></summary>
+<div class="itinerary-details-content"><ul><li>Dia livre; passeio não contratado.</li><li>Sugestão: fim de tarde na Praia Principal, conforme a preferência do grupo.</li></ul></div></details>
+</div></article>
+<article class="day-card mateus-day featured-experience" id="dia-09">
+<div class="day-date"><span>09</span><small>NOV</small></div>
+<div class="day-copy">
+<p class="location">SEGUNDA · Lado Leste · águas e lagoas</p>
+<h3>Lagoa Azul: o lugar que você queria conhecer</h3>
+<p class="experience-intro">Começamos por aquilo que despertou seu interesse: a Lagoa Azul. A ideia é aproveitar as águas e o cenário com calma, combinando, quando viável, a visita ao Buraco Azul e ao Lagun Beach em um roteiro privativo.</p>
+<figure class="day-figure"><img src="https://dynamic-media-cdn.tripadvisor.com/media/photo-o/0d/8a/61/9e/redinhas.jpg?h=1200&amp;s=1&amp;w=1200" onerror="this.onerror=null;this.src='/img/rede2.jpg'" loading="lazy" alt="Lagoa Azul, em Jijoca · foto real de referência (Tripadvisor)"><figcaption>Lagoa Azul, em Jijoca · foto real de referência (Tripadvisor)</figcaption></figure>
+<details class="itinerary-details"><summary><span>Conheça os detalhes do passeio</span><span class="details-plus" aria-hidden="true"></span></summary>
+<div class="itinerary-details-content"><ul><li>Lagoa Azul: principal interesse do grupo, condicionada ao nível da água e às condições de acesso.</li><li>Buraco Azul: parada opcional com ingresso à parte.</li><li>Lagun Beach: visita sujeita ao tempo disponível, acesso e funcionamento.</li><li>A sequência e o tempo em cada atração serão ajustados antes da saída para evitar promessas inviáveis.</li></ul></div></details>
+</div></article>
+<article class="day-card mateus-day featured-experience" id="dia-10">
+<div class="day-date"><span>10</span><small>NOV</small></div>
+<div class="day-copy">
+<p class="location">TERÇA · Lado Oeste · Guriú e Tatajuba</p>
+<h3>Dunas, travessias e o lado aventureiro de Jeri</h3>
+<p class="experience-intro">Um dia com outra energia. A travessia do Guriú abre caminho para manguezais, dunas e a região de Tatajuba. A Lagoa Grande pode ser a pausa para banho e almoço, conforme a operação e as condições do dia.</p>
+<figure class="day-figure"><img src="/Oeste.jpg"  loading="lazy" alt="Experiência de aventura no Lado Oeste · acervo Jeri Rota"><figcaption>Experiência de aventura no Lado Oeste · acervo Jeri Rota</figcaption></figure>
+<details class="itinerary-details"><summary><span>Conheça os detalhes do passeio</span><span class="details-plus" aria-hidden="true"></span></summary>
+<div class="itinerary-details-content"><ul><li>Guriú e Mangue Seco: cenário de rio, dunas e vegetação de mangue.</li><li>Tatajuba e Lagoa Grande: contemplação e parada para descanso.</li><li>Atividades como toboágua, tirolesa, passeio de barco ou observação de cavalos-marinhos são opcionais e podem ter cobrança separada.</li><li>Travessias dependem das condições naturais e do operador.</li></ul></div></details>
+</div></article>
+<article class="day-card mateus-day featured-experience" id="dia-11">
+<div class="day-date"><span>11</span><small>NOV</small></div>
+<div class="day-copy">
+<p class="location">QUARTA · Lagoa do Paraíso · Alchymist</p>
+<h3>O luxo de passar o dia sem olhar o relógio</h3>
+<p class="experience-intro">A quarta-feira é dedicada ao Alchymist Beach Club. Sem somar várias paradas, vocês podem aproveitar a estrutura à beira da Lagoa do Paraíso, descansar nas redes, fotografar e escolher com calma o momento do almoço.</p>
+<figure class="day-figure"><img src="/lagoa/images/lagoa-aerea.jpg"  loading="lazy" alt="Vista aérea do Alchymist Beach Club · acervo fotográfico do site"><figcaption>Vista aérea do Alchymist Beach Club · acervo fotográfico do site</figcaption></figure>
+<details class="itinerary-details"><summary><span>Conheça os detalhes do passeio</span><span class="details-plus" aria-hidden="true"></span></summary>
+<div class="itinerary-details-content"><ul><li>Transporte privativo de ida e volta para os quatro participantes.</li><li>O acesso ao Alchymist e o uso dos seus espaços seguem as regras do beach club; o espaço não é reservado exclusivamente para o grupo.</li><li>Ingressos, day use, áreas especiais, refeições e bebidas não estão incluídos no preço do pacote.</li><li>Horários de ida e saída serão combinados considerando o funcionamento do local.</li></ul></div></details>
+</div></article>
+<article class="day-card mateus-day featured-experience" id="dia-12">
+<div class="day-date"><span>12</span><small>NOV</small></div>
+<div class="day-copy">
+<p class="location">QUINTA · Extremo Leste · Barrinha</p>
+<h3>Barrinha: um final de tarde para guardar</h3>
+<p class="experience-intro">A última experiência privativa leva vocês por uma paisagem mais silenciosa, entre areia, coqueiros e mar. A Barrinha é uma escolha especial para quem já conhece o circuito tradicional e quer ver a região sob outro ângulo.</p>
+<figure class="day-figure"><img src="/Extremo.jpg"  loading="lazy" alt="Dunas da região do Extremo Leste · acervo Jeri Rota"><figcaption>Dunas da região do Extremo Leste · acervo Jeri Rota</figcaption></figure>
+<details class="itinerary-details"><summary><span>Conheça os detalhes do passeio</span><span class="details-plus" aria-hidden="true"></span></summary>
+<div class="itinerary-details-content"><ul><li>Percurso privativo pela região do Extremo Leste, com foco em paisagens e tempo de contemplação.</li><li>Parada para almoço conforme preferência do grupo, com consumo à parte.</li><li>Pôr do sol sugerido para o encerramento, quando as condições do clima e da operação permitirem.</li><li>O percurso exato depende de acesso, maré, horários e confirmação com o prestador.</li></ul></div></details>
+</div></article>
+<article class="day-card mateus-day light-experience" id="dia-13">
+<div class="day-date"><span>13</span><small>NOV</small></div>
+<div class="day-copy">
+<p class="location">SEXTA · Jericoacoara · Dia livre</p>
+<h3>Aproveitar o que ficou na memória</h3>
+<p class="experience-intro">Um intervalo para repetir o que vocês mais gostaram: uma manhã de praia, uma caminhada até a Pedra Furada, um almoço demorado ou uma última volta pelo centrinho. O melhor roteiro também deixa espaço para improvisar.</p>
+<figure class="day-figure"><img src="/img/pedra-desktop.jpg" onerror="this.onerror=null;this.src='/jeri-aerial.jpg'" loading="lazy" alt="Pedra Furada, símbolo de Jericoacoara · acervo do site"><figcaption>Pedra Furada, símbolo de Jericoacoara · acervo do site</figcaption></figure>
+<details class="itinerary-details"><summary><span>Orientações para este dia</span><span class="details-plus" aria-hidden="true"></span></summary>
+<div class="itinerary-details-content"><ul><li>Dia livre; sem passeio contratado.</li><li>Visita à Pedra Furada é uma sugestão opcional, dependente de acesso e maré quando feita pela praia.</li></ul></div></details>
+</div></article>
+<article class="day-card mateus-day light-experience" id="dia-14">
+<div class="day-date"><span>14</span><small>NOV</small></div>
+<div class="day-copy">
+<p class="location">SÁBADO · Vila → Aeroporto de Jericoacoara</p>
+<h3>O retorno, com a mesma atenção da chegada</h3>
+<p class="experience-intro">No último dia, o transfer privativo busca o grupo na hospedagem para o retorno ao Aeroporto de Jericoacoara, com horário de saída ajustado à antecedência necessária para o embarque.</p>
+<figure class="day-figure"><img src="/jeri-aerial.jpg"  loading="lazy" alt="Região de Jericoacoara · acervo Jeri Rota"><figcaption>Região de Jericoacoara · acervo Jeri Rota</figcaption></figure>
+<details class="itinerary-details"><summary><span>Orientações para este dia</span><span class="details-plus" aria-hidden="true"></span></summary>
+<div class="itinerary-details-content"><ul><li>Partida do voo informada: 17h30.</li><li>O horário de saída da hospedagem será confirmado com antecedência após recebermos os dados do voo.</li><li>Transfer de retorno para quatro pessoas.</li></ul></div></details>
+</div></article>
+<div class="gallery-title"><p class="eyebrow">Momentos que fazem a diferença</p><h3>Natureza, encontros e lugares para ficar mais um pouco.</h3></div>
+<div class="mateus-gallery">
+<figure><img loading="lazy" src="/oeste-barcos.jpeg" alt="Casal ao lado de barcos na região do Lado Oeste"><figcaption>Encantos do Lado Oeste · foto real do acervo</figcaption></figure>
+<figure><img loading="lazy" src="/img/rede2.jpg" alt="Redes instaladas dentro de uma lagoa de águas claras"><figcaption>Um convite para desacelerar · lagoas da região</figcaption></figure>
+<figure><img loading="lazy" src="/lagoa/images/lagoa-aerea.jpg" alt="Vista aérea do Alchymist Beach Club"><figcaption>Alchymist Beach Club · estrutura sobre a lagoa</figcaption></figure>
+</div>
+</section><section class="section soft-section" aria-labelledby="included-title"><div class="shell">
 <div class="section-heading compact"><div><p class="eyebrow">Sua viagem com clareza</p><h2 id="included-title">Tudo pensado nos detalhes</h2></div><p>Uma proposta integrada para os quatro viajantes, com passeios privativos e a praticidade de ter os deslocamentos essenciais organizados.</p></div>
 <div class="mateus-inclusions">
 <article><p class="eyebrow">O que está incluído</p><h3>Serviços do pacote</h3><ul><li>Transfer privativo de ida e volta entre o Aeroporto de Jericoacoara e a hospedagem na vila.</li><li>Quatro passeios privativos: Lado Leste, Lado Oeste, Alchymist/Lagoa do Paraíso e Extremo Leste/Barrinha.</li><li>Organização do roteiro e suporte da Jeri Rota durante a viagem.</li></ul></article>
