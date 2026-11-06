@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="pt-BR"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Portal do Fornecedor | Jeri Rota</title>
+<link rel="icon" href="favicon.png"><style>
+:root{font-family:Inter,system-ui,-apple-system,Segoe UI,Arial,sans-serif;color:#18362d;background:#f5f8f5}*{box-sizing:border-box}body{margin:0}header{background:#103c32;color:white;padding:21px max(20px,calc((100vw - 1050px)/2));display:flex;justify-content:space-between;align-items:center;gap:12px}header strong{font-size:23px;letter-spacing:.5px}header small{display:block;color:#cde6d8;font-size:12px;margin-top:3px}main{max-width:1050px;padding:26px 18px 65px;margin:auto}.card{border:1px solid #dce8df;border-radius:15px;background:white;padding:23px;box-shadow:0 4px 18px #00291b08;margin-bottom:18px}.hidden{display:none!important}h1{font-size:26px;margin:0 0 6px}h2{font-size:18px;margin:0 0 15px}p{line-height:1.55}.muted{color:#677e73}label{font-size:13px;font-weight:700;display:block;margin-bottom:6px}input,select,textarea{font:inherit;border:1px solid #cbd9cf;border-radius:9px;padding:12px;width:100%;background:white}textarea{min-height:75px}.field{margin:13px 0}button{cursor:pointer;background:#176a50;border:0;border-radius:9px;color:white;font:inherit;font-weight:650;padding:12px 16px}button.secondary{background:#e8f1eb;color:#225340}button:disabled{opacity:.65;cursor:wait}.topbar{display:flex;align-items:center;justify-content:space-between;gap:15px;flex-wrap:wrap}.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}.metric{background:#f1f7f2;border-radius:12px;padding:18px}.metric b{font-size:23px;display:block;margin-top:8px}.row{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap}.pill{border-radius:30px;padding:6px 10px;font-size:12px;background:#eef3f0}.paid{background:#d9f2e4;color:#136040}.planned{background:#e8ecff;color:#364c92}.pending{background:#fff1d8;color:#865a12}.canceled{background:#f8e2e2;color:#9e3333}.entry{border-top:1px solid #e7ede8;padding:17px 0}.entry:first-child{border-top:0}.entry strong{display:block}.entry small{color:#65796d}.helper{font-size:12px;color:#658071}a{color:#176a50}.notice{background:#eff5f0;border-radius:9px;padding:12px;font-size:13px}#feedback{margin:12px 0;color:#974d12}.admin-layout{display:grid;grid-template-columns:1fr 1.45fr;gap:18px}footer{text-align:center;color:#6b8075;padding:35px 15px;font-size:12px}@media(max-width:700px){.grid,.admin-layout{grid-template-columns:1fr}header strong{font-size:20px}.card{padding:18px}main{padding:20px 12px 50px}}
+</style></head><body>
+<header><div><strong>JERI ROTA</strong><small>Portal do Fornecedor · Setor Financeiro</small></div><button class="secondary hidden" id="logout">Sair da conta</button></header>
+<main><section id="login" class="card" style="max-width:450px;margin:35px auto"><h1>Acesso ao fornecedor</h1><p class="muted">Acompanhe seus repasses e pagamentos com segurança.</p><form id="login-form"><div class="field"><label for="email">E-mail cadastrado</label><input type="email" id="email" required autocomplete="username"></div><div class="field"><label for="password">Senha</label><input type="password" id="password" required autocomplete="current-password"></div><button type="submit" id="login-btn" style="width:100%">Entrar no portal</button></form><p class="helper">Primeiro acesso? Solicite seu cadastro ao financeiro da Jeri Rota. Para recuperar a senha, use o botão abaixo.</p><button id="reset" class="secondary" type="button">Recuperar senha</button></section>
+<div id="feedback" role="status" aria-live="polite"></div>
+<section id="portal" class="hidden"><div class="topbar"><div><h1 id="greeting">Meus repasses</h1><p class="muted">Consulte o histórico e a programação de pagamentos.</p></div><a href="https://wa.me/558597315463" target="_blank" rel="noopener">Falar com o financeiro</a></div>
+<div class="grid"><div class="metric"><span>Em conferência</span><b id="pending-total">R$ 0,00</b></div><div class="metric"><span>Programado</span><b id="planned-total">R$ 0,00</b></div><div class="metric"><span>Pago</span><b id="paid-total">R$ 0,00</b></div></div>
+<div class="card" style="margin-top:18px"><div class="topbar"><h2>Ordens de pagamento</h2><select id="filter" style="max-width:215px"><option value="">Todos os status</option><option>Em conferência</option><option>Programado</option><option>Pago</option><option>Cancelado</option></select></div><div id="orders"></div></div></section>
+<section id="admin" class="hidden"><div class="topbar"><h1>Gestão de fornecedores</h1><span class="pill">Acesso administrativo</span></div><p class="muted">Cadastre parceiros e registre ordens de pagamento. Somente contas explicitamente vinculadas podem visualizar seus repasses.</p>
+<div class="admin-layout"><div class="card"><h2>Novo fornecedor</h2><form id="supplier-form"><div class="field"><label>Nome da empresa</label><input name="name" required maxlength="200"></div><div class="field"><label>E-mail de contato</label><input name="contact_email" type="email"></div><button type="submit">Cadastrar fornecedor</button></form><hr style="border:0;border-top:1px solid #e5ede6;margin:22px 0"><h2>Vincular acesso</h2><div class="notice">Crie ou convide o usuário no Supabase Authentication e informe o UUID da conta (Auth → Users). Não vincule apenas pelo endereço de e-mail sem verificar a identidade.</div><form id="link-form"><div class="field"><label>Fornecedor</label><select id="link-supplier" required></select></div><div class="field"><label>UUID do usuário autenticado</label><input id="link-uid" required pattern="[0-9a-fA-F-]{36}" placeholder="xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"></div><button type="submit">Vincular usuário</button></form></div>
+<div class="card"><h2>Nova ordem de pagamento</h2><form id="payment-form"><div class="field"><label>Fornecedor</label><select name="supplier_id" id="payment-supplier" required></select></div><div class="field"><label>Código da ordem</label><input name="order_code" required placeholder="OPF-2026-0001"></div><div class="field"><label>Reserva vinculada (opcional)</label><input name="reservation_code"></div><div class="field"><label>Serviço</label><input name="service_name" required></div><div class="grid" style="grid-template-columns:repeat(2,1fr)"><div class="field"><label>Data do serviço</label><input name="service_date" type="date"></div><div class="field"><label>Valor (R$)</label><input name="amount" required type="number" min="0" step=".01"></div><div class="field"><label>Status</label><select name="status"><option>Em conferência</option><option>Programado</option><option>Pago</option><option>Cancelado</option></select></div><div class="field"><label>Previsão de pagamento</label><input name="expected_date" type="date"></div></div><div class="field"><label>Observações (opcional)</label><textarea name="notes"></textarea></div><button type="submit">Registrar ordem</button></form></div></div>
+<div class="card"><h2>Últimos pagamentos</h2><div id="admin-orders"></div></div></section>
+</main><footer>Jeri Rota · Área exclusiva para fornecedores autorizados · Financeiro: +55 85 9731-5463</footer>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.57.0/dist/umd/supabase.min.js"></script>
+<script>
+(()=>{'use strict';
+const SB_URL='https://euqixdlpkjajhigqwhvi.supabase.co', SB_KEY='sb_publishable_D9hnQLDMekew4_jZWXa2BA_G3UF9TIP';
+const db=window.supabase.createClient(SB_URL,SB_KEY,{auth:{persistSession:true,autoRefreshToken:true,detectSessionInUrl:true}});
+const $=id=>document.getElementById(id), fmt=n=>new Intl.NumberFormat('pt-BR',{style:'currency',currency:'BRL'}).format(Number(n)||0);
+const esc=v=>String(v??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;','"':'&#39;'}[c]));
+const pretty=v=>v?new Date(v+'T12:00:00').toLocaleDateString('pt-BR'):'—';
+const show=(id,on)=>$(id).classList.toggle('hidden',!on);
+const msg=t=>{$('feedback').textContent=t||'';};
+let supplier=null,admin=false,suppliers=[],payments=[];
+function errors(error){if(error){msg('Não foi possível concluir: '+error.message);return true;}return false;}
+function pill(s){let c=s==='Pago'?'paid':s==='Programado'?'planned':s==='Cancelado'?'canceled':'pending';return '<span class="pill '+c+'">'+esc(s)+'</span>';}
+function orderCard(p,management=false){
+const detail='<div class="entry"><div class="row"><div><strong>'+esc(p.service_name)+'</strong><small>'+esc(p.order_code)+' · Serviço: '+pretty(p.service_date)+'</small></div><div style="text-align:right"><strong>'+fmt(p.amount)+'</strong>'+pill(p.status)+'</div></div><p class="helper">Reserva: '+esc(p.reservation_code||'Não informada')+' · Previsão: '+pretty(p.expected_date)+'</p>'+(p.notes?'<p class="helper">'+esc(p.notes)+'</p>':'');
+if(!management)return detail+(p.status==='Pago'&&p.proof_url&&/^https:\/\//i.test(p.proof_url)?'<a href="'+esc(p.proof_url)+'" target="_blank" rel="noopener noreferrer">Ver comprovante</a>':'')+'</div>';
+return detail+'<div class="row"><select aria-label="Alterar status" data-status="'+esc(p.id)+'" style="max-width:180px">'+['Em conferência','Programado','Pago','Cancelado'].map(s=>'<option '+(s===p.status?'selected':'')+'>'+s+'</option>').join('')+'</select><input aria-label="Data prevista" type="date" data-date="'+esc(p.id)+'" style="max-width:170px" value="'+esc(p.expected_date||'')+'"><button class="secondary" data-save="'+esc(p.id)+'">Salvar</button></div></div>';
+}
+function render(){
+const vis=admin?payments:payments.filter(p=>p.supplier_id===supplier?.id);
+['Em conferência','Programado','Pago'].forEach((s,i)=>$( ['pending-total','planned-total','paid-total'][i]).textContent=fmt(vis.filter(p=>p.status===s).reduce((n,p)=>n+Number(p.amount||0),0)));
+const filtered=vis.filter(p=>!$('filter').value||p.status===$('filter').value);
+$('orders').innerHTML=filtered.length?filtered.map(p=>orderCard(p)).join(''):'<p class="muted">Nenhuma ordem encontrada.</p>';
+$('admin-orders').innerHTML=payments.length?payments.map(p=>'<p class="helper">'+esc(suppliers.find(s=>s.id===p.supplier_id)?.name||'Fornecedor')+'</p>'+orderCard(p,true)).join(''):'<p class="muted">Nenhuma ordem cadastrada.</p>';
+}
+async function refresh(){
+const a=await db.from('supplier_portal_admins').select('user_id').limit(1);
+if(errors(a.error))return;
+admin=a.data.length>0;
+const s=await db.from('supplier_portal_suppliers').select('id,name,contact_email,user_id,active').order('name');
+if(errors(s.error))return;
+suppliers=s.data||[];supplier=suppliers.find(x=>x.user_id===currentUser.id&&x.active);
+if(!admin&&!supplier){show('portal',false);show('admin',false);msg('Sua conta ainda não foi vinculada a um fornecedor ativo. Solicite liberação ao financeiro.');return;}
+const p=await db.from('supplier_portal_payments').select('id,supplier_id,order_code,reservation_code,service_name,service_date,amount,status,expected_date,paid_at,proof_url,notes,created_at').order('created_at',{ascending:false}).limit(500);
+if(errors(p.error))return;payments=p.data||[];
+show('portal',!admin);show('admin',admin);$('greeting').textContent='Olá, '+(supplier?.name||'Fornecedor');
+for(const id of ['link-supplier','payment-supplier'])$(id).innerHTML=suppliers.map(x=>'<option value="'+esc(x.id)+'">'+esc(x.name)+'</option>').join('');
+render();
+}
+let currentUser=null;
+async function boot(){
+msg('');let {data:{user},error}=await db.auth.getUser();if(error||!user){show('login',true);show('portal',false);show('admin',false);show('logout',false);return;}
+currentUser=user;show('login',false);show('logout',true);await refresh();
+}
+$('login-form').addEventListener('submit',async e=>{e.preventDefault();msg('');$('login-btn').disabled=true;try{const {error}=await db.auth.signInWithPassword({email:$('email').value.trim(),password:$('password').value});if(!errors(error))await boot();}finally{$('login-btn').disabled=false;}});
+$('logout').addEventListener('click',async()=>{await db.auth.signOut();await boot();});
+$('reset').addEventListener('click',async()=>{const email=$('email').value.trim();if(!email){msg('Informe seu e-mail acima para recuperar a senha.');return;}const {error}=await db.auth.resetPasswordForEmail(email,{redirectTo:location.origin+location.pathname});if(!errors(error))msg('Se o e-mail estiver cadastrado, você receberá orientações para recuperar a senha.');});
+$('filter').addEventListener('change',render);
+$('supplier-form').addEventListener('submit',async e=>{e.preventDefault();const f=new FormData(e.target);const {error}=await db.from('supplier_portal_suppliers').insert({name:f.get('name'),contact_email:f.get('contact_email')||null});if(!errors(error)){e.target.reset();msg('Fornecedor cadastrado. Vincule a conta para liberar acesso.');await refresh();}});
+$('link-form').addEventListener('submit',async e=>{e.preventDefault();const uid=$('link-uid').value.trim();if(!/^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i.test(uid)){msg('UUID inválido.');return;}const {error}=await db.from('supplier_portal_suppliers').update({user_id:uid}).eq('id',$('link-supplier').value);if(!errors(error)){msg('Acesso vinculado.');await refresh();}});
+$('payment-form').addEventListener('submit',async e=>{e.preventDefault();const f=new FormData(e.target),status=f.get('status');const record={supplier_id:f.get('supplier_id'),order_code:String(f.get('order_code')).trim(),reservation_code:f.get('reservation_code')||null,service_name:f.get('service_name'),service_date:f.get('service_date')||null,amount:Number(f.get('amount')),status,expected_date:f.get('expected_date')||null,notes:f.get('notes')||null,paid_at:status==='Pago'?new Date().toISOString():null};const {error}=await db.from('supplier_portal_payments').insert(record);if(!errors(error)){e.target.reset();msg('Ordem registrada.');await refresh();}});
+$('admin-orders').addEventListener('click',async e=>{const b=e.target.closest('[data-save]');if(!b)return;const id=b.dataset.save,p=payments.find(x=>x.id===id),status=document.querySelector('[data-status="'+id+'"]').value,expected_date=document.querySelector('[data-date="'+id+'"]').value||null;if(!p)return;const {error}=await db.from('supplier_portal_payments').update({status,expected_date,paid_at:status==='Pago'?(p.paid_at||new Date().toISOString()):null,updated_at:new Date().toISOString()}).eq('id',id);if(!errors(error)){msg('Pagamento atualizado.');await refresh();}});
+boot();
+})();
+</script></body></html>
