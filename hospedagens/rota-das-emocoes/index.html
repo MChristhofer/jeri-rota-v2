@@ -29,7 +29,7 @@ section{padding:94px 0}.heading{display:grid;grid-template-columns:1.1fr .8fr;ga
 
 /* Mapa interativo com marcadores para as hospedagens da Rota das Emoções */
 .map-stage{position:relative;min-width:0;height:410px;background:linear-gradient(160deg,#a5d9db 0 40%,#e9e2c4 40% 100%);overflow:hidden}
-.map-stage iframe{width:100%;height:100%;border:0;display:block}
+.map-stage iframe{width:100%;height:100%;border:0;display:block;pointer-events:none}
 .pin-layer{position:absolute;inset:0;pointer-events:none;z-index:3}
 .map-pin{position:absolute;transform:translate(-50%,-50%);height:35px;min-width:35px;display:flex;align-items:center;justify-content:center;pointer-events:auto;z-index:2;text-decoration:none;filter:drop-shadow(0 4px 9px #0019257a);transition:transform .2s,filter .2s}
 .map-pin b{display:grid;place-items:center;width:35px;height:35px;flex:0 0 35px;border:3px solid white;background:#10364b;color:white;border-radius:50%;font-size:14px;box-shadow:0 0 0 3px #d7b476}
@@ -103,7 +103,7 @@ section{padding:94px 0}.heading{display:grid;grid-template-columns:1.1fr .8fr;ga
 <div class="map-hint">Selecione os pontos para ver as hospedagens</div>
 </div>
 <div class="map-description"><p class="eyebrow">Os 5 pontos do catálogo</p><div class="map-places"><a href="#sao-luis" class="map-place " data-pin="1"><span class="map-num">1</span><span><strong>São Luís</strong><small>Stop Way Hotel</small></span><span class="chevron" aria-hidden="true">›</span></a><a href="#barreirinhas" class="map-place " data-pin="2"><span class="map-num">2</span><span><strong>Barreirinhas</strong><small>Pousada Boa Vista</small></span><span class="chevron" aria-hidden="true">›</span></a><a href="#parnaiba" class="map-place " data-pin="3"><span class="map-num">3</span><span><strong>Parnaíba</strong><small>Hotel Pousada dos Ventos</small></span><span class="chevron" aria-hidden="true">›</span></a><a href="#barra-grande" class="map-place opt" data-pin="4"><span class="map-num">4</span><span><strong>Barra Grande</strong><small>Pousada Rota dos Ventos · Opcional</small></span><span class="chevron" aria-hidden="true">›</span></a><a href="#jericoacoara" class="map-place " data-pin="5"><span class="map-num">5</span><span><strong>Jericoacoara</strong><small>Viva Jeri Pousada</small></span><span class="chevron" aria-hidden="true">›</span></a></div>
-<p class="map-secondary">Marcadores no centro aproximado das cidades, não na localização exata dos hotéis. Barra Grande é opcional no roteiro de 6 noites.</p>
+<p class="map-secondary">Marcadores nas áreas aproximadas das cidades, não na localização exata dos hotéis. Barra Grande é opcional no roteiro de 6 noites.</p>
 <a class="map-open" href="https://www.openstreetmap.org/#map=8/-2.9/-42.3" target="_blank" rel="noopener noreferrer">Abrir mapa completo ↗</a>
 </div>
 </div>
