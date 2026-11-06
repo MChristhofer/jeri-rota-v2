@@ -1,0 +1,136 @@
+name: Incorporar fotos reais do catalogo de hospedagens
+on:
+  push:
+    paths:
+      - .github/workflows/corrigir-fotos-catalogo.yml
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  extrair-publicar:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: true
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Instalar bibliotecas de processamento do PDF
+        run: pip install pymupdf pillow beautifulsoup4 requests
+      - name: Baixar o PDF original e extrair imagens embutidas
+        shell: bash
+        run: |
+          python - <<'PY'
+          import requests,fitz,io,os,re,unicodedata,difflib,collections
+          from pathlib import Path
+          from PIL import Image
+          from bs4 import BeautifulSoup
+          rawurls=[
+            'https://d335luupugsy2.cloudfront.net/cms%2Ffiles%2F418836%2F1788391830MATERIAL_DE_ACOMODAES_ROTACOMBO_-_2026.pdf',
+            'https://d335luupugsy2.cloudfront.net/cms/files/418836/1788391830MATERIAL_DE_ACOMODAES_ROTACOMBO_-_2026.pdf'
+          ]
+          doc=None
+          for url in rawurls:
+            try:
+              resp=requests.get(url,timeout=60,headers={'User-Agent':'Mozilla/5.0'})
+              print('Source',resp.status_code,len(resp.content),url)
+              if resp.ok:
+                candidate=fitz.open(stream=resp.content,filetype='pdf')
+                if len(candidate)>=60:
+                  doc=candidate;break
+            except Exception as e:print('Source retrieval failed:',str(e)[:180])
+          if doc is None:
+            raise RuntimeError('PDF original completo nao esta acessivel no servidor de origem. Fotos nao alteradas.')
+          root=Path('hospedagens/catalogo-completo')
+          target=root/'index.html'
+          soup=BeautifulSoup(target.read_text(encoding='utf-8'),'html.parser')
+          cards=soup.select('article.hotel')
+          def norm(s):
+            return ''.join(c for c in unicodedata.normalize('NFD',s.lower()) if unicodedata.category(c)!='Mn').strip()
+          def slug(s):
+            return re.sub('[^a-z0-9]+','-',norm(s)).strip('-')[:80]
+          folder=root/'fotos'
+          folder.mkdir(parents=True,exist_ok=True)
+          def save_pix(image_bytes,name):
+            img=Image.open(io.BytesIO(image_bytes)).convert('RGB')
+            img.thumbnail((650,430))
+            out=folder/(name+'.jpg')
+            img.save(out,'JPEG',quality=79,optimize=True)
+            return '/'+str(out)
+          photo_entries=[]
+          for page_index in range(4,61):
+            page=doc[page_index]
+            blocks=page.get_text('dict')['blocks']
+            image_blocks=[b for b in blocks if b['type']==1 and b['bbox'][0]<290 and b['bbox'][2]-b['bbox'][0]>80]
+            text_blocks=[b for b in blocks if b['type']==0 and b['bbox'][0]>=275]
+            for image_block in image_blocks:
+              box=image_block['bbox'];ymid=(box[1]+box[3])/2
+              near=[(abs(((t['bbox'][1]+t['bbox'][3])/2)-ymid),t) for t in text_blocks if t['bbox'][1]<box[3]+8 and t['bbox'][3]>box[1]-8]
+              if not near:continue
+              txt=min(near,key=lambda x:x[0])[1]
+              rows=[line for line in txt['lines'] if line.get('spans')]
+              if not rows:continue
+              # first line is the hotel name, following lines describe services
+              name=' '.join(span['text'] for span in rows[0]['spans']).strip()
+              img=image_block['image']
+              if not name or len(name)>100 or not img:continue
+              photo_entries.append((name,page_index,img))
+          print('Extracted aligned hotel photos:',len(photo_entries))
+          used=set();mapped=0
+          for item in cards:
+            h=item.find('h3')
+            if not h:continue
+            name=h.get_text(' ',strip=True)
+            scores=[(difflib.SequenceMatcher(None,norm(name),norm(p[0])).ratio(),idx,p) for idx,p in enumerate(photo_entries) if idx not in used]
+            if not scores:continue
+            score,idx,m=max(scores,key=lambda x:x[0])
+            if score<.72:
+              print('Unmatched hotel:',name,'closest:',m[0],round(score,2));continue
+            try:
+              url=save_pix(m[2],'hotel-'+slug(name)+'-'+str(mapped))
+            except Exception as e:print('Image error',name,str(e)[:80]);continue
+            cover=item.select_one('.hotel-cover')
+            if cover:
+              cover['style']="background-image:url('"+url+"');background-size:cover;background-position:center"
+              cover['data-image-source']='foto-extraida-pdf-original'
+              used.add(idx);mapped+=1
+          print('Mapped original hotel photos:',mapped,'of',len(cards))
+          if mapped<85:
+            raise RuntimeError('Cobertura de imagens insuficiente. Nao publicar resultado parcial.')
+          # PDF pages 63, 64: 6 photographic cards each.
+          extras=[]
+          for pnum in (62,63):
+            blocks=[b for b in doc[pnum].get_text('dict')['blocks'] if b['type']==1 and b['bbox'][2]-b['bbox'][0]>100]
+            blocks.sort(key=lambda b:(round(b['bbox'][1]/100),b['bbox'][0]))
+            extras.extend([b['image'] for b in blocks[:6]])
+          extras_original=[
+            'Quadriciclo em Barra Grande','Kitesurf em Barra Grande','Quadriciclo em Jeri',
+            'Passeio de helicóptero em Jericoacoara','Kitesurf em Jericoacoara','Aproveite o litoral de Jeri',
+            'Centro Histórico de São Luís','Espetáculo Bumba-meu-boi','Circuito Lagoa Betânia',
+            'Praia do Arpoador','Ilha das Canárias','Centro Histórico de Parnaíba']
+          saved_extras={}
+          for name,binary in zip(extras_original,extras):
+            saved_extras[name]=save_pix(binary,'extra-'+slug(name))
+          for article in soup.select('.extra-photo-card'):
+            img=article.find('img')
+            title=article.find('strong')
+            if img and title and title.get_text(' ',strip=True) in saved_extras:
+              img['src']=saved_extras[title.get_text(' ',strip=True)]
+              img.attrs.pop('referrerpolicy',None)
+          # Add short image credits identifying the original document photos
+          if soup.find('head') and mapped:
+            style=soup.new_tag('style')
+            style.string='.hotel-cover:after{content:"Foto do catálogo de referência";position:absolute;right:10px;bottom:10px;background:#092536cc;color:#fff;border-radius:5px;padding:3px 7px;font-size:9px}.hotel-cover span{z-index:2}'
+            soup.head.append(style)
+          target.write_text(str(soup),encoding='utf-8')
+          print('Total published photos:',mapped+len(saved_extras))
+          PY
+      - name: Confirmar e publicar imagens no repositorio
+        shell: bash
+        run: |
+          git config user.name "jeri-rota-catalogo-bot"
+          git config user.email "catalogo@users.noreply.github.com"
+          git add hospedagens/catalogo-completo/
+          git commit -m "Incorpora fotos reais dos hoteis e extras extraidas do PDF original"
+          git push
