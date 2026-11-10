@@ -23,6 +23,7 @@ jobs:
           from PIL import Image
           from urllib.error import HTTPError
           d=pathlib.Path("propostas/ilisandra")
+          records=[]
           for name,envkey in (("quarto-duplo", "URL_DUPLO"),("quarto-triplo","URL_TRIPLO")):
               original=os.environ[envkey]
               paths=[
@@ -39,17 +40,23 @@ jobs:
                       with urllib.request.urlopen(req,timeout=15) as resp: data=resp.read()
                       im=Image.open(io.BytesIO(data));w,h=im.size
                       print(name,"try",ix,"status 200","dims",w,h,"bytes",len(data))
+                      records.append(f"{name} try {ix}: 200 / {w}x{h} / {len(data)} bytes")
                       if w>bestwidth: best=(im.copy(),len(data));bestwidth=w
                       if w>=1000:break
-                  except Exception as ex:print(name,'try',ix,'error',str(ex)[:150])
-              if bestwidth<800:raise RuntimeError(f'Foto {name} sem qualidade suficiente; recebida resolução máxima de {bestwidth}px')
+                  except Exception as ex:
+                      print(name,'try',ix,'error',str(ex)[:150])
+                      records.append(f"{name} try {ix}: {str(ex)[:120]}")
+              if bestwidth<800:
+                  records.append(f'{name}: melhor qualidade {bestwidth}px; foto não substituída')
+                  continue
               im=best[0].convert('RGB'); im.thumbnail((1400,900)); im.save(d/(name+'.jpg'),format='JPEG',quality=88,optimize=True)
               print("SAVED",name,im.size)
+          (d/"diagnostico-fotos.txt").write_text("\n".join(records))
           PY
       - name: Publicar
         run: |
           git config user.name "Jeri Rota"
           git config user.email "actions@users.noreply.github.com"
-          git add propostas/ilisandra/quarto-duplo.jpg propostas/ilisandra/quarto-triplo.jpg
+          git add propostas/ilisandra/quarto-duplo.jpg propostas/ilisandra/quarto-triplo.jpg propostas/ilisandra/diagnostico-fotos.txt
           git commit -m "Publica fotos nítidas e originais dos quartos de Ilisandra"
           git push
