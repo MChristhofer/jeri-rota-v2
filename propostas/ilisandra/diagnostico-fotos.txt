@@ -1,0 +1,16 @@
+quarto-duplo try 0: HTTP Error 403: Forbidden
+quarto-duplo try 1: HTTP Error 403: Forbidden
+quarto-duplo try 2: HTTP Error 403: Forbidden
+quarto-duplo try 3: HTTP Error 403: Forbidden
+quarto-duplo try 4: HTTP Error 403: Forbidden
+quarto-duplo try 5: HTTP Error 403: Forbidden
+quarto-duplo try 6: 200 / 199x112 / 37681 bytes
+quarto-duplo: melhor qualidade 199px; foto não substituída
+quarto-triplo try 0: HTTP Error 403: Forbidden
+quarto-triplo try 1: HTTP Error 403: Forbidden
+quarto-triplo try 2: HTTP Error 403: Forbidden
+quarto-triplo try 3: HTTP Error 403: Forbidden
+quarto-triplo try 4: HTTP Error 403: Forbidden
+quarto-triplo try 5: HTTP Error 403: Forbidden
+quarto-triplo try 6: 200 / 199x112 / 36854 bytes
+quarto-triplo: melhor qualidade 199px; foto não substituída
