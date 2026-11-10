@@ -11,6 +11,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+      - name: Instalar Pillow
+        run: python -m pip install pillow
       - name: Baixar fotografias em alta resolução
         env:
           URL_DUPLO: "https://media.canva.com/v2/image-resize/format:PNG/height:112/quality:100/uri:ifs%3A%2F%2FM%2F2dc6f6df-8c2b-49d4-b237-7ac9e31f7e5b/watermark:F/width:200?csig=AAAAAAAAAAAAAAAAAAAAADqgdc9SWjSrFON6_Hfo-WdbaIgNYseFqUT5KtisednM&exp=1794333071&osig=AAAAAAAAAAAAAAAAAAAAADx_Prp7ZCdkLP4fPtczlRtK4k_NcmYeigPsv9lMgGd-&signer=media-rpc&token=AAIAAU0AJDJkYzZmNmRmLThjMmItNDlkNC1iMjM3LTdhYzllMzFmN2U1YgAAAAABocaV1pg4D472B6Fho7UAE9aY3EnuayQxgr-Hy7cq9QD1DDecfg&x-canva-quality=thumbnail"
@@ -24,9 +26,9 @@ jobs:
           for name,envkey in (("quarto-duplo", "URL_DUPLO"),("quarto-triplo","URL_TRIPLO")):
               original=os.environ[envkey]
               paths=[
-                  re.sub(r'height:\\d+', 'height:941', re.sub(r'width:\\d+', 'width:1672', original)),
-                  re.sub(r'height:\\d+', 'height:675', re.sub(r'width:\\d+', 'width:1200', original)),
-                  re.sub(r'height:\\d+', 'height:450', re.sub(r'width:\\d+', 'width:800', original)),
+                  original.replace('height:112','height:941').replace('width:200','width:1672'),
+                  original.replace('height:112','height:675').replace('width:200','width:1200'),
+                  original.replace('height:112','height:450').replace('width:200','width:800'),
               ]
               paths += [s.replace('&x-canva-quality=thumbnail','') for s in paths]
               paths.append(original)
