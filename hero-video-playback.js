@@ -98,11 +98,13 @@
     }, { passive: true });
   }
 
-  if (document.readyState === "complete") initialize();
-  else window.addEventListener("load", initialize, { once: true });
-  var observer = new MutationObserver(function () { initialize(); });
-  if (document.body) observer.observe(document.body, { childList: true, subtree: true });
-  else document.addEventListener("DOMContentLoaded", function () {
-    observer.observe(document.body, { childList: true, subtree: true });
-  }, { once: true });
+  function startAfterLoad() {
+    initialize();
+    if (document.body) {
+      var observer = new MutationObserver(function () { initialize(); });
+      observer.observe(document.body, { childList: true, subtree: true });
+    }
+  }
+  if (document.readyState === "complete") startAfterLoad();
+  else window.addEventListener("load", startAfterLoad, { once: true });
 })();
