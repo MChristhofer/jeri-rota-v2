@@ -42,7 +42,7 @@
   function reinforceRealOperation() {
     var aboutImage = document.querySelector(".about .team-photo img");
     var aboutCaption = document.querySelector(".about .team-photo figcaption");
-    if (aboutImage) { aboutImage.src = "/Hillux.jpg"; aboutImage.alt = "Veículo 4x4 utilizado em transfers da Jeri Rota"; }
+    if (aboutImage) { aboutImage.src = "/jeri-rota-transfer-real.webp"; aboutImage.alt = "Fotografia real de veículo 4x4 em uma estrada ao pôr do sol"; }
     if (aboutCaption) aboutCaption.textContent = "Operação de transfer 4x4 da Jeri Rota";
   }
 
