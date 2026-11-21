@@ -10,7 +10,7 @@
   function exists(src){
     return fetch(src,{method:"HEAD",cache:"no-store"}).then(function(r){
       var mime=(r.headers.get("content-type")||"").toLowerCase();
-      return r.ok && (/video\\//.test(mime) || /application\\/octet-stream/.test(mime));
+      return r.ok && (mime.indexOf("video/")===0 || mime.indexOf("application/octet-stream")===0);
     }).catch(function(){return false});
   }
   function makeCard(item,index){
