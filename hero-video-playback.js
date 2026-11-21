@@ -1,110 +1,81 @@
-/* Jeri Rota - playback resiliente do vídeo do cabeçalho */
+/* Jeri Rota | reprodução automática e silenciosa no cabeçalho, sem controles */
 (function () {
   "use strict";
-  var MOBILE = "/video-transfer-4x4-jeri-rota.mp4?v=20261120";
-  var DESKTOP = "/video-jeri-rota-cabecalho-desktop.mp4?v=2";
-  var MOBILE_QUERY = "(max-width: 760px)";
-  var motionDisabled = !!(window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches);
 
-  function currentSource() {
-    return window.matchMedia && window.matchMedia(MOBILE_QUERY).matches ? MOBILE : DESKTOP;
+  var DESKTOP = "/video-jeri-rota-cabecalho-desktop-hq.mp4?v=1";
+  var MOBILE = "/video-jeri-rota-cabecalho-mobile-hq.mp4?v=1";
+  var media = window.matchMedia ? window.matchMedia("(max-width: 760px)") : null;
+  var activeVideo = null;
+
+  function chosenSource() {
+    return media && media.matches ? MOBILE : DESKTOP;
+  }
+
+  function attemptPlay(video) {
+    if (!video || document.visibilityState === "hidden") return;
+    video.muted = true;
+    video.defaultMuted = true;
+    try {
+      var promise = video.play();
+      if (promise && typeof promise.catch === "function") {
+        promise.catch(function () { /* navegador pode bloquear autoplay */ });
+      }
+    } catch (error) {
+      /* Se bloqueado, permanece a capa do próprio vídeo */
+    }
   }
 
   function initialize() {
-    var hero = document.querySelector("#inicio");
-    var video = hero && hero.querySelector("video.hero-media");
-    if (!video || video.dataset.jrPlaybackController === "ready") return;
-    video.dataset.jrPlaybackController = "ready";
-    video.muted = true;
-    video.defaultMuted = true;
-    video.loop = true;
-    video.playsInline = true;
-    video.setAttribute("playsinline", "");
-    video.setAttribute("webkit-playsinline", "");
-    video.setAttribute("muted", "");
-    video.setAttribute("preload", "auto");
-    video.poster = "/jeri-rota-cabecalho-poster.webp";
-
-    var button = document.createElement("button");
-    button.type = "button";
-    button.className = "jr-hero-video-toggle";
-    button.setAttribute("aria-label", "Reproduzir vídeo do transfer 4x4");
-    button.textContent = "▶ Reproduzir vídeo";
-    hero.appendChild(button);
-
-    var link = document.createElement("a");
-    link.className = "jr-hero-video-link";
-    link.textContent = "Abrir vídeo";
-    link.target = "_blank";
-    link.rel = "noopener noreferrer";
-    link.hidden = true;
-    hero.appendChild(link);
-
-    function markPlaying() {
-      button.textContent = "Ⅱ Pausar vídeo";
-      button.setAttribute("aria-label", "Pausar vídeo do transfer 4x4");
-      link.hidden = true;
-    }
-    function markPaused() {
-      button.textContent = "▶ Reproduzir vídeo";
-      button.setAttribute("aria-label", "Reproduzir vídeo do transfer 4x4");
-    }
-    function chooseSource() {
-      var source = currentSource();
-      link.href = source;
-      if (video.getAttribute("src") !== source) {
-        video.src = source;
-        video.load();
-      }
-      return source;
-    }
-    function play() {
-      chooseSource();
+    var video = document.querySelector("#inicio video.hero-media");
+    if (!video) return;
+    if (video !== activeVideo) {
+      activeVideo = video;
+      video.autoplay = true;
+      video.loop = true;
+      video.controls = false;
+      video.removeAttribute("controls");
       video.muted = true;
       video.defaultMuted = true;
-      var promise;
-      try { promise = video.play(); } catch (e) { markPaused(); return; }
-      if (promise && typeof promise.catch === "function") {
-        promise.catch(function () { markPaused(); });
-      }
+      video.playsInline = true;
+      video.setAttribute("autoplay", "");
+      video.setAttribute("muted", "");
+      video.setAttribute("loop", "");
+      video.setAttribute("playsinline", "");
+      video.setAttribute("webkit-playsinline", "");
+      video.setAttribute("preload", "auto");
+      video.addEventListener("canplay", function () { attemptPlay(video); });
+      video.addEventListener("loadeddata", function () { attemptPlay(video); });
     }
-
-    video.addEventListener("playing", markPlaying);
-    video.addEventListener("pause", markPaused);
-    video.addEventListener("error", function () {
-      markPaused();
-      link.href = currentSource();
-      link.hidden = false;
-    });
-    button.addEventListener("click", function () {
-      if (video.paused || video.ended) play();
-      else video.pause();
-    });
-
-    chooseSource();
-    if (!motionDisabled) play();
-    else markPaused();
-
-    var resizeDebounce;
-    window.addEventListener("resize", function () {
-      window.clearTimeout(resizeDebounce);
-      resizeDebounce = window.setTimeout(function () {
-        var source = currentSource();
-        if (video.getAttribute("src") !== source) {
-          chooseSource();
-          if (!motionDisabled) play();
-        }
-      }, 200);
-    }, { passive: true });
+    var source = chosenSource();
+    if (video.getAttribute("src") !== source) {
+      video.src = source;
+      video.load();
+    }
+    attemptPlay(video);
   }
 
-  function startAfterLoad() {
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", initialize, { once: true });
+  } else {
     initialize();
-    if (document.body) {
-      var observer = new MutationObserver(function () { initialize(); });
-      observer.observe(document.body, { childList: true, subtree: true });
-    }
   }
-  if (document.readyState === "complete") startAfterLoad();
-  else window.addEventListener("load", startAfterLoad, { once: true });
+  window.addEventListener("load", initialize);
+  window.addEventListener("pageshow", initialize);
+  document.addEventListener("visibilitychange", function () {
+    if (!document.hidden) initialize();
+  });
+  if (media) {
+    if (media.addEventListener) media.addEventListener("change", initialize);
+    else if (media.addListener) media.addListener(initialize);
+  }
+  function observePage() {
+    if (!document.body || !window.MutationObserver) return;
+    var observer = new MutationObserver(function () {
+      var currentVideo = document.querySelector("#inicio video.hero-media");
+      if (currentVideo && currentVideo !== activeVideo) initialize();
+    });
+    observer.observe(document.body, { childList: true, subtree: true });
+  }
+  if (document.body) observePage();
+  else document.addEventListener("DOMContentLoaded", observePage, { once: true });
 })();
