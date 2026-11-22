@@ -2,8 +2,8 @@
 (function () {
   "use strict";
 
-  var DESKTOP = "/video-jeri-rota-cabecalho-desktop-hq.mp4?v=1";
-  var MOBILE = "/video-jeri-rota-cabecalho-mobile-hq.mp4?v=1";
+  var DESKTOP = "/jeri-rota-video-fundo-otimizado.mp4";
+  var MOBILE = "/jeri-rota-video-fundo-otimizado.mp4";
   var media = window.matchMedia ? window.matchMedia("(max-width: 760px)") : null;
   var activeVideo = null;
 
