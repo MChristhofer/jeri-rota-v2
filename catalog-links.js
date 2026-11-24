@@ -1,5 +1,6 @@
 (function () {
   var products = [
+    ["Bate-Volta Jericoacoara", "Saída de Fortaleza, lagoas do Lado Leste, Vila de Jeri e retorno no mesmo dia.", "/onibus-lagun-beach.png", "/bate-volta-jericoacoara/"],
     ["Lado Leste", "Praias, lagoas e dunas para conhecer Jericoacoara por outro ângulo.", "/leste-lagoa-aerea.png", "/passeio-lado-leste/"],
     ["Lado Oeste", "Manguezais, travessias e lagoas em uma experiência completa.", "/oeste-lagoa-aerea.jpeg", "/passeio-lado-oeste/"],
     ["Extremo Leste", "Dunas, lagoas naturais e espaços de lazer para aproveitar o dia.", "/extremo-clube-piscina.png", "/extremo-leste/"],
